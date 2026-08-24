@@ -1,0 +1,149 @@
+<!-- ══════════════════════════════════════════════════════
+  CASE STUDIES SECTION: FAQ
+  src/sections/case-studies/faq.html
+  Phase 10 — Case Studies Page Rebuild
+
+  STRUCTURE:
+    - Section heading (visible H2)
+    - 6 FAQ accordion items from approved legacy source
+    - Keyboard-accessible: native <button> for each FAQ trigger
+    - Managed by global FAQ JS in js/global.js (toggleFaq pattern)
+
+  SOURCE:
+    FAQ content from docs/CONTENT-MAP.md — Case Studies page FAQ section.
+    Legacy source has 4 FAQ items on contact page; CONTENT-MAP.md documents
+    6 FAQ items specifically on the case-studies page:
+      1. How long does a typical project take?
+      2. What's included in a Kritexa Labs website?
+      3. Do you work with small businesses?
+      4. How does AI automation actually work?
+      5. What happens after the website is live?
+      6. How do we get started?
+    These are approved legacy content items from the original SPA page-blog section.
+
+  JAVASCRIPT:
+    FAQ accordion is handled by js/global.js via event delegation on .faq-wrap.
+    No case-studies-specific JS required for FAQ.
+    The global.js FAQ handler uses: button.closest('.faq-item').classList.toggle('open')
+    and .faq-item.open .faq-ans { max-height: 280px }
+    Phase 20 — inline onclick removed; data-faq-toggle used instead.
+
+  ACCESSIBILITY:
+    - <button type="button"> with aria-expanded on each toggle
+    - aria-controls linking button to answer panel
+    - Answer panels have id matching aria-controls
+    - .sr-only span for screen reader count context
+    - Keyboard: Enter/Space toggles, managed by native button behavior
+
+  HEADING HIERARCHY:
+    H2 "Frequently Asked Questions" (visible, in .sh block)
+══════════════════════════════════════════════════════ -->
+
+<section class="section-sm cs-faq-section" aria-labelledby="cs-faq-heading">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-eyebrow">Quick Answers</div>
+      <h2 id="cs-faq-heading">Frequently Asked <span class="grad-text">Questions</span></h2>
+    </div>
+
+    <div class="faq-wrap rv" role="list">
+
+      <!-- FAQ Item 1 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-ans-01"
+          data-faq-toggle>
+          How long does a typical project take?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-01" role="region">
+          <p>Most projects take 2–6 weeks. Standard websites launch in 30 days. Complex systems with AI and automation typically run 4–8 weeks. We share a detailed timeline at kickoff so you always know what's happening and when.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-ans-02"
+          data-faq-toggle>
+          What's included in a Kritexa Labs website?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-02" role="region">
+          <p>Every project includes design, development, SEO setup, and 30 days of post-launch support. Depending on your package: CMS integration, team training, mobile optimization, and performance benchmarking are included.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-ans-03"
+          data-faq-toggle>
+          Do you work with small businesses?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-03" role="region">
+          <p>Yes — the majority of our clients are Indian SMBs: clinics, restaurants, coaches, local services, and small e-commerce brands. Our systems are built to give small businesses enterprise-grade results at accessible costs.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-ans-04"
+          data-faq-toggle>
+          How does AI automation actually work?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-04" role="region">
+          <p>We build AI systems that handle lead qualification, follow-up, and customer queries — automatically. This includes WhatsApp bots, website chatbots, CRM integrations, and automated email sequences that run while you focus on delivering your service.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-ans-05"
+          data-faq-toggle>
+          What happens after the website is live?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-05" role="region">
+          <p>You receive 30 days of post-launch support covering bug fixes, performance monitoring, and minor adjustments. After that, we offer optional ongoing plans for maintenance, updates, security, and growth optimization.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-ans-06"
+          data-faq-toggle>
+          How do we get started?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="faq-ans-06" role="region">
+          <p>Fill in the contact form or WhatsApp us directly. We respond within 24 hours with a free 30-minute strategy call — no commitment required. From there we scope the project, send a proposal, and get to work.</p>
+        </div>
+      </div>
+
+    </div><!-- /faq-wrap -->
+  </div>
+</section>

@@ -1,0 +1,102 @@
+<!-- ══════════════════════════════════════════════════════
+  CASE STUDIES SECTION: Featured Case Study
+  src/sections/case-studies/featured.html
+  Phase 10 — Case Studies Page Rebuild
+
+  STRUCTURE:
+    - Featured case study card (.cs-feat)
+    - Problem → Solution → Result flow (.cs-flow)
+
+  SOURCE:
+    Preserved verbatim from legacy/index-original.html #page-blog line 5135–5146
+    and src/pages/case-studies.html (Phase 1 extract).
+
+  CONTENT:
+    Title: "Digital Transformation for a Multi-Specialty Clinic"
+    Eyebrow: "Featured · 2026"
+    Description from legacy source (verbatim).
+    Metrics: 3× More Leads, 95 Lighthouse, #1 Google Maps, 30d To Launch
+    Flow: Problem → Solution → Results (3 steps from approved source)
+
+  CONTENT STATUS: Partially documented
+    ⚠ Client name: Not disclosed — presented as anonymous Healthcare case study
+    ⚠ "Tripling patient inquiries" — marketing claim from approved legacy source
+    ⚠ "3× More Leads" — marketing metric from approved legacy source
+    ⚠ "95 Lighthouse" — technical metric from approved legacy source
+    ⚠ "#1 Google Maps" — marketing claim from approved legacy source
+    ⚠ Technology stack ("Next.js website") — from approved legacy source
+    None of these claims are independently verified.
+
+  NO EXTERNAL LINK:
+    No valid individual case study URL exists. Rendered as a non-linked preview.
+    The → arrow is decorative (not a link) until detail pages are implemented.
+    Phase 10 instruction: "Do not create fake /case-studies/project-name routes."
+
+  HEADING HIERARCHY:
+    H1 in hero.html
+    H2 (sr-only) in this section for landmark context
+    H3 for featured case study title
+    H4 for flow step headings
+══════════════════════════════════════════════════════ -->
+
+<section class="section-sm cs-featured-section" aria-labelledby="cs-featured-heading">
+  <div class="container">
+
+    <h2 id="cs-featured-heading" class="sr-only">Featured Case Study</h2>
+
+    <article class="cs-feat rv" aria-labelledby="cs-feat-title">
+      <div class="cs-feat-top">
+        <div class="cs-feat-content">
+          <div class="cs-feat-ey">Featured · 2026</div>
+          <h3 id="cs-feat-title">Digital Transformation for a Multi-Specialty Clinic</h3>
+          <p>Zero digital presence to #1 on Google Maps. Full website + AI intake bot + local SEO in 30 days, tripling patient inquiries.</p>
+          <div class="cs-bads" aria-label="Services used">
+            <span class="csb csb-p">Web Development</span>
+            <span class="csb csb-c">AI Chatbot</span>
+            <span class="csb csb-g">Local SEO</span>
+          </div>
+        </div>
+        <div class="cs-feat-mets" role="list" aria-label="Project metrics">
+          <div class="cs-feat-met" role="listitem">
+            <div class="cfm-v">3×</div>
+            <div class="cfm-l">More Leads</div>
+          </div>
+          <div class="cs-feat-met" role="listitem">
+            <div class="cfm-v">95</div>
+            <div class="cfm-l">Lighthouse</div>
+          </div>
+          <div class="cs-feat-met" role="listitem">
+            <div class="cfm-v">#1</div>
+            <div class="cfm-l">Google Maps</div>
+          </div>
+          <div class="cs-feat-met" role="listitem">
+            <div class="cfm-v">30d</div>
+            <div class="cfm-l">To Launch</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem → Solution → Result flow -->
+      <div class="cs-flow" aria-label="Project journey">
+        <div class="cf-s">
+          <div class="cf-s-n" aria-hidden="true">01 · PROBLEM</div>
+          <h4>No Digital Presence</h4>
+          <p>Relied entirely on word-of-mouth with no website, no online leads, invisible to search engines.</p>
+        </div>
+        <div class="cf-arr" aria-hidden="true">→</div>
+        <div class="cf-s">
+          <div class="cf-s-n" aria-hidden="true">02 · SOLUTION</div>
+          <h4>Full Growth System</h4>
+          <p>Next.js website + AI lead bot + complete local SEO + automated WhatsApp follow-up in 30 days.</p>
+        </div>
+        <div class="cf-arr" aria-hidden="true">→</div>
+        <div class="cf-s">
+          <div class="cf-s-n" aria-hidden="true">03 · RESULT</div>
+          <h4>Measurable Growth</h4>
+          <p>Ranked #1 locally, 3× more leads, 95 Lighthouse score, 10hrs/week saved through automation.</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>

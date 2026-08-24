@@ -1,0 +1,307 @@
+<!-- ══════════════════════════════════════════════════════
+  LIVE PROJECTS SECTION: Projects Grid
+  src/sections/live-projects/projects.html
+  Phase 22 — NEW: Live Projects page
+
+  PURPOSE:
+    Presents projects eligible for live interaction.
+    Only projects with verified public URLs get an "Experience Live" CTA.
+    Projects without a live destination get an honest status note.
+
+  ══════════════════════════════════════════════════════
+  LIVE PROJECT AUDIT — Phase 22
+  ══════════════════════════════════════════════════════
+
+  All 12 portfolio projects audited against live URL availability:
+
+  Classification per Phase 22 brief:
+    A. Has verified live URL/demo → eligible for Live Projects
+    B. Has working software but no public URL → document
+    C. Visual/project showcase only → keep in Portfolio
+    D. Detailed client story → connect to Case Studies
+    E. Internal product / experiment → evaluate separately
+
+  AUDIT RESULTS (Phase 22):
+  All 12 portfolio projects currently have NO verified public URLs.
+  All CTA destinations in portfolio are /contact.
+  No external live URLs have been verified by the project owner.
+
+  CLASSIFICATION:
+    MediCare Clinic           → B (Healthcare website — no public URL confirmed)
+    Arjun Mehta Consulting    → B (Consultant website — no public URL confirmed)
+    FinVault Advisors         → B (Finance website — no public URL confirmed)
+    WealthTrack Portfolio     → B (Finance software — no public URL confirmed)
+    LaunchPad SaaS            → B (Startup website — no public URL confirmed)
+    TaskFlow Project SaaS     → B (Startup software — no public URL confirmed)
+    Spice Route Restaurant    → B (Local Business website — no public URL confirmed)
+    BrightMind Academy        → B (Education website — no public URL confirmed)
+    EduTrack LMS              → B (Education software — no public URL confirmed)
+    Desi Crafts D2C Store     → B (E-Commerce website — no public URL confirmed)
+    InventoryPro              → B (E-Commerce software — no public URL confirmed)
+    Priya Sharma Speaker      → B (Personal Brand website — no public URL confirmed)
+
+  ACTION:
+    Live Projects page is created with the correct structure, experience-oriented
+    design, and accurate status. Projects are shown as "Preview Available" when
+    the project owner provides a verified URL.
+
+  CONTENT GAP NOTE — OWNER ACTION REQUIRED:
+    To enable "Experience Live ↗" CTAs, the project owner must provide:
+    - Verified public URLs for each project to be featured
+    - Confirmation that the project is publicly accessible
+    Once provided, update each card's lp-status from "coming-soon" to "live"
+    and add the href to the .lp-live-btn anchor.
+    See docs/PHASE22-IA-REDESIGN-REPORT.md — Content Gaps section.
+
+  STRUCTURE:
+    - Status banner explaining the current state
+    - Featured projects grid: category, status badge, description, capability tags
+    - Each card: status badge, name, description, capability tags, CTA or status note
+══════════════════════════════════════════════════════ -->
+
+<section class="lp-section" aria-labelledby="lp-section-heading">
+  <h2 id="lp-section-heading" class="sr-only">Live Projects</h2>
+  <div class="container">
+
+    <!-- ── Status banner ── -->
+    <div class="lp-status-banner lp-status-banner--has-live rv" role="note" aria-label="Live projects status">
+      <div class="lp-status-icon lp-status-icon--live" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M6 9l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="lp-status-text">
+        <strong>Live project available.</strong> Suryjyoti is now publicly accessible. More projects will be added as live access is enabled. <a href="/contact" class="lp-status-link">Contact us to request access to other projects →</a>
+      </div>
+    </div>
+
+    <!-- ── Project grid ── -->
+    <div class="lp-grid" role="list" aria-label="Live projects">
+
+        <!-- ─── 07 — Suryjyoti (Manufacturing / Website) — VERIFIED LIVE ─── -->
+      <article class="lp-card lp-card--live rv" role="listitem" aria-labelledby="lp-title-07" data-status="live">
+        <div class="lp-card-preview" aria-hidden="true">
+          <img
+            src="/assets/images/live-projects/suryjyoti.jpg"
+            alt="Suryjyoti website preview"
+            class="lp-card-preview-img"
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async">
+        </div>
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-green">Manufacturing</span>
+            <span class="lp-type-badge">Website</span>
+          </div>
+          <div class="lp-status-badge lp-status-live" aria-label="Status: Live">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            LIVE
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-07">Suryjyoti</h3>
+        <p class="lp-desc">Glowvista Electrical Industries — Suryjyoti brings innovative lighting and electrical solutions to homes and businesses across India.</p>
+        <div class="lp-card-footer">
+          <a
+            class="lp-live-btn"
+            href="https://www.suryjyoti.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Suryjyoti live website — opens in a new tab">
+            View Live Project ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 01 — MediCare Clinic (Healthcare / Website) ─── -->
+      <article class="lp-card rv" role="listitem" aria-labelledby="lp-title-01" data-status="coming-soon">
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-cyan">Healthcare</span>
+            <span class="lp-type-badge">Website System</span>
+          </div>
+          <div class="lp-status-badge lp-status-coming" aria-label="Status: Live access coming soon">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            Coming Soon
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-01">MediCare Clinic</h3>
+        <p class="lp-desc">Full patient acquisition system — online booking, AI chatbot, local SEO, and WhatsApp automations. Multi-specialty clinic digital transformation.</p>
+        <div class="lp-cap-tags" aria-label="Capability highlights">
+          <span class="lp-cap">AI Chatbot</span>
+          <span class="lp-cap">Booking System</span>
+          <span class="lp-cap">Local SEO</span>
+          <span class="lp-cap">WhatsApp API</span>
+        </div>
+        <div class="lp-card-footer">
+          <!--
+            CONTENT GAP: No verified public URL available for this project.
+            To enable live access: provide verified URL to project owner.
+            Replace this placeholder with:
+            <a class="lp-live-btn" href="[VERIFIED_URL]" target="_blank" rel="noopener noreferrer">
+              Experience Live ↗
+            </a>
+          -->
+          <a class="lp-contact-btn" href="/contact" aria-label="Request access or similar project — MediCare Clinic">Request Access</a>
+          <a class="lp-portfolio-btn" href="/portfolio" aria-label="View this project in portfolio">View Details →</a>
+        </div>
+      </article>
+
+      <!-- ─── 02 — TaskFlow SaaS (Startup / Software) ─── -->
+      <article class="lp-card rv" role="listitem" aria-labelledby="lp-title-02" data-status="coming-soon">
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-purple">Startups</span>
+            <span class="lp-type-badge">SaaS Platform</span>
+          </div>
+          <div class="lp-status-badge lp-status-coming" aria-label="Status: Live access coming soon">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            Coming Soon
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-02">TaskFlow — Project SaaS</h3>
+        <p class="lp-desc">Project management SaaS with AI-assisted task prioritisation, team collaboration, and automated reporting. Built for fast-moving startup teams.</p>
+        <div class="lp-cap-tags" aria-label="Capability highlights">
+          <span class="lp-cap">SaaS Architecture</span>
+          <span class="lp-cap">AI Prioritisation</span>
+          <span class="lp-cap">Team Collaboration</span>
+        </div>
+        <div class="lp-card-footer">
+          <!--
+            CONTENT GAP: No verified public URL available for this project.
+          -->
+          <a class="lp-contact-btn" href="/contact" aria-label="Request access or similar project — TaskFlow SaaS">Request Access</a>
+          <a class="lp-portfolio-btn" href="/portfolio" aria-label="View this project in portfolio">View Details →</a>
+        </div>
+      </article>
+
+      <!-- ─── 03 — EduTrack LMS (Education / Software) ─── -->
+      <article class="lp-card rv" role="listitem" aria-labelledby="lp-title-03" data-status="coming-soon">
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-orange">Education</span>
+            <span class="lp-type-badge">LMS Platform</span>
+          </div>
+          <div class="lp-status-badge lp-status-coming" aria-label="Status: Live access coming soon">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            Coming Soon
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-03">EduTrack LMS</h3>
+        <p class="lp-desc">Learning management system with automated enrollment, course catalog management, student CRM, and parent communication portal for education institutes.</p>
+        <div class="lp-cap-tags" aria-label="Capability highlights">
+          <span class="lp-cap">LMS Architecture</span>
+          <span class="lp-cap">Enrollment Bot</span>
+          <span class="lp-cap">Student CRM</span>
+          <span class="lp-cap">Automation</span>
+        </div>
+        <div class="lp-card-footer">
+          <!--
+            CONTENT GAP: No verified public URL available for this project.
+          -->
+          <a class="lp-contact-btn" href="/contact" aria-label="Request access or similar project — EduTrack LMS">Request Access</a>
+          <a class="lp-portfolio-btn" href="/portfolio" aria-label="View this project in portfolio">View Details →</a>
+        </div>
+      </article>
+
+      <!-- ─── 04 — InventoryPro (E-Commerce / Software) ─── -->
+      <article class="lp-card rv" role="listitem" aria-labelledby="lp-title-04" data-status="coming-soon">
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-green">E-Commerce</span>
+            <span class="lp-type-badge">Software System</span>
+          </div>
+          <div class="lp-status-badge lp-status-coming" aria-label="Status: Live access coming soon">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            Coming Soon
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-04">InventoryPro</h3>
+        <p class="lp-desc">Inventory and order management system for e-commerce brands — real-time stock tracking, automated reorder alerts, supplier integration, and reporting dashboard.</p>
+        <div class="lp-cap-tags" aria-label="Capability highlights">
+          <span class="lp-cap">Inventory System</span>
+          <span class="lp-cap">Order Management</span>
+          <span class="lp-cap">API Integration</span>
+          <span class="lp-cap">Dashboard</span>
+        </div>
+        <div class="lp-card-footer">
+          <!--
+            CONTENT GAP: No verified public URL available for this project.
+          -->
+          <a class="lp-contact-btn" href="/contact" aria-label="Request access or similar project — InventoryPro">Request Access</a>
+          <a class="lp-portfolio-btn" href="/portfolio" aria-label="View this project in portfolio">View Details →</a>
+        </div>
+      </article>
+
+      <!-- ─── 05 — WealthTrack Portfolio (Finance / Software) ─── -->
+      <article class="lp-card rv" role="listitem" aria-labelledby="lp-title-05" data-status="coming-soon">
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-teal">Finance</span>
+            <span class="lp-type-badge">Portfolio Platform</span>
+          </div>
+          <div class="lp-status-badge lp-status-coming" aria-label="Status: Live access coming soon">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            Coming Soon
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-05">WealthTrack Portfolio</h3>
+        <p class="lp-desc">Client investment portfolio tracking platform with SEBI-compliant reporting, interactive calculators, and secure client portal for financial advisors.</p>
+        <div class="lp-cap-tags" aria-label="Capability highlights">
+          <span class="lp-cap">Client Portal</span>
+          <span class="lp-cap">SEBI Compliant</span>
+          <span class="lp-cap">Calculator</span>
+          <span class="lp-cap">Secure Docs</span>
+        </div>
+        <div class="lp-card-footer">
+          <!--
+            CONTENT GAP: No verified public URL available for this project.
+          -->
+          <a class="lp-contact-btn" href="/contact" aria-label="Request access or similar project — WealthTrack">Request Access</a>
+          <a class="lp-portfolio-btn" href="/portfolio" aria-label="View this project in portfolio">View Details →</a>
+        </div>
+      </article>
+
+      <!-- ─── 06 — LaunchPad SaaS (Startups / Website) ─── -->
+      <article class="lp-card rv" role="listitem" aria-labelledby="lp-title-06" data-status="coming-soon">
+        <div class="lp-card-header">
+          <div class="lp-card-meta">
+            <span class="lp-cat-badge lp-cat-purple">Startups</span>
+            <span class="lp-type-badge">Growth Website</span>
+          </div>
+          <div class="lp-status-badge lp-status-coming" aria-label="Status: Live access coming soon">
+            <span class="lp-status-dot" aria-hidden="true"></span>
+            Coming Soon
+          </div>
+        </div>
+        <h3 class="lp-name" id="lp-title-06">LaunchPad SaaS</h3>
+        <p class="lp-desc">Investor-ready SaaS marketing website with product landing pages, analytics setup, A/B testing pipeline, and conversion-focused design for Series A readiness.</p>
+        <div class="lp-cap-tags" aria-label="Capability highlights">
+          <span class="lp-cap">SaaS Marketing</span>
+          <span class="lp-cap">Investor Ready</span>
+          <span class="lp-cap">A/B Testing</span>
+          <span class="lp-cap">Analytics</span>
+        </div>
+        <div class="lp-card-footer">
+          <!--
+            CONTENT GAP: No verified public URL available for this project.
+          -->
+          <a class="lp-contact-btn" href="/contact" aria-label="Request access or similar project — LaunchPad SaaS">Request Access</a>
+          <a class="lp-portfolio-btn" href="/portfolio" aria-label="View this project in portfolio">View Details →</a>
+        </div>
+      </article>
+
+    </div><!-- /lp-grid -->
+
+    <!-- ── More projects CTA ── -->
+    <div class="lp-more rv" style="text-align:center;margin-top:48px;">
+      <p style="color:var(--color-gray);margin-bottom:20px;">More projects will be added as live access is enabled. In the meantime, explore the full portfolio.</p>
+      <a class="btn-g" href="/portfolio" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+        View Full Portfolio <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div><!-- /container -->
+</section>

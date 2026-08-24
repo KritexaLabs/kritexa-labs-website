@@ -1,0 +1,172 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — CAREER PAGE CSS
+   css/pages/career.css
+   Phase 13 — Career Page Rebuild
+
+   PURPOSE:
+     Career-page-specific styles only.
+     All base .ben-*, .job-card, .jb-*, .intern-card component
+     styles remain in css/components.css where they have always lived.
+
+     This file adds:
+       1. .career-hero-section — inner page hero spacing variant
+       2. .career-culture-section — culture section spacing
+       3. .career-opportunities-section — opportunities section spacing
+       4. .career-cta-section — internship CTA section spacing
+       5. Responsive overrides scoped to Career-specific selectors
+       6. Reduced-motion overrides for Career-specific elements
+       7. Focus-visible scoped to Career interactive elements
+
+   CSS LOAD ORDER (pages that include this file):
+     css/global.css
+       ↓
+     css/utilities.css
+       ↓
+     css/header.css
+       ↓
+     css/footer.css
+       ↓
+     css/components.css    ← all base .ben-*, .job-card, .jb-* styles live here
+       ↓
+     css/pages/career.css  ← additions and overrides for this page only
+
+   SCOPING:
+     All selectors in this file are prefixed with .career-* or
+     scoped to Career-specific classes to prevent affecting any
+     other page: Home, About, Capabilities, Portfolio, Case Studies,
+     Contact, Kritexa.AI, Labs, Header, Mega Menu, Footer.
+
+   ISOLATION:
+     This file MUST NOT affect any shared global classes.
+     No changes to: .btn-p, .btn-g, .section, .container,
+     .grad-text, .sh-eyebrow, .rv, .iph, or other shared classes.
+
+   REDUCED MOTION:
+     All CSS transitions defined in this file for Career-specific
+     elements are suppressed under @media (prefers-reduced-motion: reduce).
+     Content remains fully accessible — animations are cosmetic.
+═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────
+   1. Career Hero Section
+   The .iph inner page hero already has global styles.
+   This adds the career-specific eyebrow cyan accent.
+─────────────────────────────────────────── */
+
+/* No additional hero styles needed — .iph global styles cover the layout.
+   Eyebrow cyan color is applied inline in the section partial. */
+
+/* ───────────────────────────────────────────
+   2. Career Culture Section
+   Adds bottom padding between culture and opportunities.
+─────────────────────────────────────────── */
+.career-culture-section {
+  padding-bottom: 16px;
+}
+
+/* ───────────────────────────────────────────
+   3. Career Opportunities Section
+   Standard .section spacing applies via global utility.
+   No override needed unless targeted adjustments required.
+─────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────
+   4. Career CTA Section (Internship card)
+   Adds top/bottom padding around the internship card.
+─────────────────────────────────────────── */
+.career-cta-section {
+  padding: 20px 0 100px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ───────────────────────────────────────────
+   5. Apply disabled button focus state
+   The disabled Apply Now button should not show focus
+   as it is non-interactive.
+─────────────────────────────────────────── */
+.jb-apply-dis:focus-visible {
+  outline: 2px solid var(--color-gray2);
+  outline-offset: 2px;
+}
+
+/* Email resume CTA focus state */
+.jb-resume:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ───────────────────────────────────────────
+   6. Responsive overrides — Career page only
+   Supplement rules already in css/components.css
+─────────────────────────────────────────── */
+
+/* 768px — career CTA section padding adjustment */
+@media (max-width: 768px) {
+  .career-cta-section {
+    padding: 16px 0 80px;
+  }
+
+  /* Internship card — reduce padding on small screens */
+  .intern-card {
+    padding: 36px 24px;
+  }
+}
+
+/* 480px — further tighten */
+@media (max-width: 480px) {
+  .career-cta-section {
+    padding: 12px 0 64px;
+  }
+}
+
+/* 360px — minimum viewport internship card */
+@media (max-width: 360px) {
+  .intern-card {
+    padding: 28px 16px;
+  }
+
+  .intern-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intern-btns .btn-p,
+  .intern-btns .btn-g {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ───────────────────────────────────────────
+   7. Reduced Motion
+   Disable Career-page-specific cosmetic transitions.
+   Content and interactivity fully preserved.
+─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Benefit card hover lift */
+  .ben-card {
+    transition: none !important;
+  }
+
+  /* Job card hover lift */
+  .job-card {
+    transition: none !important;
+  }
+
+  /* Job tag hover */
+  .jb-tag {
+    transition: none !important;
+  }
+
+  /* Internship card hover */
+  .intern-card {
+    transition: none !important;
+  }
+
+  /* Resume email CTA hover */
+  .jb-resume {
+    transition: none !important;
+  }
+}

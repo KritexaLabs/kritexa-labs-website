@@ -1,0 +1,162 @@
+<!-- ══════════════════════════════════════════════════════
+  HOME SECTION: Testimonials
+  src/sections/home/testimonials.html
+  Phase 6 — Home Page Rebuild
+
+  Content: 6 testimonials + duplicated for infinite CSS scroll loop.
+  Auto-scrolls via CSS @keyframes testi-roll (34s).
+  Pauses on hover via animation-play-state: paused.
+
+  ⚠️ CONTENT FLAGS:
+    - All testimonials are 5-star.
+    - Author roles use underscore format (legacy preserved verbatim).
+    - Initials used for avatars — no photos.
+    - May be illustrative/composite testimonials.
+    See docs/CONTENT-MAP.md for flagged content.
+══════════════════════════════════════════════════════ -->
+<section class="section" id="testimonials" aria-labelledby="testi-heading" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-eyebrow">Testimonials</div>
+      <h2 id="testi-heading">Trusted by Businesses, <span class="grad-text">Loved by Users</span></h2>
+    </div>
+  </div>
+
+  <!-- Overflow window for scrolling strip — outside container for full-bleed -->
+  <div class="testi-outer" aria-label="Client testimonials" role="region">
+    <div class="testi-track">
+
+      <!-- Original 6 testimonials -->
+      <blockquote class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="t-text">"Kritexa Labs didn't just build us a website — they built a lead machine. Our inquiries tripled within the first month of going live."</p>
+        <footer class="t-author">
+          <div class="t-av" aria-hidden="true">AR</div>
+          <div>
+            <div class="t-name">Anil Rajput</div>
+            <div class="t-role">Clinic Owner · Pune</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="t-text">"The AI chatbot handles 80% of our initial client questions automatically. It's like having an employee who works 24/7 without complaints."</p>
+        <footer class="t-author">
+          <div class="t-av" aria-hidden="true">SM</div>
+          <div>
+            <div class="t-name">Sneha Mehta</div>
+            <div class="t-role">Financial Advisor · Mumbai</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="t-text">"We went from page 4 to #1 on Google Maps in under 60 days. Their SEO strategy is genuinely different from everything else we'd tried."</p>
+        <footer class="t-author">
+          <div class="t-av" aria-hidden="true">VK</div>
+          <div>
+            <div class="t-name">Vikram Khatri</div>
+            <div class="t-role">Restaurant Owner · Nashik</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="t-text">"Our e-commerce revenue went from zero to ₹2.5M in 8 months. The AI upsell system alone pays for itself every month."</p>
+        <footer class="t-author">
+          <div class="t-av" aria-hidden="true">PR</div>
+          <div>
+            <div class="t-name">Priya Reddy</div>
+            <div class="t-role">E-Commerce Founder · Bangalore</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="t-text">"Enrollments doubled in one quarter after they launched our new website and admissions automation. We couldn't handle the volume manually."</p>
+        <footer class="t-author">
+          <div class="t-av" aria-hidden="true">MJ</div>
+          <div>
+            <div class="t-name">Manish Joshi</div>
+            <div class="t-role">Education Director · Pune</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card">
+        <div class="t-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="t-text">"The WhatsApp automation saves our team 20 hours every week. Every lead gets an instant intelligent response — we never miss an opportunity."</p>
+        <footer class="t-author">
+          <div class="t-av" aria-hidden="true">KS</div>
+          <div>
+            <div class="t-name">Kavita Shah</div>
+            <div class="t-role">Consultant · Delhi</div>
+          </div>
+        </footer>
+      </blockquote>
+
+      <!-- Duplicate for infinite loop -->
+      <blockquote class="t-card" aria-hidden="true">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Kritexa Labs didn't just build us a website — they built a lead machine. Our inquiries tripled within the first month of going live."</p>
+        <footer class="t-author">
+          <div class="t-av">AR</div>
+          <div><div class="t-name">Anil Rajput</div><div class="t-role">Clinic Owner · Pune</div></div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card" aria-hidden="true">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"The AI chatbot handles 80% of our initial client questions automatically. It's like having an employee who works 24/7 without complaints."</p>
+        <footer class="t-author">
+          <div class="t-av">SM</div>
+          <div><div class="t-name">Sneha Mehta</div><div class="t-role">Financial Advisor · Mumbai</div></div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card" aria-hidden="true">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"We went from page 4 to #1 on Google Maps in under 60 days. Their SEO strategy is genuinely different from everything else we'd tried."</p>
+        <footer class="t-author">
+          <div class="t-av">VK</div>
+          <div><div class="t-name">Vikram Khatri</div><div class="t-role">Restaurant Owner · Nashik</div></div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card" aria-hidden="true">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Our e-commerce revenue went from zero to ₹2.5M in 8 months. The AI upsell system alone pays for itself every month."</p>
+        <footer class="t-author">
+          <div class="t-av">PR</div>
+          <div><div class="t-name">Priya Reddy</div><div class="t-role">E-Commerce Founder · Bangalore</div></div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card" aria-hidden="true">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Enrollments doubled in one quarter after they launched our new website and admissions automation."</p>
+        <footer class="t-author">
+          <div class="t-av">MJ</div>
+          <div><div class="t-name">Manish Joshi</div><div class="t-role">Education Director · Pune</div></div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="t-card" aria-hidden="true">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"The WhatsApp automation saves our team 20 hours every week. Every lead gets an instant intelligent response."</p>
+        <footer class="t-author">
+          <div class="t-av">KS</div>
+          <div><div class="t-name">Kavita Shah</div><div class="t-role">Consultant · Delhi</div></div>
+        </footer>
+      </blockquote>
+
+    </div><!-- /testi-track -->
+    <div class="t-fade-l" aria-hidden="true"></div>
+    <div class="t-fade-r" aria-hidden="true"></div>
+  </div><!-- /testi-outer -->
+
+</section>

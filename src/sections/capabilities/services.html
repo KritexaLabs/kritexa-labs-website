@@ -1,0 +1,196 @@
+<!-- ══════════════════════════════════════════════════════
+  CAPABILITIES SECTION: Services Grid
+  src/sections/capabilities/services.html
+  Phase 8 — Capabilities Page Rebuild
+
+  STRUCTURE:
+    - Hero card ("Business Growth Engine") — full-width spanning card
+    - 6 capability cards in two rows of 3
+    - Each card: icon + title + description + service checklist + badges
+    - All cards link to /contact (no onclick, real anchors)
+
+  CAPABILITY CATEGORIES (from approved content):
+    1. Digital Experience (purple)
+    2. AI Workforce (cyan)
+    3. Business Automation (green)
+    4. Growth Marketing (orange)
+    5. Commerce Solutions (pink)
+    6. Growth & Support (teal)
+
+  CMS-READINESS:
+    Each .cap-svc-card follows a consistent semantic structure:
+      article > .cap-card-top > .cap-card-title > .cap-card-desc
+             > .cap-card-svcs > .cap-card-badges
+    This structure allows future migration to a CMS template.
+
+  SEMANTICS:
+    - Hero card and service cards are <article> elements
+    - Service cards are <a> links to /contact (card-as-link pattern)
+    - aria-label on each card link for screen reader clarity
+    - Checklist items use <ul> for proper list semantics
+
+  ANIMATION:
+    - .rv class: scroll-reveal (global IntersectionObserver)
+    - Card hover: CSS transform (defined in components.css)
+══════════════════════════════════════════════════════ -->
+
+<section class="cap-svc-section" aria-labelledby="cap-svc-heading">
+  <h2 id="cap-svc-heading" class="sr-only">Our Services</h2>
+  <div class="container">
+
+    <!-- Hero Card — Business Growth Engine -->
+    <article class="cap-hero-card rv" aria-labelledby="cap-hc-title">
+      <div class="cap-hc-inner">
+        <div class="cap-hc-left">
+          <span class="cap-hc-icon" aria-hidden="true">🚀</span>
+          <h3 class="cap-hc-title" id="cap-hc-title">Business Growth Engine</h3>
+          <p class="cap-hc-desc">We don't just build websites — we engineer complete digital growth systems that attract, convert, and retain customers on autopilot. Every piece works together.</p>
+          <ul class="cap-hc-svcs" aria-label="Included services">
+            <li class="cap-hc-svc">Full-Stack Digital Strategy</li>
+            <li class="cap-hc-svc">AI + Web + Automation in one system</li>
+            <li class="cap-hc-svc">End-to-end delivery &amp; support</li>
+            <li class="cap-hc-svc">Measurable ROI, not vanity metrics</li>
+          </ul>
+          <div class="cap-hc-badges" aria-label="Approach highlights">
+            <span class="cap-hc-badge">AI-First</span>
+            <span class="cap-hc-badge">Full-Stack</span>
+            <span class="cap-hc-badge">Growth Focused</span>
+            <span class="cap-hc-badge">End-to-End</span>
+          </div>
+        </div>
+        <a class="cap-hc-arrow" href="/contact" aria-label="Get started with Business Growth Engine" tabindex="0">→</a>
+      </div>
+    </article>
+
+    <!-- Row 1: Digital Experience · AI Workforce · Business Automation -->
+    <div class="cap-cards-grid" role="list">
+
+      <a class="cap-svc-card cap-purple rv" href="/contact" role="listitem" aria-label="Digital Experience — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🌐</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Digital Experience</h3>
+        <p class="cap-card-desc">Websites that convert visitors into paying customers — fast, beautiful, and built to rank.</p>
+        <ul class="cap-card-svcs" aria-label="Included services">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Business Websites</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Landing Pages</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Web Apps</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>UI/UX Design</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">Fast</span>
+          <span class="cap-card-badge">SEO Ready</span>
+          <span class="cap-card-badge">Mobile First</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-cyan rv" href="/contact" role="listitem" aria-label="AI Workforce — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🤖</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">AI Workforce</h3>
+        <p class="cap-card-desc">AI employees working 24/7 for your sales, support, and lead qualification — no breaks, no holidays.</p>
+        <ul class="cap-card-svcs" aria-label="Included services">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>AI Chatbots</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>WhatsApp AI</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Voice Agents</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Lead Qualification</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">24/7</span>
+          <span class="cap-card-badge">AI Powered</span>
+          <span class="cap-card-badge">Automation</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-green rv" href="/contact" role="listitem" aria-label="Business Automation — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">⚙️</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Business Automation</h3>
+        <p class="cap-card-desc">Remove repetitive work with intelligent workflows that connect your tools and run your ops.</p>
+        <ul class="cap-card-svcs" aria-label="Included services">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>CRM Automation</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Workflow Automation</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>API Integration</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Internal Tools</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">CRM</span>
+          <span class="cap-card-badge">API</span>
+          <span class="cap-card-badge">No-Code</span>
+        </div>
+      </a>
+
+    </div><!-- /cap-cards-grid row 1 -->
+
+    <!-- Row 2: Growth Marketing · Commerce Solutions · Growth & Support -->
+    <div class="cap-cards-grid" role="list">
+
+      <a class="cap-svc-card cap-orange rv" href="/contact" role="listitem" aria-label="Growth Marketing — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">📈</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Growth Marketing</h3>
+        <p class="cap-card-desc">Get found, generate leads, and increase revenue with data-driven marketing that scales.</p>
+        <ul class="cap-card-svcs" aria-label="Included services">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>SEO</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Google Ads</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Meta Ads</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Content Marketing</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">SEO</span>
+          <span class="cap-card-badge">PPC</span>
+          <span class="cap-card-badge">Analytics</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-pink rv" href="/contact" role="listitem" aria-label="Commerce Solutions — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🛒</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Commerce Solutions</h3>
+        <p class="cap-card-desc">Sell products online with scalable commerce systems built to convert and grow your revenue.</p>
+        <ul class="cap-card-svcs" aria-label="Included services">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Shopify</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>WooCommerce</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Payment Gateway</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Inventory</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">Shopify</span>
+          <span class="cap-card-badge">Woo</span>
+          <span class="cap-card-badge">Payments</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-teal rv" href="/contact" role="listitem" aria-label="Growth and Support — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🛡️</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Growth &amp; Support</h3>
+        <p class="cap-card-desc">Keep improving after launch with ongoing performance, security, and analytics optimisation.</p>
+        <ul class="cap-card-svcs" aria-label="Included services">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Performance</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Security</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Analytics</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Maintenance</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">Secure</span>
+          <span class="cap-card-badge">Fast</span>
+          <span class="cap-card-badge">Reliable</span>
+        </div>
+      </a>
+
+    </div><!-- /cap-cards-grid row 2 -->
+
+  </div><!-- /container -->
+</section>

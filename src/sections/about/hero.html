@@ -1,0 +1,108 @@
+<!-- ══════════════════════════════════════════════════════
+  ABOUT SECTION: Hero
+  src/sections/about/hero.html
+  Phase 7 — About Page Rebuild
+
+  STRUCTURE:
+    - Full-screen rounded box with background image overlay
+    - Kicker badge, H1, description, CTA buttons, stat strip
+    - Floating decorative badges (hidden on mobile ≤ 768px)
+    - Scroll hint (hidden on mobile ≤ 768px)
+
+  H1: Exactly one H1 on the About page — real visible heading
+  (no canvas trickery needed here; the heading is HTML text).
+
+  BACKGROUND IMAGE: /assets/images/about-hero.jpg
+    - Extracted from base64 in Phase 1
+    - LCP candidate — NOT lazy-loaded
+    - Used as CSS background-image on .about-fs-hero-bg
+
+  CTA DESTINATIONS:
+    "Work With Us →"   → /contact (approved from legacy)
+    "Join the Team ↗"  → /career  (approved from legacy)
+
+  STATS: 50+/30+/8 — preserved from approved source.
+    These are approximate/rounded per CONTENT-MAP flag.
+
+  FLOATING BADGES: Hidden at ≤ 768px via CSS.
+  SCROLL HINT: Hidden at ≤ 768px via CSS.
+
+  ANIMATION:
+    - .rv classes: scroll-reveal (translateY 0→visible)
+    - .about-fs-kicker-dot: CSS blink animation
+    - .afb-dot: CSS blink animation
+    - .about-fs-scroll: CSS bounce animation (scroll-hint)
+    - All disabled under prefers-reduced-motion (global.css)
+    - .about-fs-badge: CSS translateY hover (no JS)
+══════════════════════════════════════════════════════ -->
+
+<section class="about-fs-hero-outer" aria-label="About Kritexa Labs hero">
+
+  <div class="about-fs-hero">
+
+    <!-- Background image — decorative (content conveyed in text) -->
+    <div class="about-fs-hero-bg" role="presentation" aria-hidden="true"></div>
+
+    <!-- Bottom fade — decorative -->
+    <div class="about-fs-hero-bottom-fade" aria-hidden="true"></div>
+
+    <!-- Primary content -->
+    <div class="container">
+      <div class="about-fs-hero-content rv">
+
+        <!-- Kicker -->
+        <div class="about-fs-kicker" aria-hidden="true">
+          <span class="about-fs-kicker-dot"></span>About Kritexa Labs · Est. 2026
+        </div>
+
+        <!-- H1 — exactly one per page; visible HTML text -->
+        <h1>We Think in<br><span class="grad-text">Systems,<br>Not Pages</span></h1>
+
+        <!-- Description -->
+        <p class="about-fs-desc">Most agencies build websites. Kritexa Labs engineers complete digital growth machines — AI-powered systems that attract leads, automate operations, and scale revenue automatically.</p>
+
+        <!-- CTAs — real anchors, no onclick -->
+        <div class="about-fs-btns">
+          <a class="btn-p" href="/contact">Work With Us <span aria-hidden="true">→</span></a>
+          <a class="btn-g" href="/career">Join the Team <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="about-fs-stats" aria-label="Company statistics">
+          <div>
+            <div class="afs-stat-val">50+</div>
+            <div class="afs-stat-lbl">Projects Delivered</div>
+          </div>
+          <div>
+            <div class="afs-stat-val">30+</div>
+            <div class="afs-stat-lbl">Happy Clients</div>
+          </div>
+          <div>
+            <div class="afs-stat-val">8</div>
+            <div class="afs-stat-lbl">Industries Served</div>
+          </div>
+        </div>
+
+      </div><!-- /about-fs-hero-content -->
+    </div><!-- /container -->
+
+    <!-- Floating badges — decorative, hidden on mobile -->
+    <div class="about-fs-badge afb-3" aria-hidden="true">
+      <span aria-hidden="true" style="font-size:13px;">🤖</span>AI-First Studio
+    </div>
+    <div class="about-fs-badge afb-1" aria-hidden="true">
+      <span class="afb-dot" aria-hidden="true"></span>Actively Growing · 2026
+    </div>
+    <div class="about-fs-badge afb-2" aria-hidden="true">
+      <span aria-hidden="true" style="font-size:13px;">📍</span>Hinjewadi, Pune
+    </div>
+
+    <!-- Scroll hint — decorative, hidden on mobile -->
+    <div class="about-fs-scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="about-fs-scroll-line"></div>
+    </div>
+
+  </div><!-- /about-fs-hero -->
+
+</section><!-- /about-fs-hero-outer -->

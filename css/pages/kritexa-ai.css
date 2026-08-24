@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — KRITEXA.AI PAGE CSS
+   css/pages/kritexa-ai.css
+   Phase 12 — Kritexa.AI Page Rebuild
+
+   PURPOSE:
+     Kritexa.AI-page-specific styles only.
+     All base .kai-* component styles remain in css/components.css
+     where they have always lived.
+
+     This file adds:
+       1. .kai-wl-disclaimer — honest waitlist notice (no backend)
+       2. .kai-wl-inner — wrapper for form accessibility grouping
+       3. .kai-cta-section / .kai-cta-inner / .kai-cta-btns — page CTA
+       4. Responsive overrides scoped to .kai-* selectors at small viewports
+       5. Reduced-motion overrides for all Kritexa.AI animations
+       6. Focus-visible scoped to .kai-* interactive elements
+
+   CSS LOAD ORDER (pages that include this file):
+     css/global.css
+       ↓
+     css/utilities.css
+       ↓
+     css/header.css
+       ↓
+     css/footer.css
+       ↓
+     css/components.css    ← all base .kai-* styles live here
+       ↓
+     css/pages/kritexa-ai.css ← additions and overrides for this page only
+
+   SCOPING:
+     All selectors in this file are prefixed with .kai-* or
+     scoped to Kritexa.AI-specific classes to prevent affecting
+     any other page: Home, About, Capabilities, Portfolio,
+     Case Studies, Contact, Career, Labs, Header, Mega Menu, Footer.
+
+   ISOLATION:
+     This file MUST NOT affect any shared global classes.
+     No changes to: .btn-p, .btn-g, .section, .container,
+     .grad-text, .sh-eyebrow, .rv, .faq-*, .gcta, or any other
+     shared component class.
+
+   REDUCED MOTION:
+     All CSS animations/transitions defined in this file and in
+     css/components.css for .kai-* classes are suppressed under
+     @media (prefers-reduced-motion: reduce).
+     This includes: countdown orb drift, kai-blink, kai-prog,
+     jk-shimmer on .kai-grad, kai-feat hover transition.
+     Content remains fully accessible — animations are cosmetic.
+═══════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────
+   1. Waitlist — Honest Disclaimer Notice
+   Shown below the submit button.
+   Communicates that the form backend is not connected.
+─────────────────────────────────────────── */
+.kai-wl-disclaimer {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  color: var(--color-gray2);
+  letter-spacing: 0.06em;
+  margin-top: 10px;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* Form wrapper — semantic grouping */
+.kai-wl-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ───────────────────────────────────────────
+   2. Page-level CTA section
+   Distinct from the global footer .gcta.
+   Uses kai-cta-* prefix to avoid collision.
+─────────────────────────────────────────── */
+.kai-cta-section {
+  text-align: center;
+}
+
+.kai-cta-inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.kai-cta-inner h2 {
+  font-size: var(--font-size-section-heading);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 16px 0 20px;
+  color: var(--color-white);
+}
+
+.kai-cta-inner > p {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray);
+  line-height: 1.7;
+  margin: 0 auto 36px;
+  max-width: 520px;
+}
+
+.kai-cta-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ───────────────────────────────────────────
+   3. Hero waitlist input — keyboard focus
+   Augments the base focus state in components.css
+─────────────────────────────────────────── */
+.kai-wl-input:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+.kai-wl-btn:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+/* ───────────────────────────────────────────
+   4. Responsive overrides
+
+   These supplement the rules already in
+   css/components.css at max-width:900px / 600px.
+─────────────────────────────────────────── */
+
+/* --- 768px: CTA buttons stack vertically --- */
+@media (max-width: 768px) {
+  .kai-cta-btns {
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+}
+
+/* --- 480px: hero sub text tightening --- */
+@media (max-width: 480px) {
+  .kai-heading {
+    letter-spacing: -0.025em;
+  }
+  .kai-sub {
+    font-size: 15px;
+  }
+  .kai-cta-inner h2 {
+    font-size: clamp(26px, 8vw, 38px);
+  }
+}
+
+/* --- 360px: minimum viewport adjustments --- */
+@media (max-width: 360px) {
+  .kai-cta-btns {
+    max-width: 100%;
+  }
+  .kai-cta-btns .btn-p,
+  .kai-cta-btns .btn-g {
+    width: 100%;
+    justify-content: center;
+  }
+  .kai-cd-box {
+    min-width: 56px;
+    padding: 10px 12px;
+  }
+  .kai-wl-input {
+    font-size: 13px;
+  }
+}
+
+/* ───────────────────────────────────────────
+   5. Reduced Motion
+   Disable ALL Kritexa.AI cosmetic animations.
+   Content and interactivity fully preserved.
+   Text remains visible, progress bars static.
+─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Orb ambient drift */
+  .kai-orb,
+  .kai-orb1,
+  .kai-orb2 {
+    animation: none !important;
+  }
+
+  /* Countdown dot blink + AI pill dot */
+  .kai-ai-dot,
+  .kai-status-dot {
+    animation: none !important;
+  }
+
+  /* Gradient heading shimmer */
+  .kai-grad {
+    animation: none !important;
+    background-size: 100% !important;
+  }
+
+  /* Progress bar fill animation */
+  .kai-feat-prog-bar {
+    animation: none !important;
+  }
+
+  /* Feature card hover lift */
+  .kai-feat {
+    transition: none !important;
+  }
+
+  /* Waitlist button hover */
+  .kai-wl-btn {
+    transition: none !important;
+  }
+
+  /* Waitlist input focus transition */
+  .kai-wl-input {
+    transition: none !important;
+  }
+}

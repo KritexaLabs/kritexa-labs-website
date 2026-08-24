@@ -1,0 +1,83 @@
+<!-- ══════════════════════════════════════════════════════
+  CONTACT SECTION: Hero
+  src/sections/contact/hero.html
+  Phase 11 — Contact Page Rebuild
+
+  STRUCTURE:
+    - Full-width image hero (.con-hero-outer / .con-hero)
+    - Kicker: "Get In Touch · Reply within 4 hours"
+    - H1: "Let's Build Something Remarkable Together"
+    - Description from approved legacy source
+    - Stats strip: 30+ Businesses Served, <4h Avg Response, 5.0★ Client Rating
+    - Floating badges (decorative, hidden on mobile)
+
+  H1: Preserved from src/pages/contact.html (Phase 1 extract from legacy)
+  STATS: Preserved from src/pages/contact.html (legacy approved content)
+
+  IMAGE:
+    - /assets/images/contact-hero.jpg (123.1 KB, extracted Phase 1)
+    - CSS background via .con-hero-bg (base64 removed in Phase 11)
+    - Not lazy-loaded — above the fold (LCP candidate)
+
+  CONTENT STATUS: Partially documented (see docs/CONTENT-MAP.md)
+  Floating badges are decorative — aria-hidden="true"
+  Stats are marketing claims from approved legacy source.
+══════════════════════════════════════════════════════ -->
+
+<section class="contact-hero-section" aria-labelledby="contact-h1">
+  <div class="con-hero-outer">
+    <div class="con-hero">
+
+      <!-- BG image — set via CSS class (external asset, not base64) -->
+      <div class="con-hero-bg" role="img" aria-label="Kritexa Labs team working on digital growth projects"></div>
+
+      <!-- Bottom fade — decorative -->
+      <div class="con-hero-bottom-fade" aria-hidden="true"></div>
+
+      <!-- Content — left side -->
+      <div class="container">
+        <div class="con-hero-content rv">
+
+          <!-- Kicker -->
+          <div class="con-kicker" aria-hidden="true">
+            <span class="con-kicker-dot"></span>Get In Touch · Reply within 4 hours
+          </div>
+
+          <!-- H1 — one per page -->
+          <h1 id="contact-h1">Let's Build Something<br><span class="grad-text">Remarkable</span><br>Together</h1>
+
+          <p class="con-hero-desc">Whether you need a website, AI automation, or a complete digital transformation — we're ready to engineer your growth. No commitment, no pressure.</p>
+
+          <!-- Stats strip -->
+          <div class="con-stats" role="list" aria-label="Contact statistics">
+            <div role="listitem">
+              <div class="con-stat-val" aria-label="30 plus">30+</div>
+              <div class="con-stat-lbl">Businesses Served</div>
+            </div>
+            <div role="listitem">
+              <div class="con-stat-val" aria-label="Less than 4 hours">&lt;4h</div>
+              <div class="con-stat-lbl">Avg Response</div>
+            </div>
+            <div role="listitem">
+              <div class="con-stat-val" aria-label="5 stars">5.0★</div>
+              <div class="con-stat-lbl">Client Rating</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Floating badges — decorative, hidden on mobile via CSS -->
+      <div class="con-hero-badge chb-2" aria-hidden="true">
+        <span style="font-size:12px;" aria-hidden="true">⚡</span>Fastest Response
+      </div>
+      <div class="con-hero-badge chb-1" aria-hidden="true">
+        <span class="chb-dot" aria-hidden="true"></span>30+ Happy Clients
+      </div>
+      <div class="con-hero-badge chb-3" aria-hidden="true">
+        <span style="font-size:12px;" aria-hidden="true">🏆</span>5.0 Rated Studio
+      </div>
+
+    </div><!-- /.con-hero -->
+  </div><!-- /.con-hero-outer -->
+</section>

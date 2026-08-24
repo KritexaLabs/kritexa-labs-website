@@ -1,0 +1,71 @@
+<!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Final CTA
+  src/sections/labs/cta.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Premium CTA panel with ambient purple/cyan glow
+    - Eyebrow: "KRITEXA LABS"
+    - H2: "Have an idea? Let's build it."
+    - Supporting copy
+    - Primary CTA: Start Your Project → (/contact)
+
+  INTENT:
+    Connect visitors who have an idea to Kritexa's existing
+    project-start / contact flow.
+    No new backend — links to existing /contact page.
+
+  ACCESSIBILITY:
+    - Section aria-labelledby
+    - H2 heading (correct hierarchy)
+    - Visible focus states via global .btn-p:focus-visible
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="labs-final-cta" aria-labelledby="labs-cta-heading">
+  <div class="container">
+    <div class="labs-cta-box rv">
+
+      <!-- Ambient glow layers (decorative) -->
+      <div class="labs-cta-glow-purple" aria-hidden="true"></div>
+      <div class="labs-cta-glow-cyan" aria-hidden="true"></div>
+
+      <!-- Technical corner accents (decorative) -->
+      <span class="labs-cta-corner labs-cta-corner-tl" aria-hidden="true"></span>
+      <span class="labs-cta-corner labs-cta-corner-tr" aria-hidden="true"></span>
+      <span class="labs-cta-corner labs-cta-corner-bl" aria-hidden="true"></span>
+      <span class="labs-cta-corner labs-cta-corner-br" aria-hidden="true"></span>
+
+      <!-- Content -->
+      <div class="labs-cta-inner">
+
+        <!-- Eyebrow -->
+        <div class="labs-cta-eyebrow">
+          <span class="labs-cta-eyebrow-dot" aria-hidden="true"></span>
+          KRITEXA LABS
+        </div>
+
+        <!-- Heading -->
+        <h2 id="labs-cta-heading">
+          Have an idea?<br>
+          <span class="grad-text">Let's build it.</span>
+        </h2>
+
+        <!-- Supporting copy -->
+        <p class="labs-cta-desc">
+          We experiment, prototype, and build.
+          If you have an idea worth exploring — let's talk.
+        </p>
+
+        <!-- CTA action -->
+        <div class="labs-cta-actions">
+          <a href="/contact" class="btn-p">
+            Start Your Project <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div><!-- /.labs-cta-inner -->
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,232 @@
+<!-- ══════════════════════════════════════════════════════
+  CONTACT SECTION: Contact Options + Project Form
+  src/sections/contact/contact-form.html
+  Phase 11 — Contact Page Rebuild
+
+  STRUCTURE:
+    - Two-column grid (.con-form-grid)
+      LEFT (.ci): Eyebrow + H2 + description + 4 contact option cards
+      RIGHT (.cf): H3 + 5-field inquiry form
+
+  CONTACT OPTIONS (left column):
+    Source: src/pages/contact.html (Phase 1 extract) + legacy/index-original.html
+    1. WhatsApp → wa.me/91XXXXXXXXXX  (PLACEHOLDER — Phase 21 client config)
+    2. Email    → contact@kritexalabs.com  (verified in approved legacy source)
+    3. Office   → Rajiv Gandhi IT Park, Hinjewadi Phase I, Pune - 411057  (legacy source)
+    4. Response Time → Within 2–4 hours on business days  (legacy source)
+
+  FORM FIELDS (right column):
+    Source: src/pages/contact.html (Phase 1 extract) + docs/CONTENT-MAP.md
+    1. Your Name  — text, required
+    2. Phone/WhatsApp — tel (optional)
+    3. Email Address — email, required
+    4. Service interest — select, required
+    5. Tell us about your business — textarea, required
+
+  FORM SUBMISSION STATE:
+    NOT connected to any backend.
+    Legacy used onclick="submitForm()" → alert().
+    Phase 11 replaces with native browser validation + inline notice.
+    novalidate removed (Phase 14 fix) — browser enforces required fields.
+    A visible, honest "not connected" note is shown below the submit button.
+    No fake success message.
+
+  FORM BACKEND: NONE — future Phase implementation.
+
+  ACCESSIBILITY:
+    - Every <input>, <select>, <textarea> has <label for="...">
+    - autocomplete attributes on name/phone/email fields
+    - required + type attributes for native browser validation
+    - form action="#" prevents accidental real submission
+
+  WHATSAPP PLACEHOLDER:
+    wa.me/91XXXXXXXXXX — NOT a real phone number.
+    Do not replace until client provides verified number.
+    Documented as Phase 21 item.
+══════════════════════════════════════════════════════ -->
+
+<section class="con-form-sec contact-form-section" aria-labelledby="contact-form-heading">
+  <div class="container">
+    <div class="con-form-grid">
+
+      <!-- ── LEFT: Contact info column ── -->
+      <div class="ci rv">
+
+        <!-- Eyebrow -->
+        <div class="contact-eyebrow" aria-hidden="true">Get in touch</div>
+
+        <!-- H2 — logical heading below H1 in hero -->
+        <h2 id="contact-form-heading">Start the<br><span class="grad-text">Conversation</span></h2>
+
+        <p>Fill in the form or reach us directly. We'll reply with a custom proposal within 24 hours.</p>
+
+        <!-- Contact option cards -->
+        <div class="c-links" role="list" aria-label="Contact channels">
+
+          <!--
+            WhatsApp — PLACEHOLDER destination.
+            wa.me/91XXXXXXXXXX is NOT a real number.
+            This must be updated by the client before production.
+            Phase 21 configuration item.
+          -->
+          <a href="https://wa.me/91XXXXXXXXXX"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="c-link"
+             role="listitem"
+             aria-label="WhatsApp us — chat directly for fastest response">
+            <div class="c-l-icon" aria-hidden="true">💬</div>
+            <div>
+              <div class="c-l-lbl">WHATSAPP</div>
+              <div class="c-l-val">Chat directly — fastest response</div>
+            </div>
+          </a>
+
+          <!-- Email — contact@kritexalabs.com verified in approved legacy source -->
+          <a href="mailto:contact@kritexalabs.com"
+             class="c-link"
+             role="listitem"
+             aria-label="Email us at contact@kritexalabs.com">
+            <div class="c-l-icon" aria-hidden="true">📧</div>
+            <div>
+              <div class="c-l-lbl">EMAIL</div>
+              <div class="c-l-val">contact@kritexalabs.com</div>
+            </div>
+          </a>
+
+          <!-- Office — address from approved legacy source, non-clickable -->
+          <div class="c-link" role="listitem" aria-label="Office location: Rajiv Gandhi IT Park, Hinjewadi Phase I, Pune">
+            <div class="c-l-icon" aria-hidden="true">📍</div>
+            <div>
+              <div class="c-l-lbl">OFFICE</div>
+              <div class="c-l-val">Rajiv Gandhi IT Park, Hinjewadi Phase&nbsp;I, Pune&nbsp;–&nbsp;411057</div>
+            </div>
+          </div>
+
+          <!-- Response time — from approved legacy source, non-clickable -->
+          <div class="c-link" role="listitem" aria-label="Response time: within 2 to 4 hours on business days">
+            <div class="c-l-icon" aria-hidden="true">⏰</div>
+            <div>
+              <div class="c-l-lbl">RESPONSE TIME</div>
+              <div class="c-l-val">Within 2–4 hours on business days</div>
+            </div>
+          </div>
+
+        </div><!-- /.c-links -->
+
+      </div><!-- /.ci -->
+
+
+      <!-- ── RIGHT: Project inquiry form ── -->
+      <div class="cf rv">
+
+        <h3>Send Us a Message</h3>
+
+        <!--
+          Form action="#" — backend NOT connected.
+          action="#" prevents accidental submission until backend is wired.
+          Remove action="#" and add real action/method when backend is ready.
+        -->
+        <form
+          id="contact-inquiry-form"
+          class="contact-inquiry-form"
+          action="#"
+          method="post"
+          aria-label="Project inquiry form">
+
+          <!-- Row: Name + Phone -->
+          <div class="f-row">
+
+            <div class="fg">
+              <label for="f-name">Your Name</label>
+              <input
+                type="text"
+                id="f-name"
+                name="name"
+                placeholder="Rahul Sharma"
+                autocomplete="name"
+                required
+                minlength="2"
+                maxlength="80">
+            </div>
+
+            <div class="fg">
+              <label for="f-phone">Phone / WhatsApp <span class="contact-optional" aria-label="optional">(optional)</span></label>
+              <input
+                type="tel"
+                id="f-phone"
+                name="phone"
+                placeholder="+91 XXXXX XXXXX"
+                autocomplete="tel"
+                maxlength="20">
+            </div>
+
+          </div><!-- /.f-row -->
+
+          <!-- Email -->
+          <div class="fg">
+            <label for="f-email">Email Address</label>
+            <input
+              type="email"
+              id="f-email"
+              name="email"
+              placeholder="you@business.com"
+              autocomplete="email"
+              required
+              maxlength="120">
+          </div>
+
+          <!-- Service interest -->
+          <div class="fg">
+            <label for="f-service">What Do You Need?</label>
+            <select
+              id="f-service"
+              name="service"
+              required>
+              <option value="">Select a service…</option>
+              <option value="website-development">Website Development</option>
+              <option value="ai-automation">AI Automation / Chatbot</option>
+              <option value="seo-optimization">SEO Optimization</option>
+              <option value="ecommerce">E-Commerce Solution</option>
+              <option value="workflow-automation">Workflow Automation</option>
+              <option value="complete-growth">Complete Digital Growth System</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Project description -->
+          <div class="fg">
+            <label for="f-msg">Tell Us About Your Business</label>
+            <textarea
+              id="f-msg"
+              name="message"
+              rows="5"
+              placeholder="What does your business do? What's your main challenge? What results do you want?"
+              required
+              minlength="20"
+              maxlength="2000"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn-sub" type="submit">
+            Send Message — It's Free →
+          </button>
+
+          <!--
+            Form submission notice — HONEST state.
+            Backend is NOT connected. No alert() fake success.
+            This note persists until Phase 21 backend integration.
+            Do NOT change this to a success message unless backend exists.
+          -->
+          <p class="contact-form-notice" role="note">
+            ⚠ Form submissions are not yet connected to a backend. For an immediate response, please use <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer">WhatsApp</a> or <a href="mailto:contact@kritexalabs.com">email us directly</a>.
+          </p>
+
+        </form><!-- /#contact-inquiry-form -->
+
+      </div><!-- /.cf -->
+
+    </div><!-- /.con-form-grid -->
+
+  </div><!-- /.container -->
+</section>

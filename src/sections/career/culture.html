@@ -1,0 +1,95 @@
+<!-- ══════════════════════════════════════════════════════
+  CAREER SECTION: Culture / Benefits
+  src/sections/career/culture.html
+  Phase 13 — Career Page Rebuild
+
+  STRUCTURE:
+    - Section heading: "Why Build With Us?"
+    - 6 benefit cards (.ben-card) using existing .ben-grid layout
+    - Each card: icon + H3 + description
+
+  CONTENT: Preserved verbatim from src/pages/career.html
+    (Phase 1 extract of legacy/index-original.html #page-career)
+
+  CARDS (6 total — from approved legacy source):
+    1. 🚀 Real Projects, Day One
+    2. 🤖 AI-First Environment
+    3. 📈 Grow With the Company
+    4. 🌐 Remote-First Culture
+    5. 🎓 Mentorship & Growth
+    6. 💡 Ideas Welcome
+
+  CONTENT CLAIMS REVIEW:
+    - "Real clients, real outcomes" — marketing claim (preserved)
+    - "Revenue sharing, performance bonuses" — marketing claim (preserved)
+    - "Remote-First" / "Work from anywhere in India" — preserved
+    - "Weekly learning sessions, code reviews" — preserved
+    All preserved verbatim from approved legacy source.
+    None invented in Phase 13.
+
+  ACCESSIBILITY:
+    - Section uses aria-labelledby
+    - .ben-grid is a list of benefit cards
+    - H3 inside each card (correct hierarchy: H1 → H2 → H3)
+    - Emoji icons are aria-hidden (decorative)
+
+  NOTE:
+    All benefit content is aspirational/marketing copy.
+    No employee count, team size, or compensation details
+    are stated in this section.
+══════════════════════════════════════════════════════ -->
+
+<section class="section career-culture-section" aria-labelledby="career-culture-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Life at Kritexa Labs</div>
+      <h2 id="career-culture-heading">
+        Why Build <span class="grad-text">With Us?</span>
+      </h2>
+    </div>
+
+    <!-- Benefits grid — 6 cards using shared .ben-grid/.ben-card -->
+    <div class="ben-grid" role="list" aria-label="Culture and benefits">
+
+      <div class="ben-card rv" role="listitem">
+        <div class="ben-icon" aria-hidden="true">🚀</div>
+        <h3>Real Projects, Day One</h3>
+        <p>No tutorials, no fake work. You'll ship to production from your first week on live client projects.</p>
+      </div>
+
+      <div class="ben-card rv" role="listitem">
+        <div class="ben-icon" aria-hidden="true">🤖</div>
+        <h3>AI-First Environment</h3>
+        <p>Work with the latest AI tools daily — Claude, GPT-4, Cursor, n8n. We stay ahead so you do too.</p>
+      </div>
+
+      <div class="ben-card rv" role="listitem">
+        <div class="ben-icon" aria-hidden="true">📈</div>
+        <h3>Grow With the Company</h3>
+        <p>Revenue sharing, performance bonuses, and skill-based increments. Our growth is your growth.</p>
+      </div>
+
+      <div class="ben-card rv" role="listitem">
+        <div class="ben-icon" aria-hidden="true">🌐</div>
+        <h3>Remote-First Culture</h3>
+        <p>Work from anywhere in India. Flexible hours, async-first, results over attendance always.</p>
+      </div>
+
+      <div class="ben-card rv" role="listitem">
+        <div class="ben-icon" aria-hidden="true">🎓</div>
+        <h3>Mentorship &amp; Growth</h3>
+        <p>Weekly learning sessions, code reviews, direct mentorship from the founding team.</p>
+      </div>
+
+      <div class="ben-card rv" role="listitem">
+        <div class="ben-icon" aria-hidden="true">💡</div>
+        <h3>Ideas Welcome</h3>
+        <p>Your ideas matter. We experiment fast, iterate openly, and reward creative thinking at every level.</p>
+      </div>
+
+    </div><!-- /.ben-grid -->
+
+  </div><!-- /.container -->
+</section>

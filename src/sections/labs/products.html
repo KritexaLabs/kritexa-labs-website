@@ -1,0 +1,92 @@
+<!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Products
+  src/sections/labs/products.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Section heading: "PRODUCTS" / "Released products"
+    - Premium empty state with ambient glow and CTA
+
+  CONTENT INTEGRITY:
+    No verified released products exist in this repository.
+    An honest coming-soon state is shown rather than fabricating products.
+    When real products are released, replace the empty state with product cards.
+
+  ACCESSIBILITY:
+    - Section aria-labelledby
+    - Empty state role="status"
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="section labs-products-section" aria-labelledby="labs-products-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">From the Lab</div>
+      <h2 id="labs-products-heading">PRODUCTS</h2>
+      <p>Released products built and owned by Kritexa.</p>
+    </div>
+
+    <!-- Products grid — honest empty state -->
+    <div class="labs-products-grid rv">
+
+      <!--
+        ══════════════════════════════════════════════════
+        NO VERIFIED RELEASED PRODUCTS EXIST IN THIS REPOSITORY.
+        When real products are released, replace the empty state
+        with product cards using this structure:
+
+          <article class="labs-product-card" aria-labelledby="[id]">
+            <div class="labs-product-icon"> ... </div>
+            <div class="labs-product-info">
+              <span class="labs-badge labs-badge-live">LIVE</span>
+              <h3 id="[id]"> Product Name </h3>
+              <p> Short description </p>
+              <a href="[verified-url]" target="_blank" rel="noopener noreferrer" class="labs-explore-link">
+                Live Demo ↗
+              </a>
+            </div>
+          </article>
+
+        IMPORTANT: Only add a "Live Demo ↗" link when a verified public URL exists.
+        ══════════════════════════════════════════════════
+      -->
+
+      <!-- Premium empty state -->
+      <div class="labs-products-empty" role="status" aria-label="Products coming soon">
+        <div class="labs-products-empty-inner">
+
+          <!-- Ambient glow layers (decorative) -->
+          <div class="labs-products-empty-glow-purple" aria-hidden="true"></div>
+          <div class="labs-products-empty-glow-cyan" aria-hidden="true"></div>
+
+          <!-- Icon -->
+          <div class="labs-products-empty-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <path d="M20 4l4 8 8 1-6 5.5 1.5 8.5L20 23l-7.5 4 1.5-8.5L8 13l8-1z"
+                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+              <path d="M20 30v6M15 34h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Heading -->
+          <h3 class="labs-products-empty-title">Products are on the way.</h3>
+
+          <!-- Description -->
+          <p class="labs-products-empty-desc">
+            We're building products internally. They'll appear here when they're ready to share.
+          </p>
+
+          <!-- CTA -->
+          <a href="/contact" class="btn-g labs-products-notify">
+            Get Notified
+          </a>
+
+        </div>
+      </div>
+
+    </div><!-- /.labs-products-grid -->
+
+  </div><!-- /.container -->
+</section>

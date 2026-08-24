@@ -1,0 +1,49 @@
+<!-- ══════════════════════════════════════════════════════
+  HOME SECTION: Stats Strip
+  src/sections/home/stats.html
+  Phase 6 — Home Page Rebuild
+
+  Content: 4 animated stat boxes.
+  Counters animated by js/global.js IntersectionObserver.
+  data-count drives the target value.
+
+  ⚠️ CONTENT FLAG: All stats (50+, 30+, 8, 20) are rounded/approximate.
+  "50+ Projects Delivered", "30+ Happy Clients", "8 Industries Served",
+  "20 Hours Saved / Week" preserved from legacy.
+  See docs/CONTENT-MAP.md for flagged content.
+══════════════════════════════════════════════════════ -->
+<section class="section-sm" id="stats" style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="stats-row rv" aria-label="Company statistics">
+
+      <div class="stat-box">
+        <!--
+          data-count="50" → animated counter target.
+          Trailing "+" suffix added by home.js after count reaches target.
+        -->
+        <div class="stat-box-val" data-count="50" aria-label="50 plus">0</div>
+        <div class="stat-box-lbl">Projects Delivered</div>
+        <div class="stat-box-sub">and growing</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-box-val" data-count="30" aria-label="30 plus">0</div>
+        <div class="stat-box-lbl">Happy Clients</div>
+        <div class="stat-box-sub">across India</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-box-val" data-count="8" aria-label="8">0</div>
+        <div class="stat-box-lbl">Industries Served</div>
+        <div class="stat-box-sub">healthcare to finance</div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-box-val" data-count="20" aria-label="20">0</div>
+        <div class="stat-box-lbl">Hours Saved / Week</div>
+        <div class="stat-box-sub">per automation client</div>
+      </div>
+
+    </div>
+  </div>
+</section>

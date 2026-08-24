@@ -1,0 +1,209 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — INDUSTRY SOLUTIONS PAGE CSS
+   css/pages/industry-solutions.css
+   Phase 22 — NEW: Industry Solutions page
+
+   Industry Solutions-specific styles only. All global styles live in:
+     css/global.css → css/utilities.css → css/header.css →
+     css/footer.css → css/components.css
+
+   CSS load order:
+     global.css → utilities.css → header.css → footer.css →
+     components.css → pages/industry-solutions.css
+
+   Contents:
+     1. Screen-reader-only utility (.sr-only)
+     2. Hero section
+     3. Who We Serve section (moved from capabilities.css Phase 22)
+     4. Industry Solutions image and content overrides (moved from capabilities.css)
+     5. sol-btns cross-link extension
+     6. CTA section
+     7. Responsive breakpoints
+     8. Reduced-motion overrides
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ═══ 1. SCREEN-READER-ONLY UTILITY ═══ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ═══ 2. HERO SECTION ═══ */
+.is-hero-section {
+  scroll-margin-top: 74px;
+}
+.is-hero-section .btn-p,
+.is-hero-section .btn-g {
+  text-decoration: none;
+}
+.is-hero-section .btn-p:focus-visible,
+.is-hero-section .btn-g:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+
+/* ═══ 3. WHO WE SERVE SECTION ═══
+   Moved from capabilities.css Phase 22.
+   The .stat-box styles are shared from css/components.css.
+*/
+.who-serve-section {
+  padding: var(--space-13) 0 var(--space-11);
+}
+
+/* Industry tile hover — subtle lift */
+.cap-industry-tile {
+  transition: transform var(--duration-normal) ease,
+              box-shadow var(--duration-normal) ease;
+  cursor: default;
+}
+.cap-industry-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ═══ 4. INDUSTRY SOLUTIONS — IMAGE AND CONTENT OVERRIDES ═══
+   The .sol-img base styles are in css/components.css.
+   These ensure images fill the container correctly.
+*/
+.is-intro-section {
+  padding-bottom: 0;
+}
+
+.sol-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+/* sol-btn as <a> anchor */
+a.sol-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+a.sol-btn:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+/* Feature list — <ul> reset */
+.sol-feats {
+  list-style: none;
+  padding: 0;
+}
+.sol-feats .sol-feat {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+/* ═══ 5. SOL-BTNS — Cross-link extension ═══
+   Industry Solutions rows now have a secondary cross-link alongside
+   the primary CTA. The .sol-btns wrapper provides the flex layout.
+*/
+.sol-btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.sol-link {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-purple2);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-nav);
+  transition: color 0.18s var(--ease-standard);
+}
+.sol-link:hover {
+  color: var(--color-white);
+}
+.sol-link:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+
+/* ═══ 6. CTA SECTION ═══ */
+.is-cta-section {
+  text-align: center;
+}
+.is-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.is-cta-inner h2 {
+  font-size: clamp(var(--font-size-h3), 4vw, var(--font-size-h2));
+  margin-bottom: var(--space-4);
+}
+.is-cta-inner p {
+  color: var(--color-gray);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 0;
+}
+.is-cta-inner .btn-p:focus-visible,
+.is-cta-inner .btn-g:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+
+/* ═══ 7. RESPONSIVE BREAKPOINTS ═══ */
+
+@media (max-width: 768px) {
+  .who-serve-section {
+    padding: var(--space-12) 0 var(--space-10);
+  }
+  /* Industry grid always 2-col on mobile */
+  .industry-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .sol-btns {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .industry-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .is-hero-section .btn-p,
+  .is-hero-section .btn-g {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+
+/* ═══ 8. REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+  .cap-industry-tile {
+    transition: none !important;
+  }
+  .cap-industry-tile:hover {
+    transform: none;
+  }
+  .sol-link {
+    transition: none;
+  }
+}

@@ -1,0 +1,18 @@
+# robots.txt — Kritexa Labs
+# https://www.kritexalabs.com/robots.txt
+# Phase 17 — Advanced SEO, Indexing & Structured Data Engineering
+
+User-agent: *
+Allow: /
+
+# Disallow development artifacts and source files
+# These are not served in production but are listed as a precaution.
+Disallow: /docs/
+Disallow: /scripts/
+Disallow: /src/
+Disallow: /legacy/
+Disallow: /qa-screenshots/
+Disallow: /components/
+
+# Sitemap
+Sitemap: https://www.kritexalabs.com/sitemap.xml

@@ -1,0 +1,40 @@
+<!-- ══════════════════════════════════════════════════════
+  HOME SECTION: Industry Marquee
+  src/sections/home/marquee.html
+  Phase 6 — Home Page Rebuild
+
+  Content: "Trusted by businesses across India" + 10 industry labels
+  Items duplicated (×2) for infinite CSS scroll loop.
+  Pauses on hover via CSS animation-play-state.
+  aria-hidden on the marquee wrapper — purely decorative.
+══════════════════════════════════════════════════════ -->
+<div class="marquee-sec" aria-hidden="true" style="position:relative;z-index:1;">
+  <div class="marquee-label">Trusted by businesses across India</div>
+  <div style="overflow:hidden;position:relative;">
+    <div class="marquee-inner">
+      <span class="marq-item">🏥 Healthcare</span><span class="marq-sep">·</span>
+      <span class="marq-item">🏦 Finance</span><span class="marq-sep">·</span>
+      <span class="marq-item">🎓 Education</span><span class="marq-sep">·</span>
+      <span class="marq-item">🛍️ E-Commerce</span><span class="marq-sep">·</span>
+      <span class="marq-item">🏢 Real Estate</span><span class="marq-sep">·</span>
+      <span class="marq-item">🚀 Startups</span><span class="marq-sep">·</span>
+      <span class="marq-item">💼 Consulting</span><span class="marq-sep">·</span>
+      <span class="marq-item">🍽️ Food &amp; Beverage</span><span class="marq-sep">·</span>
+      <span class="marq-item">⚕️ Clinics</span><span class="marq-sep">·</span>
+      <span class="marq-item">🏗️ Construction</span><span class="marq-sep">·</span>
+      <!-- Duplicate for infinite loop -->
+      <span class="marq-item">🏥 Healthcare</span><span class="marq-sep">·</span>
+      <span class="marq-item">🏦 Finance</span><span class="marq-sep">·</span>
+      <span class="marq-item">🎓 Education</span><span class="marq-sep">·</span>
+      <span class="marq-item">🛍️ E-Commerce</span><span class="marq-sep">·</span>
+      <span class="marq-item">🏢 Real Estate</span><span class="marq-sep">·</span>
+      <span class="marq-item">🚀 Startups</span><span class="marq-sep">·</span>
+      <span class="marq-item">💼 Consulting</span><span class="marq-sep">·</span>
+      <span class="marq-item">🍽️ Food &amp; Beverage</span><span class="marq-sep">·</span>
+      <span class="marq-item">⚕️ Clinics</span><span class="marq-sep">·</span>
+      <span class="marq-item">🏗️ Construction</span><span class="marq-sep">·</span>
+    </div>
+    <div class="marq-fade-l" aria-hidden="true"></div>
+    <div class="marq-fade-r" aria-hidden="true"></div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/kritexa-ai.html
+  Phase 12 — Kritexa.AI Page Rebuild
+
+  REPLACES: The Phase 1 extracted monolithic content from legacy/index-original.html
+  ORIGINAL PAGE ID: #page-kritexaai
+
+  ARCHITECTURE:
+    - Section partial composition via {{SECTION:kritexa-ai/*}}
+    - Shared header/footer via components
+    - Page-specific CSS: /css/pages/kritexa-ai.css
+    - ZERO page-specific JavaScript
+      (countdown handled by existing js/animations.js global IIFE)
+
+  SECTION ORDER (from legacy source analysis + CONTENT-MAP.md):
+    1. hero      — cyan/purple hero, H1, countdown timer, waitlist form
+    2. features  — "Three Pillars": 3 feature cards with progress bars
+    3. stats     — 4-stat horizontal strip (10M+, 8+, Q3'26, Free)
+    4. cta       — page-level CTA ("Be First to Experience Kritexa.AI")
+
+  URL: /kritexa-ai
+  GENERATED OUTPUT: kritexa-ai/index.html
+
+  SEO:
+    Title: "Kritexa.AI — India's AI Platform for Business Growth | Kritexa Labs"
+    Description: "Kritexa.AI is being built to bring autonomous AI agents, conversational
+                  intelligence, and predictive growth tools to Indian businesses. Join the
+                  early access waitlist."
+    Canonical: https://www.kritexalabs.com/kritexa-ai
+    Active nav: nl-kritexaai
+
+  ACTIVE NAV:
+    nl-kritexaai gets class="active" + aria-current="page" via scripts/build.js injectActiveNav().
+    The .nav-kai-pill receives .active automatically when the id matches.
+
+  HEADING HIERARCHY:
+    H1  — "The Future of Intelligent Business"   (hero.html)
+    H2  — "Three Pillars of Kritexa.AI"           (features.html)
+    H3× — Individual feature titles (×3)           (features.html)
+    H2  — "Be First to Experience Kritexa.AI"      (cta.html)
+    H2  — "Ready to Build Your Digital Growth System?" (shared footer .gcta)
+
+  CONTENT POLICY:
+    All content preserved verbatim from legacy/index-original.html #page-kritexaai.
+    No AI capabilities, integrations, or metrics were fabricated in Phase 12.
+    Content claims are documented and classified in docs/CONTENT-MAP.md and
+    the Phase 12 final report.
+
+  WAITLIST FORM:
+    form action="#" — no backend connected.
+    Honest disclaimer shown to users.
+    Phase 21 will wire a real endpoint.
+
+  COUNTDOWN:
+    Target: 2026-10-01T00:00:00
+    Driven by existing js/animations.js countdown IIFE.
+    No new JS created.
+
+  BASE64 CLEANUP:
+    The Kritexa.AI hero uses only CSS gradients and inline SVG grid.
+    No raster images. No base64 blobs.
+    Zero base64 content in generated kritexa-ai/index.html.
+
+  NO FABRICATED CONTENT:
+    - No AI performance claims added
+    - No integration logos added
+    - No pricing structures invented
+    - No demo links invented
+    - No technology stack claims invented
+    - Content preserved verbatim from approved legacy source
+══════════════════════════════════════════════════════ -->
+
+<main>
+
+  {{SECTION:kritexa-ai/hero}}
+
+  {{SECTION:kritexa-ai/features}}
+
+  {{SECTION:kritexa-ai/stats}}
+
+  {{SECTION:kritexa-ai/cta}}
+
+</main>

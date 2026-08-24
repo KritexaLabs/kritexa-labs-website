@@ -1,0 +1,205 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — UTILITIES & PRIMITIVES
+   css/utilities.css
+   Phase 2 — Global Design System
+
+   This file defines the layout primitives, typography scale utilities,
+   spacing scales, buttons, badges, and reveal animations. It relies
+   entirely on design tokens.
+═══════════════════════════════════════════════════════════════ */
+
+/* ═══ LAYOUT / CONTAINER ═══ */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ═══ GRADIENT TEXT ═══ */
+.grad-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ SECTION SPACING ═══ */
+.section {
+  padding-block: var(--space-13);
+  position: relative;
+  z-index: var(--z-base);
+}
+.section-sm {
+  padding-block: var(--space-12);
+  position: relative;
+  z-index: var(--z-base);
+}
+
+/* ═══ SCROLL REVEAL ANIMATIONS ═══ */
+.rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-standard),
+              transform var(--duration-slow) var(--ease-standard);
+}
+/* Fallback: ensure rv elements inside active pages are never permanently hidden */
+.page.active .rv.on,
+.page.active .rv-l.on,
+.page.active .rv-r.on {
+  opacity: 1;
+  transform: none;
+}
+.rv.on {
+  opacity: 1;
+  transform: none;
+}
+.rv-l {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity var(--duration-slow) var(--ease-standard),
+              transform var(--duration-slow) var(--ease-standard);
+}
+.rv-l.on {
+  opacity: 1;
+  transform: none;
+}
+.rv-r {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity var(--duration-slow) var(--ease-standard),
+              transform var(--duration-slow) var(--ease-standard);
+}
+.rv-r.on {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══ NOISE TEXTURE OVERLAY ═══ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: var(--z-base);
+  opacity: 0.4;
+}
+
+/* ═══ SECTION HEADING ═══ */
+.sh {
+  text-align: center;
+  margin-bottom: var(--space-11);
+}
+.sh-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-caption);
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  color: var(--color-purple2);
+  margin-bottom: var(--space-4);
+}
+.sh-eyebrow::before,
+.sh-eyebrow::after {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--color-purple2);
+  opacity: 0.5;
+}
+.sh h2 {
+  font-size: var(--font-size-section-heading);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-section);
+  line-height: var(--line-height-tight-heading);
+  margin-bottom: var(--space-4);
+}
+.sh p {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray);
+  max-width: 540px;
+  margin-inline: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ═══ BUTTONS FOUNDATION ═══ */
+/* Primary Button */
+.btn-p {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  background: var(--color-purple);
+  color: var(--color-white);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-btn-p);
+  transition: all var(--duration-normal) var(--ease-standard);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-p:hover {
+  background: var(--color-purple-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-p-hover);
+}
+.btn-p:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Ghost / Outline Button */
+.btn-g {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 26px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-white);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-normal) var(--ease-standard);
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-g:hover {
+  border-color: var(--color-border-purple);
+  background: rgba(124, 58, 237, 0.06);
+  transform: translateY(-2px);
+}
+.btn-g:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+/* Icon / Arrow Transition */
+.btn-icon {
+  transition: transform var(--transition-duration-fast) var(--ease-standard);
+}
+.btn-p:hover .btn-icon,
+.btn-g:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* ═══ BADGE / TAG ═══ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border-purple);
+  color: var(--color-purple2);
+  background: rgba(124, 58, 237, 0.06);
+}

@@ -1,0 +1,681 @@
+<!-- ══════════════════════════════════════════════════════
+  PORTFOLIO SECTION: Projects Grid
+  src/sections/portfolio/projects.html
+  Phase 9 — Portfolio Page Rebuild
+
+  STRUCTURE:
+    - Count bar (updated dynamically by portfolio.js)
+    - 12 project cards in 2-col grid (stacks to 1-col on mobile)
+    - Each card: image + category badge + num badge + details
+    - Details: tags + type badge + year + name + desc + results + tech + CTA
+
+  PROJECT DATA (from approved legacy source — preserved verbatim):
+    1.  MediCare Clinic         (Healthcare / Website)
+    2.  Arjun Mehta Consulting  (Consultants / Website)
+    3.  FinVault Advisors       (Finance / Website)
+    4.  WealthTrack Portfolio   (Finance / Software)
+    5.  LaunchPad SaaS          (Startups / Website)
+    6.  TaskFlow — Project SaaS (Startups / Software)
+    7.  Spice Route Restaurant  (Local Business / Website)
+    8.  BrightMind Academy      (Education / Website)
+    9.  EduTrack LMS Platform   (Education / Software)
+    10. Desi Crafts D2C Store   (E-Commerce / Website)
+    11. InventoryPro             (E-Commerce / Software)
+    12. Priya Sharma Speaker     (Personal Brands / Website)
+
+  STATUS: All 12 projects are "Partially documented" (see CONTENT-MAP.md).
+    All projects share the same placeholder image (portfolio-placeholder.jpg).
+    All projects dated 2026 — consistent with "Est. 2026" company founding.
+    Project descriptions and metrics are from approved legacy content.
+    No external URLs verified for any project — CTA links to /contact.
+
+  IMAGE STRATEGY:
+    - All 12 cards use /assets/images/portfolio-placeholder.jpg
+    - This is the same placeholder extracted from the legacy source
+    - The legacy source uses only 1 unique image for all 12 portfolio cards
+    - Image dimensions: 600×400 (aspect ratio declared to reduce CLS)
+    - Cards 1–2 (above the fold / first grid row): no loading="lazy"
+    - Cards 3–12 (below fold): loading="lazy"
+
+  SEMANTICS:
+    - Each card is an <article> element (independent portfolio item)
+    - No clickable divs — CTA uses <a href="/contact"> anchor
+    - data-category and data-type on <article> for JS filter
+    - aria-labelledby links each card to its h3
+
+  ACCESSIBILITY:
+    - h3 for each project title (under h2 in section hierarchy)
+    - Project results have descriptive labels for screen readers
+    - View Project link text is descriptive with project name
+    - Images: alt text describes the project context
+
+  CMS-READINESS:
+    Each article follows a consistent structure ready for template migration.
+    Future CMS fields: title, slug, category, type, description, image,
+                       tags, results, technologies, featured, externalUrl
+
+  ⚠ CONTENT FLAGS (from approved legacy source — not invented):
+    - All project names, descriptions, results, technologies from approved src
+    - Results (3×, #1, 80% etc.) are from original marketing content
+    - "SEBI Compliant" claim on FinVault preserved from approved content
+    - "₹2Cr Seed Raised" on LaunchPad is marketing claim from approved content
+    - No client names verified independently — treated as illustrative
+    - Technology stacks preserved from original source without verification
+══════════════════════════════════════════════════════ -->
+
+<section class="pf-section" aria-labelledby="pf-section-heading">
+  <h2 id="pf-section-heading" class="sr-only">Portfolio Projects</h2>
+  <div class="container">
+
+    <!-- Count bar — updated dynamically by portfolio.js -->
+    <div class="pf-count-bar" aria-live="polite" aria-atomic="true">
+      <span id="pf-count-text">Showing all 12 projects</span>
+    </div>
+
+    <!-- Projects grid -->
+    <div class="pf-grid" id="pf-project-grid" role="list">
+
+      <!-- ─── 01 Healthcare / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Healthcare" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-01">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="MediCare Clinic project — healthcare website and patient acquisition system"
+            class="pf-img"
+            width="600" height="400"
+            fetchpriority="high"
+            decoding="async">
+          <span class="pf-img-num" aria-hidden="true">01</span>
+          <span class="pf-cat-badge pf-cat-cyan" aria-hidden="true">Healthcare</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-cyan">Booking System</span>
+              <span class="pf-tag pf-tag-cyan">Local SEO</span>
+              <span class="pf-tag pf-tag-cyan">Patient Portal</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-01">MediCare Clinic</h3>
+          <p class="pf-desc">Full patient acquisition system for a multi-specialty clinic in Pune. Online booking with Google Calendar, AI chatbot for 24/7 queries, local SEO pushed them to #1 on Google Maps in 60 days.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">3×</span><span class="pf-res-lbl">Appointments</span></div>
+            <div class="pf-result"><span class="pf-res-val">#1</span><span class="pf-res-lbl">Google Maps</span></div>
+            <div class="pf-result"><span class="pf-res-val">90%</span><span class="pf-res-lbl">Less No-Shows</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">Next.js</li>
+              <li class="pf-tech">Razorpay</li>
+              <li class="pf-tech">Google API</li>
+              <li class="pf-tech">WhatsApp Cloud</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — MediCare Clinic">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 02 Consultants / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Consultants" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-02">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="Arjun Mehta Consulting — personal brand website with booking funnel"
+            class="pf-img"
+            width="600" height="400"
+            decoding="async">
+          <span class="pf-img-num" aria-hidden="true">02</span>
+          <span class="pf-cat-badge pf-cat-purple" aria-hidden="true">Consultants</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-purple">Personal Brand</span>
+              <span class="pf-tag pf-tag-purple">Booking Funnel</span>
+              <span class="pf-tag pf-tag-purple">AI Intake</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-02">Arjun Mehta Consulting</h3>
+          <p class="pf-desc">Premium personal brand website with pre-qualification booking that filters prospects automatically and nurtures them into high-ticket discovery calls without lifting a finger.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">5×</span><span class="pf-res-lbl">Discovery Calls</span></div>
+            <div class="pf-result"><span class="pf-res-val">80%</span><span class="pf-res-lbl">Less Manual Work</span></div>
+            <div class="pf-result"><span class="pf-res-val">₹40L</span><span class="pf-res-lbl">Pipeline/Month</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">React</li>
+              <li class="pf-tech">Calendly API</li>
+              <li class="pf-tech">Mailchimp</li>
+              <li class="pf-tech">Zapier</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — Arjun Mehta Consulting">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 03 Finance / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Finance" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-03">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="FinVault Advisors — finance and compliance website with lead qualification"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">03</span>
+          <span class="pf-cat-badge pf-cat-green" aria-hidden="true">Finance</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-green">SEBI Compliant</span>
+              <span class="pf-tag pf-tag-green">Lead Bot</span>
+              <span class="pf-tag pf-tag-green">Client Portal</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-03">FinVault Advisors</h3>
+          <p class="pf-desc">Compliance-ready site for a SEBI-registered advisor. AI lead qualifier pre-screens prospects, SIP calculator drives engagement, secure portal streamlines onboarding.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">4×</span><span class="pf-res-lbl">Qualified Leads</span></div>
+            <div class="pf-result"><span class="pf-res-val">100%</span><span class="pf-res-lbl">SEBI Compliant</span></div>
+            <div class="pf-result"><span class="pf-res-val">60%</span><span class="pf-res-lbl">Faster Onboarding</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">Vue.js</li>
+              <li class="pf-tech">Node.js</li>
+              <li class="pf-tech">AWS</li>
+              <li class="pf-tech">DocuSign</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — FinVault Advisors">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 04 Finance / Software ─── -->
+      <article class="pf-card rv"
+               data-category="Finance" data-type="Software"
+               role="listitem"
+               aria-labelledby="pf-title-04">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="WealthTrack Portfolio App — portfolio management software with analytics dashboard"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">04</span>
+          <span class="pf-cat-badge pf-cat-green" aria-hidden="true">Finance</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-green">Portfolio Tracker</span>
+              <span class="pf-tag pf-tag-green">CRM</span>
+              <span class="pf-tag pf-tag-green">Analytics Dashboard</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-software" aria-label="Project type: Software">⚙️ Software</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-04">WealthTrack Portfolio App</h3>
+          <p class="pf-desc">Custom portfolio management software with real-time market data, client reporting dashboard, automated rebalancing alerts, and full regulatory compliance tracking.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">200+</span><span class="pf-res-lbl">Clients Managed</span></div>
+            <div class="pf-result"><span class="pf-res-val">Real-time</span><span class="pf-res-lbl">Data</span></div>
+            <div class="pf-result"><span class="pf-res-val">Zero</span><span class="pf-res-lbl">Compliance Gaps</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">React</li>
+              <li class="pf-tech">Python</li>
+              <li class="pf-tech">FastAPI</li>
+              <li class="pf-tech">PostgreSQL</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — WealthTrack Portfolio App">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 05 Startups / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Startups" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-05">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="LaunchPad SaaS — startup website with MVP landing page and analytics"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">05</span>
+          <span class="pf-cat-badge pf-cat-orange" aria-hidden="true">Startups</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-orange">MVP Landing</span>
+              <span class="pf-tag pf-tag-orange">A/B Testing</span>
+              <span class="pf-tag pf-tag-orange">Analytics</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-05">LaunchPad SaaS</h3>
+          <p class="pf-desc">Zero-to-launch in 3 weeks. Investor-ready pitch website, high-converting product landing page with live demo embed, analytics stack, and A/B tested CTA flows.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">Launched</span><span class="pf-res-lbl">in 3 Weeks</span></div>
+            <div class="pf-result"><span class="pf-res-val">40%</span><span class="pf-res-lbl">CVR Improvement</span></div>
+            <div class="pf-result"><span class="pf-res-val">₹2Cr</span><span class="pf-res-lbl">Seed Raised</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">Next.js</li>
+              <li class="pf-tech">Framer Motion</li>
+              <li class="pf-tech">Mixpanel</li>
+              <li class="pf-tech">HubSpot</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — LaunchPad SaaS">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 06 Startups / Software ─── -->
+      <article class="pf-card rv"
+               data-category="Startups" data-type="Software"
+               role="listitem"
+               aria-labelledby="pf-title-06">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="TaskFlow Project SaaS — multi-tenant SaaS with subscription billing and real-time collaboration"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">06</span>
+          <span class="pf-cat-badge pf-cat-orange" aria-hidden="true">Startups</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-orange">SaaS Product</span>
+              <span class="pf-tag pf-tag-orange">Multi-tenant</span>
+              <span class="pf-tag pf-tag-orange">Subscription</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-software" aria-label="Project type: Software">⚙️ Software</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-06">TaskFlow — Project SaaS</h3>
+          <p class="pf-desc">Full SaaS product — multi-tenant architecture, subscription billing, real-time collaboration features, and mobile-responsive dashboard built from scratch to first paying customers.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">500+</span><span class="pf-res-lbl">Beta Users</span></div>
+            <div class="pf-result"><span class="pf-res-val">₹0</span><span class="pf-res-lbl">to ₹3L MRR</span></div>
+            <div class="pf-result"><span class="pf-res-val">4.8★</span><span class="pf-res-lbl">App Rating</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">Next.js</li>
+              <li class="pf-tech">Supabase</li>
+              <li class="pf-tech">Razorpay</li>
+              <li class="pf-tech">Socket.io</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — TaskFlow Project SaaS">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 07 Local Business / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Local Business" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-07">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="Spice Route Restaurant — hyperlocal marketing with Google Maps SEO and review automation"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">07</span>
+          <span class="pf-cat-badge pf-cat-yellow" aria-hidden="true">Local Business</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-yellow">Google Maps SEO</span>
+              <span class="pf-tag pf-tag-yellow">WhatsApp Funnel</span>
+              <span class="pf-tag pf-tag-yellow">Reviews</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-07">Spice Route Restaurant</h3>
+          <p class="pf-desc">Hyperlocal domination for a 3-location restaurant chain. Google Business Profile optimization, automated review collection, and geo-targeted Meta ad campaigns.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">#1</span><span class="pf-res-lbl">Maps in 45 Days</span></div>
+            <div class="pf-result"><span class="pf-res-val">200+</span><span class="pf-res-lbl">New 5★ Reviews</span></div>
+            <div class="pf-result"><span class="pf-res-val">4×</span><span class="pf-res-lbl">Walk-in Traffic</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">WordPress</li>
+              <li class="pf-tech">WhatsApp API</li>
+              <li class="pf-tech">Meta Ads</li>
+              <li class="pf-tech">Google Ads</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — Spice Route Restaurant">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 08 Education / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Education" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-08">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="BrightMind Academy — education enrollment portal with AI admissions chatbot"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">08</span>
+          <span class="pf-cat-badge pf-cat-pink" aria-hidden="true">Education</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-pink">Enrollment Portal</span>
+              <span class="pf-tag pf-tag-pink">Admissions Bot</span>
+              <span class="pf-tag pf-tag-pink">Student CRM</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-08">BrightMind Academy</h3>
+          <p class="pf-desc">24/7 enrollment engine — online application with payment, AI admissions chatbot handling 500+ daily queries, and automated document collection that doubled admissions.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">2×</span><span class="pf-res-lbl">Enrollment Rate</span></div>
+            <div class="pf-result"><span class="pf-res-val">500+</span><span class="pf-res-lbl">Daily AI Chats</span></div>
+            <div class="pf-result"><span class="pf-res-val">70%</span><span class="pf-res-lbl">Less Admin Work</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">React</li>
+              <li class="pf-tech">Razorpay</li>
+              <li class="pf-tech">Dialogflow</li>
+              <li class="pf-tech">Zoho CRM</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — BrightMind Academy">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 09 Education / Software ─── -->
+      <article class="pf-card rv"
+               data-category="Education" data-type="Software"
+               role="listitem"
+               aria-labelledby="pf-title-09">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="EduTrack LMS Platform — custom learning management system with live class scheduling"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">09</span>
+          <span class="pf-cat-badge pf-cat-pink" aria-hidden="true">Education</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-pink">LMS</span>
+              <span class="pf-tag pf-tag-pink">Live Classes</span>
+              <span class="pf-tag pf-tag-pink">Progress Tracking</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-software" aria-label="Project type: Software">⚙️ Software</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-09">EduTrack LMS Platform</h3>
+          <p class="pf-desc">Custom LMS with live class scheduling via Zoom, student progress dashboards, assignment submission portal, and automated certificate generation for 1,200+ students.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">1,200+</span><span class="pf-res-lbl">Students</span></div>
+            <div class="pf-result"><span class="pf-res-val">98%</span><span class="pf-res-lbl">Completion Rate</span></div>
+            <div class="pf-result"><span class="pf-res-val">Auto</span><span class="pf-res-lbl">Certificates</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">React</li>
+              <li class="pf-tech">Node.js</li>
+              <li class="pf-tech">Zoom API</li>
+              <li class="pf-tech">MongoDB</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — EduTrack LMS Platform">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 10 E-Commerce / Website ─── -->
+      <article class="pf-card rv"
+               data-category="E-Commerce" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-10">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="Desi Crafts D2C Store — full-stack D2C e-commerce with cart recovery and AI recommendations"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">10</span>
+          <span class="pf-cat-badge pf-cat-red" aria-hidden="true">E-Commerce</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-red">D2C Store</span>
+              <span class="pf-tag pf-tag-red">Cart Recovery</span>
+              <span class="pf-tag pf-tag-red">AI Upsells</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-10">Desi Crafts D2C Store</h3>
+          <p class="pf-desc">Full-stack D2C store with Razorpay, AI product recommendations, abandoned cart recovery via WhatsApp, and multi-channel selling across website, WhatsApp, and Instagram.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">35%</span><span class="pf-res-lbl">Cart Recovery</span></div>
+            <div class="pf-result"><span class="pf-res-val">3×</span><span class="pf-res-lbl">Avg Order Value</span></div>
+            <div class="pf-result"><span class="pf-res-val">60%</span><span class="pf-res-lbl">Repeat Purchase</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">Next.js</li>
+              <li class="pf-tech">Razorpay</li>
+              <li class="pf-tech">WhatsApp API</li>
+              <li class="pf-tech">Klaviyo</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — Desi Crafts D2C Store">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 11 E-Commerce / Software ─── -->
+      <article class="pf-card rv"
+               data-category="E-Commerce" data-type="Software"
+               role="listitem"
+               aria-labelledby="pf-title-11">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="InventoryPro Stock Manager — inventory management for multi-branch retail chain"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">11</span>
+          <span class="pf-cat-badge pf-cat-red" aria-hidden="true">E-Commerce</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-red">Inventory System</span>
+              <span class="pf-tag pf-tag-red">Order Tracking</span>
+              <span class="pf-tag pf-tag-red">POS</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-software" aria-label="Project type: Software">⚙️ Software</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-11">InventoryPro — Stock Manager</h3>
+          <p class="pf-desc">Custom inventory management for a 5-branch retail chain. Real-time stock sync, POS integration, automated reorder alerts, and supplier management portal.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">5</span><span class="pf-res-lbl">Branches Synced</span></div>
+            <div class="pf-result"><span class="pf-res-val">Zero</span><span class="pf-res-lbl">Stockouts</span></div>
+            <div class="pf-result"><span class="pf-res-val">40%</span><span class="pf-res-lbl">Less Wastage</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">React</li>
+              <li class="pf-tech">Python</li>
+              <li class="pf-tech">Django</li>
+              <li class="pf-tech">PostgreSQL</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — InventoryPro Stock Manager">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ─── 12 Personal Brands / Website ─── -->
+      <article class="pf-card rv"
+               data-category="Personal Brands" data-type="Website"
+               role="listitem"
+               aria-labelledby="pf-title-12">
+        <div class="pf-img-wrap">
+          <img
+            src="/assets/images/portfolio-placeholder.jpg"
+            alt="Priya Sharma Speaker Site — personal brand website with media kit and newsletter"
+            class="pf-img"
+            loading="lazy"
+            width="600" height="400">
+          <span class="pf-img-num" aria-hidden="true">12</span>
+          <span class="pf-cat-badge pf-cat-teal" aria-hidden="true">Personal Brands</span>
+        </div>
+        <div class="pf-details">
+          <div class="pf-top-row">
+            <div class="pf-tags" aria-label="Project tags">
+              <span class="pf-tag pf-tag-teal">Personal Brand</span>
+              <span class="pf-tag pf-tag-teal">Speaking Page</span>
+              <span class="pf-tag pf-tag-teal">Newsletter</span>
+            </div>
+            <div class="pf-meta-group">
+              <span class="pf-type-badge pf-type-website" aria-label="Project type: Website">🌐 Website</span>
+              <span class="pf-year">2026</span>
+            </div>
+          </div>
+          <h3 class="pf-name" id="pf-title-12">Priya Sharma — Speaker Site</h3>
+          <p class="pf-desc">Premium digital home for a keynote speaker — media kit for booking inquiries, email list building, content hub for SEO, and integrated online course delivery portal.</p>
+          <div class="pf-results" aria-label="Project results">
+            <div class="pf-result"><span class="pf-res-val">10×</span><span class="pf-res-lbl">Online Visibility</span></div>
+            <div class="pf-result"><span class="pf-res-val">5×</span><span class="pf-res-lbl">Speaking Inquiries</span></div>
+            <div class="pf-result"><span class="pf-res-val">8,000+</span><span class="pf-res-lbl">Email Subscribers</span></div>
+          </div>
+          <div class="pf-tech-row">
+            <span class="pf-tech-lbl" aria-hidden="true">Built with</span>
+            <ul class="pf-techs" aria-label="Technologies used">
+              <li class="pf-tech">Next.js</li>
+              <li class="pf-tech">Mailchimp</li>
+              <li class="pf-tech">Gumroad</li>
+              <li class="pf-tech">Webflow</li>
+            </ul>
+          </div>
+          <a class="pf-view-btn" href="/contact" aria-label="Start a similar project — Priya Sharma Speaker Site">
+            <span>Start a Similar Project</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div><!-- /#pf-project-grid -->
+  </div><!-- /.container -->
+</section>

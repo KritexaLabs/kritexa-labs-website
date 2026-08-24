@@ -1,0 +1,154 @@
+{
+  "extractedAt": "2026-08-23T04:44:55.033Z",
+  "sourceFile": "index.html",
+  "assets": [
+    {
+      "filename": "assets/logos/logo.png",
+      "format": "PNG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "navbar logo-mark",
+        "every page footer brand logo (×8–9 copies in source)"
+      ],
+      "extractedSizeKB": 50.5,
+      "note": "Single unique PNG — was duplicated ≈9× in source HTML"
+    },
+    {
+      "filename": "assets/images/about-hero.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 CSS background-image data URI",
+      "usages": [
+        "About page .about-fs-hero-bg background"
+      ],
+      "extractedSizeKB": 172.3,
+      "note": "Used as CSS background — no alt text required at this layer"
+    },
+    {
+      "filename": "assets/images/contact-hero.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 CSS background-image data URI",
+      "usages": [
+        "Contact page .con-hero-bg background"
+      ],
+      "extractedSizeKB": 123.1,
+      "note": "Used as CSS background — no alt text required at this layer"
+    },
+    {
+      "filename": "assets/images/solution-01.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "Capabilities page sol-row image",
+        "Portfolio page card thumbnail (reused)"
+      ],
+      "extractedSizeKB": 144.7,
+      "note": "Unique image #1 — same file re-used across Capabilities and Portfolio pages"
+    },
+    {
+      "filename": "assets/images/solution-02.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "Capabilities page sol-row image",
+        "Portfolio page card thumbnail (reused)"
+      ],
+      "extractedSizeKB": 127,
+      "note": "Unique image #2 — same file re-used across Capabilities and Portfolio pages"
+    },
+    {
+      "filename": "assets/images/solution-03.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "Capabilities page sol-row image",
+        "Portfolio page card thumbnail (reused)"
+      ],
+      "extractedSizeKB": 132.4,
+      "note": "Unique image #3 — same file re-used across Capabilities and Portfolio pages"
+    },
+    {
+      "filename": "assets/images/solution-04.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "Capabilities page sol-row image",
+        "Portfolio page card thumbnail (reused)"
+      ],
+      "extractedSizeKB": 146.9,
+      "note": "Unique image #4 — same file re-used across Capabilities and Portfolio pages"
+    },
+    {
+      "filename": "assets/images/solution-05.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "Capabilities page sol-row image",
+        "Portfolio page card thumbnail (reused)"
+      ],
+      "extractedSizeKB": 73.4,
+      "note": "Unique image #5 — same file re-used across Capabilities and Portfolio pages"
+    },
+    {
+      "filename": "assets/images/solution-06.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML",
+      "usages": [
+        "Capabilities page sol-row image",
+        "Portfolio page card thumbnail (reused)"
+      ],
+      "extractedSizeKB": 60.3,
+      "note": "Unique image #6 — same file re-used across Capabilities and Portfolio pages"
+    },
+    {
+      "filename": "assets/images/solution-05.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML (Capabilities page, blob 5)",
+      "usages": [
+        "Capabilities page sol-row image (05/08 — Local Businesses)"
+      ],
+      "extractedSizeKB": 144.7,
+      "extractedPhase": "Phase 8",
+      "note": "Extracted in Phase 8. Overwrote Phase 1 solution-05 (lower-res extract). Industry: Local Business."
+    },
+    {
+      "filename": "assets/images/solution-06.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML (Capabilities page, blob 6)",
+      "usages": [
+        "Capabilities page sol-row image (06/08 — Education Institutes)"
+      ],
+      "extractedSizeKB": 192.5,
+      "extractedPhase": "Phase 8",
+      "note": "Extracted in Phase 8. Overwrote Phase 1 solution-06 (lower-res extract). Industry: Education."
+    },
+    {
+      "filename": "assets/images/solution-07.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML (Capabilities page, blob 7)",
+      "usages": [
+        "Capabilities page sol-row image (07/08 — E-Commerce & D2C)"
+      ],
+      "extractedSizeKB": 181.8,
+      "extractedPhase": "Phase 8",
+      "note": "Extracted in Phase 8. Overwrote Phase 1 solution-07 (lower-res extract). Industry: E-Commerce."
+    },
+    {
+      "filename": "assets/images/solution-08.jpg",
+      "format": "JPEG",
+      "originalEncoding": "base64 inline <img> src in HTML (Capabilities page, blob 8)",
+      "usages": [
+        "Capabilities page sol-row image (08/08 — Personal Brands)"
+      ],
+      "extractedSizeKB": 113.8,
+      "extractedPhase": "Phase 8",
+      "note": "New image extracted in Phase 8. Industry: Personal Brands. No prior equivalent."
+    }
+  ],
+  "summary": {
+    "totalAssetsExtracted": 14,
+    "logoFiles": 1,
+    "imageFiles": 13,
+    "phase1Extractions": 10,
+    "phase8Extractions": 4
+  }
+}

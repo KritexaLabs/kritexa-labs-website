@@ -1,0 +1,115 @@
+<!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Hero
+  src/sections/labs/hero.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Labs hero (.labs-hero) — custom hero, not .iph
+    - Eyebrow: mono badge "KRITEXA LABS"
+    - H1: "KRITEXA LABS"
+    - Tagline: "Where ideas become technology."
+    - Supporting copy: engineering playground description
+    - Technical visual: CSS grid + glowing nodes (pure CSS, no canvas)
+    - Meta focus areas row
+
+  VISUAL:
+    - Deep radial purple + cyan ambient glow
+    - CSS technical grid overlay
+    - Floating node dots with subtle CSS animation
+    - Monospace eyebrow badge with blinking dot
+    - Technical / premium aesthetic
+
+  ACCESSIBILITY:
+    - section with aria-labelledby pointing to labs-h1
+    - Exactly one H1 on the page
+    - All decorative elements aria-hidden
+    - .rv: scroll-reveal
+
+  H1: "KRITEXA LABS" — page identity
+  One H1 per page rule preserved.
+══════════════════════════════════════════════════════ -->
+
+<section class="labs-hero" aria-labelledby="labs-h1">
+
+  <!-- Technical grid visual — CSS only, decorative -->
+  <div class="labs-hero-grid" aria-hidden="true">
+    <div class="labs-hero-grid-inner"></div>
+  </div>
+
+  <!-- Node network — pure CSS decorative element -->
+  <div class="labs-hero-nodes" aria-hidden="true">
+    <span class="labs-node labs-node-1"></span>
+    <span class="labs-node labs-node-2"></span>
+    <span class="labs-node labs-node-3"></span>
+    <span class="labs-node labs-node-4"></span>
+    <span class="labs-node labs-node-5"></span>
+    <span class="labs-node labs-node-6"></span>
+    <!-- Connection lines (CSS borders) -->
+    <span class="labs-node-line labs-line-1"></span>
+    <span class="labs-node-line labs-line-2"></span>
+    <span class="labs-node-line labs-line-3"></span>
+  </div>
+
+  <!-- Ambient glow layers -->
+  <div class="labs-hero-glow labs-hero-glow-purple" aria-hidden="true"></div>
+  <div class="labs-hero-glow labs-hero-glow-cyan" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="labs-hero-inner rv">
+
+      <!-- Eyebrow badge -->
+      <div class="labs-hero-eyebrow">
+        <span class="labs-hero-eyebrow-dot" aria-hidden="true"></span>
+        <span>KRITEXA LABS</span>
+        <span class="labs-hero-eyebrow-sep" aria-hidden="true"></span>
+        <span class="labs-hero-eyebrow-sub">ENGINEERING LABORATORY</span>
+      </div>
+
+      <!-- H1 — exactly one per page -->
+      <h1 id="labs-h1">
+        <span class="grad-text">KRITEXA</span> LABS
+      </h1>
+
+      <!-- Tagline -->
+      <p class="labs-hero-tagline">
+        Where ideas become technology.
+      </p>
+
+      <!-- Supporting copy -->
+      <p class="labs-hero-desc">
+        An engineering playground for experiments, prototypes,
+        new technologies, and ideas we turn into working builds.
+      </p>
+
+      <!-- Meta row — communicates what LABS is -->
+      <div class="labs-hero-meta" aria-label="Labs focus areas">
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Experiments
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Prototypes
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Automation
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          AI
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Working Builds
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</section>

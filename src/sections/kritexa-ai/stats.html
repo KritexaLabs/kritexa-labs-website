@@ -1,0 +1,72 @@
+<!-- ══════════════════════════════════════════════════════
+  KRITEXA.AI SECTION: Stats Strip
+  src/sections/kritexa-ai/stats.html
+  Phase 12 — Kritexa.AI Page Rebuild
+
+  STRUCTURE:
+    - 4-stat horizontal strip with dividers
+    - Stats from approved legacy source
+
+  STATS (preserved verbatim from legacy — classification below):
+    1. 10M+  Training Conversations
+       ⚠️ HIGH-RISK claim — flagged in docs/CONTENT-MAP.md.
+       "10M+ Training Conversations is an ambitious claim for a company
+       founded in 2026; likely aspirational."
+       Status: Marketing claim / Aspirational. Preserved from approved legacy.
+       NOT added by Phase 12. NOT strengthened.
+
+    2. 8+    Indian Languages
+       Status: Marketing claim (aspirational; not externally verified).
+
+    3. Q3'26  Beta Launch
+       Status: Partially documented. Target timeline from approved source.
+
+    4. Free   Early Access Tier
+       Status: Marketing claim. Pricing policy not confirmed.
+       Preserved as "Early Access Tier" description — not a confirmed price.
+
+  ACCESSIBILITY:
+    - role="list" + role="listitem" for stats
+    - Dividers: aria-hidden="true"
+    - Stat labels meaningful to screen readers
+
+  NOTE: Dividers hidden on mobile via components.css responsive rule.
+══════════════════════════════════════════════════════ -->
+
+<section class="kai-stats-sec" aria-label="Kritexa.AI development highlights">
+  <div class="container">
+    <div class="kai-stats rv" role="list" aria-label="Key Kritexa.AI statistics">
+
+      <!-- Stat 1: Training Conversations (⚠️ aspirational — see header note) -->
+      <div class="kai-stat" role="listitem">
+        <div class="kai-stat-n" aria-label="10 million plus">10M+</div>
+        <div class="kai-stat-l">Training Conversations</div>
+      </div>
+
+      <div class="kai-stat-div" aria-hidden="true"></div>
+
+      <!-- Stat 2: Indian Languages supported -->
+      <div class="kai-stat" role="listitem">
+        <div class="kai-stat-n" aria-label="8 plus">8+</div>
+        <div class="kai-stat-l">Indian Languages</div>
+      </div>
+
+      <div class="kai-stat-div" aria-hidden="true"></div>
+
+      <!-- Stat 3: Beta launch timeline -->
+      <div class="kai-stat" role="listitem">
+        <div class="kai-stat-n">Q3'26</div>
+        <div class="kai-stat-l">Beta Launch</div>
+      </div>
+
+      <div class="kai-stat-div" aria-hidden="true"></div>
+
+      <!-- Stat 4: Early access pricing note -->
+      <div class="kai-stat" role="listitem">
+        <div class="kai-stat-n">Free</div>
+        <div class="kai-stat-l">Early Access Tier</div>
+      </div>
+
+    </div><!-- /.kai-stats -->
+  </div><!-- /.container -->
+</section>

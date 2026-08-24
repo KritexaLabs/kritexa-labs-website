@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kritexa LABS — Experiments, Builds & Technology</title>
+<meta name="description" content="Kritexa LABS is an engineering playground for experiments, prototypes, and internal builds. Where ideas become technology.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.kritexalabs.com/labs">
+<!-- Open Graph — Phase 17 -->
+<meta property="og:title" content="Kritexa LABS — Experiments, Builds & Technology">
+<meta property="og:description" content="Kritexa LABS is an engineering playground for experiments, prototypes, and internal builds. Where ideas become technology.">
+<meta property="og:url" content="https://www.kritexalabs.com/labs">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kritexa Labs">
+<meta property="og:image" content="https://www.kritexalabs.com/assets/logos/logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X Card — Phase 17 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kritexalabs">
+<meta name="twitter:title" content="Kritexa LABS — Experiments, Builds & Technology">
+<meta name="twitter:description" content="Kritexa LABS is an engineering playground for experiments, prototypes, and internal builds. Where ideas become technology.">
+<meta name="twitter:image" content="https://www.kritexalabs.com/assets/logos/logo.png">
+<!-- Favicon — Phase 17 -->
+<link rel="icon" type="image/png" href="/assets/logos/logo.png">
+<link rel="apple-touch-icon" href="/assets/logos/logo.png">
+<meta name="theme-color" content="#0a0a0f">
+<!-- Fonts — preconnect for parallel connection; dns-prefetch as fallback -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- CSS — dependency order: tokens → global → utilities → header → footer → components → page -->
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/utilities.css">
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/pages/labs.css">
+<!-- Structured Data — Phase 17 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kritexa Labs",
+  "url": "https://www.kritexalabs.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.kritexalabs.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kritexa LABS",
+      "item": "https://www.kritexalabs.com/labs"
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="labs">
+
+<!-- ══════════════════════════════════════════════════════════════
+  KRITEXA LABS — GLOBAL HEADER COMPONENT
+  components/header.html
+
+  Phase 3 — Header & Navigation Rebuild
+  Phase 4 — Products Mega Menu (extended)
+  Phase 22 — Solutions / Live Projects IA Redesign
+
+  STRUCTURE:
+    - Desktop: Logo | Center pill nav | Products trigger | Right CTA
+    - Mobile: Logo | Hamburger → full-screen drawer
+    - Solutions dropdown: Capabilities / Industry Solutions / Portfolio / Case Studies
+    - Products mega menu: full-width panel beneath the header
+
+  NAVIGATION ROUTES (multi-page — real <a href> anchors):
+    / → Home
+    /about → About
+    /capabilities → Capabilities  (under Solutions dropdown)
+    /industry-solutions → Industry Solutions (under Solutions dropdown) [NEW Phase 22]
+    /portfolio → Portfolio (under Solutions dropdown)
+    /case-studies → Case Studies (under Solutions dropdown)
+    /live-projects → Live Projects [NEW Phase 22 — top-level]
+    /contact → Contact
+    /kritexa-ai → Kritexa.AI
+    /career, /labs → footer-only (in mobile drawer only)
+
+  SOLUTIONS DROPDOWN (Phase 22):
+    Solutions is a top-level nav trigger — NOT a page.
+    It opens a dropdown containing:
+      Capabilities → /capabilities (technology, engineering & what we can build)
+      Industry Solutions → /industry-solutions (solutions by industry / business type)
+      Portfolio → /portfolio (what we have made)
+      Case Studies → /case-studies (real business problems + implementation + outcomes)
+
+  PRODUCTS:
+    Phase 4: full mega menu — Offerings / Tools / APIs / Platforms.
+    Phase 22: renamed "Solutions" column to "Offerings" to avoid collision with
+    top-level Solutions nav item. See docs/PHASE22-IA-REDESIGN-REPORT.md AD-22-001.
+    Products has NO dedicated page. It is a navigation trigger only.
+
+  ACCESSIBILITY:
+    - aria-current="page" is set per-page via js/active-nav.js
+    - Solutions button: aria-expanded, aria-controls, aria-haspopup
+    - Products button: aria-expanded, aria-controls, aria-haspopup
+    - Mobile Products: aria-expanded, aria-controls
+    - Mobile Solutions: aria-expanded, aria-controls
+    - Mobile menu: aria-label, aria-expanded, aria-controls on toggle
+    - All interactive controls are keyboard accessible
+    - Focus order: logo → nav links → Solutions → Products → Kritexa.AI → Start Project → hamburger
+
+  BUILD USAGE:
+    Composed into every page by scripts/build.js.
+    Do not edit the output files directly — edit this component.
+══════════════════════════════════════════════════════════════ -->
+
+<!-- Cursor dots (global) -->
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+
+<!-- Ambient background blobs (global) -->
+<div class="ambient" aria-hidden="true">
+  <div class="amb-blob ab1"></div>
+  <div class="amb-blob ab2"></div>
+  <div class="amb-blob ab3"></div>
+</div>
+
+<!-- ══════════ SKIP NAVIGATION ══════════ -->
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+
+  <!-- Logo -->
+  <a class="nav-logo" href="/" aria-label="Kritexa Labs — home">
+    <div class="nav-logo-mark" aria-hidden="true">
+      <img src="/assets/logos/logo.png" alt="" width="36" height="36" loading="eager">
+    </div>
+    <span>KRITEXA <span class="nav-logo-dim">LABS</span></span>
+  </a>
+
+  <!-- Desktop center pill navigation -->
+  <div class="nav-center" id="nav-center" role="list">
+    <a class="nav-link" href="/"             id="nl-home"          role="listitem">Home<span class="nav-glow" aria-hidden="true"></span></a>
+    <a class="nav-link" href="/about"        id="nl-about"         role="listitem">About<span class="nav-glow" aria-hidden="true"></span></a>
+
+    <!--
+      Solutions trigger — activates the Solutions dropdown.
+      NOT an <a href>: Solutions has no dedicated landing page (Phase 22).
+      aria-haspopup="true" signals a popup to AT.
+      aria-expanded is toggled by js/navigation.js.
+      aria-controls points to the Solutions dropdown below.
+    -->
+    <div class="nav-dropdown-wrap" role="listitem">
+      <button
+        type="button"
+        class="nav-link nav-solutions-trigger"
+        id="nav-solutions-btn"
+        aria-expanded="false"
+        aria-controls="solutions-dropdown"
+        aria-haspopup="true">
+        Solutions
+        <span class="nav-products-arrow" aria-hidden="true">▾</span>
+        <span class="nav-glow" aria-hidden="true"></span>
+      </button>
+
+      <!-- Solutions dropdown panel -->
+      <div
+        class="nav-solutions-dropdown"
+        id="solutions-dropdown"
+        role="region"
+        aria-label="Solutions menu"
+        aria-hidden="true">
+        <a class="nsd-item" href="/capabilities" id="nl-capabilities">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Capabilities</span>
+            <span class="nsd-item-desc">Technology, engineering &amp; what we build</span>
+          </div>
+        </a>
+        <a class="nsd-item" href="/industry-solutions" id="nl-industry-solutions">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="10" width="4" height="7" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="7" y="6" width="4" height="11" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="13" y="2" width="4" height="15" rx="1" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Industry Solutions</span>
+            <span class="nsd-item-desc">Solutions by industry &amp; business type</span>
+          </div>
+        </a>
+        <a class="nsd-item" href="/portfolio" id="nl-portfolio">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="10" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="1" y="10" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="10" y="10" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Portfolio</span>
+            <span class="nsd-item-desc">What we have made</span>
+          </div>
+        </a>
+        <a class="nsd-item" href="/case-studies" id="nl-case-studies">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6 9l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Case Studies</span>
+            <span class="nsd-item-desc">Real problems, implementation, outcomes</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a class="nav-link" href="/live-projects"  id="nl-live-projects"  role="listitem">Live Projects<span class="nav-glow" aria-hidden="true"></span></a>
+    <a class="nav-link" href="/contact"         id="nl-contact"         role="listitem">Contact<span class="nav-glow" aria-hidden="true"></span></a>
+
+    <span class="nav-sep-v" aria-hidden="true"></span>
+
+    <!-- Products trigger + Kritexa.AI pill group -->
+    <div class="nav-special-group">
+      <!--
+        Products trigger — activates the mega menu.
+        NOT an <a href>: Products has no dedicated page (AD-011, AD-020).
+        aria-haspopup="true" signals a popup to AT.
+        aria-expanded is toggled by js/navigation.js.
+        aria-controls points to the mega menu container below.
+      -->
+      <button
+        type="button"
+        class="nav-products-trigger"
+        id="nav-products-btn"
+        aria-expanded="false"
+        aria-controls="products-mega-menu"
+        aria-haspopup="true">
+        Products
+        <span class="nav-products-arrow" aria-hidden="true">▾</span>
+      </button>
+
+      <!-- Kritexa.AI special pill -->
+      <a href="/kritexa-ai" class="nav-kai-pill" id="nl-kritexaai">
+        <span class="nav-kai-dot" aria-hidden="true"></span>
+        <span>● Kritexa.AI</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right-side CTA -->
+  <div class="nav-right">
+    <!--
+      Start Project — temporary destination: /contact
+      Final destination has NOT been decided. Documented in AD-019.
+      Do not change this to a final URL until Phase 11 / project form is decided.
+    -->
+    <a class="btn-nav-solid" href="/contact" id="nav-start-project">Start Project →</a>
+  </div>
+
+  <!-- Hamburger — hidden on desktop, shown on mobile or when nav overflows -->
+  <button
+    type="button"
+    class="nav-ham"
+    id="ham"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mob">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+
+</nav>
+
+<!-- ══════════ PRODUCTS MEGA MENU (desktop) ══════════ -->
+<!--
+  Positioned directly below the navbar (top: 74px via CSS).
+  id="products-mega-menu" must match aria-controls on the Products button.
+  Managed entirely by js/navigation.js — open/close/ARIA/outside-click/Escape.
+
+  Phase 22 NOTE — "Solutions" column renamed to "Offerings":
+    The Products mega menu previously had a "Solutions" category column.
+    Since Phase 22 introduces a top-level "Solutions" nav item, the column
+    has been renamed "Offerings" to avoid user confusion. The description
+    is updated accordingly. See docs/PHASE22-IA-REDESIGN-REPORT.md AD-22-001.
+
+  PRODUCT DESTINATIONS:
+    Product destination pages have NOT been implemented.
+    The four categories are intentional non-navigational labels.
+    Actual product URLs will be connected when those pages are created.
+    See docs/ARCHITECTURE-DECISIONS.md AD-024.
+-->
+<div
+  class="products-mega-menu"
+  id="products-mega-menu"
+  role="region"
+  aria-label="Products menu"
+  aria-hidden="true">
+
+  <div class="pmm-inner">
+
+    <!-- ── OFFERINGS (formerly "Solutions" — renamed Phase 22 to avoid nav collision) ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="10" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="10" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Offerings</span>
+      </div>
+      <p class="pmm-col-desc">End-to-end growth systems built for your business.</p>
+      <!-- Product destination links will be added here when product pages are ready. -->
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── TOOLS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.22 3.22l1.41 1.41M13.36 13.36l1.41 1.41M3.22 14.78l1.41-1.41M13.36 4.64l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Tools</span>
+      </div>
+      <p class="pmm-col-desc">Productivity and marketing tools to accelerate your workflow.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── APIS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="3" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 9h4l2-5M5 9h4l2 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">APIs</span>
+      </div>
+      <p class="pmm-col-desc">Developer-grade APIs for AI, data, and communications.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── PLATFORMS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="7" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="12" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Platforms</span>
+      </div>
+      <p class="pmm-col-desc">SaaS, AI, and developer platforms built for scale.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+  </div><!-- /pmm-inner -->
+
+  <!-- Bottom strip — Kritexa.AI cross-link (only real navigable link in the menu) -->
+  <div class="pmm-footer-strip">
+    <span class="pmm-footer-note">Interested in our AI platform?</span>
+    <a href="/kritexa-ai" class="pmm-footer-link">
+      <span class="pmm-footer-dot" aria-hidden="true"></span>
+      Explore Kritexa.AI →
+    </a>
+  </div>
+
+</div><!-- /products-mega-menu -->
+
+
+<!-- ══════════ MOBILE NAVIGATION DRAWER ══════════ -->
+<nav
+  class="nav-mob"
+  id="mob"
+  role="navigation"
+  aria-label="Mobile navigation"
+  aria-hidden="true">
+
+  <a href="/"                 id="ml-home"               class="nav-mob-link">Home</a>
+  <a href="/about"            id="ml-about"              class="nav-mob-link">About</a>
+
+  <!--
+    Mobile Solutions trigger — expands the solutions accordion panel.
+    aria-expanded is toggled by js/navigation.js.
+    arrow rotates via CSS when aria-expanded="true".
+  -->
+  <button
+    type="button"
+    class="nav-mob-products"
+    id="mob-solutions-btn"
+    aria-expanded="false"
+    aria-controls="mob-solutions-panel">
+    Solutions
+    <span class="nav-mob-products-arrow" aria-hidden="true">+</span>
+  </button>
+
+  <!--
+    Mobile Solutions panel — accordion.
+    Four pages: Capabilities / Industry Solutions / Portfolio / Case Studies
+  -->
+  <div class="nav-mob-products-panel" id="mob-solutions-panel" aria-hidden="true">
+    <div class="mob-solutions-list">
+      <a href="/capabilities"       id="ml-capabilities"       class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Capabilities</span>
+          <span class="mob-sol-desc">Technology &amp; engineering</span>
+        </span>
+      </a>
+      <a href="/industry-solutions" id="ml-industry-solutions"  class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Industry Solutions</span>
+          <span class="mob-sol-desc">Solutions by industry</span>
+        </span>
+      </a>
+      <a href="/portfolio"          id="ml-portfolio"           class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Portfolio</span>
+          <span class="mob-sol-desc">What we have made</span>
+        </span>
+      </a>
+      <a href="/case-studies"       id="ml-case-studies"        class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Case Studies</span>
+          <span class="mob-sol-desc">Real problems, real outcomes</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <a href="/live-projects"    id="ml-live-projects"      class="nav-mob-link">Live Projects</a>
+  <a href="/contact"          id="ml-contact"            class="nav-mob-link">Contact</a>
+
+  <!--
+    Mobile Products trigger — expands the products accordion panel.
+    aria-expanded is toggled by js/navigation.js.
+    arrow rotates via CSS when aria-expanded="true".
+  -->
+  <button
+    type="button"
+    class="nav-mob-products"
+    id="mob-products-btn"
+    aria-expanded="false"
+    aria-controls="mob-products-panel">
+    Products
+    <span class="nav-mob-products-arrow" aria-hidden="true">+</span>
+  </button>
+
+  <!--
+    Mobile Products panel — accordion.
+    Four category labels: Offerings / Tools / APIs / Platforms.
+    These are intentional non-navigational labels (no href).
+    Product destination links will be added when product pages exist.
+    Phase 22: "Solutions" → "Offerings" to avoid naming collision.
+  -->
+  <div class="nav-mob-products-panel" id="mob-products-panel" aria-hidden="true">
+    <div class="mob-pmm-grid">
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="10" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="10" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        <span class="mob-pmm-label">Offerings</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </span>
+        <span class="mob-pmm-label">Tools</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="3" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 9h4l2-5M5 9h4l2 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="mob-pmm-label">APIs</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><rect x="1" y="2" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="7" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="12" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        <span class="mob-pmm-label">Platforms</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="/kritexa-ai"       id="ml-kritexaai"          class="nav-mob-link nav-mob-kai">● Kritexa.AI</a>
+
+  <div class="nav-mob-divider" aria-hidden="true"></div>
+
+  <!-- Mobile CTA -->
+  <a href="/contact" class="mob-cta">Start Project →</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/labs.html
+  Phase 24 — Labs Page Redesign
+
+  ARCHITECTURE:
+    - Section partial composition via {{SECTION:labs/*}}
+    - Shared header/footer via components
+    - Page-specific CSS: /css/pages/labs.css
+    - Page-specific JS: /js/pages/labs.js (filter logic)
+
+  SECTION ORDER:
+    1. hero         — labs-specific hero with H1
+    2. experiments  — active experiments + concepts
+    3. built-tested — main showcase with filters + build cards
+    4. products     — released products (honest empty state)
+    5. cta          — "Have an idea? Let's build it."
+
+  URL: /labs
+  GENERATED OUTPUT: labs/index.html
+
+  NAVIGATION STATUS:
+    Labs is FOOTER-ONLY — per Architecture Decision AD-012.
+    Not in primary desktop header navigation.
+    Accessible from: Footer "Our Work" column / mobile drawer.
+    activeNav is empty string — no header nav link to activate.
+
+  SEO:
+    Title: "Kritexa LABS — Experiments, Builds & Technology"
+    Description updated to reflect new positioning.
+    Canonical: https://www.kritexalabs.com/labs
+
+  HEADING HIERARCHY:
+    H1  — "KRITEXA LABS"                          (hero)
+    H2  — "EXPERIMENTS"                            (experiments)
+    H3  — "Concepts & Planned Builds"              (experiments)
+    H2  — "BUILT & TESTED"                         (built-tested)
+    H2  — "PRODUCTS"                               (products)
+    H2  — "Have an idea? Let's build it."          (cta)
+    H2  — "Ready to Build Your Digital Growth System?" (footer .gcta)
+
+  CONTENT INTEGRITY:
+    No builds, products, or technologies fabricated.
+    All experiment content preserved from legacy source.
+    Build & Products sections show honest empty/coming-soon states.
+
+  JS:
+    js/pages/labs.js — filter functionality for build grid.
+    No other page-specific JS required.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  <!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Hero
+  src/sections/labs/hero.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Labs hero (.labs-hero) — custom hero, not .iph
+    - Eyebrow: mono badge "KRITEXA LABS"
+    - H1: "KRITEXA LABS"
+    - Tagline: "Where ideas become technology."
+    - Supporting copy: engineering playground description
+    - Technical visual: CSS grid + glowing nodes (pure CSS, no canvas)
+    - Meta focus areas row
+
+  VISUAL:
+    - Deep radial purple + cyan ambient glow
+    - CSS technical grid overlay
+    - Floating node dots with subtle CSS animation
+    - Monospace eyebrow badge with blinking dot
+    - Technical / premium aesthetic
+
+  ACCESSIBILITY:
+    - section with aria-labelledby pointing to labs-h1
+    - Exactly one H1 on the page
+    - All decorative elements aria-hidden
+    - .rv: scroll-reveal
+
+  H1: "KRITEXA LABS" — page identity
+  One H1 per page rule preserved.
+══════════════════════════════════════════════════════ -->
+
+<section class="labs-hero" aria-labelledby="labs-h1">
+
+  <!-- Technical grid visual — CSS only, decorative -->
+  <div class="labs-hero-grid" aria-hidden="true">
+    <div class="labs-hero-grid-inner"></div>
+  </div>
+
+  <!-- Node network — pure CSS decorative element -->
+  <div class="labs-hero-nodes" aria-hidden="true">
+    <span class="labs-node labs-node-1"></span>
+    <span class="labs-node labs-node-2"></span>
+    <span class="labs-node labs-node-3"></span>
+    <span class="labs-node labs-node-4"></span>
+    <span class="labs-node labs-node-5"></span>
+    <span class="labs-node labs-node-6"></span>
+    <!-- Connection lines (CSS borders) -->
+    <span class="labs-node-line labs-line-1"></span>
+    <span class="labs-node-line labs-line-2"></span>
+    <span class="labs-node-line labs-line-3"></span>
+  </div>
+
+  <!-- Ambient glow layers -->
+  <div class="labs-hero-glow labs-hero-glow-purple" aria-hidden="true"></div>
+  <div class="labs-hero-glow labs-hero-glow-cyan" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="labs-hero-inner rv">
+
+      <!-- Eyebrow badge -->
+      <div class="labs-hero-eyebrow">
+        <span class="labs-hero-eyebrow-dot" aria-hidden="true"></span>
+        <span>KRITEXA LABS</span>
+        <span class="labs-hero-eyebrow-sep" aria-hidden="true"></span>
+        <span class="labs-hero-eyebrow-sub">ENGINEERING LABORATORY</span>
+      </div>
+
+      <!-- H1 — exactly one per page -->
+      <h1 id="labs-h1">
+        <span class="grad-text">KRITEXA</span> LABS
+      </h1>
+
+      <!-- Tagline -->
+      <p class="labs-hero-tagline">
+        Where ideas become technology.
+      </p>
+
+      <!-- Supporting copy -->
+      <p class="labs-hero-desc">
+        An engineering playground for experiments, prototypes,
+        new technologies, and ideas we turn into working builds.
+      </p>
+
+      <!-- Meta row — communicates what LABS is -->
+      <div class="labs-hero-meta" aria-label="Labs focus areas">
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Experiments
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Prototypes
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Automation
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          AI
+        </span>
+        <span class="labs-hero-meta-sep" aria-hidden="true">·</span>
+        <span class="labs-hero-meta-item">
+          <span class="labs-hero-meta-dot" aria-hidden="true"></span>
+          Working Builds
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Experiments
+  src/sections/labs/experiments.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Section heading: "EXPERIMENTS" / "What we're exploring"
+    - 3 active experiment cards with status badges + progress bars
+    - "ON THE HORIZON" sub-section with 4 planned concept cards
+
+  CARD STRUCTURE (active):
+    Top row: category label | status badge
+    Title (large)
+    Description (muted secondary text)
+    Progress bar (purple→cyan gradient)
+    Bottom meta: technology · ETA
+
+  STATUS SYSTEM:
+    ACTIVE  — green blinking dot
+    PLANNED — amber dot
+
+  CONTENT: Preserved exactly from legacy source.
+  Progress percentages, ETAs, tool references — all from approved source.
+
+  ACCESSIBILITY:
+    - Section uses aria-labelledby
+    - Progress bars: role="meter"
+    - Status badges: aria-label
+    - Cards: <article> with aria-labelledby
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="section labs-experiments-section" aria-labelledby="labs-exp-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Kritexa Labs</div>
+      <h2 id="labs-exp-heading">EXPERIMENTS</h2>
+      <p>What we're exploring — research, prototypes, and early-stage builds.</p>
+    </div>
+
+    <!-- Status board banner -->
+    <div class="labs-status-board rv" role="status" aria-label="Labs status board">
+      <span class="labs-status-dot" aria-hidden="true"></span>
+      <span class="labs-status-text">ACTIVE RESEARCH BOARD</span>
+      <span class="labs-status-divider" aria-hidden="true">|</span>
+      <span class="labs-status-date">3 experiments in progress</span>
+    </div>
+
+    <!-- Active experiment cards — 3-column grid -->
+    <div class="labs-exp-grid rv" role="list" aria-label="Active experiments">
+
+      <!-- Experiment 1: Conversational Lead Qualifier v2 -->
+      <article class="labs-exp-card" role="listitem" aria-labelledby="labs-exp-1">
+
+        <!-- Top metadata row: category | status -->
+        <div class="labs-exp-card-header">
+          <span class="labs-exp-category">AI / NLP</span>
+          <span class="labs-badge labs-badge-active" aria-label="Status: Active">
+            <span class="labs-badge-dot" aria-hidden="true"></span>ACTIVE
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h3 id="labs-exp-1" class="labs-exp-title">Conversational Lead Qualifier v2</h3>
+
+        <!-- Description -->
+        <p class="labs-exp-desc">
+          Fine-tuning an LLM for Indian business contexts — understands Hinglish,
+          local jargon, and qualifies leads without human intervention.
+        </p>
+
+        <!-- Progress bar -->
+        <div class="labs-exp-progress">
+          <div class="labs-prog-hd">
+            <span>PROGRESS</span><span>73%</span>
+          </div>
+          <div class="labs-prog-bar"
+               role="meter"
+               aria-valuenow="73"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Progress: 73%">
+            <div class="labs-prog-fill" style="--prog-width:73%;" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Bottom meta -->
+        <div class="labs-exp-meta">
+          <span class="labs-exp-meta-tag">OpenAI Fine-tuning</span>
+          <span class="labs-exp-meta-tag">ETA: Aug 2026</span>
+        </div>
+
+        <!-- Hover explore indicator -->
+        <div class="labs-exp-card-footer" aria-hidden="true">
+          <span class="labs-exp-explore">Explore Experiment ↗</span>
+        </div>
+
+      </article>
+
+      <!-- Experiment 2: WhatsApp-First CRM -->
+      <article class="labs-exp-card" role="listitem" aria-labelledby="labs-exp-2">
+
+        <div class="labs-exp-card-header">
+          <span class="labs-exp-category">AUTOMATION</span>
+          <span class="labs-badge labs-badge-active" aria-label="Status: Active">
+            <span class="labs-badge-dot" aria-hidden="true"></span>ACTIVE
+          </span>
+        </div>
+
+        <h3 id="labs-exp-2" class="labs-exp-title">WhatsApp-First CRM for Local Businesses</h3>
+
+        <p class="labs-exp-desc">
+          Complete CRM inside WhatsApp — no app, no login needed. Owners manage leads,
+          follow-ups, and invoices via natural chat commands.
+        </p>
+
+        <div class="labs-exp-progress">
+          <div class="labs-prog-hd">
+            <span>PROGRESS</span><span>61%</span>
+          </div>
+          <div class="labs-prog-bar"
+               role="meter"
+               aria-valuenow="61"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Progress: 61%">
+            <div class="labs-prog-fill" style="--prog-width:61%;" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="labs-exp-meta">
+          <span class="labs-exp-meta-tag">WhatsApp API</span>
+          <span class="labs-exp-meta-tag">ETA: Jul 2026</span>
+        </div>
+
+        <div class="labs-exp-card-footer" aria-hidden="true">
+          <span class="labs-exp-explore">Explore Experiment ↗</span>
+        </div>
+
+      </article>
+
+      <!-- Experiment 3: Zero-JS Static Site Generator -->
+      <article class="labs-exp-card" role="listitem" aria-labelledby="labs-exp-3">
+
+        <div class="labs-exp-card-header">
+          <span class="labs-exp-category">WEB / PERFORMANCE</span>
+          <span class="labs-badge labs-badge-active" aria-label="Status: Active">
+            <span class="labs-badge-dot" aria-hidden="true"></span>ACTIVE
+          </span>
+        </div>
+
+        <h3 id="labs-exp-3" class="labs-exp-title">Zero-JS Static Site Generator for Indian SMBs</h3>
+
+        <p class="labs-exp-desc">
+          Ultra-lightweight website engine producing sub-1KB pages that load
+          on 2G networks and rank on Google without JavaScript overhead.
+        </p>
+
+        <div class="labs-exp-progress">
+          <div class="labs-prog-hd">
+            <span>PROGRESS</span><span>48%</span>
+          </div>
+          <div class="labs-prog-bar"
+               role="meter"
+               aria-valuenow="48"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Progress: 48%">
+            <div class="labs-prog-fill" style="--prog-width:48%;" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="labs-exp-meta">
+          <span class="labs-exp-meta-tag">Next.js / Edge</span>
+          <span class="labs-exp-meta-tag">ETA: Sep 2026</span>
+        </div>
+
+        <div class="labs-exp-card-footer" aria-hidden="true">
+          <span class="labs-exp-explore">Explore Experiment ↗</span>
+        </div>
+
+      </article>
+
+    </div><!-- /.labs-exp-grid -->
+
+    <!-- ── ON THE HORIZON — Concepts & Planned Builds ─────────── -->
+    <div class="labs-horizon-heading rv">
+      <div class="labs-horizon-eyebrow">
+        <span class="labs-horizon-eyebrow-line" aria-hidden="true"></span>
+        <span>ON THE HORIZON</span>
+        <span class="labs-horizon-eyebrow-line" aria-hidden="true"></span>
+      </div>
+      <h3 class="labs-concepts-title">Concepts &amp; Planned Builds</h3>
+      <p class="labs-horizon-sub">Ideas in our pipeline — not yet in active development.</p>
+    </div>
+
+    <div class="labs-concepts-grid rv" role="list" aria-label="Planned experiments">
+
+      <!-- Concept 1: Voice-First Navigation -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-1">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-1">Voice-First Navigation (Hindi)</h4>
+        <p>Voice commands in Hindi/Hinglish for websites — accessibility-first for Tier 2/3 India markets.</p>
+        <div class="labs-concept-meta">
+          <span>Q3 2026</span>
+          <span aria-hidden="true">·</span>
+          <span>Voice AI</span>
+        </div>
+      </article>
+
+      <!-- Concept 2: Automated Client Reporting Dashboard -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-2">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-2">Automated Client Reporting Dashboard</h4>
+        <p>GA4 + GSC + Meta Ads data summarized weekly by AI in plain English insights for clients.</p>
+        <div class="labs-concept-meta">
+          <span>Q4 2026</span>
+          <span aria-hidden="true">·</span>
+          <span>SaaS</span>
+        </div>
+      </article>
+
+      <!-- Concept 3: AI Website Maintenance Agent -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-3">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-3">AI Website Maintenance Agent</h4>
+        <p>Autonomous agent monitoring websites 24/7, auto-fixing issues, sending health reports.</p>
+        <div class="labs-concept-meta">
+          <span>Q1 2027</span>
+          <span aria-hidden="true">·</span>
+          <span>AI Agent</span>
+        </div>
+      </article>
+
+      <!-- Concept 4: Clinic Appointment AI -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-4">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-4">Clinic Appointment AI (Micro-SaaS)</h4>
+        <p>WhatsApp + web booking with AI triage and no-show prediction for Indian clinics.</p>
+        <div class="labs-concept-meta">
+          <span>Q1 2027</span>
+          <span aria-hidden="true">·</span>
+          <span>Healthcare AI</span>
+        </div>
+      </article>
+
+    </div><!-- /.labs-concepts-grid -->
+
+  </div><!-- /.container -->
+</section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Built & Tested (main showcase)
+  src/sections/labs/built-tested.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Section heading: "BUILT & TESTED"
+    - Supporting copy: "Real interfaces. Experimental builds."
+    - Category filters: premium pill controls
+    - Featured build card — Elara Properties (LIVE, verified)
+    - Secondary build cards (coming soon placeholders)
+
+  CONTENT INTEGRITY:
+    Verified build: Elara Properties — Real Estate Website
+    Live URL: https://elara-properties-theta.vercel.app/
+    Build and featured card reflect the first verified live build.
+
+  FILTER SYSTEM:
+    Client-side JS in js/pages/labs.js handles filtering.
+    data-build-type on each card drives visibility.
+    aria-pressed managed by labs.js.
+
+  ACCESSIBILITY:
+    - Section aria-labelledby
+    - Filter buttons: aria-pressed, aria-controls
+    - Build cards: <article> with aria-labelledby
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="section labs-builds-section" aria-labelledby="labs-builds-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Internal Builds</div>
+      <h2 id="labs-builds-heading">BUILT &amp; TESTED</h2>
+      <p>
+        Real interfaces. Experimental builds. Ideas turned into working products.
+      </p>
+    </div>
+
+    <!-- Category filter pills -->
+    <div
+      class="labs-filters rv"
+      role="group"
+      aria-label="Filter builds by category"
+      id="labs-build-filters">
+
+      <button
+        class="labs-filter active"
+        data-filter="all"
+        aria-pressed="true"
+        aria-controls="labs-build-grid">
+        ALL
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="websites"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        WEBSITES
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="apps"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        APPS
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="ai"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        AI
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="tools"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        TOOLS
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="ui-systems"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        UI SYSTEMS
+      </button>
+
+    </div><!-- /.labs-filters -->
+
+    <!-- Featured build card — Elara Properties (first verified LABS build) -->
+    <div class="labs-featured-build rv">
+      <article
+        class="labs-featured-card"
+        aria-labelledby="labs-featured-heading">
+
+        <!-- Preview area — technical screen frame -->
+        <div class="labs-featured-preview" aria-hidden="true">
+          <!-- Technical grid overlay -->
+          <div class="labs-featured-preview-grid"></div>
+          <!-- Ambient glow -->
+          <div class="labs-featured-preview-glow"></div>
+          <!-- Centered content -->
+          <div class="labs-featured-preview-inner">
+            <!-- Screen frame -->
+            <div class="labs-featured-screen">
+              <!-- Scanline overlay -->
+              <div class="labs-featured-scanlines"></div>
+              <!-- Screen top bar -->
+              <div class="labs-featured-screen-bar">
+                <span class="labs-screen-dot"></span>
+                <span class="labs-screen-dot"></span>
+                <span class="labs-screen-dot"></span>
+              </div>
+              <!-- Screen content — project name representation -->
+              <div class="labs-featured-screen-body">
+                <div class="labs-screen-line labs-screen-line-lg"></div>
+                <div class="labs-screen-line labs-screen-line-md"></div>
+                <div class="labs-screen-line labs-screen-line-sm"></div>
+                <div class="labs-screen-grid-row">
+                  <div class="labs-screen-block"></div>
+                  <div class="labs-screen-block"></div>
+                  <div class="labs-screen-block"></div>
+                </div>
+              </div>
+            </div>
+            <p class="labs-featured-preview-label">FEATURED BUILD</p>
+          </div>
+        </div>
+
+        <!-- Build content panel -->
+        <div class="labs-featured-content">
+
+          <div class="labs-featured-label-row">
+            <span class="labs-featured-eyebrow">FEATURED BUILD</span>
+            <span class="labs-badge labs-badge-live" aria-label="Status: Live">
+              <span class="labs-badge-dot" aria-hidden="true"></span>LIVE
+            </span>
+          </div>
+
+          <h3 id="labs-featured-heading" class="labs-featured-title">
+            Elara Properties
+          </h3>
+          <p class="labs-featured-subtitle">Real Estate Website</p>
+
+          <p class="labs-featured-desc">
+            A premium real estate website — the first verified live build from Kritexa LABS.
+            Designed, built, and deployed for a real estate client.
+          </p>
+
+          <div class="labs-featured-tags" aria-label="Build categories">
+            <span class="labs-tag">Website</span>
+            <span class="labs-tag">Real Estate</span>
+          </div>
+
+          <!-- Live URL — verified build -->
+          <div class="labs-featured-actions">
+            <a
+              href="https://elara-properties-theta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="labs-explore-link"
+              aria-label="Explore Elara Properties — opens in new tab">
+              Explore Build ↗
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+    </div><!-- /.labs-featured-build -->
+
+    <!-- Build card grid — filtered by category -->
+    <div
+      class="labs-build-grid"
+      id="labs-build-grid"
+      role="list"
+      aria-label="Build catalogue"
+      aria-live="polite">
+
+      <!--
+        ══════════════════════════════════════════════════
+        VERIFIED BUILD: Elara Properties
+        data-build-type="websites" — appears under ALL and WEBSITES filters.
+
+        Future cards follow this structure:
+          <article class="labs-build-card" data-build-type="[type]" role="listitem" aria-labelledby="[id]">
+            <div class="labs-build-preview"> ... </div>
+            <div class="labs-build-info">
+              <span class="labs-badge labs-badge-[status]"> ... </span>
+              <h3 id="[id]"> ... </h3>
+              <p class="labs-build-desc"> ... </p>
+              <div class="labs-build-tags"> ... </div>
+              <a href="[verified-url]" class="labs-explore-link"> Explore Build ↗ </a>
+            </div>
+          </article>
+        ══════════════════════════════════════════════════
+      -->
+
+      <!-- Elara Properties — verified live build -->
+      <article
+        class="labs-build-card"
+        data-build-type="websites"
+        role="listitem"
+        aria-labelledby="labs-build-elara">
+        <div class="labs-build-preview" aria-hidden="true">
+          <div class="labs-build-preview-grid"></div>
+          <span class="labs-build-preview-label">ELARA PROPERTIES</span>
+        </div>
+        <div class="labs-build-info">
+          <span class="labs-badge labs-badge-live" aria-label="Status: Live">
+            <span class="labs-badge-dot" aria-hidden="true"></span>LIVE
+          </span>
+          <h3 id="labs-build-elara">Elara Properties</h3>
+          <p class="labs-build-desc">Premium Real Estate Website</p>
+          <div class="labs-build-tags" aria-label="Build categories">
+            <span class="labs-tag">Website</span>
+            <span class="labs-tag">Real Estate</span>
+          </div>
+          <a
+            href="https://elara-properties-theta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="labs-explore-link"
+            aria-label="Explore Elara Properties — opens in new tab">
+            Explore Build ↗
+          </a>
+        </div>
+      </article>
+
+      <div class="labs-build-card labs-build-card-placeholder" role="listitem" aria-label="Build coming soon">
+        <div class="labs-build-preview labs-build-preview-placeholder" aria-hidden="true">
+          <div class="labs-build-preview-grid"></div>
+          <span class="labs-build-preview-label">COMING SOON</span>
+        </div>
+        <div class="labs-build-info">
+          <span class="labs-badge labs-badge-concept">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+          <h3>Build Coming Soon</h3>
+          <p class="labs-build-desc">A verified LABS build will occupy this slot.</p>
+        </div>
+      </div>
+
+      <div class="labs-build-card labs-build-card-placeholder" role="listitem" aria-label="Build coming soon">
+        <div class="labs-build-preview labs-build-preview-placeholder" aria-hidden="true">
+          <div class="labs-build-preview-grid"></div>
+          <span class="labs-build-preview-label">COMING SOON</span>
+        </div>
+        <div class="labs-build-info">
+          <span class="labs-badge labs-badge-concept">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+          <h3>Build Coming Soon</h3>
+          <p class="labs-build-desc">A verified LABS build will occupy this slot.</p>
+        </div>
+      </div>
+
+    </div><!-- /.labs-build-grid -->
+
+  </div><!-- /.container -->
+</section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Products
+  src/sections/labs/products.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Section heading: "PRODUCTS" / "Released products"
+    - Premium empty state with ambient glow and CTA
+
+  CONTENT INTEGRITY:
+    No verified released products exist in this repository.
+    An honest coming-soon state is shown rather than fabricating products.
+    When real products are released, replace the empty state with product cards.
+
+  ACCESSIBILITY:
+    - Section aria-labelledby
+    - Empty state role="status"
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="section labs-products-section" aria-labelledby="labs-products-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">From the Lab</div>
+      <h2 id="labs-products-heading">PRODUCTS</h2>
+      <p>Released products built and owned by Kritexa.</p>
+    </div>
+
+    <!-- Products grid — honest empty state -->
+    <div class="labs-products-grid rv">
+
+      <!--
+        ══════════════════════════════════════════════════
+        NO VERIFIED RELEASED PRODUCTS EXIST IN THIS REPOSITORY.
+        When real products are released, replace the empty state
+        with product cards using this structure:
+
+          <article class="labs-product-card" aria-labelledby="[id]">
+            <div class="labs-product-icon"> ... </div>
+            <div class="labs-product-info">
+              <span class="labs-badge labs-badge-live">LIVE</span>
+              <h3 id="[id]"> Product Name </h3>
+              <p> Short description </p>
+              <a href="[verified-url]" target="_blank" rel="noopener noreferrer" class="labs-explore-link">
+                Live Demo ↗
+              </a>
+            </div>
+          </article>
+
+        IMPORTANT: Only add a "Live Demo ↗" link when a verified public URL exists.
+        ══════════════════════════════════════════════════
+      -->
+
+      <!-- Premium empty state -->
+      <div class="labs-products-empty" role="status" aria-label="Products coming soon">
+        <div class="labs-products-empty-inner">
+
+          <!-- Ambient glow layers (decorative) -->
+          <div class="labs-products-empty-glow-purple" aria-hidden="true"></div>
+          <div class="labs-products-empty-glow-cyan" aria-hidden="true"></div>
+
+          <!-- Icon -->
+          <div class="labs-products-empty-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <path d="M20 4l4 8 8 1-6 5.5 1.5 8.5L20 23l-7.5 4 1.5-8.5L8 13l8-1z"
+                    stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="none"/>
+              <path d="M20 30v6M15 34h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Heading -->
+          <h3 class="labs-products-empty-title">Products are on the way.</h3>
+
+          <!-- Description -->
+          <p class="labs-products-empty-desc">
+            We're building products internally. They'll appear here when they're ready to share.
+          </p>
+
+          <!-- CTA -->
+          <a href="/contact" class="btn-g labs-products-notify">
+            Get Notified
+          </a>
+
+        </div>
+      </div>
+
+    </div><!-- /.labs-products-grid -->
+
+  </div><!-- /.container -->
+</section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Final CTA
+  src/sections/labs/cta.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Premium CTA panel with ambient purple/cyan glow
+    - Eyebrow: "KRITEXA LABS"
+    - H2: "Have an idea? Let's build it."
+    - Supporting copy
+    - Primary CTA: Start Your Project → (/contact)
+
+  INTENT:
+    Connect visitors who have an idea to Kritexa's existing
+    project-start / contact flow.
+    No new backend — links to existing /contact page.
+
+  ACCESSIBILITY:
+    - Section aria-labelledby
+    - H2 heading (correct hierarchy)
+    - Visible focus states via global .btn-p:focus-visible
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="labs-final-cta" aria-labelledby="labs-cta-heading">
+  <div class="container">
+    <div class="labs-cta-box rv">
+
+      <!-- Ambient glow layers (decorative) -->
+      <div class="labs-cta-glow-purple" aria-hidden="true"></div>
+      <div class="labs-cta-glow-cyan" aria-hidden="true"></div>
+
+      <!-- Technical corner accents (decorative) -->
+      <span class="labs-cta-corner labs-cta-corner-tl" aria-hidden="true"></span>
+      <span class="labs-cta-corner labs-cta-corner-tr" aria-hidden="true"></span>
+      <span class="labs-cta-corner labs-cta-corner-bl" aria-hidden="true"></span>
+      <span class="labs-cta-corner labs-cta-corner-br" aria-hidden="true"></span>
+
+      <!-- Content -->
+      <div class="labs-cta-inner">
+
+        <!-- Eyebrow -->
+        <div class="labs-cta-eyebrow">
+          <span class="labs-cta-eyebrow-dot" aria-hidden="true"></span>
+          KRITEXA LABS
+        </div>
+
+        <!-- Heading -->
+        <h2 id="labs-cta-heading">
+          Have an idea?<br>
+          <span class="grad-text">Let's build it.</span>
+        </h2>
+
+        <!-- Supporting copy -->
+        <p class="labs-cta-desc">
+          We experiment, prototype, and build.
+          If you have an idea worth exploring — let's talk.
+        </p>
+
+        <!-- CTA action -->
+        <div class="labs-cta-actions">
+          <a href="/contact" class="btn-p">
+            Start Your Project <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div><!-- /.labs-cta-inner -->
+
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+  KRITEXA LABS — GLOBAL FOOTER COMPONENT
+  components/footer.html
+
+  Phase 5 — Global Footer
+  UI Refinement — Newsletter upgrade, nav columns, social icons, bottom bar
+
+  STRUCTURE:
+    1. Global CTA section (.gcta)
+    2. Footer
+       a. Newsletter block (.f-nl-block) — icon + heading + description + form
+       b. Main footer card (.f-main-card) — ONE SINGLE OUTER CARD containing:
+            Left:  Navigation columns (Main Pages | Solutions | Our Work | Legal)
+            Right: Brand panel (logo + description + social icons)
+            Bottom: Attribution bar (.f-bottom-bar) — inside the same card
+
+  NAVIGATION ROUTES — all use real <a href> anchors:
+    /              → Home
+    /about         → About
+    /capabilities  → Capabilities
+    /industry-solutions → Industry Solutions
+    /portfolio     → Portfolio
+    /case-studies  → Case Studies
+    /live-projects → Live Projects
+    /contact       → Contact
+    /kritexa-ai    → Kritexa.AI
+    /career        → Career  (footer-only page — AD-012)
+    /labs          → Labs    (footer-only page — AD-012)
+
+  PRODUCTS:
+    Products has NO standalone page (AD-011).
+    Do NOT create /products or any fake product URLs.
+
+  NEWSLETTER:
+    The subscribe form is a placeholder. It must be wired to a real email
+    service (Mailchimp, ConvertKit, etc.) in Phase 21.
+    The form uses a standard HTML <form> — no onclick/JavaScript.
+
+  WHATSAPP:
+    The wa.me URL uses the placeholder 91XXXXXXXXXX.
+    Replace this with a verified number in Phase 21.
+    Do NOT invent a real phone number.
+
+  LEGAL LINKS:
+    /privacy-policy, /terms-of-service, /cookie-policy pages do NOT exist yet.
+    Legal links are rendered as non-clickable <span> elements with a
+    "coming soon" note rather than dead <a href> links.
+    These pages must be created and linked in Phase 21.
+    See docs/ARCHITECTURE-DECISIONS.md for the deferred decision (AD-026).
+
+  SOCIAL LINKS (verified from project source + legacy footer):
+    Instagram : https://instagram.com/kritexalabs
+    X/Twitter : https://x.com/kritexalabs
+    LinkedIn  : https://www.linkedin.com/company/kritexa-labs/
+    Facebook  : https://www.facebook.com/kritexalabs1
+    YouTube   : https://youtube.com/@kritexalabs
+    Threads   : https://threads.net/@kritexalabs
+    NOTE: These URLs were present in the legacy footer (index-original.html).
+    They are preserved as-is. Verify live destinations before Phase 21.
+
+  BUILD USAGE:
+    Composed into every page by scripts/build.js.
+    Do not edit output files directly — edit this component.
+
+  CSS:
+    Footer styles live in css/footer.css (Phase 5).
+    Load order: global.css → utilities.css → header.css → footer.css → components.css
+══════════════════════════════════════════════════════════════ -->
+
+<!-- ══════════ GLOBAL CTA SECTION ══════════ -->
+<section class="gcta" aria-label="Start your project">
+  <div class="container">
+    <div class="gcta-box rv">
+      <h2>Ready to Build Your<br><span class="grad-text">Digital Growth System?</span></h2>
+      <p>Join businesses already growing with Kritexa Labs — websites, AI, and automation that delivers real results.</p>
+      <div class="gcta-btns">
+        <a href="/contact" class="btn-p">🚀 Start Your Project</a>
+        <!--
+          WhatsApp CTA — placeholder number. Replace 91XXXXXXXXXX with real
+          verified number in Phase 21. Do NOT invent a number.
+        -->
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 WhatsApp Us</a>
+        <a href="mailto:hr@kritexalabs.com" class="btn-email">📧 Send Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GLOBAL FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+
+    <!-- ── NEWSLETTER CARD ── -->
+    <!--
+      Newsletter form placeholder — wire to real email service in Phase 21.
+      Using a <form> element (no onclick/JavaScript required).
+      action="#" prevents page reload; real endpoint replaces it in Phase 21.
+    -->
+    <div class="f-nl-block">
+      <!-- Left: icon + heading + description -->
+      <div class="f-nl-identity">
+        <div class="f-nl-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="f-nl-text">
+          <div class="f-nl-title">Stay updated with us</div>
+          <div class="f-nl-desc">Get the latest insights on AI, digital growth, and product launches — delivered to your inbox.</div>
+        </div>
+      </div>
+      <!-- Right: email form -->
+      <form class="f-nl-form" action="#" method="post" aria-label="Newsletter subscription">
+        <label for="footer-email" class="sr-only">Your email address</label>
+        <input
+          type="email"
+          id="footer-email"
+          name="email"
+          class="f-nl-input"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required>
+        <button type="submit" class="f-nl-btn">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         MAIN FOOTER CARD — ONE SINGLE OUTER CARD
+         Contains: navigation panel + company panel + bottom bar
+         DO NOT split into separate cards.
+    ══════════════════════════════════════════════════════════ -->
+    <div class="f-main-card">
+
+      <!-- ── MAIN CONTENT GRID: Navigation (left) + Company (right) ── -->
+      <div class="f-main-grid">
+
+        <!-- LEFT: Navigation columns -->
+        <nav class="f-nav-area" aria-label="Footer navigation">
+
+          <!-- Column: Main Pages -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-main">Main Pages</div>
+            <ul class="f-col-links" aria-labelledby="fcol-main">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/live-projects">Live Projects</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Solutions — Phase 22: Solutions IA group -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-solutions">Solutions</div>
+            <ul class="f-col-links" aria-labelledby="fcol-solutions">
+              <li><a href="/capabilities">Capabilities</a></li>
+              <li><a href="/industry-solutions">Industry Solutions</a></li>
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Our Work & Platform -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-work">Our Work</div>
+            <ul class="f-col-links" aria-labelledby="fcol-work">
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/live-projects">Live Projects</a></li>
+              <li><a href="/kritexa-ai" class="f-link-kai">Kritexa.AI ✦</a></li>
+              <li><a href="/labs" class="f-link-labs">LABS ✦</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Legal -->
+          <!--
+            LEGAL PAGES DO NOT EXIST YET.
+            /privacy-policy, /terms-of-service, /cookie-policy are NOT created.
+            These are rendered as non-clickable placeholders until Phase 21.
+            See AD-026 in docs/ARCHITECTURE-DECISIONS.md.
+            Do NOT create dead <a href> links to nonexistent pages.
+          -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-legal">Legal</div>
+            <ul class="f-col-links" aria-labelledby="fcol-legal">
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Privacy Policy</span>
+              </li>
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Terms of Service</span>
+              </li>
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Cookie Policy</span>
+              </li>
+              <li><a href="/career">Career</a></li>
+            </ul>
+          </div>
+
+        </nav><!-- /f-nav-area -->
+
+        <!-- RIGHT: Company panel — NOT a separate card, lives inside f-main-card -->
+        <div class="f-company-area">
+          <a class="f-brand-logo" href="/" aria-label="Kritexa Labs — home">
+            <div class="f-brand-logo-mark" aria-hidden="true">
+              <img src="/assets/logos/logo.png" alt="" width="38" height="38" loading="lazy">
+            </div>
+            <span>KRITEXA <span class="f-brand-dim">LABS</span></span>
+          </a>
+          <p class="f-brand-desc">Engineering Digital Growth. AI-powered websites, automation &amp; SEO for businesses that want to scale faster and smarter.</p>
+
+          <!-- Social icons — verified from legacy footer source -->
+          <div class="f-socials" role="list" aria-label="Kritexa Labs on social media">
+            <a href="https://instagram.com/kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-ig"
+               aria-label="Kritexa Labs on Instagram"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-x"
+               aria-label="Kritexa Labs on X (Twitter)"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/kritexa-labs/"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-li"
+               aria-label="Kritexa Labs on LinkedIn"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/kritexalabs1"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-fb"
+               aria-label="Kritexa Labs on Facebook"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-yt"
+               aria-label="Kritexa Labs on YouTube"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+              </svg>
+            </a>
+            <a href="https://threads.net/@kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-th"
+               aria-label="Kritexa Labs on Threads"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.868 1.205 8.62.024 12.203 0h.014c2.814.024 5.128.818 6.874 2.366 1.652 1.472 2.6 3.558 2.819 6.302l.019.24h-3.084l-.02-.207c-.199-2.168-.94-3.816-2.207-4.897-1.242-1.061-2.926-1.6-5.007-1.604-2.462.028-4.445.878-5.893 2.526-1.418 1.615-2.166 4.048-2.193 7.234.027 3.188.775 5.62 2.193 7.234 1.448 1.648 3.43 2.498 5.893 2.526 1.971-.014 3.586-.418 4.803-1.201.948-.614 1.715-1.561 2.28-2.816H12.6v-2.88h7.14l-.018.228c-.244 3.11-1.349 5.531-3.283 7.196C14.676 23.35 13.36 24 12.186 24z"/>
+              </svg>
+            </a>
+          </div>
+        </div><!-- /f-company-area -->
+
+      </div><!-- /f-main-grid -->
+
+      <!-- ── FOOTER BOTTOM BAR — INSIDE the main card ── -->
+      <div class="f-bottom-bar" role="contentinfo">
+        <span class="f-bottom-copy">© 2025 Kritexa Labs. All rights reserved.</span>
+        <span class="f-bottom-made">Made with ❤️ in Pune, India</span>
+        <span class="f-bottom-powered">
+          Powered by <a href="https://kritexalabs.com" target="_blank" rel="noopener noreferrer" class="f-bottom-link">Kritexa Labs</a>
+        </span>
+      </div>
+
+    </div><!-- /f-main-card -->
+
+  </div><!-- /container -->
+</footer>
+
+
+<!-- JS — dependency order: global → navigation → animations → active-nav → page -->
+<!-- global.js: cursor, scroll reveal, counters, FAQ, social hover -->
+<script src="/js/global.js"></script>
+<!-- navigation.js: Phase 3+4+5 mobile menu, Products mega menu, scroll state, legacy SPA shim -->
+<script src="/js/navigation.js"></script>
+<!-- animations.js: countdown (kritexa-ai only), process orbital guard, canvas guard -->
+<script src="/js/animations.js"></script>
+<!-- active-nav.js: sets aria-current="page" and .active based on URL pathname -->
+<script src="/js/active-nav.js"></script>
+<!-- page-specific: /js/pages/labs.js -->
+<script src="/js/pages/labs.js"></script>
+</body>
+</html>

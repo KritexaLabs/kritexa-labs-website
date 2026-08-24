@@ -1,0 +1,56 @@
+<!-- ══════════════════════════════════════════════════════
+  PORTFOLIO SECTION: Hero
+  src/sections/portfolio/hero.html
+  Phase 9 — Portfolio Page Rebuild
+
+  STRUCTURE:
+    - Inner page hero (.iph): eyebrow + H1 + description
+    - Hero stats strip (.pf-hero-stats): 4 animated stats
+    - One H1 per page — visible HTML text
+
+  H1: "Projects That Deliver Results" — preserved from approved content
+  Stats: 50+ Projects, 8+ Industries, 98% Satisfaction, 3× Avg ROI
+    ⚠ NOTE: Stats are preserved from legacy approved content.
+    "Avg. ROI Delivered" is marketing language from original source.
+    Changed from "3×" to preserve the approved content accurately.
+
+  ANIMATION:
+    - .rv class: scroll-reveal (global IntersectionObserver)
+    - .pf-hstat-num[data-count]: animated by portfolio.js (not global.js)
+    - Reduced motion: global.css disables transitions
+
+  LCP: No image — text-based hero, no raster LCP candidate.
+══════════════════════════════════════════════════════ -->
+
+<section class="iph pf-hero-section" aria-labelledby="portfolio-h1">
+  <div class="container">
+    <div class="rv">
+      <div class="sh-eyebrow" style="justify-content:center;">Our Work</div>
+      <h1 id="portfolio-h1">Projects That <span class="grad-text">Deliver Results</span></h1>
+      <p>Real clients. Real numbers. Every project built with precision — designed to grow businesses, not just look good.</p>
+    </div>
+
+    <!-- Stats strip — 4 counters from approved legacy content -->
+    <div class="pf-hero-stats rv" role="list" aria-label="Portfolio statistics">
+      <div class="pf-hstat" role="listitem">
+        <span class="pf-hstat-num" data-count="50" aria-label="50 plus">0</span><span class="pf-hstat-plus" aria-hidden="true">+</span>
+        <span class="pf-hstat-lbl">Projects Delivered</span>
+      </div>
+      <div class="pf-hstat-div" aria-hidden="true"></div>
+      <div class="pf-hstat" role="listitem">
+        <span class="pf-hstat-num" data-count="8" aria-label="8 plus">0</span><span class="pf-hstat-plus" aria-hidden="true">+</span>
+        <span class="pf-hstat-lbl">Industries Served</span>
+      </div>
+      <div class="pf-hstat-div" aria-hidden="true"></div>
+      <div class="pf-hstat" role="listitem">
+        <span class="pf-hstat-num" data-count="98" aria-label="98 percent">0</span><span class="pf-hstat-plus" aria-hidden="true">%</span>
+        <span class="pf-hstat-lbl">Client Satisfaction</span>
+      </div>
+      <div class="pf-hstat-div" aria-hidden="true"></div>
+      <div class="pf-hstat" role="listitem">
+        <span class="pf-hstat-num" data-count="3" aria-label="3 times">0</span><span class="pf-hstat-plus" aria-hidden="true">×</span>
+        <span class="pf-hstat-lbl">Avg. ROI Delivered</span>
+      </div>
+    </div>
+  </div>
+</section>

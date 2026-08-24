@@ -1,0 +1,147 @@
+<!-- ══════════════════════════════════════════════════════════════
+  KRITEXA LABS — PRODUCTS MEGA MENU COMPONENT
+  components/mega-menu.html
+  Phase 4 — Products Mega Menu
+  Phase 22 — "Solutions" column renamed to "Offerings" (naming collision fix)
+
+  STATUS: PHASE 22 UPDATED
+
+  STRUCTURE:
+    Desktop:  Full-width premium panel — 4-column grid
+    Mobile:   Accordion panel inside mobile drawer (see header.html)
+
+  FOUR APPROVED TOP-LEVEL CATEGORIES (Phase 22 update):
+    Offerings | Tools | APIs | Platforms
+    NOTE: "Solutions" was renamed to "Offerings" in Phase 22 to avoid
+    naming collision with the new top-level "Solutions" navigation item.
+    See docs/PHASE22-IA-REDESIGN-REPORT.md AD-22-001.
+
+  IMPORTANT — PRODUCT DESTINATIONS:
+    Product destination pages have not been implemented in Phase 4.
+    The four category headings are intentional non-navigational labels.
+    They are represented as visual category blocks, not as <a href> links.
+    Actual product URLs will be connected when those pages are created
+    in a future phase. See docs/ARCHITECTURE-DECISIONS.md AD-024.
+
+  CONTENT NOTE:
+    No product names, descriptions, pricing, or claims have been invented.
+    All sub-items are intentional structural placeholders only.
+    Update with approved content when product pages are ready.
+
+  USAGE:
+    This component is injected inline inside components/header.html.
+    Do NOT include it separately — it is already embedded in the header.
+    This file is kept as the canonical reference / source of truth.
+══════════════════════════════════════════════════════════════ -->
+
+<!-- ══════════ PRODUCTS MEGA MENU (desktop) ══════════ -->
+<!--
+  id="products-mega-menu" is the aria-controls target for the Products button.
+  role="region" + aria-label gives screen readers context.
+  aria-hidden="true" is managed by js/navigation.js (toggled on open/close).
+-->
+<div
+  class="products-mega-menu"
+  id="products-mega-menu"
+  role="region"
+  aria-label="Products menu"
+  aria-hidden="true">
+
+  <div class="pmm-inner">
+
+    <!-- ── SOLUTIONS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <!-- Solutions icon: layered blocks -->
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="10" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="10" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Solutions</span>
+      </div>
+      <p class="pmm-col-desc">End-to-end growth systems built for your business.</p>
+      <!-- Product destination links will be added here when product pages are ready. -->
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── TOOLS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <!-- Tools icon: wrench/settings -->
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.22 3.22l1.41 1.41M13.36 13.36l1.41 1.41M3.22 14.78l1.41-1.41M13.36 4.64l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Tools</span>
+      </div>
+      <p class="pmm-col-desc">Productivity and marketing tools to accelerate your workflow.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── APIS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <!-- APIs icon: connection nodes -->
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="3" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 9h4l2-5M5 9h4l2 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">APIs</span>
+      </div>
+      <p class="pmm-col-desc">Developer-grade APIs for AI, data, and communications.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── PLATFORMS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <!-- Platforms icon: layered server stack -->
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="2" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="7" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="12" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Platforms</span>
+      </div>
+      <p class="pmm-col-desc">SaaS, AI, and developer platforms built for scale.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+  </div><!-- /pmm-inner -->
+
+  <!-- Bottom strip — Kritexa.AI cross-link -->
+  <div class="pmm-footer-strip">
+    <span class="pmm-footer-note">
+      Interested in our AI platform?
+    </span>
+    <a href="/kritexa-ai" class="pmm-footer-link">
+      <span class="pmm-footer-dot" aria-hidden="true"></span>
+      Explore Kritexa.AI →
+    </a>
+  </div>
+
+</div><!-- /products-mega-menu -->

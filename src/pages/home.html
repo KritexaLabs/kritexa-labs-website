@@ -1,0 +1,49 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/home.html
+  Phase 6 — Home Page Rebuild
+
+  This file composes the Home page from section partials.
+  It is processed by scripts/build.js which:
+    1. Reads this file
+    2. Reads and inlines {{SECTION:*}} partials from src/sections/home/
+    3. Wraps with header + footer
+    4. Outputs to index.html
+
+  HOME PAGE SECTION ORDER (confirmed from legacy audit):
+    1. Hero (BUSINESS canvas hero)
+    2. Marquee (industry scroll)
+    3. Services (What We Build)
+    4. Why Us (Bento feature grid)
+    5. Process (7-step)
+    6. Stats (counters)
+    7. Case Studies Preview (3 cards)
+    8. Testimonials (auto-scroll)
+
+  NAVIGATION: All CTAs use real <a href> links.
+  No onclick, no go(), no SPA routing.
+
+  H1: Exactly one visually-hidden H1 in hero.html (jk-sr-h1).
+  The canvas "BUSINESS" is aria-hidden visual decoration.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:home/hero}}
+
+  {{SECTION:home/marquee}}
+
+  {{SECTION:home/services}}
+
+  {{SECTION:home/why-us}}
+
+  {{SECTION:home/process}}
+
+  {{SECTION:home/stats}}
+
+  {{SECTION:home/case-studies-preview}}
+
+  {{SECTION:home/testimonials}}
+
+</main>
+<!-- Home-page-specific JS -->
+<script src="/js/pages/home.js"></script>

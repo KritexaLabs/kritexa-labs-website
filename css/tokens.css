@@ -1,0 +1,182 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — DESIGN TOKENS
+   css/tokens.css
+   Phase 2 — Global Design System
+
+   This file contains the centralized, reusable CSS Custom Properties
+   (Design Tokens) representing the visual identity of Kritexa Labs.
+   It acts as the single source of truth for design parameters.
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ═══ COLOR TOKENS ═══ */
+  /* Brand Theme Colors */
+  --color-bg:                  #080808;  /* Primary background — near-black */
+  --color-bg2:                 #0F0F0F;  /* Secondary background — card surfaces */
+  --color-bg3:                 #141414;  /* Hover surface state */
+  --color-bg4:                 #1A1A1A;  /* Inner nested metric panels */
+  
+  --color-purple:              #7C3AED;  /* Primary brand purple (Tailwind violet-600) */
+  --color-purple-hover:        #6D28D9;  /* Darker purple for hover/active */
+  --color-purple2:             #9D6FFF;  /* Lighter brand accent purple */
+  --color-cyan:                #06B6D4;  /* Brand cyan accent (Tailwind cyan-500) */
+  --color-cyan-hover:          #0891B2;  /* Darker cyan for hover/active */
+  
+  --color-white:               #FFFFFF;  /* Primary text, high contrast elements */
+  --color-gray:                #A1A1AA;  /* Secondary body text (Tailwind gray-400) */
+  --color-gray2:               #52525B;  /* Muted metadata, descriptions (Tailwind gray-600) */
+  --color-gray3:               #27272A;  /* Very muted separators, dark gray (Tailwind gray-800) */
+
+  /* Semantic State Colors */
+  --color-success:             #22C55E;  /* Success / Live indicator (green-500) */
+  --color-warning:             #FFB547;  /* Warning / Coming Soon indicator */
+  --color-error:               #EF4444;  /* Error / E-Commerce tag (red-500) */
+  --color-gold:                #FFD700;  /* Special Job / Apply button highlight */
+  --color-star:                #F5C518;  /* Star rating yellow */
+
+  /* Capabilities Specific Themes */
+  --color-theme-green:         #10B981;  /* Green capability section theme */
+  --color-theme-orange:        #F59E0B;  /* Orange capability section theme */
+  --color-theme-pink:          #EC4899;  /* Pink capability section theme */
+  --color-theme-teal:          #14B8A6;  /* Teal capability section theme */
+
+  /* Border Colors */
+  --color-border:              rgba(255, 255, 255, 0.06);  /* Default subtle card border */
+  --color-border-hover:        rgba(255, 255, 255, 0.12);  /* Hover subtle border accent */
+  --color-border-purple:       rgba(124, 58, 237, 0.3);   /* Purple border emphasis */
+  --color-border-cyan:         rgba(6, 182, 212, 0.3);     /* Cyan border emphasis */
+
+  /* ═══ GRADIENT TOKENS ═══ */
+  --gradient-text:             linear-gradient(135deg, #ffffff 0%, var(--color-purple2) 50%, var(--color-cyan) 100%);
+  --gradient-primary:          linear-gradient(135deg, #5B21B6 0%, #4C1D95 100%);
+  --gradient-whatsapp:         linear-gradient(135deg, #25D366, #128C7E);
+  --gradient-footer-box:       linear-gradient(160deg, rgba(28, 26, 40, 0.95), rgba(18, 16, 28, 0.98));
+  --gradient-hero-bg:          radial-gradient(ellipse 70% 60% at 65% 40%, rgba(124, 58, 237, 0.1), transparent 65%);
+  --gradient-ambient-purple:   radial-gradient(circle, #7C3AED, transparent 70%);
+  --gradient-ambient-cyan:     radial-gradient(circle, #06B6D4, transparent 70%);
+
+  /* ═══ GLOW AND EFFECT TOKENS ═══ */
+  --effect-glow-purple:        rgba(124, 58, 237, 0.25);
+  --effect-glow-cyan:          rgba(6, 182, 212, 0.2);
+  --glow-primary:              rgba(124, 58, 237, 0.3);
+  --glow-accent:               rgba(6, 182, 212, 0.25);
+  
+  --shadow-btn-p:              0 0 30px var(--glow-primary);
+  --shadow-btn-p-hover:        0 6px 40px rgba(124, 58, 237, 0.5);
+  
+  --shadow-footer-box:         0 0 0 1px rgba(255, 255, 255, 0.055),
+                               0 8px 32px rgba(0, 0, 0, 0.55),
+                               0 2px 8px rgba(0, 0, 0, 0.4),
+                               inset 0 1px 0 rgba(255, 255, 255, 0.08),
+                               inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+                        
+  --shadow-about-hero:         0 0 0 1px var(--color-border-purple),
+                               0 24px 80px rgba(0, 0, 0, 0.65),
+                               0 0 60px rgba(124, 58, 237, 0.1),
+                               inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* ═══ TYPOGRAPHY SYSTEM ═══ */
+  --font-family-primary:       'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono:          'JetBrains Mono', SFMono-Regular, Consolas, "Liberation Mono", monospace;
+
+  /* Font Weights */
+  --font-weight-light:         300;
+  --font-weight-normal:        400;
+  --font-weight-medium:        500;
+  --font-weight-semibold:      600;
+  --font-weight-bold:          700;
+  --font-weight-extrabold:     800;
+  --font-weight-black:         900;
+
+  /* Typography Scales (Clamped & Derived from Original CSS) */
+  --font-size-hero:            clamp(40px, 5.5vw, 72px);
+  --font-size-section-heading: clamp(32px, 4.5vw, 54px);
+  --font-size-inner-hero:      clamp(36px, 5vw, 62px);
+  --font-size-canvas-big:      clamp(80px, 18vw, 220px);
+  --font-size-about-hero:      clamp(36px, 5vw, 64px);
+  --font-size-kai-hero:        clamp(40px, 7vw, 80px);
+
+  --font-size-body-lg:         17px;
+  --font-size-body:            15px;
+  --font-size-body-sm:         13.5px;
+  --font-size-caption:         11px;
+
+  /* Line Heights */
+  --line-height-tight:         1.04;
+  --line-height-tight-heading: 1.1;
+  --line-height-normal:        1.6;
+  --line-height-relaxed:       1.7;
+
+  /* Letter Spacing */
+  --letter-spacing-hero:       -2.5px;
+  --letter-spacing-section:    -1.5px;
+  --letter-spacing-inner-hero: -2px;
+  --letter-spacing-mono:       .18em;
+  --letter-spacing-nav:        0.02em;
+
+  /* ═══ SPACING SCALE ═══ */
+  --space-1:                   4px;
+  --space-2:                   8px;
+  --space-3:                   12px;
+  --space-4:                   16px;
+  --space-5:                   20px;
+  --space-6:                   24px;
+  --space-7:                   28px;
+  --space-8:                   32px;
+  --space-9:                   40px;
+  --space-10:                  48px;
+  --space-11:                  60px;
+  --space-12:                  64px;
+  --space-13:                  96px;
+
+  /* ═══ BORDER RADIUS SYSTEM ═══ */
+  --radius-sm:                 10px;      /* --r: inputs, small elements */
+  --radius-md:                 16px;      /* --r2: bento, medium cards */
+  --radius-lg:                 24px;      /* --r3: large cards, process panels */
+  --radius-pill:               100px;     /* tags, badges, buttons */
+  --radius-circle:             50%;       /* avatars, dots */
+  --radius-about-hero:         18px;      /* solutions, about hero elements */
+  --radius-fs-hero:            20px;      /* full-screen heroes */
+
+  /* ═══ CONTAINER SYSTEM ═══ */
+  --container-max-width:       1180px;
+  --container-padding:         28px;
+  
+  /* ═══ Z-INDEX SCALE ═══ */
+  --z-below:                   -1;
+  --z-base:                    1;
+  --z-above:                   2;
+  --z-nav:                     100;
+  --z-header:                  1000;
+  --z-dropdown:                2000;
+  --z-cursor:                  9999;
+
+  /* ═══ MOTION FOUNDATION ═══ */
+  --duration-fast:             0.2s;
+  --duration-normal:           0.25s;
+  --duration-slow:             0.65s;
+  
+  --ease-standard:             ease;
+  --ease-in-out:               ease-in-out;
+
+  /* ═══ BACKWARD COMPATIBILITY ALIASES ═══ */
+  /* Maps original shorthand custom properties to token names */
+  --bg:                        var(--color-bg);
+  --bg2:                       var(--color-bg2);
+  --bg3:                       var(--color-bg3);
+  --bg4:                       var(--color-bg4);
+  --purple:                    var(--color-purple);
+  --purple2:                   var(--color-purple2);
+  --cyan:                      var(--color-cyan);
+  --white:                     var(--color-white);
+  --gray:                      var(--color-gray);
+  --gray2:                     var(--color-gray2);
+  --gray3:                     var(--color-gray3);
+  --border:                    var(--color-border);
+  --border2:                   var(--color-border-purple);
+  --glow:                      var(--effect-glow-purple);
+  --glow2:                     var(--effect-glow-cyan);
+  --r:                         var(--radius-sm);
+  --r2:                        var(--radius-md);
+  --r3:                        var(--radius-lg);
+}

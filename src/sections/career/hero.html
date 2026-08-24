@@ -1,0 +1,67 @@
+<!-- ══════════════════════════════════════════════════════
+  CAREER SECTION: Hero
+  src/sections/career/hero.html
+  Phase 13 — Career Page Rebuild
+
+  STRUCTURE:
+    - Inner page hero (.iph)
+    - Eyebrow: "Join Our Team"
+    - H1: "Build the Future With Us"
+    - Description from approved legacy source
+    - CTA: "View Open Roles →" → mailto:hr@kritexalabs.com
+
+  CONTENT: Preserved verbatim from src/pages/career.html
+    (Phase 1 extract of legacy/index-original.html #page-career)
+
+  H1: "Build the Future With Us" (with "With Us" as grad-text)
+    — Exactly one H1 per page.
+
+  CTA: mailto:hr@kritexalabs.com
+    — From approved legacy source.
+    — Direct email link (no fake apply form at this level).
+
+  CONTENT CLAIMS:
+    - "Build the Future With Us" — Brand positioning (marketing)
+    - Description about "passionate builders" — marketing copy
+    - "India's digital future" — marketing claim
+    All preserved verbatim from approved legacy source.
+
+  ACCESSIBILITY:
+    - Exactly one H1 on this page (here)
+    - .iph is a <section> with aria-labelledby
+    - CTA is a real <a href="mailto:"> — no onclick
+    - Ambient decorative elements are aria-hidden
+
+  ANIMATION:
+    - .rv: scroll-reveal via js/global.js IntersectionObserver
+    - iph-btns: real <a href> link
+══════════════════════════════════════════════════════ -->
+
+<section class="iph" aria-labelledby="career-h1">
+  <div class="container">
+    <div class="rv">
+      <!-- Eyebrow -->
+      <div class="sh-eyebrow" style="justify-content:center;">
+        <span aria-hidden="true">✦</span>&nbsp;Join Our Team
+      </div>
+
+      <!-- H1 — exactly one per page -->
+      <h1 id="career-h1">
+        Build the Future <span class="grad-text">With Us</span>
+      </h1>
+
+      <!-- Description — preserved verbatim from legacy source -->
+      <p>
+        We're looking for passionate builders who want to work on real problems,
+        ship real products, and grow alongside a company shaping India's digital future.
+      </p>
+
+      <!-- CTA — mailto link (verified in legacy source) -->
+      <div class="iph-btns">
+        <a href="mailto:hr@kritexalabs.com" class="btn-p">
+          View Open Roles <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

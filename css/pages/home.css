@@ -1,0 +1,280 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — HOME PAGE CSS
+   css/pages/home.css
+   Phase 6 — Home Page Rebuild
+   Phase 20 — Background Image Hero
+
+   Home-specific overrides and additions that are not needed
+   on any other page. Global styles live in css/components.css.
+
+   CSS load order:
+     global.css → utilities.css → header.css → footer.css →
+     components.css → pages/home.css
+
+   Contents:
+     1. Screen-reader-only H1 (jk-sr-h1)
+     2. Case study card link reset (cs-card-link)
+     3. Cap hero card as link
+     4. Service card as link
+     5. Bento metric counter
+     6. Home stats counter suffix
+     7. Reduced-motion overrides for home canvas/animations
+     8. Mobile-first hero refinements
+     9. Home section anchor offsets
+    10. Hero background image — home-hero-bg.jpg
+    11. Hero background responsive rules
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ═══ 1. SCREEN-READER-ONLY H1 ═══
+   The visible hero uses a canvas "BUSINESS" rendering.
+   .jk-sr-h1 provides the real H1 for screen readers and SEO
+   while remaining visually hidden.
+   Standard sr-only pattern — not display:none (screen readers skip that).
+*/
+.jk-sr-h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ═══ 2. CASE STUDY CARD LINK RESET ═══
+   Case study cards are wrapped in <a href> in Phase 6.
+   Reset link styles so the card visual is unchanged.
+*/
+.cs-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.cs-card-link:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
+/* ═══ 3. CAP HERO CARD AS LINK ═══
+   .cap-hero-card now wraps an <a> on the home page.
+   Ensure it behaves as a block link visually.
+*/
+.cap-hero-card[href] {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.cap-hero-card[href]:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 4px;
+  border-radius: var(--radius-lg);
+}
+
+/* ═══ 4. SERVICE CARD AS LINK ═══
+   .cap-svc-card wraps <a> tags on the home services section.
+*/
+a.cap-svc-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+a.cap-svc-card:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 4px;
+  border-radius: var(--radius-lg);
+}
+
+/* ═══ 5. BENTO METRIC COUNTER ═══
+   The .b-metric counter shows "0" then counts up to its
+   data-count value via js/pages/home.js.
+   Ensure it never breaks layout while at initial "0".
+*/
+.b-metric {
+  min-width: 3ch; /* prevent layout shift during count */
+}
+
+
+/* ═══ 6. HOME STATS COUNTER SUFFIX ═══
+   Stats counters (50, 30, 8, 20) show a "+" suffix via
+   js/pages/home.js after the count completes.
+   Reserve space to avoid layout shift.
+*/
+.stat-box-val[data-suffix]::after {
+  content: attr(data-suffix);
+}
+
+
+/* ═══ 7. REDUCED MOTION — HOME SPECIFIC ═══
+   Global reduced-motion rules are in css/global.css.
+   These are home-specific overrides for the canvas hero.
+   The canvas animation is controlled by js/pages/home.js
+   which checks prefers-reduced-motion before starting RAF.
+   This CSS ensures jk-orb elements are also static.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .jk-orb {
+    animation: none !important;
+  }
+  .jk-scroll-hint {
+    animation: none !important;
+    opacity: 0.4;
+  }
+}
+
+
+/* ═══ 8. MOBILE-FIRST HERO REFINEMENTS ═══
+   Base styles (mobile) already in css/components.css.
+   These are small refinements to improve 320–414px behavior.
+*/
+
+/* 320px — very small viewport */
+@media (max-width: 360px) {
+  .jk-btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+  }
+  .jk-btn-primary,
+  .jk-btn-ghost {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  .jk-tag {
+    font-size: 9px;
+    padding: 6px 14px;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* 768px+ — tablet up */
+@media (min-width: 768px) {
+  /* Ensure bento grid b-metric counter is appropriately sized */
+  .b-metric {
+    font-size: 42px;
+  }
+}
+
+
+/* ═══ 9. HOME SECTION ANCHOR OFFSETS ═══
+   Section IDs used for internal linking get offset for fixed navbar.
+   Navbar height: ~74px. Add a small buffer.
+*/
+#services,
+#why-us,
+#process,
+#stats,
+#case-studies-preview,
+#testimonials {
+  scroll-margin-top: 90px;
+}
+
+
+/* ═══ 10. HERO BACKGROUND IMAGE ═══
+   home-hero-bg.jpg — 1672×941px, 16:9 aspect ratio.
+   Provided artwork: futuristic holographic India map.
+
+   Implementation:
+   - .jk-hero-bg is absolutely positioned filling the hero section.
+   - CSS background-image so the image is decorative (no alt needed).
+   - background-size: cover on large screens fills the hero area.
+   - background-position: center centers the India map in the frame.
+   - A very subtle dark overlay (::after) improves text contrast without
+     obscuring the artwork. Kept at minimal opacity.
+
+   z-index architecture (within .jk-hero stacking context):
+     0  → .jk-hero base background (#06050f)
+     1  → .jk-hero-bg  (this image)
+     1  → .jk-noise, .jk-grid, .jk-orb*  (original decorative layers)
+     2  → .jk-hero-inner (content)
+     3  → .jk-scroll-hint
+*/
+.jk-hero-bg {
+  position: absolute;
+  inset: 0;
+  /* The artwork sits directly on the dark hero background */
+  z-index: 1;
+  pointer-events: none;
+  background-image: url('/assets/images/home-hero-bg.jpg');
+  background-repeat: no-repeat;
+  /* cover fills the frame while preserving aspect ratio */
+  background-size: cover;
+  /* keep the India map centered in all viewports */
+  background-position: center center;
+  /* Remove default browser focus ring from decorative div */
+  outline: none;
+}
+
+/* Minimal contrast overlay — keeps artwork visible while ensuring
+   text remains readable. The dark base of the image provides most
+   of the contrast naturally; this adds only a subtle layer. */
+.jk-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Very subtle dark veil — does not hide the artwork */
+  background: rgba(4, 2, 18, 0.30);
+  pointer-events: none;
+}
+
+
+/* ═══ 11. HERO BACKGROUND — RESPONSIVE ═══
+   The background image is 1672×941 (16:9).
+   cover keeps it filling the hero at desktop correctly.
+   On narrow viewports the image crops naturally around center —
+   the India map sits in the center of the artwork so it remains
+   visible regardless of viewport width.
+   On very narrow viewports we adjust position slightly upward
+   so the map apex (top of India) stays in frame.
+*/
+
+/* Tablet: 768px–1024px
+   cover still works well here. Tighten the overlay slightly
+   because the image crops more aggressively. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .jk-hero-bg {
+    background-size: cover;
+    background-position: center 40%;
+  }
+}
+
+/* Mobile: max-width 767px
+   At narrow widths cover crops too much horizontally.
+   Switch to a taller contain-like strategy:
+   use auto height so the full map height is visible. */
+@media (max-width: 767px) {
+  .jk-hero-bg {
+    /* Keep full image height visible; allow it to center-crop width */
+    background-size: auto 100%;
+    background-position: center center;
+  }
+  .jk-hero-bg::after {
+    /* Slightly stronger overlay on mobile where text is closer to image */
+    background: rgba(4, 2, 18, 0.38);
+  }
+}
+
+/* Small mobile: 320px–414px
+   Shift the composition slightly upward so the India map peak stays
+   in view. The image is naturally dark at the edges so no overflow. */
+@media (max-width: 414px) {
+  .jk-hero-bg {
+    background-position: center 35%;
+    background-size: auto 110%;
+  }
+}
+
+/* Large desktop: 1440px+
+   At very wide viewports cover still works correctly since the image
+   is 1672px wide and most desktops are ≤2560px.
+   No change needed — cover handles it. */
+
+/* Extra wide: 1920px+
+   Ensure the artwork scales gracefully. cover handles this well. */

@@ -1,0 +1,84 @@
+<!-- ══════════════════════════════════════════════════════
+  CAREER SECTION: Internship & General Inquiry CTA
+  src/sections/career/cta.html
+  Phase 13 — Career Page Rebuild
+
+  STRUCTURE:
+    - Internship card (.intern-card)
+    - H2: "Internship Program"
+    - Description from approved legacy source
+    - Stipend / certificate / PPO note (approved legacy source)
+    - CTAs: Apply for Internship → /contact | Learn About Us → /about
+
+  CONTENT: Preserved verbatim from src/pages/career.html
+    (Phase 1 extract of legacy/index-original.html #page-career)
+
+  LEGACY CONTENT NOTE:
+    The legacy source uses Hinglish in this card:
+    "Fresh graduate ya student ho? Hamara 3-month internship program
+     join karo — real projects, real mentorship, real experience."
+    This is preserved as approved legacy content.
+
+  STIPEND NOTE:
+    "₹5,000 – ₹15,000/month" — from approved legacy source.
+    Certificate provided, PPO opportunity — from approved legacy source.
+    These are preserved as-is. Amounts are NOT guaranteed
+    and should be verified before Phase 21.
+
+  ⚠ CONTENT FLAGS:
+    - Stipend range (₹5,000–₹15,000/month): legacy source claim.
+      Cannot verify current accuracy. Documented as source-listed.
+    - PPO opportunity: marketing claim from legacy source.
+
+  CTA DESTINATIONS:
+    "Apply for Internship →" → /contact (approved existing page)
+    "Learn About Us ↗"      → /about   (approved existing page)
+
+  ACCESSIBILITY:
+    - .intern-card is inside a <section> with aria-labelledby
+    - H2 (correct hierarchy after section H1)
+    - CTAs are real <a href> links — no onclick
+    - Emoji in H2 is aria-hidden
+
+  NO BACKEND:
+    Internship applications go through /contact (the contact page form).
+    No separate internship application endpoint.
+══════════════════════════════════════════════════════ -->
+
+<section class="career-cta-section" aria-labelledby="career-intern-heading">
+  <div class="container">
+
+    <!-- Internship card — preserved verbatim from legacy source -->
+    <div class="intern-card rv">
+
+      <!-- H2 — correct heading hierarchy after career H1 + culture H2 + openings H2 -->
+      <h2 id="career-intern-heading">
+        <span aria-hidden="true">🎓</span> Internship Program
+      </h2>
+
+      <!-- Description — preserved verbatim including Hinglish from legacy source -->
+      <p>Fresh graduate ya student ho? Hamara 3-month internship program join karo — real projects, real mentorship, real experience.</p>
+
+      <!--
+        Stipend / certificate / PPO note.
+        Source: legacy/index-original.html #page-career (verified).
+        ⚠ Stipend range is a legacy source claim — verify before Phase 21.
+      -->
+      <p class="isub">
+        Stipend: ₹5,000 – ₹15,000/month · Certificate provided · PPO opportunity
+      </p>
+
+      <!-- CTAs — real <a href> links (no onclick/go()) -->
+      <div class="intern-btns">
+        <a href="/contact" class="btn-p">
+          Apply for Internship <span aria-hidden="true">→</span>
+        </a>
+        <a href="/about" class="btn-g">
+          Learn About Us <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div><!-- /.intern-card -->
+
+  </div><!-- /.container -->
+</section>

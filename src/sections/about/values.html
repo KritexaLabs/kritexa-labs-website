@@ -1,0 +1,128 @@
+<!-- ══════════════════════════════════════════════════════
+  ABOUT SECTION: Values
+  src/sections/about/values.html
+  Phase 7 — About Page Rebuild
+
+  STRUCTURE:
+    Section heading (.sh) + 6 value cards (.val-grid)
+
+  CONTENT SOURCE: docs/CONTENT-MAP.md — About Page section.
+  Content preserved verbatim from approved legacy source.
+
+  SIX VALUES (from legacy, in approved order):
+    1. 🤖 AI First, Always
+    2. 🎯 Outcomes Over Outputs
+    3. 🔍 Radical Transparency
+    4. ⚡ Speed Without Shortcuts
+    5. 🛡️ Security First
+    6. 🤝 Partnership, Not Vendorship
+
+  HEADING HIERARCHY:
+    - Page H1 is in hero.html
+    - This section uses <h2> for "Dedicated to Delivering Value Every Day"
+    - Value card headings use <h3>
+
+  VALUE CARD ANATOMY (.val-card):
+    - .val-icon-wrap with 3D ring/bg/icon pattern
+    - .val-corner-dot (decorative)
+    - h3 + p
+
+  ANIMATION:
+    - .rv on each .val-card — scroll-reveal
+    - .val-card hover: translateY(-10px) scale(1.02) — CSS transition
+    - All disabled under prefers-reduced-motion (global.css)
+
+  ACCESSIBILITY:
+    - section uses aria-labelledby pointing to the h2
+    - role="list" / role="listitem" on the grid for semantic grouping
+    - Decorative elements aria-hidden
+══════════════════════════════════════════════════════ -->
+
+<section class="section about-values-section" aria-labelledby="about-values-h2">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Our Values</div>
+      <h2 id="about-values-h2">Dedicated to Delivering<br><span class="grad-text">Value Every Day</span></h2>
+    </div>
+
+    <!-- Values grid -->
+    <div class="val-grid" role="list">
+
+      <!-- 1: AI First -->
+      <article class="val-card rv" role="listitem" aria-labelledby="val-1-h">
+        <div class="val-icon-wrap" aria-hidden="true">
+          <div class="val-icon-ring"></div>
+          <div class="val-icon-bg"></div>
+          <span class="val-icon">🤖</span>
+        </div>
+        <div class="val-corner-dot" aria-hidden="true"></div>
+        <h3 id="val-1-h">AI First, Always</h3>
+        <p>Every solution we build has intelligence at its core. Automation isn't a feature — it's the foundation we build every system on.</p>
+      </article>
+
+      <!-- 2: Outcomes -->
+      <article class="val-card rv" role="listitem" aria-labelledby="val-2-h">
+        <div class="val-icon-wrap" aria-hidden="true">
+          <div class="val-icon-ring"></div>
+          <div class="val-icon-bg"></div>
+          <span class="val-icon">🎯</span>
+        </div>
+        <div class="val-corner-dot" aria-hidden="true"></div>
+        <h3 id="val-2-h">Outcomes Over Outputs</h3>
+        <p>We measure success in leads generated, revenue grown, and hours saved — not just websites launched or code shipped.</p>
+      </article>
+
+      <!-- 3: Transparency -->
+      <article class="val-card rv" role="listitem" aria-labelledby="val-3-h">
+        <div class="val-icon-wrap" aria-hidden="true">
+          <div class="val-icon-ring"></div>
+          <div class="val-icon-bg"></div>
+          <span class="val-icon">🔍</span>
+        </div>
+        <div class="val-corner-dot" aria-hidden="true"></div>
+        <h3 id="val-3-h">Radical Transparency</h3>
+        <p>No hidden costs, no vague timelines, no jargon. We tell you exactly what we're building, why, and what results to expect.</p>
+      </article>
+
+      <!-- 4: Speed -->
+      <article class="val-card rv" role="listitem" aria-labelledby="val-4-h">
+        <div class="val-icon-wrap" aria-hidden="true">
+          <div class="val-icon-ring"></div>
+          <div class="val-icon-bg"></div>
+          <span class="val-icon">⚡</span>
+        </div>
+        <div class="val-corner-dot" aria-hidden="true"></div>
+        <h3 id="val-4-h">Speed Without Shortcuts</h3>
+        <p>We move fast but never cut corners on quality. A product launched wrong is always worse than one launched right and slightly late.</p>
+      </article>
+
+      <!-- 5: Security -->
+      <article class="val-card rv" role="listitem" aria-labelledby="val-5-h">
+        <div class="val-icon-wrap" aria-hidden="true">
+          <div class="val-icon-ring"></div>
+          <div class="val-icon-bg"></div>
+          <span class="val-icon">🛡️</span>
+        </div>
+        <div class="val-corner-dot" aria-hidden="true"></div>
+        <h3 id="val-5-h">Security First</h3>
+        <p>Every system we ship is hardened with best-in-class security practices — your client data and business infrastructure, fully protected.</p>
+      </article>
+
+      <!-- 6: Partnership -->
+      <article class="val-card rv" role="listitem" aria-labelledby="val-6-h">
+        <div class="val-icon-wrap" aria-hidden="true">
+          <div class="val-icon-ring"></div>
+          <div class="val-icon-bg"></div>
+          <span class="val-icon">🤝</span>
+        </div>
+        <div class="val-corner-dot" aria-hidden="true"></div>
+        <h3 id="val-6-h">Partnership, Not Vendorship</h3>
+        <p>We treat every client's business like our own. Your growth is our growth. Your problems are the problems we wake up to solve.</p>
+      </article>
+
+    </div><!-- /val-grid -->
+
+  </div><!-- /container -->
+</section>

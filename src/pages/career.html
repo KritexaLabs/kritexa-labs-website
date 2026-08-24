@@ -1,0 +1,89 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/career.html
+  Phase 13 — Career Page Rebuild
+
+  REPLACES: The Phase 1 extracted monolithic content from legacy/index-original.html
+  ORIGINAL PAGE ID: #page-career
+
+  ARCHITECTURE:
+    - Section partial composition via {{SECTION:career/*}}
+    - Shared header/footer via components
+    - Page-specific CSS: /css/pages/career.css
+    - ZERO page-specific JavaScript
+
+  SECTION ORDER (from legacy source analysis + CONTENT-MAP.md):
+    1. hero         — inner page hero, H1, eyebrow, CTA
+    2. culture      — 6 benefit cards grid
+    3. opportunities — BDE job card with disabled apply + email resume
+    4. cta          — internship program card
+
+  URL: /career
+  GENERATED OUTPUT: career/index.html
+
+  NAVIGATION STATUS:
+    Career is FOOTER-ONLY — per Architecture Decision AD-012.
+    It is NOT in the primary desktop header navigation.
+    It IS accessible from:
+      - Footer "Our Work" column (/career)
+      - Mobile navigation drawer (ml-career)
+    activeNav is empty string — no header nav link to activate.
+
+  SEO:
+    Title: "Career — Kritexa Labs | Join Our Team"
+    Description: "Join the Kritexa Labs team — passionate builders
+                  working on AI, web development, and digital growth.
+                  View open roles and internship opportunities."
+    Canonical: https://www.kritexalabs.com/career
+    Active nav: (empty — footer-only page, no header link)
+
+  HEADING HIERARCHY:
+    H1  — "Build the Future With Us"               (hero.html)
+    H2  — "Why Build With Us?"                      (culture.html)
+    H2  — "Current Openings"                        (opportunities.html)
+    H2  — "Internship Program"                      (cta.html)
+    H2  — "Ready to Build Your Digital Growth System?" (shared footer .gcta)
+
+  CONTENT POLICY:
+    All content preserved verbatim from legacy/index-original.html #page-career.
+    No job openings, salaries, or benefits were fabricated in Phase 13.
+    Content claims are documented in docs/CONTENT-MAP.md.
+
+  JOB CARD STATUS:
+    The BDE Apply Now button is DISABLED — preserved from legacy source.
+    "Direct applications currently paused" is implied by the disabled state.
+    Resume submission via email (hr@kritexalabs.com) is available.
+
+  INTERNSHIP NOTE:
+    Stipend range (₹5,000–₹15,000) is from approved legacy source.
+    Should be verified before Phase 21.
+
+  NO BACKEND:
+    No application form backend.
+    No resume upload backend.
+    Resume links go to mailto: (client-side email client).
+
+  BASE64 CLEANUP:
+    No base64 images in career page — no raster images used.
+    Career uses pure CSS for visual elements.
+    Zero base64 content in generated career/index.html.
+
+  NO FABRICATED CONTENT:
+    - No job salaries invented
+    - No employee count invented
+    - No team size invented
+    - No office policy invented
+    - No guaranteed benefits invented
+    - Content preserved verbatim from approved legacy source
+══════════════════════════════════════════════════════ -->
+
+<main>
+
+  {{SECTION:career/hero}}
+
+  {{SECTION:career/culture}}
+
+  {{SECTION:career/opportunities}}
+
+  {{SECTION:career/cta}}
+
+</main>

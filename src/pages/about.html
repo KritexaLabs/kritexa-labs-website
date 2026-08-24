@@ -1,0 +1,48 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/about.html
+  Phase 7 — About Page Rebuild
+
+  This file composes the About page from section partials.
+  It is processed by scripts/build.js which:
+    1. Reads this file
+    2. Reads and inlines {{SECTION:*}} partials from src/sections/about/
+    3. Wraps with header + footer
+    4. Outputs to about/index.html
+
+  ABOUT PAGE SECTION ORDER (confirmed from legacy audit + CONTENT-MAP.md):
+    1. Hero (full-screen rounded box with bg image)
+    2. Mission & Vision (two-card grid)
+    3. Values (section heading + 6 value cards)
+
+  NAVIGATION: All CTAs use real <a href> links.
+  No onclick, no go(), no SPA routing.
+
+  H1: Exactly one H1 — in hero.html (visible HTML text).
+  The H1 is "We Think in Systems, Not Pages" per approved content.
+
+  HEADING HIERARCHY:
+    H1 — "We Think in Systems, Not Pages" (hero)
+    H2 — "Mission and Vision" (sr-only, mission-vision section)
+    H3 — "Our Mission", "Our Vision" (mission/vision cards)
+    H2 — "Dedicated to Delivering Value Every Day" (values)
+    H3 — Six value card headings
+
+  ACTIVE NAV: nl-about — injected by scripts/build.js
+  CANONICAL: https://www.kritexalabs.com/about
+
+  JAVASCRIPT: ZERO About-specific JS required.
+    - Global scroll reveal (.rv): js/global.js IntersectionObserver
+    - Navigation: js/navigation.js
+    - Active nav: js/active-nav.js
+    - No countdown, no canvas, no orbital needed on About.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:about/hero}}
+
+  {{SECTION:about/mission-vision}}
+
+  {{SECTION:about/values}}
+
+</main>

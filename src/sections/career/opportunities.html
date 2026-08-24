@@ -1,0 +1,219 @@
+<!-- ══════════════════════════════════════════════════════
+  CAREER SECTION: Opportunities (Open Positions)
+  src/sections/career/opportunities.html
+  Phase 13 — Career Page Rebuild
+
+  STRUCTURE:
+    - Section heading: "Current Openings"
+    - 1 job card (.job-card) — BDE role
+    - Apply Now button is DISABLED (preserved from legacy source)
+    - Resume email link preserved verbatim from legacy source
+
+  CONTENT: Preserved verbatim from src/pages/career.html
+    (Phase 1 extract of legacy/index-original.html #page-career)
+
+  JOB CARD — BDE ROLE:
+    Position: Business Development Executive
+    Department: Sales & Growth
+    Type: Full-Time / Part-Time
+    Location: Remote · India
+    Status: ● Actively Hiring (from approved legacy source)
+    Description: Preserved verbatim
+    Core Skills: Lead Generation, Appointment Setting, Sales Closing,
+                 Pipeline Management, Client Relationships
+    Responsibilities: 5 items — preserved verbatim
+    Tools: LinkedIn Sales Navigator, WhatsApp Business, Cold Email
+           Outreach, CRM (Zoho/HubSpot), Google Meet/Zoom
+    Tags: 8 tags — preserved verbatim
+    Compensation: Performance Based / Incentive Driven / Uncapped Bonuses
+    Apply Now: DISABLED — "Direct applications currently paused"
+               (preserved from legacy source: button is disabled)
+    Resume email: hr@kritexalabs.com (verified in legacy source)
+      — subject/body preserved verbatim from legacy source
+
+  ⚠ CONTENT FLAG:
+    The "● Actively Hiring" badge is present in the approved legacy
+    source. Status cannot be independently verified.
+    The "Apply Now" button is DISABLED in the source (paused).
+    Resume submission via email is the available channel.
+    No fabricated job requirements, salaries, or guarantees were added.
+
+  COMPENSATION NOTE:
+    "Performance Based", "Incentive Driven", "Uncapped Bonuses" —
+    preserved verbatim from approved legacy source.
+    No specific salary figures are stated.
+
+  ACCESSIBILITY:
+    - article with aria-labelledby pointing to job title
+    - Lists use semantic <ul>/<li>
+    - Disabled button: button[disabled] (native accessibility)
+    - Email CTA: real <a href="mailto:">
+    - Badge dot indicators: aria-hidden="true"
+
+  NO BACKEND:
+    There is no application form, no file upload, no ATS.
+    Resume submission is via direct email only.
+══════════════════════════════════════════════════════ -->
+
+<section class="section career-opportunities-section" aria-labelledby="career-openings-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Open Positions</div>
+      <h2 id="career-openings-heading">
+        Current <span class="grad-text">Openings</span>
+      </h2>
+      <p>Hiring for one position now. More will open as we grow.</p>
+    </div>
+
+    <!-- Job card — BDE role (from approved legacy source) -->
+    <article class="job-card rv" aria-labelledby="jb-title-bde">
+
+      <!-- Header: badges -->
+      <div class="jb-hd">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="jb-badge jb-dept">Sales &amp; Growth</span>
+          <span class="jb-badge jb-live">
+            <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;" aria-hidden="true"></span>
+            Actively Hiring
+          </span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="jb-badge jb-type">Full-Time / Part-Time</span>
+          <span class="jb-badge jb-type">
+            <span aria-hidden="true">📍</span> Remote · India
+          </span>
+        </div>
+      </div>
+
+      <!-- Job title row -->
+      <div class="jb-title-row">
+        <div class="jb-icon" aria-hidden="true">📢</div>
+        <div>
+          <div class="jb-title" id="jb-title-bde">Business Development Executive</div>
+          <div class="jb-sub">BDE — Lead Generation · Appointment Setting · Sales Closing</div>
+        </div>
+      </div>
+
+      <!-- About the role -->
+      <div class="jb-sec">
+        <div class="jb-sec-lbl">About the Role</div>
+        <p class="jb-desc">
+          High-energy, results-driven BDE who can identify growth opportunities, build pipelines,
+          and close deals for our web development, AI automation, and digital growth services.
+          You'll be the face of Kritexa Labs to potential clients — driving early revenue and
+          shaping how businesses across India discover us.
+        </p>
+      </div>
+
+      <!-- Skills, Responsibilities, Tools — 3-column info grid -->
+      <div class="jb-info-grid">
+
+        <div class="jb-info">
+          <div class="jb-info-icon" aria-hidden="true">🎯</div>
+          <div class="jb-info-lbl">Core Skills</div>
+          <ul aria-label="Core skills required">
+            <li>Lead Generation</li>
+            <li>Appointment Setting</li>
+            <li>Sales Closing</li>
+            <li>Pipeline Management</li>
+            <li>Client Relationships</li>
+          </ul>
+        </div>
+
+        <div class="jb-info">
+          <div class="jb-info-icon" aria-hidden="true">📋</div>
+          <div class="jb-info-lbl">Responsibilities</div>
+          <ul aria-label="Key responsibilities">
+            <li>Identify &amp; qualify leads daily</li>
+            <li>Book discovery calls</li>
+            <li>Present services &amp; close deals</li>
+            <li>Maintain CRM records</li>
+            <li>Report weekly pipeline</li>
+          </ul>
+        </div>
+
+        <div class="jb-info">
+          <div class="jb-info-icon" aria-hidden="true">🛠️</div>
+          <div class="jb-info-lbl">Tools You'll Use</div>
+          <ul aria-label="Tools and platforms">
+            <li>LinkedIn Sales Navigator</li>
+            <li>WhatsApp Business</li>
+            <li>Cold Email Outreach</li>
+            <li>CRM (Zoho / HubSpot)</li>
+            <li>Google Meet / Zoom</li>
+          </ul>
+        </div>
+
+      </div><!-- /.jb-info-grid -->
+
+      <!-- Skill tags -->
+      <div class="jb-tags" role="list" aria-label="Relevant skills and keywords">
+        <span class="jb-tag" role="listitem">Lead Generation</span>
+        <span class="jb-tag" role="listitem">Appointment Setting</span>
+        <span class="jb-tag" role="listitem">Sales Closing</span>
+        <span class="jb-tag" role="listitem">LinkedIn</span>
+        <span class="jb-tag" role="listitem">WhatsApp</span>
+        <span class="jb-tag" role="listitem">Cold Email</span>
+        <span class="jb-tag" role="listitem">CRM</span>
+        <span class="jb-tag" role="listitem">B2B Sales</span>
+      </div>
+
+      <!-- Footer: compensation + apply -->
+      <div class="jb-foot">
+
+        <!-- Compensation summary -->
+        <div class="jb-comp">
+          <div class="jb-ci">
+            <div class="jb-ci-icon" aria-hidden="true">💰</div>
+            <div>
+              <div class="jb-ci-lbl">Compensation</div>
+              <div class="jb-ci-val">Performance Based</div>
+            </div>
+          </div>
+          <div class="jb-ci-sep" aria-hidden="true"></div>
+          <div class="jb-ci">
+            <div class="jb-ci-icon" aria-hidden="true">📈</div>
+            <div>
+              <div class="jb-ci-lbl">Earning Potential</div>
+              <div class="jb-ci-val">Incentive Driven</div>
+            </div>
+          </div>
+          <div class="jb-ci-sep" aria-hidden="true"></div>
+          <div class="jb-ci">
+            <div class="jb-ci-icon" aria-hidden="true">🎁</div>
+            <div>
+              <div class="jb-ci-lbl">Bonuses</div>
+              <div class="jb-ci-val">Uncapped</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apply column -->
+        <!--
+          NOTE: "Apply Now" button is DISABLED.
+          This is preserved verbatim from the approved legacy source.
+          Direct applications are paused. Resume submission via email is available.
+          No fake application form or backend is implemented.
+        -->
+        <div class="jb-apply-col">
+          <button class="jb-apply-dis" disabled
+                  aria-disabled="true"
+                  title="Direct applications are currently paused — please send your resume by email">
+            Apply Now
+          </button>
+          <a href="mailto:hr@kritexalabs.com?subject=Resume - BDE Application - Kritexa Labs&body=Hi Kritexa Labs Team,%0A%0AI am interested in the BDE position.%0A%0AName: %0APhone: %0ACity: %0AExperience: %0ALinkedIn: %0A%0AResume attached.%0A%0AThank you!"
+             class="jb-resume"
+             aria-label="Send your resume by email for the BDE position">
+            <span class="jb-res-icon" aria-hidden="true">📩</span>
+            <span class="jb-res-txt">Click Here to Send<br>Your Resume</span>
+          </a>
+        </div>
+
+      </div><!-- /.jb-foot -->
+
+    </article><!-- /.job-card -->
+
+  </div><!-- /.container -->
+</section>

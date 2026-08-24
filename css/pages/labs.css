@@ -1,0 +1,1708 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — LABS PAGE CSS
+   css/pages/labs.css
+   Phase 25 — Labs Premium Visual Refinement
+
+   PURPOSE:
+     Labs-page-specific styles only.
+     All global patterns (.btn-p, .btn-g, .section, .container,
+     .grad-text, .sh-eyebrow, .rv, etc.) are NOT redefined here.
+
+   SECTION INDEX:
+     1. Labs Hero
+        1a. Background grid + node system
+        1b. Ambient glow layers
+        1c. Hero content (eyebrow, h1, tagline, meta)
+     2. Experiments Section
+        2a. Status board banner
+        2b. Experiment cards (3-column grid)
+        2c. Progress bars (purple→cyan gradient)
+        2d. ON THE HORIZON sub-section
+        2e. Concept / planned cards (4-column grid)
+     3. Badge system (shared across Experiments + Builds)
+     4. Built & Tested section
+        4a. Filter bar (premium pill controls)
+        4b. Featured build card (horizontal layout)
+        4c. Screen frame placeholder
+        4d. Build card grid (coming-soon placeholders)
+     5. Products section
+     6. Final CTA section
+     7. Responsive overrides
+     8. Reduced-motion overrides
+
+   SCOPING:
+     All selectors prefixed with .labs-* or scoped to Labs-specific
+     classes. Does not affect any other page.
+
+   VISUAL DESIGN:
+     - Near-black background, deep purple/cyan accents
+     - Dark translucent card surfaces: rgba(255,255,255,0.025–0.05)
+     - Border: 1px solid rgba(124,58,237,0.18–0.28)
+     - Border-radius: 18–24px on cards
+     - Hover: translateY(-3px) + border brighter + subtle purple glow
+     - Glow on hover only — not continuous
+     - Animations: 180–300ms, respects prefers-reduced-motion
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────────────────────
+   1. LABS HERO
+   Custom hero — premium technology laboratory composition.
+   Technical grid + glowing nodes + ambient radial glows.
+─────────────────────────────────────────────────────────── */
+
+.labs-hero {
+  position: relative;
+  padding: 148px 0 100px;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 1a. Technical background grid */
+.labs-hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.labs-hero-grid-inner {
+  position: absolute;
+  inset: -10%;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(0,0,0,0.6) 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(0,0,0,0.6) 0%, transparent 80%);
+}
+
+/* 1b. Node network — pure CSS */
+.labs-hero-nodes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.labs-node {
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Node base — glowing dot */
+.labs-node-1 { top: 18%; left: 12%; width: 6px; height: 6px; background: rgba(124,58,237,0.7); box-shadow: 0 0 8px rgba(124,58,237,0.8); animation: nodeFloat 5s ease-in-out infinite; }
+.labs-node-2 { top: 32%; left: 78%; width: 4px; height: 4px; background: rgba(6,182,212,0.6); box-shadow: 0 0 6px rgba(6,182,212,0.7); animation: nodeFloat 7s ease-in-out infinite 1.5s; }
+.labs-node-3 { top: 60%; left: 8%;  width: 5px; height: 5px; background: rgba(124,58,237,0.5); box-shadow: 0 0 7px rgba(124,58,237,0.6); animation: nodeFloat 6s ease-in-out infinite 0.8s; }
+.labs-node-4 { top: 72%; left: 88%; width: 4px; height: 4px; background: rgba(6,182,212,0.5); box-shadow: 0 0 5px rgba(6,182,212,0.6); animation: nodeFloat 8s ease-in-out infinite 2.2s; }
+.labs-node-5 { top: 20%; left: 90%; width: 7px; height: 7px; background: rgba(157,111,255,0.5); box-shadow: 0 0 10px rgba(157,111,255,0.5); animation: nodeFloat 6.5s ease-in-out infinite 0.4s; }
+.labs-node-6 { top: 78%; left: 22%; width: 4px; height: 4px; background: rgba(124,58,237,0.4); box-shadow: 0 0 5px rgba(124,58,237,0.4); animation: nodeFloat 9s ease-in-out infinite 3s; }
+
+/* Connection lines */
+.labs-node-line {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(124,58,237,0), rgba(124,58,237,0.18), rgba(6,182,212,0.12), rgba(6,182,212,0));
+  height: 1px;
+  transform-origin: left center;
+}
+
+.labs-line-1 { top: 19%; left: 12%; width: 220px; transform: rotate(12deg); }
+.labs-line-2 { top: 33%; left: 50%; width: 280px; transform: rotate(-8deg); }
+.labs-line-3 { top: 61%; left: 8%;  width: 180px; transform: rotate(22deg); }
+
+/* Float animation */
+@keyframes nodeFloat {
+  0%, 100% { transform: translateY(0px); opacity: 0.7; }
+  50%       { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Ambient glow layers */
+.labs-hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+.labs-hero-glow-purple {
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse at center,
+    rgba(124, 58, 237, 0.14) 0%,
+    rgba(124, 58, 237, 0.04) 45%,
+    transparent 70%);
+}
+
+.labs-hero-glow-cyan {
+  top: 40%;
+  left: 60%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse at center,
+    rgba(6, 182, 212, 0.07) 0%,
+    transparent 65%);
+  animation-delay: 3s;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
+}
+
+/* 1c. Hero inner content */
+.labs-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow badge — enhanced */
+.labs-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  background: rgba(6, 182, 212, 0.06);
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  border-radius: var(--radius-pill);
+  padding: 7px 18px;
+  margin-bottom: var(--space-6);
+}
+
+.labs-hero-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  animation: blink 2s infinite;
+  flex-shrink: 0;
+}
+
+/* Separator between eyebrow sections */
+.labs-hero-eyebrow-sep {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: rgba(6, 182, 212, 0.3);
+}
+
+.labs-hero-eyebrow-sub {
+  color: var(--color-gray2);
+  letter-spacing: 0.14em;
+}
+
+/* H1 */
+.labs-hero h1 {
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1.02;
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+/* Tagline */
+.labs-hero-tagline {
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 600;
+  color: var(--color-white);
+  letter-spacing: -0.4px;
+  margin-bottom: var(--space-5);
+  line-height: 1.3;
+  opacity: 0.9;
+}
+
+/* Supporting copy */
+.labs-hero-desc {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray);
+  max-width: 500px;
+  margin: 0 auto var(--space-9);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Meta row — focus areas */
+.labs-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.labs-hero-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gray);
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+
+.labs-hero-meta-item:hover {
+  border-color: rgba(124, 58, 237, 0.2);
+  color: var(--color-white);
+}
+
+.labs-hero-meta-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-purple2);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.labs-hero-meta-sep {
+  color: var(--color-gray3);
+  opacity: 0.5;
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   2. EXPERIMENTS SECTION
+─────────────────────────────────────────────────────────── */
+
+.labs-experiments-section {
+  padding-top: var(--space-9);
+  padding-bottom: 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Subtle ambient behind experiments */
+.labs-experiments-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.05), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2a. Status board banner */
+.labs-status-board {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  background: rgba(6, 182, 212, 0.04);
+  border: 1px solid rgba(6, 182, 212, 0.16);
+  margin-bottom: var(--space-10);
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.labs-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: blink 2s infinite;
+  flex-shrink: 0;
+}
+
+.labs-status-text {
+  color: var(--color-cyan);
+}
+
+.labs-status-divider {
+  color: var(--color-gray3);
+  margin: 0 4px;
+}
+
+.labs-status-date {
+  color: var(--color-gray2);
+}
+
+/* 2b. Experiment cards — 3-column grid */
+.labs-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+  position: relative;
+  z-index: 1;
+}
+
+.labs-exp-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: 20px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition:
+    border-color 0.22s var(--ease-standard),
+    transform 0.22s var(--ease-standard),
+    box-shadow 0.22s var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top highlight on card */
+.labs-exp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(124,58,237,0.25),
+    rgba(6,182,212,0.15),
+    transparent);
+}
+
+.labs-exp-card:hover {
+  border-color: rgba(124, 58, 237, 0.42);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(124, 58, 237, 0.08);
+}
+
+/* Hover: progress bar brightens via CSS var */
+.labs-exp-card:hover .labs-prog-fill {
+  filter: brightness(1.15);
+}
+
+.labs-exp-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.labs-exp-category {
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gray2);
+}
+
+.labs-exp-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.labs-exp-desc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray);
+  line-height: var(--line-height-normal);
+  flex: 1;
+}
+
+/* 2c. Progress bars */
+.labs-exp-progress {
+  margin-top: auto;
+}
+
+.labs-prog-hd {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-family: var(--font-family-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gray2);
+}
+
+.labs-prog-hd span:last-child {
+  color: var(--color-cyan);
+  font-weight: 600;
+}
+
+.labs-prog-bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Progress fill — animated on entry, CSS custom property for width */
+.labs-prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-purple), var(--color-cyan));
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animate when .prog-animate class applied by JS */
+.labs-prog-fill.prog-animate {
+  width: var(--prog-width);
+}
+
+.labs-exp-meta {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+}
+
+.labs-exp-meta-tag {
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-gray2);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+}
+
+/* Explore indicator — shows on hover */
+.labs-exp-card-footer {
+  margin-top: var(--space-2);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.22s var(--ease-standard),
+    opacity 0.22s var(--ease-standard);
+}
+
+.labs-exp-card:hover .labs-exp-card-footer {
+  max-height: 30px;
+  opacity: 1;
+}
+
+.labs-exp-explore {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-purple2);
+  font-family: var(--font-family-mono);
+  letter-spacing: 0.04em;
+}
+
+/* 2d. ON THE HORIZON heading */
+.labs-horizon-heading {
+  margin: var(--space-13) 0 var(--space-8);
+  text-align: center;
+}
+
+.labs-horizon-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-warning);
+  margin-bottom: var(--space-4);
+}
+
+.labs-horizon-eyebrow-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,181,71,0.4));
+}
+
+.labs-horizon-eyebrow-line:first-child {
+  background: linear-gradient(270deg, transparent, rgba(255,181,71,0.4));
+}
+
+.labs-concepts-title {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: var(--color-white);
+  margin-top: var(--space-3);
+  margin-bottom: 0;
+}
+
+.labs-horizon-sub {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray2);
+  margin-top: var(--space-3);
+}
+
+/* 2e. Concept / planned cards — 4-column grid */
+.labs-concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  padding-bottom: var(--space-13);
+}
+
+.labs-concept-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 181, 71, 0.12);
+  border-radius: 18px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    border-color 0.22s var(--ease-standard),
+    transform 0.22s var(--ease-standard),
+    box-shadow 0.22s var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top accent line on concept cards */
+.labs-concept-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,181,71,0.2), transparent);
+}
+
+.labs-concept-card:hover {
+  border-color: rgba(255, 181, 71, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.labs-concept-card-top {
+  display: flex;
+  align-items: center;
+}
+
+.labs-concept-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+  opacity: 0.85;
+}
+
+.labs-concept-card p {
+  font-size: 12.5px;
+  color: var(--color-gray2);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.labs-concept-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: var(--space-2);
+  align-items: center;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-gray2);
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   3. BADGE SYSTEM
+   Shared across Experiments, Build cards, Products.
+   Subtle — not CTAs.
+─────────────────────────────────────────────────────────── */
+
+.labs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.labs-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ACTIVE — green */
+.labs-badge-active {
+  background: rgba(34, 197, 94, 0.07);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  color: var(--color-success);
+}
+.labs-badge-active .labs-badge-dot {
+  background: var(--color-success);
+  animation: blink 2s infinite;
+}
+
+/* LIVE — stronger green */
+.labs-badge-live {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.38);
+  color: #4ade80;
+}
+.labs-badge-live .labs-badge-dot {
+  background: #4ade80;
+}
+
+/* BETA — secondary cyan */
+.labs-badge-beta {
+  background: rgba(6, 182, 212, 0.07);
+  border: 1px solid rgba(6, 182, 212, 0.28);
+  color: var(--color-cyan);
+}
+.labs-badge-beta .labs-badge-dot {
+  background: var(--color-cyan);
+}
+
+/* PROTOTYPE — purple */
+.labs-badge-prototype {
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: var(--color-purple2);
+}
+.labs-badge-prototype .labs-badge-dot {
+  background: var(--color-purple2);
+}
+
+/* CONCEPT / PLANNED — amber */
+.labs-badge-concept {
+  background: rgba(255, 181, 71, 0.06);
+  border: 1px solid rgba(255, 181, 71, 0.24);
+  color: var(--color-warning);
+}
+.labs-badge-concept .labs-badge-dot {
+  background: var(--color-warning);
+}
+
+/* ARCHIVED — neutral */
+.labs-badge-archived {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  color: var(--color-gray2);
+}
+.labs-badge-archived .labs-badge-dot {
+  background: var(--color-gray2);
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   4. BUILT & TESTED SECTION
+   Primary showcase — strongest visual emphasis.
+─────────────────────────────────────────────────────────── */
+
+.labs-builds-section {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: var(--space-13);
+  overflow: hidden;
+}
+
+/* Subtle cyan ambient on this section */
+.labs-builds-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6,182,212,0.05), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 4a. Filter bar — premium pill controls */
+.labs-filters {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+  position: relative;
+  z-index: 1;
+}
+
+.labs-filter {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-gray);
+  transition:
+    background 0.2s var(--ease-standard),
+    border-color 0.2s var(--ease-standard),
+    color 0.2s var(--ease-standard),
+    box-shadow 0.2s var(--ease-standard);
+  min-height: 36px;
+}
+
+.labs-filter:hover {
+  border-color: rgba(124, 58, 237, 0.35);
+  color: var(--color-white);
+  background: rgba(124, 58, 237, 0.07);
+}
+
+.labs-filter.active,
+.labs-filter[aria-pressed="true"] {
+  background: rgba(124, 58, 237, 0.14);
+  border-color: rgba(124, 58, 237, 0.45);
+  color: var(--color-purple2);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.12);
+}
+
+.labs-filter:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+/* 4b. Featured build card */
+.labs-featured-build {
+  margin-bottom: var(--space-10);
+  position: relative;
+  z-index: 1;
+}
+
+.labs-featured-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  transition:
+    border-color 0.25s var(--ease-standard),
+    box-shadow 0.25s var(--ease-standard);
+}
+
+.labs-featured-card:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(124, 58, 237, 0.08);
+}
+
+/* Preview panel */
+.labs-featured-preview {
+  background: rgba(255, 255, 255, 0.018);
+  border-right: 1px solid rgba(124, 58, 237, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Technical grid overlay in preview */
+.labs-featured-preview-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Ambient glow in preview */
+.labs-featured-preview-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(124, 58, 237, 0.1),
+    transparent 65%
+  );
+}
+
+.labs-featured-preview-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+  padding: 32px 24px;
+  width: 100%;
+}
+
+/* 4c. Screen frame placeholder */
+.labs-featured-screen {
+  width: 100%;
+  max-width: 340px;
+  background: rgba(10, 10, 16, 0.85);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle scanlines effect */
+.labs-featured-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.labs-featured-screen-bar {
+  background: rgba(20, 20, 30, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.labs-screen-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.labs-screen-dot:first-child { background: rgba(239, 68, 68, 0.5); }
+.labs-screen-dot:nth-child(2) { background: rgba(234, 179, 8, 0.4); }
+.labs-screen-dot:nth-child(3) { background: rgba(34, 197, 94, 0.35); }
+
+.labs-featured-screen-body {
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.labs-screen-line {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.labs-screen-line-lg { width: 70%; }
+.labs-screen-line-md { width: 50%; }
+.labs-screen-line-sm { width: 35%; }
+
+.labs-screen-grid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.labs-screen-block {
+  height: 48px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.labs-featured-preview-label {
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gray2);
+}
+
+/* Content panel */
+.labs-featured-content {
+  padding: 44px 48px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.labs-featured-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.labs-featured-eyebrow {
+  font-family: var(--font-family-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-purple2);
+}
+
+.labs-featured-title {
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.labs-featured-subtitle {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray2);
+  font-family: var(--font-family-mono);
+  letter-spacing: 0.06em;
+}
+
+.labs-featured-desc {
+  font-size: var(--font-size-body);
+  color: var(--color-gray);
+  line-height: var(--line-height-normal);
+}
+
+/* Build tags */
+.labs-featured-tags,
+.labs-build-tags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.labs-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--color-gray2);
+}
+
+/* Actions */
+.labs-featured-actions {
+  margin-top: var(--space-2);
+}
+
+.labs-coming-soon-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gray2);
+}
+
+.labs-coming-soon-label::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gray2);
+}
+
+/* Explore link */
+.labs-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-body-sm);
+  font-weight: 600;
+  color: var(--color-purple2);
+  transition:
+    gap 0.2s var(--ease-standard),
+    color 0.2s var(--ease-standard);
+}
+
+.labs-explore-link:hover {
+  color: var(--color-white);
+  gap: 10px;
+}
+
+.labs-explore-link:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* 4d. Build card grid — 3-column */
+.labs-build-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.labs-build-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(124, 58, 237, 0.16);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.22s var(--ease-standard),
+    transform 0.22s var(--ease-standard),
+    box-shadow 0.22s var(--ease-standard);
+}
+
+.labs-build-card:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(124, 58, 237, 0.07);
+}
+
+/* Placeholder card — slightly more muted */
+.labs-build-card-placeholder {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.labs-build-card-placeholder:hover {
+  border-color: rgba(124, 58, 237, 0.25);
+}
+
+.labs-build-preview {
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.018);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s var(--ease-standard);
+}
+
+.labs-build-card:hover .labs-build-preview {
+  transform: scale(1.02);
+}
+
+/* Preview technical grid */
+.labs-build-preview-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transition: opacity 0.22s var(--ease-standard);
+}
+
+.labs-build-card:hover .labs-build-preview-grid {
+  opacity: 0.6;
+}
+
+/* Preview placeholder label */
+.labs-build-preview-label {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gray2);
+  opacity: 0.6;
+}
+
+.labs-build-preview-placeholder {
+  /* glow pulse behind placeholder */
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.labs-build-preview-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(124, 58, 237, 0.06),
+    transparent 65%);
+}
+
+.labs-build-info {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.labs-build-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.labs-build-desc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray2);
+  line-height: var(--line-height-normal);
+  flex: 1;
+}
+
+/* Legacy empty state (kept for JS compatibility — hidden by default now) */
+.labs-empty-state {
+  grid-column: 1 / -1;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: 64px var(--space-6);
+  text-align: center;
+  border: 1px dashed rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.labs-empty-state[style*="display: "] {
+  display: flex;
+}
+
+.labs-empty-icon {
+  color: var(--color-gray3);
+}
+
+.labs-empty-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-gray);
+}
+
+.labs-empty-desc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray2);
+  max-width: 380px;
+  line-height: var(--line-height-normal);
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   5. PRODUCTS SECTION
+─────────────────────────────────────────────────────────── */
+
+.labs-products-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Subtle purple ambient */
+.labs-products-section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 600px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.04), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.labs-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Product card — for future use */
+.labs-product-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition:
+    border-color 0.22s var(--ease-standard),
+    transform 0.22s var(--ease-standard);
+}
+
+.labs-product-card:hover {
+  border-color: rgba(124, 58, 237, 0.42);
+  transform: translateY(-2px);
+}
+
+.labs-product-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.labs-product-card p {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray);
+  line-height: var(--line-height-normal);
+  flex: 1;
+}
+
+/* Premium empty state */
+.labs-products-empty {
+  grid-column: 1 / -1;
+}
+
+.labs-products-empty-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 80px var(--space-6);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow decoratives */
+.labs-products-empty-glow-purple {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.labs-products-empty-glow-cyan {
+  position: absolute;
+  bottom: -60px;
+  right: 20%;
+  width: 300px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(6,182,212,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.labs-products-empty-icon {
+  color: var(--color-purple2);
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+}
+
+.labs-products-empty-title {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.labs-products-empty-desc {
+  font-size: var(--font-size-body);
+  color: var(--color-gray);
+  max-width: 420px;
+  line-height: var(--line-height-relaxed);
+  position: relative;
+  z-index: 1;
+}
+
+.labs-products-notify {
+  margin-top: var(--space-2);
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   6. FINAL CTA SECTION
+─────────────────────────────────────────────────────────── */
+
+.labs-final-cta {
+  padding: 60px 0 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.labs-cta-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(124, 58, 237, 0.28);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ambient glow layers */
+.labs-cta-glow-purple {
+  position: absolute;
+  top: -100px;
+  left: 30%;
+  width: 500px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.1), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.labs-cta-glow-cyan {
+  position: absolute;
+  bottom: -80px;
+  right: 20%;
+  width: 350px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(6,182,212,0.06), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Technical corner accents */
+.labs-cta-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(124, 58, 237, 0.35);
+  border-style: solid;
+  z-index: 1;
+}
+
+.labs-cta-corner-tl { top: 16px; left: 16px;  border-width: 1px 0 0 1px; border-radius: 4px 0 0 0; }
+.labs-cta-corner-tr { top: 16px; right: 16px; border-width: 1px 1px 0 0; border-radius: 0 4px 0 0; }
+.labs-cta-corner-bl { bottom: 16px; left: 16px;  border-width: 0 0 1px 1px; border-radius: 0 0 0 4px; }
+.labs-cta-corner-br { bottom: 16px; right: 16px; border-width: 0 1px 1px 0; border-radius: 0 0 4px 0; }
+
+/* Inner content — above glows */
+.labs-cta-inner {
+  position: relative;
+  z-index: 1;
+  padding: 72px 48px;
+  text-align: center;
+}
+
+/* CTA eyebrow */
+.labs-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-purple2);
+  margin-bottom: var(--space-6);
+}
+
+.labs-cta-eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-purple2);
+  animation: blink 2.5s infinite;
+  flex-shrink: 0;
+}
+
+.labs-cta-box h2 {
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 900;
+  letter-spacing: -1.8px;
+  line-height: 1.08;
+  margin-bottom: var(--space-5);
+  color: var(--color-white);
+}
+
+.labs-cta-desc {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray);
+  max-width: 440px;
+  margin: 0 auto var(--space-9);
+  line-height: var(--line-height-relaxed);
+}
+
+.labs-cta-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   7. RESPONSIVE OVERRIDES
+─────────────────────────────────────────────────────────── */
+
+/* ── 1024px ── */
+@media (max-width: 1024px) {
+  /* Experiment cards: 2-col */
+  .labs-exp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Concept cards: 2-col */
+  .labs-concepts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Featured build stays 2-col but reduces padding */
+  .labs-featured-content {
+    padding: 36px 32px;
+  }
+
+  /* Build grid: 2-col */
+  .labs-build-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Products grid: 2-col */
+  .labs-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .labs-cta-inner {
+    padding: 56px 40px;
+  }
+}
+
+/* ── 768px ── */
+@media (max-width: 768px) {
+  /* Hero */
+  .labs-hero {
+    padding: 120px 0 72px;
+  }
+
+  .labs-hero h1 {
+    letter-spacing: -2px;
+  }
+
+  /* Hide complex node decoratives on mobile */
+  .labs-hero-nodes {
+    display: none;
+  }
+
+  .labs-hero-grid-inner {
+    background-size: 32px 32px;
+  }
+
+  /* Experiments: 1-col */
+  .labs-exp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Concept cards: 2-col (keep at 768) */
+  .labs-concepts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Featured card stacks vertically */
+  .labs-featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .labs-featured-preview {
+    border-right: none;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+    min-height: 240px;
+  }
+
+  .labs-featured-content {
+    padding: 32px 28px;
+  }
+
+  .labs-featured-label-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  /* Build grid: 2-col */
+  .labs-build-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Products grid: 1-col */
+  .labs-products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Filters: scrollable row */
+  .labs-filters {
+    gap: var(--space-2);
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .labs-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .labs-filter {
+    flex-shrink: 0;
+  }
+
+  .labs-cta-inner {
+    padding: 48px 28px;
+  }
+
+  /* Horizon heading */
+  .labs-horizon-heading {
+    margin: var(--space-10) 0 var(--space-6);
+  }
+}
+
+/* ── 480px ── */
+@media (max-width: 480px) {
+  .labs-hero {
+    padding: 100px 0 60px;
+  }
+
+  .labs-hero-meta {
+    gap: 6px;
+  }
+
+  .labs-hero-meta-item {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
+  /* Concept cards: 1-col */
+  .labs-concepts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Build grid: 1-col */
+  .labs-build-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .labs-cta-inner {
+    padding: 40px 20px;
+  }
+
+  .labs-cta-box h2 {
+    letter-spacing: -1.2px;
+  }
+
+  .labs-products-empty-inner {
+    padding: 56px 20px;
+  }
+
+  .labs-featured-content {
+    padding: 28px 22px;
+  }
+}
+
+/* ── 360px ── */
+@media (max-width: 360px) {
+  .labs-hero {
+    padding: 88px 0 48px;
+  }
+
+  .labs-cta-inner {
+    padding: 32px 16px;
+  }
+
+  .labs-featured-content {
+    padding: 22px 16px;
+  }
+}
+
+
+/* ───────────────────────────────────────────────────────────
+   8. REDUCED MOTION
+   All Labs-specific transitions/animations suppressed.
+   Content and interactivity fully preserved.
+─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .labs-hero-eyebrow-dot,
+  .labs-status-dot,
+  .labs-badge-active .labs-badge-dot,
+  .labs-cta-eyebrow-dot {
+    animation: none !important;
+  }
+
+  .labs-node,
+  .labs-hero-glow {
+    animation: none !important;
+  }
+
+  .labs-exp-card,
+  .labs-concept-card,
+  .labs-build-card,
+  .labs-product-card,
+  .labs-featured-card,
+  .labs-filter,
+  .labs-explore-link {
+    transition: none !important;
+  }
+
+  .labs-build-card:hover .labs-build-preview,
+  .labs-exp-card-footer {
+    transition: none !important;
+    max-height: 30px;
+    opacity: 0.5;
+  }
+
+  .labs-prog-fill {
+    transition: none !important;
+  }
+
+  .labs-hero-grid,
+  .labs-hero-nodes {
+    display: none;
+  }
+}

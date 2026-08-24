@@ -1,0 +1,111 @@
+<!-- ══════════════════════════════════════════════════════
+  CONTACT SECTION: FAQ
+  src/sections/contact/faq.html
+  Phase 11 — Contact Page Rebuild
+
+  STRUCTURE:
+    - Section heading (visible H2)
+    - 4 FAQ accordion items from approved legacy source
+    - Keyboard-accessible: native <button> for each FAQ trigger
+    - Managed by global FAQ JS in js/global.js (toggleFaq pattern)
+
+  SOURCE:
+    Content from src/pages/contact.html (Phase 1 legacy extract):
+    1. How long does a project take?
+    2. Do you provide ongoing support?
+    3. What's the minimum budget?
+    4. Can you work with my existing website?
+
+  JAVASCRIPT:
+    FAQ accordion handled by js/global.js via event delegation on .faq-wrap.
+    No contact-specific JS required.
+    Phase 20 — inline onclick removed; data-faq-toggle used instead.
+
+  ACCESSIBILITY:
+    - <button type="button"> with aria-expanded on each toggle
+    - aria-controls linking button to answer panel
+    - Answer panels have id matching aria-controls
+    - Keyboard: Enter/Space toggles via native button behavior
+
+  HEADING HIERARCHY:
+    H2 "Common Questions" (visible, below H2 in contact-form section)
+══════════════════════════════════════════════════════ -->
+
+<section class="contact-faq-section section-sm" aria-labelledby="contact-faq-heading">
+  <div class="container">
+
+    <div class="sh rv">
+      <div class="sh-eyebrow">Quick Answers</div>
+      <h2 id="contact-faq-heading">Common <span class="grad-text">Questions</span></h2>
+    </div>
+
+    <div class="faq-wrap rv" role="list">
+
+      <!-- FAQ 1 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="contact-faq-ans-01"
+          data-faq-toggle>
+          How long does a project take?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="contact-faq-ans-01" role="region">
+          <p>30–60 days typically. Simple landing pages in 2–3 weeks. We share a detailed timeline at kickoff so you always know what's happening and when.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="contact-faq-ans-02"
+          data-faq-toggle>
+          Do you provide ongoing support?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="contact-faq-ans-02" role="region">
+          <p>Yes. We offer maintenance plans covering updates, monitoring, security, and optimization. We're a long-term partner, not just a one-time vendor.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="contact-faq-ans-03"
+          data-faq-toggle>
+          What's the minimum budget?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="contact-faq-ans-03" role="region">
+          <p>Landing pages from ₹25,000. Full digital growth systems from ₹75,000. We customize based on your goals and budget.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item" role="listitem">
+        <button
+          class="faq-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="contact-faq-ans-04"
+          data-faq-toggle>
+          Can you work with my existing website?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-ans" id="contact-faq-ans-04" role="region">
+          <p>Absolutely. We audit, redesign, migrate, or optimize existing sites. Many clients come to us specifically for overhauls of sites that aren't generating results.</p>
+        </div>
+      </div>
+
+    </div><!-- /.faq-wrap -->
+
+  </div>
+</section>

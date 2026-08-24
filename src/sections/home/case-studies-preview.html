@@ -1,0 +1,123 @@
+<!-- ══════════════════════════════════════════════════════
+  HOME SECTION: Case Studies Preview
+  src/sections/home/case-studies-preview.html
+  Phase 6 — Home Page Rebuild
+
+  Content: "Featured Work" — 3 case study preview cards.
+  CTA: "View All Case Studies →" → /case-studies
+
+  ⚠️ CONTENT FLAGS:
+    - All 3 case studies are anonymized (no client names/companies).
+    - Metrics (3×, 95 Lighthouse, #1 Maps etc.) may be approximate.
+    - ₹2.5M Revenue, 10× Revenue, 4.8% CVR, 80% Auto preserved from legacy.
+    See docs/CONTENT-MAP.md for flagged content.
+
+  NAVIGATION NOTE: Legacy used onclick="go('blog')".
+  New: /case-studies (see docs/README.md URL mapping).
+══════════════════════════════════════════════════════ -->
+<section class="section" id="case-studies-preview" aria-labelledby="cs-preview-heading" style="position:relative;z-index:1;">
+  <div class="container">
+
+    <div class="sh rv">
+      <div class="sh-eyebrow">Featured Work</div>
+      <h2 id="cs-preview-heading">Real Results, <span class="grad-text">Real Businesses</span></h2>
+      <p>Deep dives into how we transformed businesses with measurable outcomes.</p>
+    </div>
+
+    <div class="cs-grid" role="list">
+
+      <!-- Case study 1: Healthcare -->
+      <article class="cs-card rv" role="listitem">
+        <a href="/case-studies" class="cs-card-link" aria-label="Case study: Clinic Digital Transformation, Pune — Read more">
+          <div class="cs-thumb cst-1">
+            <span aria-hidden="true">🏥</span>
+            <div class="cs-ind">Healthcare</div>
+            <div class="cs-res">3× Leads</div>
+          </div>
+          <div class="cs-body">
+            <div class="cs-svc-row" aria-label="Technologies">
+              <span class="cs-svc">Next.js</span>
+              <span class="cs-svc">AI Chatbot</span>
+              <span class="cs-svc">Local SEO</span>
+            </div>
+            <h3>Clinic Digital Transformation — Pune</h3>
+            <p>Zero presence to #1 Google Maps. Full website + AI intake bot + SEO in 30 days.</p>
+            <div class="cs-foot">
+              <div class="cs-mets" aria-label="Results">
+                <div><div class="cs-met-v">3×</div><div class="cs-met-l">Leads</div></div>
+                <div><div class="cs-met-v">95</div><div class="cs-met-l">Lighthouse</div></div>
+                <div><div class="cs-met-v">#1</div><div class="cs-met-l">Maps</div></div>
+              </div>
+              <div class="cs-arr" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Case study 2: E-Commerce -->
+      <article class="cs-card rv" role="listitem">
+        <a href="/case-studies" class="cs-card-link" aria-label="Case study: E-Commerce ₹0 to ₹2.5M in 8 Months — Read more">
+          <div class="cs-thumb cst-2">
+            <span aria-hidden="true">🛍️</span>
+            <div class="cs-ind">E-Commerce</div>
+            <div class="cs-res">₹2.5M Revenue</div>
+          </div>
+          <div class="cs-body">
+            <div class="cs-svc-row" aria-label="Technologies">
+              <span class="cs-svc">Stripe</span>
+              <span class="cs-svc">AI Upsells</span>
+              <span class="cs-svc">Inventory</span>
+            </div>
+            <h3>E-Commerce: ₹0 to ₹2.5M in 8 Months</h3>
+            <p>Replaced spreadsheets with full-stack store. 4.8% conversion, 10× revenue growth.</p>
+            <div class="cs-foot">
+              <div class="cs-mets" aria-label="Results">
+                <div><div class="cs-met-v">10×</div><div class="cs-met-l">Revenue</div></div>
+                <div><div class="cs-met-v">4.8%</div><div class="cs-met-l">CVR</div></div>
+                <div><div class="cs-met-v">98</div><div class="cs-met-l">Score</div></div>
+              </div>
+              <div class="cs-arr" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Case study 3: AI Automation -->
+      <article class="cs-card rv" role="listitem">
+        <a href="/case-studies" class="cs-card-link" aria-label="Case study: WhatsApp AI System — Read more">
+          <div class="cs-thumb cst-3">
+            <span aria-hidden="true">🤖</span>
+            <div class="cs-ind">AI Automation</div>
+            <div class="cs-res">20hrs Saved</div>
+          </div>
+          <div class="cs-body">
+            <div class="cs-svc-row" aria-label="Technologies">
+              <span class="cs-svc">WhatsApp Bot</span>
+              <span class="cs-svc">Lead AI</span>
+              <span class="cs-svc">CRM</span>
+            </div>
+            <h3>WhatsApp AI System — Service Business</h3>
+            <p>80% leads auto-qualified. 5× faster response. 42% higher close rate.</p>
+            <div class="cs-foot">
+              <div class="cs-mets" aria-label="Results">
+                <div><div class="cs-met-v">80%</div><div class="cs-met-l">Auto</div></div>
+                <div><div class="cs-met-v">5×</div><div class="cs-met-l">Speed</div></div>
+                <div><div class="cs-met-v">42%</div><div class="cs-met-l">Close↑</div></div>
+              </div>
+              <div class="cs-arr" aria-hidden="true">→</div>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </div><!-- /cs-grid -->
+
+    <!-- CTA — links to /case-studies (was "blog" in legacy SPA) -->
+    <div style="text-align:center;margin-top:36px;" class="rv">
+      <a class="btn-g" href="/case-studies">
+        View All Case Studies <span class="btn-icon" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div><!-- /container -->
+</section>

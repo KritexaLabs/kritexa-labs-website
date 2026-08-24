@@ -1,0 +1,335 @@
+<!-- ══════════════════════════════════════════════════════
+  INDUSTRY SOLUTIONS SECTION: Industry Solution Rows
+  src/sections/industry-solutions/solutions-rows.html
+  Phase 22 — MOVED from src/sections/capabilities/industry-solutions.html
+
+  PURPOSE:
+    "How do your capabilities apply to my type of business?"
+    Each row shows a specific industry → business problems → solution approach
+    → relevant capabilities → CTA.
+
+  CONTENT STATUS: Approved content, moved verbatim from Capabilities page (Phase 8).
+  Original location: src/sections/capabilities/industry-solutions.html
+
+  STRUCTURE:
+    - 8 alternating industry solution rows (image + content, reversed alternately)
+    - Each row: section number, H2, description, tags, feature list, CTA
+
+  INDUSTRIES (8 total, from approved content — unchanged):
+    01 / 08 — Clinics & Healthcare     → /assets/images/solution-01.jpg
+    02 / 08 — Consultants & Coaches    → /assets/images/solution-02.jpg
+    03 / 08 — Finance & Advisors       → /assets/images/solution-03.jpg
+    04 / 08 — Startups & Scale-Ups     → /assets/images/solution-04.jpg
+    05 / 08 — Local Businesses         → /assets/images/solution-05.jpg
+    06 / 08 — Education Institutes     → /assets/images/solution-06.jpg
+    07 / 08 — E-Commerce & D2C Brands  → /assets/images/solution-07.jpg
+    08 / 08 — Personal Brands          → /assets/images/solution-08.jpg
+
+  CROSS-LINKS (Phase 22 — per row):
+    Each CTA links to /contact (approved destination — AD-019).
+
+  ⚠️ CONTENT FLAG: Some marketing descriptions reference specific
+  outcomes ("fill your schedule", "dominate your local market", "#1 on
+  Google Maps"). These are preserved from approved legacy content.
+
+  HEADING HIERARCHY:
+    - H2 per industry solution (H1 is on hero.html)
+    - No skipped levels
+
+  IMAGES:
+    - solution-01 is NOT lazy-loaded (first visible image, LCP candidate)
+    - solution-02 through solution-08 use loading="lazy"
+    - width/height attributes set to help browser reserve space (CLS)
+══════════════════════════════════════════════════════ -->
+
+<!-- ── Section intro ─────────────────────────────────────────────────────── -->
+<section class="is-intro-section section-sm" aria-labelledby="is-intro-h2">
+  <div class="container">
+    <div class="sh rv" style="text-align:center;">
+      <div class="sh-eyebrow" style="justify-content:center;">Tailored for Your Industry</div>
+      <h2 id="is-intro-h2">Solutions by <span class="grad-text">Industry</span></h2>
+      <p style="max-width:640px;margin:16px auto 0;color:var(--color-gray);line-height:1.7;">Each industry has different challenges, different customers, and different goals. We apply the right mix of our engineering capabilities to address your specific context — not a generic template.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Industry Solutions Rows ─────────────────────────────────────────── -->
+<section class="sol-section" aria-labelledby="industry-solutions-h2">
+  <h2 id="industry-solutions-h2" class="sr-only">Industry Solutions</h2>
+  <div class="container">
+
+    <!-- 01 / 08 — Clinics & Healthcare -->
+    <!-- Image LEFT, content RIGHT — first row, no lazy-load on image (LCP) -->
+    <article class="sol-row rv" aria-labelledby="sol-h-01">
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-01.jpg"
+          alt="Healthcare clinic reception — representing patient booking and digital presence"
+          width="600"
+          height="450"
+          fetchpriority="high"
+          decoding="async">
+      </div>
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">01 / 08</div>
+        <h3 class="sol-h" id="sol-h-01">Clinics &amp; <span class="grad-text">Healthcare</span></h3>
+        <p class="sol-p">Patient acquisition systems that fill your schedule automatically. Online booking, AI-powered intake, and local SEO that puts you #1 in your area — so patients find you first, every time.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">Appointment Booking</span>
+          <span class="sol-tag">Patient Portal</span>
+          <span class="sol-tag">Local SEO</span>
+          <span class="sol-tag">WhatsApp Reminders</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Online booking with Google Calendar sync</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>AI chatbot for patient queries 24/7</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Automated SMS &amp; WhatsApp reminders</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Google Maps ranking optimization</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/case-studies" aria-label="See healthcare case study">See Case Study ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 / 08 — Consultants & Coaches -->
+    <!-- Content LEFT, image RIGHT (alternating) -->
+    <article class="sol-row rv" aria-labelledby="sol-h-02">
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">02 / 08</div>
+        <h3 class="sol-h" id="sol-h-02">Consultants &amp; <span class="grad-text">Coaches</span></h3>
+        <p class="sol-p">Build authority online while AI handles qualification. A premium website that positions you as the go-to expert, paired with automation that converts visitors into booked calls — without lifting a finger.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">Authority Website</span>
+          <span class="sol-tag">Booking System</span>
+          <span class="sol-tag">AI Intake</span>
+          <span class="sol-tag">Email Sequences</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Premium personal brand website design</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Pre-qualification booking system</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Automated follow-up email sequences</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Testimonial &amp; social proof systems</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/portfolio" aria-label="See consultant portfolio projects">See Portfolio ↗</a>
+        </div>
+      </div>
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-02.jpg"
+          alt="Professional consultant at desk — representing authority website and booking system"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+    </article>
+
+    <!-- 03 / 08 — Finance & Advisors -->
+    <!-- Image LEFT, content RIGHT -->
+    <article class="sol-row rv" aria-labelledby="sol-h-03">
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-03.jpg"
+          alt="Finance advisor reviewing data — representing compliant financial services website"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">03 / 08</div>
+        <h3 class="sol-h" id="sol-h-03">Finance &amp; <span class="grad-text">Advisors</span></h3>
+        <p class="sol-p">Compliance-ready website with an AI lead qualifier that screens prospects, educates them, and books only the most qualified clients onto your calendar. Build trust before the first meeting.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">SEBI Compliant</span>
+          <span class="sol-tag">Lead Bot</span>
+          <span class="sol-tag">Client Portal</span>
+          <span class="sol-tag">Calculator</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>SEBI/IRDAI compliant design &amp; disclaimers</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>AI chatbot for lead pre-qualification</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Interactive investment &amp; insurance calculators</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Secure document sharing system</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/case-studies" aria-label="See finance consultant case study">See Case Study ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 / 08 — Startups & Scale-Ups -->
+    <!-- Content LEFT, image RIGHT (alternating) -->
+    <article class="sol-row rv" aria-labelledby="sol-h-04">
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">04 / 08</div>
+        <h3 class="sol-h" id="sol-h-04">Startups &amp; <span class="grad-text">Scale-Ups</span></h3>
+        <p class="sol-p">Speed is your competitive edge. We build fast, scalable systems — MVPs, investor-ready pages, and full growth stacks — without the bloat of traditional agencies. Launch in weeks, not months.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">MVP Development</span>
+          <span class="sol-tag">Landing Pages</span>
+          <span class="sol-tag">A/B Testing</span>
+          <span class="sol-tag">Analytics</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Investor-ready pitch websites &amp; decks</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>High-converting product landing pages</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Full analytics &amp; heatmap setup</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Rapid iteration &amp; A/B testing pipeline</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/portfolio" aria-label="See startup portfolio projects">See Portfolio ↗</a>
+        </div>
+      </div>
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-04.jpg"
+          alt="Startup team collaborating — representing MVP development and growth systems"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+    </article>
+
+    <!-- 05 / 08 — Local Businesses -->
+    <!-- Image LEFT, content RIGHT -->
+    <article class="sol-row rv" aria-labelledby="sol-h-05">
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-05.jpg"
+          alt="Local business storefront — representing Google Maps SEO and local digital marketing"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">05 / 08</div>
+        <h3 class="sol-h" id="sol-h-05">Local <span class="grad-text">Businesses</span></h3>
+        <p class="sol-p">Dominate your local market online. We put you at #1 on Google Maps, automate review collection, and build WhatsApp funnels that convert nearby searchers into paying customers on autopilot.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">Google Maps SEO</span>
+          <span class="sol-tag">Review Automation</span>
+          <span class="sol-tag">WhatsApp Funnel</span>
+          <span class="sol-tag">Local Ads</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Google Business Profile full optimization</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Automated 5-star review collection</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>WhatsApp lead nurturing sequences</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Hyperlocal keyword strategy &amp; content</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/case-studies" aria-label="See local SEO case study">See Case Study ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 06 / 08 — Education Institutes -->
+    <!-- Content LEFT, image RIGHT (alternating) -->
+    <article class="sol-row rv" aria-labelledby="sol-h-06">
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">06 / 08</div>
+        <h3 class="sol-h" id="sol-h-06">Education <span class="grad-text">Institutes</span></h3>
+        <p class="sol-p">Enrollment systems that work 24/7. Students apply online, get automated responses, and stay engaged through smart communication sequences — doubling admissions without adding staff.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">Enrollment Portal</span>
+          <span class="sol-tag">Course Catalog</span>
+          <span class="sol-tag">Admissions Bot</span>
+          <span class="sol-tag">Student CRM</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Online application &amp; enrollment forms</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Automated admission confirmation &amp; docs</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Course catalog with fee structure</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Parent &amp; student communication portal</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/case-studies" aria-label="See education case study">See Case Study ↗</a>
+        </div>
+      </div>
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-06.jpg"
+          alt="Education institute building — representing enrollment portal and student management system"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+    </article>
+
+    <!-- 07 / 08 — E-Commerce & D2C Brands -->
+    <!-- Image LEFT, content RIGHT -->
+    <article class="sol-row rv" aria-labelledby="sol-h-07">
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-07.jpg"
+          alt="E-commerce products display — representing online store and D2C brand solutions"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">07 / 08</div>
+        <h3 class="sol-h" id="sol-h-07">E-Commerce &amp; <span class="grad-text">D2C Brands</span></h3>
+        <p class="sol-p">Full-stack stores with payment integration, AI-powered recommendations, abandoned cart recovery, and automated inventory — built to convert visitors and scale revenue to new heights.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">Online Store</span>
+          <span class="sol-tag">Stripe / Razorpay</span>
+          <span class="sol-tag">AI Upsells</span>
+          <span class="sol-tag">Cart Recovery</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Custom storefront with payment integration</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>AI product recommendations &amp; upsells</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Abandoned cart recovery automation</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Inventory management &amp; order tracking</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/case-studies" aria-label="See e-commerce case study">See Case Study ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 08 / 08 — Personal Brands -->
+    <!-- Content LEFT, image RIGHT (alternating) -->
+    <article class="sol-row rv" aria-labelledby="sol-h-08">
+      <div class="sol-content-box">
+        <div class="sol-num" aria-hidden="true">08 / 08</div>
+        <h3 class="sol-h" id="sol-h-08">Personal <span class="grad-text">Brands</span></h3>
+        <p class="sol-p">Your name is your brand. We build premium digital homes for speakers, authors, thought leaders, and creators — designed to impress at first glance and convert visitors into followers and paying clients.</p>
+        <div class="sol-tags" aria-label="Included capabilities">
+          <span class="sol-tag">Portfolio Site</span>
+          <span class="sol-tag">Speaking Page</span>
+          <span class="sol-tag">Newsletter Setup</span>
+          <span class="sol-tag">Content Hub</span>
+        </div>
+        <ul class="sol-feats" aria-label="What's included">
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Premium personal brand website design</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Speaking &amp; media kit page</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Newsletter &amp; email list building system</li>
+          <li class="sol-feat"><div class="sol-ck" aria-hidden="true">✓</div>Blog &amp; content hub setup</li>
+        </ul>
+        <div class="sol-btns">
+          <a class="sol-btn" href="/contact">Get This Solution <span aria-hidden="true">→</span></a>
+          <a class="sol-link" href="/portfolio" aria-label="See personal brand portfolio projects">See Portfolio ↗</a>
+        </div>
+      </div>
+      <div class="sol-img">
+        <img
+          src="/assets/images/solution-08.jpg"
+          alt="Personal brand professional photo — representing speaker and thought leader website"
+          width="600"
+          height="450"
+          loading="lazy">
+      </div>
+    </article>
+
+  </div><!-- /container -->
+</section>

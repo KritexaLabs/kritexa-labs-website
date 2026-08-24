@@ -1,0 +1,87 @@
+<!-- ══════════════════════════════════════════════════════
+  HOME SECTION: Hero
+  src/sections/home/hero.html
+  Phase 6 — Home Page Rebuild
+  Phase 20 — Background Image Hero
+
+  STRUCTURE:
+    - Background: provided India map artwork (home-hero-bg.jpg)
+    - Decorative: noise overlay, grid lines, ambient orbs (original)
+    - Content: line1, BUSINESS canvas, line2, tag, CTAs (original)
+    - Scroll hint (original)
+
+  H1 NOTE: The visible hero uses a canvas-rendered "BUSINESS"
+  text (not real HTML text). To satisfy exactly-one-H1
+  requirement and SEO, an accessible H1 is added with
+  visually-hidden text while the visual canvas rendering
+  is preserved as aria-hidden.
+
+  CTA DESTINATIONS:
+    "Start Your Project →"  → /contact   (temporary per AD-019)
+    "View Our Work ↗"       → /portfolio
+
+  LCP: home-hero-bg.jpg is the primary above-fold visual.
+  Preloaded via build system (scripts/build.js home page entry).
+
+  ANIMATION: Canvas driven by js/pages/home.js (BUSINESS text glow).
+  Reduced motion: canvas animation is paused by home.js.
+  Ambient orbs disabled in global.css prefers-reduced-motion.
+
+  BACKGROUND: home-hero-bg.jpg — 1672×941px 16:9 artwork.
+  Implemented as CSS background on .jk-hero-bg (position:absolute, inset:0).
+  Decorative — no aria attributes needed (CSS background).
+══════════════════════════════════════════════════════ -->
+<section class="jk-hero" aria-labelledby="home-h1">
+
+  <!-- Background image layer — CSS background, purely decorative -->
+  <div class="jk-hero-bg" aria-hidden="true"></div>
+
+  <!-- Original decorative layers — unchanged from Phase 6 -->
+  <div class="jk-noise" aria-hidden="true"></div>
+  <div class="jk-grid"  aria-hidden="true"></div>
+  <div class="jk-orb jk-orb1" aria-hidden="true"></div>
+  <div class="jk-orb jk-orb2" aria-hidden="true"></div>
+  <div class="jk-orb jk-orb3" aria-hidden="true"></div>
+
+  <div class="jk-hero-inner">
+
+    <!-- Visually hidden H1 for accessibility & SEO -->
+    <h1 class="jk-sr-h1" id="home-h1">Kritexa Labs — AI-First Digital Growth Studio</h1>
+
+    <!-- Line 1 -->
+    <div class="jk-line1 rv" aria-hidden="true">we put the <em>tech</em> &amp; <em class="jk-ai-em">AI</em> in your</div>
+
+    <!-- BUSINESS canvas text -->
+    <div class="jk-big-wrap rv" aria-hidden="true">
+      <span class="jk-big-text" id="jkBig">BUSINESS</span>
+      <canvas id="jkOffCanvas" style="display:none;"></canvas>
+      <canvas class="jk-glow-canvas" id="jkCanvas"></canvas>
+    </div>
+
+    <!-- Line 2 -->
+    <div class="jk-line2 rv" aria-hidden="true">which makes your business a machine</div>
+
+    <!-- Tag / eyebrow -->
+    <div class="jk-line3 rv">
+      <span class="jk-tag">AI-First Digital Growth Studio</span>
+    </div>
+
+    <!-- CTA Buttons — real <a href> links, no onclick -->
+    <div class="jk-btns rv">
+      <a class="jk-btn-primary" href="/contact">
+        Start Your Project <span class="jk-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="jk-btn-ghost" href="/portfolio">
+        View Our Work <span class="jk-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div><!-- /jk-hero-inner -->
+
+  <!-- Scroll hint — decorative -->
+  <div class="jk-scroll-hint" aria-hidden="true">
+    <div class="jk-scroll-line"></div>
+    <span>scroll</span>
+  </div>
+
+</section>

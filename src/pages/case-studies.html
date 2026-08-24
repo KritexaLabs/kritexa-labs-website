@@ -1,0 +1,56 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/case-studies.html
+  Phase 10 — Case Studies Page Rebuild
+
+  REPLACES: The Phase 1 extracted monolithic content from legacy/index-original.html
+  ORIGINAL PAGE ID: #page-blog
+
+  ARCHITECTURE:
+    - Section partial composition via {{SECTION:case-studies/*}}
+    - Shared header/footer via components
+    - Page-specific CSS: /css/pages/case-studies.css
+    - ZERO page-specific JavaScript (FAQ handled by global.js)
+
+  SECTION ORDER (actual, from legacy source):
+    1. Hero — eyebrow + H1 + stats strip
+    2. Featured — featured case study with Problem/Solution/Result flow
+    3. Studies — filter navigation + 6 case study article cards
+    4. FAQ — 6 FAQ accordion items
+    5. CTA — page-level CTA section
+
+  URL: /case-studies
+  GENERATED OUTPUT: case-studies/index.html
+
+  SEO:
+    Title: "Case Studies — Kritexa Labs | Real Results, Real Businesses"
+    Description: "Explore how Kritexa Labs transformed businesses with AI, automation, and web systems. Deep dives into healthcare, e-commerce, local SEO, and more."
+    Canonical: https://www.kritexalabs.com/case-studies
+    Active nav: nl-case-studies
+
+  ACTIVE NAV:
+    nl-case-studies gets class="active" + aria-current="page" via build.js
+
+  NO CASE STUDY DETAIL PAGES:
+    Individual case study URLs (/case-studies/slug) are NOT created in Phase 10.
+    All cards render as non-linked previews until Phase 10+ detail pages.
+
+  NO FABRICATED CONTENT:
+    All content preserved from legacy approved source.
+    Client names not disclosed (all anonymous).
+    Metrics are marketing claims from approved legacy source.
+    See src/sections/case-studies/*.html for per-card content warnings.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:case-studies/hero}}
+
+  {{SECTION:case-studies/featured}}
+
+  {{SECTION:case-studies/studies}}
+
+  {{SECTION:case-studies/faq}}
+
+  {{SECTION:case-studies/cta}}
+
+</main>

@@ -1,0 +1,58 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/live-projects.html
+  Phase 22 — NEW: Live Projects top-level page
+
+  PURPOSE:
+    "What can I actually experience right now?"
+    A prospective client can EXPERIENCE software/products/systems
+    that Kritexa Labs has actually built.
+
+  POSITIONING:
+    "Don't just see what we build. Experience it."
+
+  IMPORTANT — CONTENT INTEGRITY (Phase 22):
+    Live Projects does NOT fabricate live URLs.
+    All projects currently have no verified public URLs.
+    Projects show honest status + Request Access CTA.
+    "Experience Live ↗" CTAs will only be added when verified URLs are provided.
+    See docs/PHASE22-IA-REDESIGN-REPORT.md — Content Gaps section.
+
+  NAVIGATION:
+    Live Projects is a TOP-LEVEL navigation item.
+    It is NOT inside the Solutions dropdown.
+
+  Composition model: {{SECTION:live-projects/*}} partials
+
+  SECTION ORDER:
+    1. hero      — H1, positioning statement, CTA
+    2. projects  — Project cards with honest status badges
+    3. cta       — Bottom CTA with cross-links
+
+  HEADING HIERARCHY:
+    H1: "Live Projects" (hero section)
+    H2: "Live Projects" [sr-only] (projects section)
+    H2: "Let's Build Your Live Project" (cta section)
+    H3 (×6): Individual project names
+
+  URL: /live-projects
+  GENERATED OUTPUT: live-projects/index.html
+
+  SEO:
+    - title and description injected by build.js
+    - canonical: https://www.kritexalabs.com/live-projects
+    - og: tags injected by build.js
+
+  ACTIVE NAV: nl-live-projects (top-level — NOT under Solutions)
+
+  JS: ZERO page-specific JavaScript required.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:live-projects/hero}}
+
+  {{SECTION:live-projects/projects}}
+
+  {{SECTION:live-projects/cta}}
+
+</main>

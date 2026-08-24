@@ -1,0 +1,216 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — ABOUT PAGE CSS
+   css/pages/about.css
+   Phase 7 — About Page Rebuild
+
+   About-specific styles. All global styles live in:
+     css/global.css → css/utilities.css → css/header.css →
+     css/footer.css → css/components.css
+
+   CSS load order:
+     global.css → utilities.css → header.css → footer.css →
+     components.css → pages/about.css
+
+   Contents:
+     1. Mission/Vision section — grid layout + card overrides
+     2. Values section — spacing overrides
+     3. CTA section anchor offset
+     4. Responsive refinements for About-specific layouts
+     5. Reduced-motion overrides for About-specific animations
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ═══ 1. SCREEN-READER-ONLY UTILITY ═══
+   Used for the sr-only h2 on the mission/vision section.
+   Matches the pattern from css/pages/home.css (.jk-sr-h1).
+*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ═══ 2. MISSION / VISION SECTION ═══
+   Two equal-width cards side-by-side.
+   Inherits .b-card base styles from css/components.css.
+*/
+
+.about-mv-section {
+  /* Remove bottom padding — values section follows immediately */
+  padding-bottom: 0;
+}
+
+.about-mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);  /* 16px */
+  margin-bottom: var(--space-13); /* 96px to values section */
+}
+
+/* Mission card — purple border accent */
+.about-mv-card:first-child {
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+/* Vision card — cyan border accent */
+.about-mv-card:last-child {
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.about-mv-icon {
+  font-size: 32px;
+  margin-bottom: var(--space-4);  /* 16px */
+  line-height: 1;
+}
+
+.about-mv-card h3 {
+  font-size: 22px;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-3);  /* 12px */
+  line-height: 1.3;
+}
+
+.about-mv-card p {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .about-mv-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: var(--space-12); /* 64px */
+  }
+
+  .about-mv-section {
+    padding-bottom: 0;
+  }
+}
+
+
+/* ═══ 3. VALUES SECTION ═══
+   .val-grid and .val-card base styles are in css/components.css.
+   These are About-page-specific adjustments.
+*/
+
+.about-values-section .sh {
+  margin-bottom: var(--space-11); /* 60px — matches global .sh default */
+}
+
+/* Single-column collapse at 560px — from legacy breakpoint */
+@media (max-width: 560px) {
+  .val-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Two-column at 560–768px */
+@media (max-width: 768px) and (min-width: 561px) {
+  .val-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Three-column at > 768px (default in components.css) */
+
+
+/* ═══ 4. ABOUT HERO — IMAGE PATH ═══
+   Phase 16: The legacy base64 blob has been removed from css/components.css.
+   css/components.css now directly references /assets/images/about-hero.jpg.
+   This rule is kept as a page-scoped reinforcement (no longer needs !important).
+*/
+.about-fs-hero-bg {
+  background-image: url('/assets/images/about-hero.jpg');
+}
+
+
+/* ═══ 5. ABOUT PAGE — SECTION ANCHOR OFFSETS ═══
+   Section IDs for scroll-linking get offset for the fixed navbar.
+   Navbar height: ~74px. Small buffer added.
+*/
+#about-mv-heading,
+#about-values-h2 {
+  scroll-margin-top: 90px;
+}
+
+
+/* ═══ 6. ABOUT HERO — CTA AS ANCHOR ═══
+   .btn-p and .btn-g in the hero are <a> elements in Phase 7.
+   Ensure they render identically to <button> versions.
+   Base display:inline-flex is set in css/utilities.css.
+*/
+.about-fs-btns .btn-p,
+.about-fs-btns .btn-g {
+  text-decoration: none;
+}
+
+.about-fs-btns .btn-p:focus-visible,
+.about-fs-btns .btn-g:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+
+/* ═══ 7. REDUCED MOTION — ABOUT SPECIFIC ═══
+   Global reduced-motion rules disable .rv, .amb-blob etc.
+   in css/global.css. These are About-specific additions.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .about-fs-scroll {
+    animation: none !important;
+    opacity: 0.4;
+  }
+
+  .about-fs-badge {
+    transition: none !important;
+  }
+
+  .val-card {
+    transition: none !important;
+  }
+}
+
+
+/* ═══ 8. MOBILE REFINEMENTS — ABOUT HERO ═══
+   320–414px specific refinements.
+   Base mobile styles are already in css/components.css.
+*/
+
+/* 360px and below — very small viewport */
+@media (max-width: 360px) {
+  .about-fs-btns {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .about-fs-btns .btn-p,
+  .about-fs-btns .btn-g {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .about-fs-stats {
+    gap: var(--space-5); /* 20px */
+  }
+
+  .about-fs-hero-content h1 {
+    letter-spacing: -1.5px;
+  }
+}
+
+/* 414px — standard large phone */
+@media (max-width: 414px) {
+  .about-fs-desc {
+    font-size: 15px;
+  }
+}

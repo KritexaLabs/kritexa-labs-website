@@ -1,0 +1,39 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/portfolio.html
+  Phase 9 — Portfolio Page Rebuild
+  Phase 22 — Cross-links added (Industry Solutions, Case Studies, Live Projects)
+
+  PURPOSE (Phase 22):
+    "What has Kritexa Labs made?"
+    A showcase of software, websites, web applications, digital systems,
+    products, interfaces, and projects.
+    Portfolio is NOT the same as Case Studies (which focus on outcomes/story).
+    Portfolio is NOT the same as Live Projects (which are interactive).
+
+  Composition model using {{SECTION:portfolio/*}} partials.
+  Each section is independently maintained in src/sections/portfolio/.
+
+  SECTION ORDER:
+    1. Hero         — eyebrow + H1 + stats strip
+    2. Filters      — category + type filter buttons
+    3. Projects     — 12 project cards (2-col grid)
+    4. CTA          — bottom project enquiry CTA (updated with cross-links)
+
+  Page-specific CSS: /css/pages/portfolio.css
+  Page-specific JS:  /js/pages/portfolio.js (filter logic + stat counters)
+
+  ACTIVE NAV: nl-portfolio (under Solutions dropdown)
+  ACTIVE NAV PARENT: nav-solutions-btn (Solutions trigger — set by active-nav.js)
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:portfolio/hero}}
+
+  {{SECTION:portfolio/filters}}
+
+  {{SECTION:portfolio/projects}}
+
+  {{SECTION:portfolio/cta}}
+
+</main>

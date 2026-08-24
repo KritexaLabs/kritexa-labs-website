@@ -1,0 +1,248 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — CONTACT PAGE CSS
+   css/pages/contact.css
+   Phase 11 — Contact Page Rebuild
+
+   PURPOSE:
+     Contact-page-specific overrides and additions.
+     All base styles for .con-hero, .cf, .fg, .c-link, .btn-sub
+     remain in css/components.css (they are contact-only in practice
+     and were always there from the legacy system).
+
+     This file:
+       1. Overrides .con-hero-bg to use the extracted external image
+          (/assets/images/contact-hero.jpg) instead of the large base64
+          blob embedded in css/components.css.
+       2. Adds contact-eyebrow styling (scoped to .contact-eyebrow).
+       3. Adds .contact-optional label variant.
+       4. Adds .contact-form-notice styling.
+       5. Adds .contact-cta-section / .contact-cta-inner / .contact-cta-btns.
+       6. Adds .contact-faq-section reduced-padding override.
+       7. Adds responsive overrides scoped to contact selectors.
+       8. Adds reduced-motion overrides.
+
+   CSS LOAD ORDER (pages that include this file):
+     css/global.css
+       ↓
+     css/utilities.css
+       ↓
+     css/header.css
+       ↓
+     css/footer.css
+       ↓
+     css/components.css    ← .con-hero-bg base64 defined here
+       ↓
+     css/pages/contact.css ← overrides .con-hero-bg with external URL
+                             (this file loads AFTER, so it wins)
+
+   BASE64 CLEANUP:
+     The legacy .con-hero-bg in css/components.css contains a large
+     base64 JPEG blob (~90 KB base64 text). This CSS file overrides
+     that background-image with the external asset path, which is
+     served more efficiently by the browser (cacheable, lazy-decoded).
+
+     The base64 in components.css is NOT removed in Phase 11 because
+     components.css is shared across all pages and editing it risks
+     regression. The override pattern here ensures that only the
+     contact page loads the external image. Phase 16 will remove
+     the base64 blob from components.css entirely.
+
+   SCOPING:
+     All selectors are prefixed with .contact-* or are within
+     .contact-hero-section / .contact-form-section / .contact-faq-section
+     to avoid affecting other pages.
+
+   ISOLATION:
+     This file must not affect:
+       Home, About, Capabilities, Portfolio, Case Studies,
+       Kritexa.AI, Career, Labs, Header, Mega Menu, Footer
+═══════════════════════════════════════════════════════════════ */
+
+
+/* ── 1. HERO IMAGE PATH ──────────────────────────────────────────
+   Phase 16: The legacy base64 blob has been removed from css/components.css.
+   css/components.css now directly references /assets/images/contact-hero.jpg.
+   This scoped rule is kept for specificity and explicit page documentation.
+   contact-hero.jpg: 124 KB, NOT lazy-loaded — above-the-fold LCP candidate.
+   ─────────────────────────────────────────────────────────────── */
+.contact-hero-section .con-hero-bg {
+  background-image: url('/assets/images/contact-hero.jpg');
+}
+
+
+/* ── 2. CONTACT EYEBROW ──────────────────────────────────────────
+   Replaces the legacy inline-style div with a scoped CSS class.
+   Pattern matches .sh-eyebrow from css/components.css but with
+   purple accent to match the form section context.
+   ─────────────────────────────────────────────────────────────── */
+.contact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--purple2);
+  margin-bottom: 14px;
+  padding: 5px 12px;
+  background: rgba(124, 58, 237, 0.08);
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.2);
+  border-radius: 100px;
+}
+
+
+/* ── 3. OPTIONAL FIELD LABEL ─────────────────────────────────────
+   Small muted indicator for optional form fields.
+   Used in the Phone field label.
+   ─────────────────────────────────────────────────────────────── */
+.contact-optional {
+  font-size: 9px;
+  color: var(--gray2);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+
+/* ── 4. FORM SUBMISSION NOTICE ───────────────────────────────────
+   Honest state notice — backend not yet connected.
+   Shown below the submit button. Styled as a warning/info bar.
+   Must NOT be styled as success or green.
+   Will be hidden/replaced when Phase 21 backend is wired.
+   ─────────────────────────────────────────────────────────────── */
+.contact-form-notice {
+  font-size: 11.5px;
+  color: var(--gray);
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 180, 71, 0.06);
+  border: 1px solid rgba(255, 180, 71, 0.18);
+  border-radius: 8px;
+  line-height: 1.55;
+}
+
+.contact-form-notice a {
+  color: var(--purple2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-form-notice a:hover {
+  color: var(--white);
+}
+
+
+/* ── 5. CTA SECTION ──────────────────────────────────────────────
+   Bottom CTA section — centered text + 2 buttons.
+   Uses .sh-eyebrow, .grad-text from design system.
+   ─────────────────────────────────────────────────────────────── */
+.contact-cta-section {
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.contact-cta-inner {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.contact-cta-inner h2 {
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.contact-cta-inner p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.contact-cta-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* ── 6. FAQ SECTION ──────────────────────────────────────────────
+   Minor override — uses global .faq-wrap / .faq-item from
+   css/components.css. The .sh heading is already centered by .sh.
+   No structural overrides needed — only scoped for safety.
+   ─────────────────────────────────────────────────────────────── */
+.contact-faq-section .faq-wrap {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+
+/* ── 7. RESPONSIVE ───────────────────────────────────────────────
+   The primary responsive rules for .con-hero, .con-form-grid,
+   .f-row are already in css/components.css.
+   Below are contact-specific additions / reinforcements.
+   ─────────────────────────────────────────────────────────────── */
+
+/* 768px — tablet */
+@media (max-width: 768px) {
+  .contact-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-cta-btns .btn-p,
+  .contact-cta-btns .btn-g {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+/* 480px — small mobile */
+@media (max-width: 480px) {
+  .contact-eyebrow {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
+  .contact-form-notice {
+    font-size: 10.5px;
+  }
+
+  .contact-cta-inner h2 {
+    letter-spacing: -1px;
+  }
+}
+
+/* 360px — narrow phones */
+@media (max-width: 360px) {
+  .contact-cta-btns .btn-p,
+  .contact-cta-btns .btn-g {
+    max-width: 100%;
+  }
+}
+
+
+/* ── 8. REDUCED MOTION ───────────────────────────────────────────
+   Ensure no contact-specific transitions are required for
+   functionality under prefers-reduced-motion.
+   The global rules in css/global.css handle .rv, .amb-blob, etc.
+   These selectors cover contact-specific hover states only.
+   ─────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .contact-form-notice a {
+    transition: none !important;
+  }
+
+  .contact-cta-btns .btn-p,
+  .contact-cta-btns .btn-g {
+    transition: none !important;
+    transform: none !important;
+  }
+}

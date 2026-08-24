@@ -1,0 +1,17 @@
+{
+  "name": "kritexa-labs-website",
+  "version": "1.0.0",
+  "description": "Kritexa Labs — AI-First Digital Growth Studio website",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:page": "node scripts/build.js",
+    "extract:assets": "node scripts/extract-assets.js",
+    "extract:css": "node scripts/extract-css.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {}
+}

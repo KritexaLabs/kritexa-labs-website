@@ -1,0 +1,60 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/industry-solutions.html
+  Phase 22 — NEW: Industry Solutions page
+
+  PURPOSE:
+    "Who can Kritexa Labs build for?"
+    "Solutions by industry / business type."
+    This page answers: "How do your capabilities apply to my type of business?"
+
+  IMPORTANT — IA DISTINCTION (Phase 22):
+    This page is NOT the same as Capabilities.
+    Capabilities answers: "What can Kritexa Labs build?"
+    Industry Solutions answers: "Who can Kritexa Labs build for?"
+
+  CONTENT SOURCE:
+    - Content originally from src/sections/capabilities/who-we-serve.html
+    - Content originally from src/sections/capabilities/industry-solutions.html
+    Both sections MOVED here in Phase 22 to create correct IA separation.
+
+  Composition model: {{SECTION:industry-solutions/*}} partials
+
+  SECTION ORDER:
+    1. hero          — H1, description, dual CTA
+    2. who-we-serve  — 8-industry grid overview
+    3. solutions-rows — 8 alternating industry solution rows (full detail)
+    4. cta           — bottom CTA with cross-links
+
+  HEADING HIERARCHY:
+    H1: "Industry Solutions" (hero section)
+    H2: "Built for Real Businesses" (who-we-serve section)
+    H2: "Tailored for Your Industry" + "Solutions by Industry" (solutions-rows intro)
+    H2: "Industry Solutions" [sr-only] (solutions-rows section)
+    H2: "Your Industry. Our Engineering." (cta section)
+    H3 (×8): Individual industry headings in solutions-rows
+
+  URL: /industry-solutions
+  GENERATED OUTPUT: industry-solutions/index.html
+
+  SEO:
+    - title and description injected by build.js
+    - canonical: https://www.kritexalabs.com/industry-solutions
+    - og: tags injected by build.js
+
+  ACTIVE NAV: nl-industry-solutions (Solutions dropdown child)
+  ACTIVE NAV PARENT: nav-solutions-btn (Solutions trigger — set by active-nav.js)
+
+  JS: ZERO page-specific JavaScript required.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:industry-solutions/hero}}
+
+  {{SECTION:industry-solutions/who-we-serve}}
+
+  {{SECTION:industry-solutions/solutions-rows}}
+
+  {{SECTION:industry-solutions/cta}}
+
+</main>

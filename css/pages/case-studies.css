@@ -1,0 +1,322 @@
+/*
+ * css/pages/case-studies.css
+ * Phase 10 — Case Studies Page Rebuild
+ *
+ * CSS ISOLATION:
+ *   All selectors are prefixed .cs- to avoid collision with
+ *   global component classes (.cs-card, .cs-feat etc. are
+ *   already defined in css/components.css from legacy extraction —
+ *   this file adds ONLY new case-studies-specific layout classes
+ *   and responsive overrides for this page.
+ *
+ * CSS LOAD ORDER:
+ *   css/global.css (tokens + reset)
+ *     ↓ css/utilities.css
+ *       ↓ css/header.css
+ *         ↓ css/footer.css
+ *           ↓ css/components.css  (contains .cs-card, .cs-feat, .faq-*)
+ *             ↓ css/pages/case-studies.css  ← this file
+ *
+ * DESIGN SYSTEM:
+ *   Uses design tokens from css/global.css (via css/tokens.css).
+ *   Does not introduce new color values.
+ *   Uses: --bg, --bg2, --bg3, --purple, --purple2, --cyan, --white,
+ *         --gray, --gray2, --gray3, --radius-md, --radius-pill,
+ *         --duration-normal, --duration-fast, --space-*, --container-*
+ */
+
+/* ── Hero section extension ───────────────────────────────────────────── */
+/*
+ * The case-studies hero extends the shared .iph (inner page hero) pattern.
+ * .cs-hero-section overrides bottom padding to accommodate the stats strip.
+ */
+.cs-hero-section {
+  padding-bottom: 0;
+}
+
+/* ── Hero stats strip ─────────────────────────────────────────────────── */
+.cs-hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 48px;
+  background: var(--bg2);
+  border: 1px solid var(--color-border, rgba(255,255,255,0.07));
+  border-radius: var(--radius-md);
+  padding: 24px 32px;
+  flex-wrap: wrap;
+}
+
+.cs-hstat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.cs-hstat-num {
+  font-family: var(--font-family-primary);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.cs-hstat-lbl {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.cs-hstat-div {
+  width: 1px;
+  height: 40px;
+  background: var(--color-gray3, rgba(255,255,255,0.07));
+  flex-shrink: 0;
+}
+
+/* ── Featured section ─────────────────────────────────────────────────── */
+.cs-featured-section {
+  padding-top: 72px;
+}
+
+/*
+ * .cs-feat is defined in css/components.css (legacy extraction).
+ * .cs-feat-content is new — provides a named wrapper for the text side.
+ */
+.cs-feat-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Studies section ──────────────────────────────────────────────────── */
+.cs-studies-section {
+  padding-top: 0;
+}
+
+/*
+ * Filter navigation — visual only in Phase 10 (no JS filtering).
+ * Uses native <button> elements with aria-pressed.
+ * Keyboard: Enter/Space toggle aria-pressed via future JS or CSS.
+ */
+.cs-filters {
+  margin-bottom: 40px;
+}
+
+.cs-filter-label {
+  /* sr-only — visually hidden, accessible to screen readers */
+}
+
+.cs-filter-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cs-filter-btn {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-caption);
+  letter-spacing: 0.04em;
+  padding: 8px 17px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border, rgba(255,255,255,0.09));
+  background: rgba(255,255,255,0.04);
+  color: var(--color-gray);
+  cursor: pointer;
+  transition: background var(--duration-fast) ease,
+              border-color var(--duration-fast) ease,
+              color var(--duration-fast) ease;
+  line-height: 1;
+}
+
+.cs-filter-btn:hover {
+  background: rgba(124,58,237,0.1);
+  border-color: rgba(124,58,237,0.35);
+  color: var(--color-purple2);
+}
+
+.cs-filter-btn:focus-visible {
+  background: rgba(124,58,237,0.1);
+  border-color: rgba(124,58,237,0.35);
+  color: var(--color-purple2);
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+.cs-filter-btn.cs-filter-active,
+.cs-filter-btn[aria-pressed="true"] {
+  background: var(--color-purple);
+  border-color: transparent;
+  color: var(--color-white);
+}
+
+/*
+ * Case study grid — overrides legacy .cs-grid 3-col to use auto-fit
+ * for better mobile handling. The legacy .cs-grid is already defined
+ * in components.css; this provides a more controlled responsive version.
+ */
+.cs-studies-section .cs-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/*
+ * Case study card enhancements — the base .cs-card styles are in
+ * css/components.css. These are case-studies-page-specific additions.
+ */
+.cs-title {
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-white);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+/* ── FAQ section ──────────────────────────────────────────────────────── */
+.cs-faq-section {
+  padding-top: 0;
+}
+
+/*
+ * FAQ improvements — base .faq-* classes are in components.css.
+ * Adding aria-expanded state styles for the rebuilt accessible markup.
+ */
+.faq-btn[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+  background: rgba(124,58,237,0.18);
+}
+
+.faq-btn[aria-expanded="true"] {
+  color: var(--color-purple2);
+}
+
+/* ── CTA section ──────────────────────────────────────────────────────── */
+.cs-cta-section {
+  /* Uses section-sm spacing */
+}
+
+.cs-cta-inner {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.cs-cta-inner h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.cs-cta-inner p {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-gray);
+  max-width: 480px;
+  margin: 0 auto 32px;
+  line-height: 1.65;
+}
+
+.cs-cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+/* Tablet — 1024px */
+@media (max-width: 1024px) {
+  .cs-studies-section .cs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile — 900px: stats strip compact */
+@media (max-width: 900px) {
+  .cs-hero-stats {
+    padding: 20px 16px;
+    gap: 4px;
+  }
+
+  .cs-hstat {
+    padding: 8px 16px;
+  }
+}
+
+/* Mobile — 768px: single column grid, CTA stacks */
+@media (max-width: 768px) {
+  .cs-studies-section .cs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cs-cta-btns .btn-p,
+  .cs-cta-btns .btn-g {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .cs-filter-group {
+    justify-content: flex-start;
+  }
+}
+
+/* Small mobile — 600px: stats strip hides dividers */
+@media (max-width: 600px) {
+  .cs-hstat-div {
+    display: none;
+  }
+
+  .cs-hero-stats {
+    gap: 8px;
+    justify-content: space-around;
+  }
+}
+
+/* Very small — 360px */
+@media (max-width: 360px) {
+  .cs-filter-btn {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .cs-hero-stats {
+    padding: 16px 12px;
+  }
+
+  .cs-hstat {
+    padding: 4px 8px;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cs-filter-btn {
+    transition: none !important;
+  }
+}
+
+/* ── Case study card hidden state (filter, Phase 18) ────────────────────── */
+/* Cards hidden by JS filter are removed from rendering AND from tab order   */
+.cs-card[hidden] {
+  display: none;
+}

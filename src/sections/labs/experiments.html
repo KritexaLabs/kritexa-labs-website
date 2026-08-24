@@ -1,0 +1,268 @@
+<!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Experiments
+  src/sections/labs/experiments.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Section heading: "EXPERIMENTS" / "What we're exploring"
+    - 3 active experiment cards with status badges + progress bars
+    - "ON THE HORIZON" sub-section with 4 planned concept cards
+
+  CARD STRUCTURE (active):
+    Top row: category label | status badge
+    Title (large)
+    Description (muted secondary text)
+    Progress bar (purple→cyan gradient)
+    Bottom meta: technology · ETA
+
+  STATUS SYSTEM:
+    ACTIVE  — green blinking dot
+    PLANNED — amber dot
+
+  CONTENT: Preserved exactly from legacy source.
+  Progress percentages, ETAs, tool references — all from approved source.
+
+  ACCESSIBILITY:
+    - Section uses aria-labelledby
+    - Progress bars: role="meter"
+    - Status badges: aria-label
+    - Cards: <article> with aria-labelledby
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="section labs-experiments-section" aria-labelledby="labs-exp-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Kritexa Labs</div>
+      <h2 id="labs-exp-heading">EXPERIMENTS</h2>
+      <p>What we're exploring — research, prototypes, and early-stage builds.</p>
+    </div>
+
+    <!-- Status board banner -->
+    <div class="labs-status-board rv" role="status" aria-label="Labs status board">
+      <span class="labs-status-dot" aria-hidden="true"></span>
+      <span class="labs-status-text">ACTIVE RESEARCH BOARD</span>
+      <span class="labs-status-divider" aria-hidden="true">|</span>
+      <span class="labs-status-date">3 experiments in progress</span>
+    </div>
+
+    <!-- Active experiment cards — 3-column grid -->
+    <div class="labs-exp-grid rv" role="list" aria-label="Active experiments">
+
+      <!-- Experiment 1: Conversational Lead Qualifier v2 -->
+      <article class="labs-exp-card" role="listitem" aria-labelledby="labs-exp-1">
+
+        <!-- Top metadata row: category | status -->
+        <div class="labs-exp-card-header">
+          <span class="labs-exp-category">AI / NLP</span>
+          <span class="labs-badge labs-badge-active" aria-label="Status: Active">
+            <span class="labs-badge-dot" aria-hidden="true"></span>ACTIVE
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h3 id="labs-exp-1" class="labs-exp-title">Conversational Lead Qualifier v2</h3>
+
+        <!-- Description -->
+        <p class="labs-exp-desc">
+          Fine-tuning an LLM for Indian business contexts — understands Hinglish,
+          local jargon, and qualifies leads without human intervention.
+        </p>
+
+        <!-- Progress bar -->
+        <div class="labs-exp-progress">
+          <div class="labs-prog-hd">
+            <span>PROGRESS</span><span>73%</span>
+          </div>
+          <div class="labs-prog-bar"
+               role="meter"
+               aria-valuenow="73"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Progress: 73%">
+            <div class="labs-prog-fill" style="--prog-width:73%;" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Bottom meta -->
+        <div class="labs-exp-meta">
+          <span class="labs-exp-meta-tag">OpenAI Fine-tuning</span>
+          <span class="labs-exp-meta-tag">ETA: Aug 2026</span>
+        </div>
+
+        <!-- Hover explore indicator -->
+        <div class="labs-exp-card-footer" aria-hidden="true">
+          <span class="labs-exp-explore">Explore Experiment ↗</span>
+        </div>
+
+      </article>
+
+      <!-- Experiment 2: WhatsApp-First CRM -->
+      <article class="labs-exp-card" role="listitem" aria-labelledby="labs-exp-2">
+
+        <div class="labs-exp-card-header">
+          <span class="labs-exp-category">AUTOMATION</span>
+          <span class="labs-badge labs-badge-active" aria-label="Status: Active">
+            <span class="labs-badge-dot" aria-hidden="true"></span>ACTIVE
+          </span>
+        </div>
+
+        <h3 id="labs-exp-2" class="labs-exp-title">WhatsApp-First CRM for Local Businesses</h3>
+
+        <p class="labs-exp-desc">
+          Complete CRM inside WhatsApp — no app, no login needed. Owners manage leads,
+          follow-ups, and invoices via natural chat commands.
+        </p>
+
+        <div class="labs-exp-progress">
+          <div class="labs-prog-hd">
+            <span>PROGRESS</span><span>61%</span>
+          </div>
+          <div class="labs-prog-bar"
+               role="meter"
+               aria-valuenow="61"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Progress: 61%">
+            <div class="labs-prog-fill" style="--prog-width:61%;" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="labs-exp-meta">
+          <span class="labs-exp-meta-tag">WhatsApp API</span>
+          <span class="labs-exp-meta-tag">ETA: Jul 2026</span>
+        </div>
+
+        <div class="labs-exp-card-footer" aria-hidden="true">
+          <span class="labs-exp-explore">Explore Experiment ↗</span>
+        </div>
+
+      </article>
+
+      <!-- Experiment 3: Zero-JS Static Site Generator -->
+      <article class="labs-exp-card" role="listitem" aria-labelledby="labs-exp-3">
+
+        <div class="labs-exp-card-header">
+          <span class="labs-exp-category">WEB / PERFORMANCE</span>
+          <span class="labs-badge labs-badge-active" aria-label="Status: Active">
+            <span class="labs-badge-dot" aria-hidden="true"></span>ACTIVE
+          </span>
+        </div>
+
+        <h3 id="labs-exp-3" class="labs-exp-title">Zero-JS Static Site Generator for Indian SMBs</h3>
+
+        <p class="labs-exp-desc">
+          Ultra-lightweight website engine producing sub-1KB pages that load
+          on 2G networks and rank on Google without JavaScript overhead.
+        </p>
+
+        <div class="labs-exp-progress">
+          <div class="labs-prog-hd">
+            <span>PROGRESS</span><span>48%</span>
+          </div>
+          <div class="labs-prog-bar"
+               role="meter"
+               aria-valuenow="48"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               aria-label="Progress: 48%">
+            <div class="labs-prog-fill" style="--prog-width:48%;" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="labs-exp-meta">
+          <span class="labs-exp-meta-tag">Next.js / Edge</span>
+          <span class="labs-exp-meta-tag">ETA: Sep 2026</span>
+        </div>
+
+        <div class="labs-exp-card-footer" aria-hidden="true">
+          <span class="labs-exp-explore">Explore Experiment ↗</span>
+        </div>
+
+      </article>
+
+    </div><!-- /.labs-exp-grid -->
+
+    <!-- ── ON THE HORIZON — Concepts & Planned Builds ─────────── -->
+    <div class="labs-horizon-heading rv">
+      <div class="labs-horizon-eyebrow">
+        <span class="labs-horizon-eyebrow-line" aria-hidden="true"></span>
+        <span>ON THE HORIZON</span>
+        <span class="labs-horizon-eyebrow-line" aria-hidden="true"></span>
+      </div>
+      <h3 class="labs-concepts-title">Concepts &amp; Planned Builds</h3>
+      <p class="labs-horizon-sub">Ideas in our pipeline — not yet in active development.</p>
+    </div>
+
+    <div class="labs-concepts-grid rv" role="list" aria-label="Planned experiments">
+
+      <!-- Concept 1: Voice-First Navigation -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-1">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-1">Voice-First Navigation (Hindi)</h4>
+        <p>Voice commands in Hindi/Hinglish for websites — accessibility-first for Tier 2/3 India markets.</p>
+        <div class="labs-concept-meta">
+          <span>Q3 2026</span>
+          <span aria-hidden="true">·</span>
+          <span>Voice AI</span>
+        </div>
+      </article>
+
+      <!-- Concept 2: Automated Client Reporting Dashboard -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-2">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-2">Automated Client Reporting Dashboard</h4>
+        <p>GA4 + GSC + Meta Ads data summarized weekly by AI in plain English insights for clients.</p>
+        <div class="labs-concept-meta">
+          <span>Q4 2026</span>
+          <span aria-hidden="true">·</span>
+          <span>SaaS</span>
+        </div>
+      </article>
+
+      <!-- Concept 3: AI Website Maintenance Agent -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-3">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-3">AI Website Maintenance Agent</h4>
+        <p>Autonomous agent monitoring websites 24/7, auto-fixing issues, sending health reports.</p>
+        <div class="labs-concept-meta">
+          <span>Q1 2027</span>
+          <span aria-hidden="true">·</span>
+          <span>AI Agent</span>
+        </div>
+      </article>
+
+      <!-- Concept 4: Clinic Appointment AI -->
+      <article class="labs-concept-card" role="listitem" aria-labelledby="labs-concept-4">
+        <div class="labs-concept-card-top">
+          <span class="labs-badge labs-badge-concept" aria-label="Status: Planned">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+        </div>
+        <h4 id="labs-concept-4">Clinic Appointment AI (Micro-SaaS)</h4>
+        <p>WhatsApp + web booking with AI triage and no-show prediction for Indian clinics.</p>
+        <div class="labs-concept-meta">
+          <span>Q1 2027</span>
+          <span aria-hidden="true">·</span>
+          <span>Healthcare AI</span>
+        </div>
+      </article>
+
+    </div><!-- /.labs-concepts-grid -->
+
+  </div><!-- /.container -->
+</section>

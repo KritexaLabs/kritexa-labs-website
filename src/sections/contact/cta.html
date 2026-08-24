@@ -1,0 +1,55 @@
+<!-- ══════════════════════════════════════════════════════
+  CONTACT SECTION: Bottom CTA
+  src/sections/contact/cta.html
+  Phase 11 — Contact Page Rebuild
+
+  STRUCTURE:
+    - Simple centered CTA section
+    - CTA 1: WhatsApp us directly (fastest channel)
+    - CTA 2: View Our Work → /portfolio
+
+  NOTE:
+    WhatsApp destination wa.me/91XXXXXXXXXX is a PLACEHOLDER.
+    Do not replace until client provides verified number.
+    This is documented as a Phase 21 configuration item.
+
+    Global footer CTA (.gcta) is injected by the shared footer component.
+    This is a page-level CTA distinct from the global footer CTA.
+══════════════════════════════════════════════════════ -->
+
+<section class="contact-cta-section section-sm" aria-labelledby="contact-cta-heading">
+  <div class="container">
+    <div class="contact-cta-inner rv">
+
+      <div class="sh-eyebrow" style="justify-content:center;">Ready to Start?</div>
+
+      <h2 id="contact-cta-heading">Let's Engineer Your <span class="grad-text">Growth System</span></h2>
+
+      <p>Tell us about your business challenge — we'll reply within hours with a custom proposal.</p>
+
+      <div class="contact-cta-btns">
+
+        <!--
+          WhatsApp CTA — fastest response channel.
+          Destination wa.me/91XXXXXXXXXX is a PLACEHOLDER.
+          Phase 21 client configuration item.
+        -->
+        <a class="btn-p"
+           href="https://wa.me/91XXXXXXXXXX"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          WhatsApp Us <span aria-hidden="true">→</span>
+        </a>
+
+        <a class="btn-g"
+           href="/portfolio"
+           style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          View Our Work <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>

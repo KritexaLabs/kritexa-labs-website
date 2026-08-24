@@ -1,0 +1,85 @@
+<!-- ══════════════════════════════════════════════════════
+  CAPABILITIES SECTION: Who We Serve
+  src/sections/capabilities/who-we-serve.html
+  Phase 8 — Capabilities Page Rebuild
+
+  STRUCTURE:
+    - Section heading (eyebrow + H2)
+    - 8-industry grid using .stat-box tiles
+    - 8 industries: Healthcare, Consultants, Finance, Startups,
+      Local Business, Education, E-Commerce, Personal Brands
+
+  CONTENT SOURCE: docs/CONTENT-MAP.md (Capabilities page)
+  Grid: 4-col desktop, 2-col tablet/mobile
+
+  SEMANTICS:
+    - Section uses <section aria-labelledby>
+    - Each industry tile is a <div> (not a link — these are
+      informational, not navigational)
+    - emoji icons are aria-hidden decorative elements
+    - Grid uses role="list" for list semantics
+
+  ANIMATION:
+    - .rv class on the grid: staggered scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="who-serve-section section-sm" aria-labelledby="who-serve-h2">
+  <div class="container">
+    <div class="sh rv" style="text-align:center;margin-bottom:0;">
+      <div class="sh-eyebrow" style="justify-content:center;">Who We Serve</div>
+      <h2 id="who-serve-h2">Built for <span class="grad-text">Real Businesses</span></h2>
+    </div>
+
+    <ul class="industry-grid rv" role="list" aria-label="Industries we serve" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;list-style:none;padding:0;margin-left:0;margin-right:0;">
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">🏥</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Healthcare</div>
+        <div class="stat-box-sub">Clinics, hospitals, practitioners</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">💼</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Consultants</div>
+        <div class="stat-box-sub">Coaches, advisors, professionals</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">📊</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Finance</div>
+        <div class="stat-box-sub">Advisors, CAs, planners</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">🚀</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Startups</div>
+        <div class="stat-box-sub">MVPs, growth, scale-ups</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">🏪</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Local Business</div>
+        <div class="stat-box-sub">Restaurants, retail, services</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">🎓</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Education</div>
+        <div class="stat-box-sub">Institutes, coaching, ed-tech</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">🛍️</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">E-Commerce</div>
+        <div class="stat-box-sub">Brands, D2C, marketplaces</div>
+      </li>
+
+      <li class="stat-box cap-industry-tile" role="listitem" style="border-radius:var(--r2);padding:20px 16px;">
+        <div style="font-size:28px;margin-bottom:10px;" aria-hidden="true">✨</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:5px;">Personal Brands</div>
+        <div class="stat-box-sub">Speakers, creators, leaders</div>
+      </li>
+
+    </ul><!-- /industry-grid -->
+  </div><!-- /container -->
+</section>

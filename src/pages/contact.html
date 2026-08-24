@@ -1,0 +1,62 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/contact.html
+  Phase 11 — Contact Page Rebuild
+
+  REPLACES: The Phase 1 extracted monolithic content from legacy/index-original.html
+  ORIGINAL PAGE ID: #page-contact
+
+  ARCHITECTURE:
+    - Section partial composition via {{SECTION:contact/*}}
+    - Shared header/footer via components
+    - Page-specific CSS: /css/pages/contact.css
+    - ZERO page-specific JavaScript (FAQ handled by global.js)
+
+  SECTION ORDER (from legacy source analysis):
+    1. hero        — full-width image hero + H1 + stats
+    2. contact-form — two-column: contact options (left) + inquiry form (right)
+    3. faq          — 4 FAQ accordion items from approved legacy source
+    4. cta          — bottom CTA section
+
+  URL: /contact
+  GENERATED OUTPUT: contact/index.html
+
+  SEO:
+    Title: "Contact — Kritexa Labs | Start Your Project"
+    Description: "Get in touch with Kritexa Labs. Send a project inquiry, WhatsApp us directly, or email contact@kritexalabs.com. We reply within 2–4 hours."
+    Canonical: https://www.kritexalabs.com/contact
+    Active nav: nl-contact
+
+  ACTIVE NAV:
+    nl-contact gets class="active" + aria-current="page" via scripts/build.js injectActiveNav()
+
+  FORM BACKEND:
+    NOT connected. form action="#" — no submission occurs.
+    Honest notice shown to users below submit button.
+    Phase 21 will wire real backend/CMS.
+
+  WHATSAPP PLACEHOLDER:
+    wa.me/91XXXXXXXXXX — NOT a real number.
+    Phase 21 client configuration item.
+
+  BASE64 CLEANUP:
+    .con-hero-bg base64 blob in css/components.css replaced with
+    external URL (/assets/images/contact-hero.jpg) in css/pages/contact.css.
+    Zero base64 blobs in generated contact/index.html.
+
+  NO FABRICATED CONTENT:
+    All content preserved from legacy approved source.
+    No invented phone numbers, addresses, hours, or claims.
+    See src/sections/contact/*.html for per-section content notes.
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:contact/hero}}
+
+  {{SECTION:contact/contact-form}}
+
+  {{SECTION:contact/faq}}
+
+  {{SECTION:contact/cta}}
+
+</main>

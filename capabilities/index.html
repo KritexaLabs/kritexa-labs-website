@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capabilities — Kritexa Labs | Technology, AI & Engineering</title>
+<meta name="description" content="Explore the engineering capabilities of Kritexa Labs: web systems, AI agents, business automation, growth engineering, commerce systems and platform support.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.kritexalabs.com/capabilities">
+<!-- Open Graph — Phase 17 -->
+<meta property="og:title" content="Capabilities — Kritexa Labs | Technology, AI & Engineering">
+<meta property="og:description" content="Explore the engineering capabilities of Kritexa Labs: web systems, AI agents, business automation, growth engineering, commerce systems and platform support.">
+<meta property="og:url" content="https://www.kritexalabs.com/capabilities">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kritexa Labs">
+<meta property="og:image" content="https://www.kritexalabs.com/assets/images/solution-01.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter / X Card — Phase 17 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kritexalabs">
+<meta name="twitter:title" content="Capabilities — Kritexa Labs | Technology, AI & Engineering">
+<meta name="twitter:description" content="Explore the engineering capabilities of Kritexa Labs: web systems, AI agents, business automation, growth engineering, commerce systems and platform support.">
+<meta name="twitter:image" content="https://www.kritexalabs.com/assets/images/solution-01.jpg">
+<!-- Favicon — Phase 17 -->
+<link rel="icon" type="image/png" href="/assets/logos/logo.png">
+<link rel="apple-touch-icon" href="/assets/logos/logo.png">
+<meta name="theme-color" content="#0a0a0f">
+<!-- Fonts — preconnect for parallel connection; dns-prefetch as fallback -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- CSS — dependency order: tokens → global → utilities → header → footer → components → page -->
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/utilities.css">
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/pages/capabilities.css">
+<!-- Structured Data — Phase 17 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kritexa Labs",
+  "url": "https://www.kritexalabs.com"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Capabilities — Kritexa Labs | Websites, AI, Automation & Growth",
+  "url": "https://www.kritexalabs.com/capabilities",
+  "description": "From websites to AI automation — explore the full capabilities of Kritexa Labs: digital experience, AI workforce, business automation, growth marketing, commerce, and more.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Kritexa Labs",
+    "url": "https://www.kritexalabs.com"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Digital Growth Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Digital Experience — Websites, Landing Pages, Web Apps"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Workforce — AI Chatbots, WhatsApp AI, Voice Agents"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Automation — CRM, Workflow, API Integration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Growth Marketing — SEO, Google Ads, Meta Ads, Content"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commerce Solutions — Shopify, WooCommerce, Payments"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Growth and Support — Performance, Security, Analytics"
+        }
+      }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.kritexalabs.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Capabilities",
+      "item": "https://www.kritexalabs.com/capabilities"
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="capabilities">
+
+<!-- ══════════════════════════════════════════════════════════════
+  KRITEXA LABS — GLOBAL HEADER COMPONENT
+  components/header.html
+
+  Phase 3 — Header & Navigation Rebuild
+  Phase 4 — Products Mega Menu (extended)
+  Phase 22 — Solutions / Live Projects IA Redesign
+
+  STRUCTURE:
+    - Desktop: Logo | Center pill nav | Products trigger | Right CTA
+    - Mobile: Logo | Hamburger → full-screen drawer
+    - Solutions dropdown: Capabilities / Industry Solutions / Portfolio / Case Studies
+    - Products mega menu: full-width panel beneath the header
+
+  NAVIGATION ROUTES (multi-page — real <a href> anchors):
+    / → Home
+    /about → About
+    /capabilities → Capabilities  (under Solutions dropdown)
+    /industry-solutions → Industry Solutions (under Solutions dropdown) [NEW Phase 22]
+    /portfolio → Portfolio (under Solutions dropdown)
+    /case-studies → Case Studies (under Solutions dropdown)
+    /live-projects → Live Projects [NEW Phase 22 — top-level]
+    /contact → Contact
+    /kritexa-ai → Kritexa.AI
+    /career, /labs → footer-only (in mobile drawer only)
+
+  SOLUTIONS DROPDOWN (Phase 22):
+    Solutions is a top-level nav trigger — NOT a page.
+    It opens a dropdown containing:
+      Capabilities → /capabilities (technology, engineering & what we can build)
+      Industry Solutions → /industry-solutions (solutions by industry / business type)
+      Portfolio → /portfolio (what we have made)
+      Case Studies → /case-studies (real business problems + implementation + outcomes)
+
+  PRODUCTS:
+    Phase 4: full mega menu — Offerings / Tools / APIs / Platforms.
+    Phase 22: renamed "Solutions" column to "Offerings" to avoid collision with
+    top-level Solutions nav item. See docs/PHASE22-IA-REDESIGN-REPORT.md AD-22-001.
+    Products has NO dedicated page. It is a navigation trigger only.
+
+  ACCESSIBILITY:
+    - aria-current="page" is set per-page via js/active-nav.js
+    - Solutions button: aria-expanded, aria-controls, aria-haspopup
+    - Products button: aria-expanded, aria-controls, aria-haspopup
+    - Mobile Products: aria-expanded, aria-controls
+    - Mobile Solutions: aria-expanded, aria-controls
+    - Mobile menu: aria-label, aria-expanded, aria-controls on toggle
+    - All interactive controls are keyboard accessible
+    - Focus order: logo → nav links → Solutions → Products → Kritexa.AI → Start Project → hamburger
+
+  BUILD USAGE:
+    Composed into every page by scripts/build.js.
+    Do not edit the output files directly — edit this component.
+══════════════════════════════════════════════════════════════ -->
+
+<!-- Cursor dots (global) -->
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-r" aria-hidden="true"></div>
+
+<!-- Ambient background blobs (global) -->
+<div class="ambient" aria-hidden="true">
+  <div class="amb-blob ab1"></div>
+  <div class="amb-blob ab2"></div>
+  <div class="amb-blob ab3"></div>
+</div>
+
+<!-- ══════════ SKIP NAVIGATION ══════════ -->
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+
+  <!-- Logo -->
+  <a class="nav-logo" href="/" aria-label="Kritexa Labs — home">
+    <div class="nav-logo-mark" aria-hidden="true">
+      <img src="/assets/logos/logo.png" alt="" width="36" height="36" loading="eager">
+    </div>
+    <span>KRITEXA <span class="nav-logo-dim">LABS</span></span>
+  </a>
+
+  <!-- Desktop center pill navigation -->
+  <div class="nav-center" id="nav-center" role="list">
+    <a class="nav-link" href="/"             id="nl-home"          role="listitem">Home<span class="nav-glow" aria-hidden="true"></span></a>
+    <a class="nav-link" href="/about"        id="nl-about"         role="listitem">About<span class="nav-glow" aria-hidden="true"></span></a>
+
+    <!--
+      Solutions trigger — activates the Solutions dropdown.
+      NOT an <a href>: Solutions has no dedicated landing page (Phase 22).
+      aria-haspopup="true" signals a popup to AT.
+      aria-expanded is toggled by js/navigation.js.
+      aria-controls points to the Solutions dropdown below.
+    -->
+    <div class="nav-dropdown-wrap" role="listitem">
+      <button
+        type="button"
+        class="nav-link nav-solutions-trigger"
+        id="nav-solutions-btn"
+        aria-expanded="false"
+        aria-controls="solutions-dropdown"
+        aria-haspopup="true">
+        Solutions
+        <span class="nav-products-arrow" aria-hidden="true">▾</span>
+        <span class="nav-glow" aria-hidden="true"></span>
+      </button>
+
+      <!-- Solutions dropdown panel -->
+      <div
+        class="nav-solutions-dropdown"
+        id="solutions-dropdown"
+        role="region"
+        aria-label="Solutions menu"
+        aria-hidden="true">
+        <a class="nsd-item active" href="/capabilities" id="nl-capabilities" aria-current="page">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Capabilities</span>
+            <span class="nsd-item-desc">Technology, engineering &amp; what we build</span>
+          </div>
+        </a>
+        <a class="nsd-item" href="/industry-solutions" id="nl-industry-solutions">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="10" width="4" height="7" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="7" y="6" width="4" height="11" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="13" y="2" width="4" height="15" rx="1" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Industry Solutions</span>
+            <span class="nsd-item-desc">Solutions by industry &amp; business type</span>
+          </div>
+        </a>
+        <a class="nsd-item" href="/portfolio" id="nl-portfolio">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="10" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="1" y="10" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="10" y="10" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Portfolio</span>
+            <span class="nsd-item-desc">What we have made</span>
+          </div>
+        </a>
+        <a class="nsd-item" href="/case-studies" id="nl-case-studies">
+          <div class="nsd-item-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6 9l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="nsd-item-text">
+            <span class="nsd-item-title">Case Studies</span>
+            <span class="nsd-item-desc">Real problems, implementation, outcomes</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a class="nav-link" href="/live-projects"  id="nl-live-projects"  role="listitem">Live Projects<span class="nav-glow" aria-hidden="true"></span></a>
+    <a class="nav-link" href="/contact"         id="nl-contact"         role="listitem">Contact<span class="nav-glow" aria-hidden="true"></span></a>
+
+    <span class="nav-sep-v" aria-hidden="true"></span>
+
+    <!-- Products trigger + Kritexa.AI pill group -->
+    <div class="nav-special-group">
+      <!--
+        Products trigger — activates the mega menu.
+        NOT an <a href>: Products has no dedicated page (AD-011, AD-020).
+        aria-haspopup="true" signals a popup to AT.
+        aria-expanded is toggled by js/navigation.js.
+        aria-controls points to the mega menu container below.
+      -->
+      <button
+        type="button"
+        class="nav-products-trigger"
+        id="nav-products-btn"
+        aria-expanded="false"
+        aria-controls="products-mega-menu"
+        aria-haspopup="true">
+        Products
+        <span class="nav-products-arrow" aria-hidden="true">▾</span>
+      </button>
+
+      <!-- Kritexa.AI special pill -->
+      <a href="/kritexa-ai" class="nav-kai-pill" id="nl-kritexaai">
+        <span class="nav-kai-dot" aria-hidden="true"></span>
+        <span>● Kritexa.AI</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right-side CTA -->
+  <div class="nav-right">
+    <!--
+      Start Project — temporary destination: /contact
+      Final destination has NOT been decided. Documented in AD-019.
+      Do not change this to a final URL until Phase 11 / project form is decided.
+    -->
+    <a class="btn-nav-solid" href="/contact" id="nav-start-project">Start Project →</a>
+  </div>
+
+  <!-- Hamburger — hidden on desktop, shown on mobile or when nav overflows -->
+  <button
+    type="button"
+    class="nav-ham"
+    id="ham"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mob">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+
+</nav>
+
+<!-- ══════════ PRODUCTS MEGA MENU (desktop) ══════════ -->
+<!--
+  Positioned directly below the navbar (top: 74px via CSS).
+  id="products-mega-menu" must match aria-controls on the Products button.
+  Managed entirely by js/navigation.js — open/close/ARIA/outside-click/Escape.
+
+  Phase 22 NOTE — "Solutions" column renamed to "Offerings":
+    The Products mega menu previously had a "Solutions" category column.
+    Since Phase 22 introduces a top-level "Solutions" nav item, the column
+    has been renamed "Offerings" to avoid user confusion. The description
+    is updated accordingly. See docs/PHASE22-IA-REDESIGN-REPORT.md AD-22-001.
+
+  PRODUCT DESTINATIONS:
+    Product destination pages have NOT been implemented.
+    The four categories are intentional non-navigational labels.
+    Actual product URLs will be connected when those pages are created.
+    See docs/ARCHITECTURE-DECISIONS.md AD-024.
+-->
+<div
+  class="products-mega-menu"
+  id="products-mega-menu"
+  role="region"
+  aria-label="Products menu"
+  aria-hidden="true">
+
+  <div class="pmm-inner">
+
+    <!-- ── OFFERINGS (formerly "Solutions" — renamed Phase 22 to avoid nav collision) ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="10" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="10" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Offerings</span>
+      </div>
+      <p class="pmm-col-desc">End-to-end growth systems built for your business.</p>
+      <!-- Product destination links will be added here when product pages are ready. -->
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── TOOLS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.22 3.22l1.41 1.41M13.36 13.36l1.41 1.41M3.22 14.78l1.41-1.41M13.36 4.64l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Tools</span>
+      </div>
+      <p class="pmm-col-desc">Productivity and marketing tools to accelerate your workflow.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── APIS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="3" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="15" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5 9h4l2-5M5 9h4l2 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">APIs</span>
+      </div>
+      <p class="pmm-col-desc">Developer-grade APIs for AI, data, and communications.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+    <!-- ── PLATFORMS ── -->
+    <div class="pmm-col">
+      <div class="pmm-col-header">
+        <span class="pmm-col-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="2" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="7" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="1" y="12" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span class="pmm-col-title">Platforms</span>
+      </div>
+      <p class="pmm-col-desc">SaaS, AI, and developer platforms built for scale.</p>
+      <div class="pmm-coming">
+        <span class="pmm-coming-tag">Coming Soon</span>
+        <span class="pmm-coming-note">Product pages in development</span>
+      </div>
+    </div>
+
+  </div><!-- /pmm-inner -->
+
+  <!-- Bottom strip — Kritexa.AI cross-link (only real navigable link in the menu) -->
+  <div class="pmm-footer-strip">
+    <span class="pmm-footer-note">Interested in our AI platform?</span>
+    <a href="/kritexa-ai" class="pmm-footer-link">
+      <span class="pmm-footer-dot" aria-hidden="true"></span>
+      Explore Kritexa.AI →
+    </a>
+  </div>
+
+</div><!-- /products-mega-menu -->
+
+
+<!-- ══════════ MOBILE NAVIGATION DRAWER ══════════ -->
+<nav
+  class="nav-mob"
+  id="mob"
+  role="navigation"
+  aria-label="Mobile navigation"
+  aria-hidden="true">
+
+  <a href="/"                 id="ml-home"               class="nav-mob-link">Home</a>
+  <a href="/about"            id="ml-about"              class="nav-mob-link">About</a>
+
+  <!--
+    Mobile Solutions trigger — expands the solutions accordion panel.
+    aria-expanded is toggled by js/navigation.js.
+    arrow rotates via CSS when aria-expanded="true".
+  -->
+  <button
+    type="button"
+    class="nav-mob-products"
+    id="mob-solutions-btn"
+    aria-expanded="false"
+    aria-controls="mob-solutions-panel">
+    Solutions
+    <span class="nav-mob-products-arrow" aria-hidden="true">+</span>
+  </button>
+
+  <!--
+    Mobile Solutions panel — accordion.
+    Four pages: Capabilities / Industry Solutions / Portfolio / Case Studies
+  -->
+  <div class="nav-mob-products-panel" id="mob-solutions-panel" aria-hidden="true">
+    <div class="mob-solutions-list">
+      <a href="/capabilities"       id="ml-capabilities"       class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Capabilities</span>
+          <span class="mob-sol-desc">Technology &amp; engineering</span>
+        </span>
+      </a>
+      <a href="/industry-solutions" id="ml-industry-solutions"  class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Industry Solutions</span>
+          <span class="mob-sol-desc">Solutions by industry</span>
+        </span>
+      </a>
+      <a href="/portfolio"          id="ml-portfolio"           class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Portfolio</span>
+          <span class="mob-sol-desc">What we have made</span>
+        </span>
+      </a>
+      <a href="/case-studies"       id="ml-case-studies"        class="mob-solutions-link">
+        <span class="mob-sol-dot" aria-hidden="true"></span>
+        <span class="mob-sol-text">
+          <span class="mob-sol-title">Case Studies</span>
+          <span class="mob-sol-desc">Real problems, real outcomes</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <a href="/live-projects"    id="ml-live-projects"      class="nav-mob-link">Live Projects</a>
+  <a href="/contact"          id="ml-contact"            class="nav-mob-link">Contact</a>
+
+  <!--
+    Mobile Products trigger — expands the products accordion panel.
+    aria-expanded is toggled by js/navigation.js.
+    arrow rotates via CSS when aria-expanded="true".
+  -->
+  <button
+    type="button"
+    class="nav-mob-products"
+    id="mob-products-btn"
+    aria-expanded="false"
+    aria-controls="mob-products-panel">
+    Products
+    <span class="nav-mob-products-arrow" aria-hidden="true">+</span>
+  </button>
+
+  <!--
+    Mobile Products panel — accordion.
+    Four category labels: Offerings / Tools / APIs / Platforms.
+    These are intentional non-navigational labels (no href).
+    Product destination links will be added when product pages exist.
+    Phase 22: "Solutions" → "Offerings" to avoid naming collision.
+  -->
+  <div class="nav-mob-products-panel" id="mob-products-panel" aria-hidden="true">
+    <div class="mob-pmm-grid">
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="10" y="1" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="10" y="10" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        <span class="mob-pmm-label">Offerings</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </span>
+        <span class="mob-pmm-label">Tools</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="3" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="15" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 9h4l2-5M5 9h4l2 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="mob-pmm-label">APIs</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+      <div class="mob-pmm-item">
+        <span class="mob-pmm-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><rect x="1" y="2" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="7" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="12" width="16" height="4" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+        </span>
+        <span class="mob-pmm-label">Platforms</span>
+        <span class="mob-pmm-soon">soon</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="/kritexa-ai"       id="ml-kritexaai"          class="nav-mob-link nav-mob-kai">● Kritexa.AI</a>
+
+  <div class="nav-mob-divider" aria-hidden="true"></div>
+
+  <!-- Mobile CTA -->
+  <a href="/contact" class="mob-cta">Start Project →</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/capabilities.html
+  Phase 8 — Capabilities Page Rebuild
+  Phase 22 — Redesigned: technology & engineering focus
+             Industry-related content MOVED to /industry-solutions
+
+  PURPOSE (Phase 22):
+    "What can Kritexa Labs build?"
+    Technology, engineering & what we can build.
+    This page answers the engineering/technical capability question.
+    It does NOT duplicate Industry Solutions.
+
+  Composition model: {{SECTION:capabilities/*}} partials
+
+  SECTION ORDER (Phase 22 redesign):
+    1. hero              — H1, description, dual CTA (project + industry solutions)
+    2. engineering-domains — 6 engineering domain cards (restructured from Phase 8 services)
+    3. proof-cta         — Cross-links to Industry Solutions, Portfolio, Case Studies, Contact
+
+  SECTIONS REMOVED IN PHASE 22 (moved to /industry-solutions):
+    - who-we-serve       → now in src/sections/industry-solutions/who-we-serve.html
+    - industry-solutions → now in src/sections/industry-solutions/solutions-rows.html
+
+  HEADING HIERARCHY:
+    H1: "Our Engineering Capabilities" (hero section)
+    H2: "Engineering Domains" [sr-only] (domains section)
+    H2: "See Our Capabilities in Action" (proof-cta section)
+    H3 (×6): Individual capability domain titles
+    H3: "Complete Digital Growth Systems" (hero card)
+
+  NAVIGATION:
+    - All CTAs use real <a href> anchors — no onclick
+    - /contact — project enquiry CTAs
+    - /industry-solutions — cross-link to industry page
+    - /portfolio — cross-link to portfolio
+    - /case-studies — cross-link to case studies
+    - /live-projects — cross-link to live projects
+
+  JS: ZERO page-specific JavaScript required.
+      Global scripts (global.js, navigation.js, active-nav.js)
+      handle: scroll-reveal (.rv), navbar, active state.
+
+  SEO:
+    - title and description injected by build.js
+    - canonical: https://www.kritexalabs.com/capabilities
+    - og: tags injected by build.js
+
+  ACTIVE NAV: nl-capabilities (set by build.js injectActiveNav)
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  <!-- ══════════════════════════════════════════════════════
+  CAPABILITIES SECTION: Hero
+  src/sections/capabilities/hero.html
+  Phase 8 — Capabilities Page Rebuild
+  Phase 22 — Redesigned: technology & engineering focus
+
+  STRUCTURE:
+    - Inner page hero (.iph): eyebrow + H1 + description + CTA
+    - One H1 per page — visible HTML text
+
+  H1: "Our Engineering Capabilities" — Phase 22 redesign
+  CTA: Get Free Consultation → /contact
+
+  ANIMATION:
+    - .rv class: scroll-reveal (global IntersectionObserver)
+    - Reduced motion: global.css disables transitions
+
+  LCP: No image — text-based hero, no raster LCP candidate.
+══════════════════════════════════════════════════════ -->
+
+<section class="iph cap-hero-section" aria-labelledby="cap-h1">
+  <div class="container">
+    <div class="rv">
+      <div class="sh-eyebrow" style="justify-content:center;">Technology · Engineering · AI</div>
+      <h1 id="cap-h1">Our Engineering <span class="grad-text">Capabilities</span></h1>
+      <p>From AI-powered web systems to full-stack automation — a map of every technology, domain, and capability Kritexa Labs can deploy to build your digital growth machine.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px;">
+        <a class="btn-p" href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Start a Project <span aria-hidden="true">→</span>
+        </a>
+        <a class="btn-g" href="/industry-solutions" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Solutions by Industry <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+  CAPABILITIES SECTION: Engineering Domains
+  src/sections/capabilities/engineering-domains.html
+  Phase 22 — NEW: Technology & Engineering Capability Map
+
+  PURPOSE:
+    Showcases Kritexa Labs engineering capabilities organised by domain.
+    This section answers: "What can Kritexa Labs build?"
+
+  STRUCTURE:
+    - Hero card: "Complete Digital Growth Systems" — how capabilities combine
+    - 6 engineering domain cards (2 rows of 3):
+      1. Digital Experience Engineering (Web / Apps / UI)
+      2. AI Systems & Intelligent Automation
+      3. Business Process Automation
+      4. Growth & Performance Engineering
+      5. Commerce Systems Engineering
+      6. Platform & Infrastructure
+
+  CAPABILITY CATEGORIES (from approved content — Phase 8 services, restructured):
+    Same 6 categories as before, reframed as engineering domains.
+    No new technologies or capabilities invented.
+
+  CROSS-LINKS (Phase 22 — internal linking):
+    Each domain card links to /contact for now.
+    Future: can link to individual capability detail pages.
+
+  CMS-READINESS:
+    Each .cap-svc-card follows a consistent semantic structure.
+    This structure allows future migration to a CMS template.
+══════════════════════════════════════════════════════ -->
+
+<section class="cap-svc-section" aria-labelledby="cap-svc-heading">
+  <h2 id="cap-svc-heading" class="sr-only">Engineering Domains</h2>
+  <div class="container">
+
+    <!-- Hero Card — Complete Digital Growth Systems -->
+    <article class="cap-hero-card rv" aria-labelledby="cap-hc-title">
+      <div class="cap-hc-inner">
+        <div class="cap-hc-left">
+          <span class="cap-hc-icon" aria-hidden="true">⚡</span>
+          <h3 class="cap-hc-title" id="cap-hc-title">Complete Digital Growth Systems</h3>
+          <p class="cap-hc-desc">Each capability is a precision-engineered module. Individually powerful — combined, they form an integrated digital growth system that attracts, converts, and retains customers automatically.</p>
+          <ul class="cap-hc-svcs" aria-label="How capabilities combine">
+            <li class="cap-hc-svc">Web engineering paired with AI creates conversion-optimised, intelligent experiences</li>
+            <li class="cap-hc-svc">Automation connected to CRM creates self-operating lead pipelines</li>
+            <li class="cap-hc-svc">Growth marketing supported by analytics creates compounding ROI</li>
+            <li class="cap-hc-svc">Commerce systems with AI upsells create scalable revenue engines</li>
+          </ul>
+          <div class="cap-hc-badges" aria-label="Engineering approach">
+            <span class="cap-hc-badge">AI-First</span>
+            <span class="cap-hc-badge">Full-Stack</span>
+            <span class="cap-hc-badge">Systems Thinking</span>
+            <span class="cap-hc-badge">End-to-End</span>
+          </div>
+        </div>
+        <a class="cap-hc-arrow" href="/contact" aria-label="Start building your complete digital system" tabindex="0">→</a>
+      </div>
+    </article>
+
+    <!-- Row 1: Digital Experience · AI Systems · Business Automation -->
+    <div class="cap-cards-grid" role="list">
+
+      <a class="cap-svc-card cap-purple rv" href="/contact" role="listitem" aria-label="Digital Experience Engineering — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🌐</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Digital Experience Engineering</h3>
+        <p class="cap-card-desc">Performance-first websites and web applications built to convert visitors into paying customers — fast, accessible, and engineered to rank.</p>
+        <ul class="cap-card-svcs" aria-label="What we build">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Business &amp; marketing websites</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Conversion landing pages</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Progressive web applications</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>UI/UX design systems</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">Next.js</span>
+          <span class="cap-card-badge">React</span>
+          <span class="cap-card-badge">SEO Ready</span>
+          <span class="cap-card-badge">Mobile First</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-cyan rv" href="/contact" role="listitem" aria-label="AI Systems &amp; Intelligent Automation — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🤖</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">AI Systems &amp; Intelligent Agents</h3>
+        <p class="cap-card-desc">AI-powered agents that work 24/7 — handling leads, qualifying prospects, supporting customers, and running operations without human intervention.</p>
+        <ul class="cap-card-svcs" aria-label="What we build">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Conversational AI chatbots</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>WhatsApp AI &amp; voice agents</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Lead qualification engines</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>AI-driven decision workflows</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">LLM</span>
+          <span class="cap-card-badge">WhatsApp API</span>
+          <span class="cap-card-badge">24/7</span>
+          <span class="cap-card-badge">Autonomous</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-green rv" href="/contact" role="listitem" aria-label="Business Process Automation — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">⚙️</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Business Process Automation</h3>
+        <p class="cap-card-desc">Eliminate repetitive manual work with intelligent workflows that connect your tools, run operations, and deliver data where it's needed — automatically.</p>
+        <ul class="cap-card-svcs" aria-label="What we build">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>CRM automation &amp; pipelines</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Multi-system workflow integration</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>API connectors &amp; data bridges</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Internal tooling &amp; dashboards</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">CRM</span>
+          <span class="cap-card-badge">REST API</span>
+          <span class="cap-card-badge">No-Code</span>
+          <span class="cap-card-badge">Zapier</span>
+        </div>
+      </a>
+
+    </div><!-- /cap-cards-grid row 1 -->
+
+    <!-- Row 2: Growth Marketing · Commerce Systems · Performance & Support -->
+    <div class="cap-cards-grid" role="list">
+
+      <a class="cap-svc-card cap-orange rv" href="/contact" role="listitem" aria-label="Growth &amp; Performance Engineering — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">📈</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Growth &amp; Performance Engineering</h3>
+        <p class="cap-card-desc">Data-driven marketing systems and performance optimisation that compound over time — getting you found, generating leads, and scaling revenue.</p>
+        <ul class="cap-card-svcs" aria-label="What we build">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Technical SEO &amp; local SEO systems</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Google Ads &amp; Meta Ads campaigns</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Analytics &amp; conversion tracking</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Content marketing systems</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">SEO</span>
+          <span class="cap-card-badge">Google Ads</span>
+          <span class="cap-card-badge">Analytics</span>
+          <span class="cap-card-badge">Meta</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-pink rv" href="/contact" role="listitem" aria-label="Commerce Systems Engineering — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🛒</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Commerce Systems Engineering</h3>
+        <p class="cap-card-desc">Scalable e-commerce systems engineered for conversion — from storefront to payment gateway to post-purchase automation, built to grow revenue.</p>
+        <ul class="cap-card-svcs" aria-label="What we build">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Shopify &amp; WooCommerce stores</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Payment gateway integration</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>AI-powered product recommendations</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Inventory &amp; order management</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">Shopify</span>
+          <span class="cap-card-badge">WooCommerce</span>
+          <span class="cap-card-badge">Razorpay</span>
+          <span class="cap-card-badge">Stripe</span>
+        </div>
+      </a>
+
+      <a class="cap-svc-card cap-teal rv" href="/contact" role="listitem" aria-label="Platform Support &amp; Reliability — get this capability">
+        <div class="cap-card-top">
+          <span class="cap-card-icon" aria-hidden="true">🛡️</span>
+          <div class="cap-card-arrow" aria-hidden="true">↗</div>
+        </div>
+        <h3 class="cap-card-title">Platform Support &amp; Reliability</h3>
+        <p class="cap-card-desc">Keep your digital systems performing at peak with ongoing monitoring, security hardening, analytics optimisation, and continuous improvement.</p>
+        <ul class="cap-card-svcs" aria-label="What we build">
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Performance monitoring &amp; optimisation</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Security hardening</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Analytics setup &amp; reporting</li>
+          <li class="cap-card-svc"><span class="cap-svc-ck" aria-hidden="true">✔</span>Maintenance &amp; iterative improvements</li>
+        </ul>
+        <div class="cap-card-badges" aria-label="Technology highlights">
+          <span class="cap-card-badge">Lighthouse 95+</span>
+          <span class="cap-card-badge">Security</span>
+          <span class="cap-card-badge">Analytics</span>
+        </div>
+      </a>
+
+    </div><!-- /cap-cards-grid row 2 -->
+
+  </div><!-- /container -->
+</section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+  CAPABILITIES SECTION: Proof and CTA
+  src/sections/capabilities/proof-cta.html
+  Phase 22 — NEW: Cross-links to Portfolio, Industry Solutions, Case Studies, Contact
+
+  PURPOSE:
+    Closes the Capabilities page with cross-links to related sections
+    and a project CTA. Ensures visitors can navigate to relevant proof
+    (Portfolio, Case Studies) or see how capabilities apply to their
+    industry (Industry Solutions).
+
+  CROSS-LINKS (Phase 22 internal linking strategy):
+    → /industry-solutions  "How do these capabilities apply to my business?"
+    → /portfolio           "See what we've built"
+    → /case-studies        "See how we solved real problems"
+    → /contact             "Start a project"
+══════════════════════════════════════════════════════ -->
+
+<section class="cap-proof-section section-sm" aria-labelledby="cap-proof-heading">
+  <div class="container">
+    <div class="cap-proof-inner rv">
+      <div class="sh-eyebrow" style="justify-content:center;">Explore Further</div>
+      <h2 id="cap-proof-heading">See Our Capabilities in Action</h2>
+      <p>These engineering capabilities translate into real solutions for real businesses — see the outcomes and experience the work.</p>
+
+      <div class="cap-proof-grid" role="list" aria-label="Related pages">
+
+        <a class="cap-proof-card rv" href="/industry-solutions" role="listitem" aria-label="Industry Solutions — how capabilities apply to your business type">
+          <div class="cap-proof-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="10" width="4" height="7" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="7" y="6" width="4" height="11" rx="1" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="13" y="2" width="4" height="15" rx="1" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="cap-proof-card-body">
+            <div class="cap-proof-card-title">Industry Solutions</div>
+            <div class="cap-proof-card-desc">How do these capabilities apply to my business type?</div>
+          </div>
+          <div class="cap-proof-card-arr" aria-hidden="true">→</div>
+        </a>
+
+        <a class="cap-proof-card rv" href="/portfolio" role="listitem" aria-label="Portfolio — see what Kritexa Labs has built">
+          <div class="cap-proof-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="10" y="1" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="1" y="10" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <rect x="10" y="10" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            </svg>
+          </div>
+          <div class="cap-proof-card-body">
+            <div class="cap-proof-card-title">Portfolio</div>
+            <div class="cap-proof-card-desc">Real projects built using these capabilities</div>
+          </div>
+          <div class="cap-proof-card-arr" aria-hidden="true">→</div>
+        </a>
+
+        <a class="cap-proof-card rv" href="/case-studies" role="listitem" aria-label="Case Studies — how Kritexa Labs solved real business problems">
+          <div class="cap-proof-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6 9l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="cap-proof-card-body">
+            <div class="cap-proof-card-title">Case Studies</div>
+            <div class="cap-proof-card-desc">How we deployed these capabilities to solve real problems</div>
+          </div>
+          <div class="cap-proof-card-arr" aria-hidden="true">→</div>
+        </a>
+
+      </div><!-- /cap-proof-grid -->
+
+      <div class="cap-proof-cta-row" style="margin-top:48px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+        <a class="btn-p" href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Start Your Project <span aria-hidden="true">→</span>
+        </a>
+        <a class="btn-g" href="/live-projects" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Experience Live Projects <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+  KRITEXA LABS — GLOBAL FOOTER COMPONENT
+  components/footer.html
+
+  Phase 5 — Global Footer
+  UI Refinement — Newsletter upgrade, nav columns, social icons, bottom bar
+
+  STRUCTURE:
+    1. Global CTA section (.gcta)
+    2. Footer
+       a. Newsletter block (.f-nl-block) — icon + heading + description + form
+       b. Main footer card (.f-main-card) — ONE SINGLE OUTER CARD containing:
+            Left:  Navigation columns (Main Pages | Solutions | Our Work | Legal)
+            Right: Brand panel (logo + description + social icons)
+            Bottom: Attribution bar (.f-bottom-bar) — inside the same card
+
+  NAVIGATION ROUTES — all use real <a href> anchors:
+    /              → Home
+    /about         → About
+    /capabilities  → Capabilities
+    /industry-solutions → Industry Solutions
+    /portfolio     → Portfolio
+    /case-studies  → Case Studies
+    /live-projects → Live Projects
+    /contact       → Contact
+    /kritexa-ai    → Kritexa.AI
+    /career        → Career  (footer-only page — AD-012)
+    /labs          → Labs    (footer-only page — AD-012)
+
+  PRODUCTS:
+    Products has NO standalone page (AD-011).
+    Do NOT create /products or any fake product URLs.
+
+  NEWSLETTER:
+    The subscribe form is a placeholder. It must be wired to a real email
+    service (Mailchimp, ConvertKit, etc.) in Phase 21.
+    The form uses a standard HTML <form> — no onclick/JavaScript.
+
+  WHATSAPP:
+    The wa.me URL uses the placeholder 91XXXXXXXXXX.
+    Replace this with a verified number in Phase 21.
+    Do NOT invent a real phone number.
+
+  LEGAL LINKS:
+    /privacy-policy, /terms-of-service, /cookie-policy pages do NOT exist yet.
+    Legal links are rendered as non-clickable <span> elements with a
+    "coming soon" note rather than dead <a href> links.
+    These pages must be created and linked in Phase 21.
+    See docs/ARCHITECTURE-DECISIONS.md for the deferred decision (AD-026).
+
+  SOCIAL LINKS (verified from project source + legacy footer):
+    Instagram : https://instagram.com/kritexalabs
+    X/Twitter : https://x.com/kritexalabs
+    LinkedIn  : https://www.linkedin.com/company/kritexa-labs/
+    Facebook  : https://www.facebook.com/kritexalabs1
+    YouTube   : https://youtube.com/@kritexalabs
+    Threads   : https://threads.net/@kritexalabs
+    NOTE: These URLs were present in the legacy footer (index-original.html).
+    They are preserved as-is. Verify live destinations before Phase 21.
+
+  BUILD USAGE:
+    Composed into every page by scripts/build.js.
+    Do not edit output files directly — edit this component.
+
+  CSS:
+    Footer styles live in css/footer.css (Phase 5).
+    Load order: global.css → utilities.css → header.css → footer.css → components.css
+══════════════════════════════════════════════════════════════ -->
+
+<!-- ══════════ GLOBAL CTA SECTION ══════════ -->
+<section class="gcta" aria-label="Start your project">
+  <div class="container">
+    <div class="gcta-box rv">
+      <h2>Ready to Build Your<br><span class="grad-text">Digital Growth System?</span></h2>
+      <p>Join businesses already growing with Kritexa Labs — websites, AI, and automation that delivers real results.</p>
+      <div class="gcta-btns">
+        <a href="/contact" class="btn-p">🚀 Start Your Project</a>
+        <!--
+          WhatsApp CTA — placeholder number. Replace 91XXXXXXXXXX with real
+          verified number in Phase 21. Do NOT invent a number.
+        -->
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 WhatsApp Us</a>
+        <a href="mailto:hr@kritexalabs.com" class="btn-email">📧 Send Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GLOBAL FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+
+    <!-- ── NEWSLETTER CARD ── -->
+    <!--
+      Newsletter form placeholder — wire to real email service in Phase 21.
+      Using a <form> element (no onclick/JavaScript required).
+      action="#" prevents page reload; real endpoint replaces it in Phase 21.
+    -->
+    <div class="f-nl-block">
+      <!-- Left: icon + heading + description -->
+      <div class="f-nl-identity">
+        <div class="f-nl-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="f-nl-text">
+          <div class="f-nl-title">Stay updated with us</div>
+          <div class="f-nl-desc">Get the latest insights on AI, digital growth, and product launches — delivered to your inbox.</div>
+        </div>
+      </div>
+      <!-- Right: email form -->
+      <form class="f-nl-form" action="#" method="post" aria-label="Newsletter subscription">
+        <label for="footer-email" class="sr-only">Your email address</label>
+        <input
+          type="email"
+          id="footer-email"
+          name="email"
+          class="f-nl-input"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required>
+        <button type="submit" class="f-nl-btn">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         MAIN FOOTER CARD — ONE SINGLE OUTER CARD
+         Contains: navigation panel + company panel + bottom bar
+         DO NOT split into separate cards.
+    ══════════════════════════════════════════════════════════ -->
+    <div class="f-main-card">
+
+      <!-- ── MAIN CONTENT GRID: Navigation (left) + Company (right) ── -->
+      <div class="f-main-grid">
+
+        <!-- LEFT: Navigation columns -->
+        <nav class="f-nav-area" aria-label="Footer navigation">
+
+          <!-- Column: Main Pages -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-main">Main Pages</div>
+            <ul class="f-col-links" aria-labelledby="fcol-main">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/live-projects">Live Projects</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Solutions — Phase 22: Solutions IA group -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-solutions">Solutions</div>
+            <ul class="f-col-links" aria-labelledby="fcol-solutions">
+              <li><a href="/capabilities">Capabilities</a></li>
+              <li><a href="/industry-solutions">Industry Solutions</a></li>
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Our Work & Platform -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-work">Our Work</div>
+            <ul class="f-col-links" aria-labelledby="fcol-work">
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/live-projects">Live Projects</a></li>
+              <li><a href="/kritexa-ai" class="f-link-kai">Kritexa.AI ✦</a></li>
+              <li><a href="/labs" class="f-link-labs">LABS ✦</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Legal -->
+          <!--
+            LEGAL PAGES DO NOT EXIST YET.
+            /privacy-policy, /terms-of-service, /cookie-policy are NOT created.
+            These are rendered as non-clickable placeholders until Phase 21.
+            See AD-026 in docs/ARCHITECTURE-DECISIONS.md.
+            Do NOT create dead <a href> links to nonexistent pages.
+          -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-legal">Legal</div>
+            <ul class="f-col-links" aria-labelledby="fcol-legal">
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Privacy Policy</span>
+              </li>
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Terms of Service</span>
+              </li>
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Cookie Policy</span>
+              </li>
+              <li><a href="/career">Career</a></li>
+            </ul>
+          </div>
+
+        </nav><!-- /f-nav-area -->
+
+        <!-- RIGHT: Company panel — NOT a separate card, lives inside f-main-card -->
+        <div class="f-company-area">
+          <a class="f-brand-logo" href="/" aria-label="Kritexa Labs — home">
+            <div class="f-brand-logo-mark" aria-hidden="true">
+              <img src="/assets/logos/logo.png" alt="" width="38" height="38" loading="lazy">
+            </div>
+            <span>KRITEXA <span class="f-brand-dim">LABS</span></span>
+          </a>
+          <p class="f-brand-desc">Engineering Digital Growth. AI-powered websites, automation &amp; SEO for businesses that want to scale faster and smarter.</p>
+
+          <!-- Social icons — verified from legacy footer source -->
+          <div class="f-socials" role="list" aria-label="Kritexa Labs on social media">
+            <a href="https://instagram.com/kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-ig"
+               aria-label="Kritexa Labs on Instagram"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-x"
+               aria-label="Kritexa Labs on X (Twitter)"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/kritexa-labs/"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-li"
+               aria-label="Kritexa Labs on LinkedIn"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/kritexalabs1"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-fb"
+               aria-label="Kritexa Labs on Facebook"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-yt"
+               aria-label="Kritexa Labs on YouTube"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+              </svg>
+            </a>
+            <a href="https://threads.net/@kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-th"
+               aria-label="Kritexa Labs on Threads"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.868 1.205 8.62.024 12.203 0h.014c2.814.024 5.128.818 6.874 2.366 1.652 1.472 2.6 3.558 2.819 6.302l.019.24h-3.084l-.02-.207c-.199-2.168-.94-3.816-2.207-4.897-1.242-1.061-2.926-1.6-5.007-1.604-2.462.028-4.445.878-5.893 2.526-1.418 1.615-2.166 4.048-2.193 7.234.027 3.188.775 5.62 2.193 7.234 1.448 1.648 3.43 2.498 5.893 2.526 1.971-.014 3.586-.418 4.803-1.201.948-.614 1.715-1.561 2.28-2.816H12.6v-2.88h7.14l-.018.228c-.244 3.11-1.349 5.531-3.283 7.196C14.676 23.35 13.36 24 12.186 24z"/>
+              </svg>
+            </a>
+          </div>
+        </div><!-- /f-company-area -->
+
+      </div><!-- /f-main-grid -->
+
+      <!-- ── FOOTER BOTTOM BAR — INSIDE the main card ── -->
+      <div class="f-bottom-bar" role="contentinfo">
+        <span class="f-bottom-copy">© 2025 Kritexa Labs. All rights reserved.</span>
+        <span class="f-bottom-made">Made with ❤️ in Pune, India</span>
+        <span class="f-bottom-powered">
+          Powered by <a href="https://kritexalabs.com" target="_blank" rel="noopener noreferrer" class="f-bottom-link">Kritexa Labs</a>
+        </span>
+      </div>
+
+    </div><!-- /f-main-card -->
+
+  </div><!-- /container -->
+</footer>
+
+
+<!-- JS — dependency order: global → navigation → animations → active-nav → page -->
+<!-- global.js: cursor, scroll reveal, counters, FAQ, social hover -->
+<script src="/js/global.js"></script>
+<!-- navigation.js: Phase 3+4+5 mobile menu, Products mega menu, scroll state, legacy SPA shim -->
+<script src="/js/navigation.js"></script>
+<!-- animations.js: countdown (kritexa-ai only), process orbital guard, canvas guard -->
+<script src="/js/animations.js"></script>
+<!-- active-nav.js: sets aria-current="page" and .active based on URL pathname -->
+<script src="/js/active-nav.js"></script>
+
+</body>
+</html>

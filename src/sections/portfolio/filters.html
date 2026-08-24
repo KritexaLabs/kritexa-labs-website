@@ -1,0 +1,67 @@
+<!-- ══════════════════════════════════════════════════════
+  PORTFOLIO SECTION: Filters
+  src/sections/portfolio/filters.html
+  Phase 9 — Portfolio Page Rebuild
+
+  STRUCTURE:
+    - Category filter buttons (9 categories + All)
+    - Type filter buttons (All / Websites / Software)
+    - Both rows use <button> with aria-pressed for accessibility
+
+  CATEGORIES (from approved legacy content):
+    All, Healthcare, Consultants, Finance, Startups,
+    Local Business, Education, E-Commerce, Personal Brands
+
+  TYPES (from approved legacy content):
+    All Projects, Websites, Software
+
+  ACCESSIBILITY:
+    - Native <button> elements — no onclick div
+    - aria-pressed="true|false" reflects active state
+    - aria-controls="pf-project-grid" announces what is filtered
+    - Keyboard navigation fully functional (buttons are focusable)
+
+  JAVASCRIPT:
+    - Filter logic lives in js/pages/portfolio.js
+    - onclick handlers reference pfFilter() defined there
+    - aria-pressed managed by portfolio.js
+
+  NOTE:
+    Filter behavior is preserved from approved legacy source.
+    Category + Type filters are cross-filterable.
+    Active state managed via .active class + aria-pressed.
+══════════════════════════════════════════════════════ -->
+
+<section class="pf-filter-sec" aria-label="Filter projects">
+  <div class="container">
+
+    <!-- Category filter row -->
+    <div class="pf-filter-label" id="pf-cat-label">Category</div>
+    <div class="pf-filters" id="pf-cat-filters" role="group" aria-labelledby="pf-cat-label">
+      <button class="pf-filter active" data-filter-type="cat" data-filter-value="all" aria-pressed="true">All</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Healthcare" aria-pressed="false">Healthcare</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Consultants" aria-pressed="false">Consultants</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Finance" aria-pressed="false">Finance</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Startups" aria-pressed="false">Startups</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Local Business" aria-pressed="false">Local Business</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Education" aria-pressed="false">Education</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="E-Commerce" aria-pressed="false">E-Commerce</button>
+      <button class="pf-filter" data-filter-type="cat" data-filter-value="Personal Brands" aria-pressed="false">Personal Brands</button>
+    </div>
+
+    <!-- Type filter row -->
+    <div class="pf-filter-label" id="pf-type-label" style="margin-top:20px;">Type</div>
+    <div class="pf-type-tabs" id="pf-type-filters" role="group" aria-labelledby="pf-type-label">
+      <button class="pf-type-tab active" data-filter-type="type" data-filter-value="all" aria-pressed="true">
+        <span aria-hidden="true">🔀</span> All Projects
+      </button>
+      <button class="pf-type-tab" data-filter-type="type" data-filter-value="Website" aria-pressed="false">
+        <span aria-hidden="true">🌐</span> Websites
+      </button>
+      <button class="pf-type-tab" data-filter-type="type" data-filter-value="Software" aria-pressed="false">
+        <span aria-hidden="true">⚙️</span> Software
+      </button>
+    </div>
+
+  </div>
+</section>

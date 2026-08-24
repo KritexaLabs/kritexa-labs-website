@@ -1,0 +1,119 @@
+<!-- ══════════════════════════════════════════════════════
+  HOME SECTION: Why Us (Bento Grid)
+  src/sections/home/why-us.html
+  Phase 6 — Home Page Rebuild
+
+  Content: "Why Kritexa Labs" — 5 bento feature cards
+  Cards: AI First, Results (×3 leads), Speed, Metrics, Scale (50 projects)
+
+  Animated counters: data-count attributes read by js/global.js
+  Progress bars: CSS fill-anim triggered by CSS (not JS)
+  Bar chart: CSS bar-grow animation
+
+  ⚠️ CONTENT FLAG: "3× Average lead increase", "50 Projects delivered"
+  are preserved from legacy as-is. See docs/CONTENT-MAP.md flags.
+══════════════════════════════════════════════════════ -->
+<section class="section-sm" id="why-us" aria-labelledby="why-heading"
+  style="position:relative;z-index:1;background:linear-gradient(180deg,transparent,rgba(124,58,237,.03),transparent);">
+  <div class="container">
+
+    <div class="sh rv">
+      <div class="sh-eyebrow">Why Kritexa Labs</div>
+      <h2 id="why-heading">Built Different, <span class="grad-text">By Design</span></h2>
+      <p>We engineer growth systems — not just websites. Here's why businesses choose us.</p>
+    </div>
+
+    <div class="bento" role="list">
+
+      <!-- AI First — wide card -->
+      <div class="b-card b-wide rv" role="listitem">
+        <div class="b-tag">AI First</div>
+        <h3>Every Solution Has Intelligence at Its Core</h3>
+        <p>We don't add AI as a feature — it's the foundation every project is built on. From lead qualification to automated follow-up, intelligence runs through everything we ship.</p>
+        <div class="b-glow" aria-hidden="true"></div>
+        <div class="b-progress" aria-label="AI capability metrics">
+          <div class="bp-row">
+            <span>AI Lead Qualification</span>
+            <div class="bp-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="92%">
+              <div class="bp-fill" style="width:92%;"></div>
+            </div>
+            <span>92%</span>
+          </div>
+          <div class="bp-row">
+            <span>Automation Coverage</span>
+            <div class="bp-bar" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" aria-label="87%">
+              <div class="bp-fill" style="width:87%;animation-delay:.5s;"></div>
+            </div>
+            <span>87%</span>
+          </div>
+          <div class="bp-row">
+            <span>Performance Score</span>
+            <div class="bp-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="95%">
+              <div class="bp-fill" style="width:95%;animation-delay:1s;"></div>
+            </div>
+            <span>95%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="b-card rv" role="listitem">
+        <div class="b-tag">Results</div>
+        <h3>Outcomes Over Outputs</h3>
+        <p>We measure success in leads generated and revenue grown — not just pages launched.</p>
+        <!--
+          data-count="3" triggers animated counter in js/global.js.
+          ⚠️ CONTENT FLAG: "3× Average lead increase" is a rounded/approximate metric.
+          Preserved from legacy. See docs/CONTENT-MAP.md.
+        -->
+        <div class="b-metric" data-count="3" aria-label="3 times average lead increase">0</div>
+        <div class="b-metric-lbl">Average lead increase</div>
+      </div>
+
+      <!-- Speed -->
+      <div class="b-card rv" role="listitem">
+        <div class="b-tag">Speed</div>
+        <h3>Fast Without Shortcuts</h3>
+        <ul class="b-list" aria-label="Speed commitments">
+          <li><span class="b-check" aria-hidden="true">✓</span>30-day delivery</li>
+          <li><span class="b-check" aria-hidden="true">✓</span>95+ Lighthouse score</li>
+          <li><span class="b-check" aria-hidden="true">✓</span>20hrs/week saved</li>
+          <li><span class="b-check" aria-hidden="true">✓</span>Long-term partnership</li>
+        </ul>
+        <div class="b-glow" style="background:radial-gradient(circle,rgba(6,182,212,.15),transparent 70%);" aria-hidden="true"></div>
+      </div>
+
+      <!-- Metrics -->
+      <div class="b-card rv" role="listitem">
+        <div class="b-tag">Metrics</div>
+        <h3>Real Numbers, Real Clients</h3>
+        <div class="b-bars" aria-label="Lead growth chart over 7 weeks" role="img">
+          <div class="b-bar" style="height:30%;animation-delay:.1s;"></div>
+          <div class="b-bar" style="height:55%;animation-delay:.2s;"></div>
+          <div class="b-bar" style="height:45%;animation-delay:.3s;"></div>
+          <div class="b-bar" style="height:80%;animation-delay:.4s;"></div>
+          <div class="b-bar" style="height:60%;animation-delay:.5s;"></div>
+          <div class="b-bar" style="height:90%;animation-delay:.6s;"></div>
+          <div class="b-bar" style="height:75%;animation-delay:.7s;"></div>
+        </div>
+        <div class="b-metric-lbl" style="margin-top:12px;">Leads over 7 weeks</div>
+      </div>
+
+      <!-- Scale -->
+      <div class="b-card rv" role="listitem"
+        style="background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(6,182,212,.06));border-color:rgba(124,58,237,.2);">
+        <div class="b-tag">Scale</div>
+        <h3>Built to <span class="grad-text">Scale With You</span></h3>
+        <p>Architected from day one to grow from 100 to 100,000 visitors — no costly rebuild ever needed.</p>
+        <!--
+          data-count="50" triggers animated counter.
+          ⚠️ CONTENT FLAG: "50 Projects delivered" is a rounded stat.
+          Preserved from legacy. See docs/CONTENT-MAP.md.
+        -->
+        <div class="b-metric" data-count="50" aria-label="50 projects delivered">0</div>
+        <div class="b-metric-lbl">Projects delivered</div>
+      </div>
+
+    </div><!-- /bento -->
+  </div><!-- /container -->
+</section>

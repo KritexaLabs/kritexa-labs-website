@@ -1,0 +1,151 @@
+<!-- ══════════════════════════════════════════════════════
+  KRITEXA.AI SECTION: Hero
+  src/sections/kritexa-ai/hero.html
+  Phase 12 — Kritexa.AI Page Rebuild
+
+  STRUCTURE:
+    - Ambient orbs + grid (decorative, aria-hidden)
+    - Badge group: LABS → Kritexa.AI (positioning pill)
+    - H1: "The Future of Intelligent Business"
+    - Description from approved legacy source
+    - Countdown timer to 2026-10-01 (JS-driven via js/animations.js)
+    - Email waitlist form (form action="#" — no backend; see FORM NOTE)
+
+  H1: Preserved verbatim from legacy/index-original.html page-kritexaai
+  DESCRIPTION: Preserved verbatim from legacy source
+  COUNTDOWN: Target date 2026-10-01 — matching js/animations.js
+  BADGE GROUP: Preserved from approved legacy source
+
+  FORM NOTE:
+    Waitlist form uses <form action="#"> — no backend connected.
+    The kaiJoin() onclick from the legacy source has been replaced
+    with a native <button type="submit"> within a <form>.
+    No alert() or fake success state. A static note below the form
+    communicates the status honestly.
+    Phase 21 will wire a real waitlist endpoint (e.g. Mailchimp /
+    ConvertKit / Formspree).
+
+  COUNTDOWN:
+    IDs kaiDays, kaiHrs, kaiMins, kaiSecs are populated by
+    js/animations.js countdown IIFE (already global — no new JS needed).
+
+  ACCESSIBILITY:
+    - Exactly one H1 on this page (here)
+    - Decorative orbs/grid: aria-hidden="true"
+    - Countdown boxes: aria-live="off" (updates every second — live
+      announcements would be too noisy; countdown is decorative)
+    - Waitlist form: proper <label> + <input> association
+    - Focus-visible applies via global.css on all interactive elements
+
+  CONTENT CLAIMS STATUS:
+    - H1 "The Future of Intelligent Business" — Marketing positioning
+    - Description "India's most powerful AI platform" — Marketing claim
+    - Target date "Q3 2026" — From approved legacy source (aspirational)
+    - "Early Access" waitlist — Approved from legacy source (not real yet)
+
+  ANIMATION:
+    - .rv: scroll-reveal (translateY, opacity via js/global.js)
+    - .kai-orb1/.kai-orb2: jk-drift CSS animation (defined in components.css)
+    - .kai-ai-dot: kai-blink CSS animation (defined in components.css)
+    - .kai-grad: jk-shimmer CSS animation (defined in components.css)
+    - Countdown: setInterval in js/animations.js
+    - All disabled under prefers-reduced-motion (global.css + kritexa-ai.css)
+══════════════════════════════════════════════════════ -->
+
+<section class="kai-hero" aria-labelledby="kai-h1">
+  <!-- Decorative ambient orbs — aria-hidden -->
+  <div class="kai-orb kai-orb1" aria-hidden="true"></div>
+  <div class="kai-orb kai-orb2" aria-hidden="true"></div>
+  <!-- Decorative grid overlay — aria-hidden -->
+  <div class="kai-grid" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative;z-index:2;">
+
+    <!-- Badge group: LABS → Kritexa.AI product positioning -->
+    <div class="kai-badge-row rv" aria-label="Product origin: Kritexa Labs → Kritexa.AI">
+      <span class="nav-labs-pill" style="cursor:default;" aria-hidden="true">
+        <span class="nav-labs-dot"></span>LABS
+      </span>
+      <span class="kai-arrow-badge" aria-hidden="true">→</span>
+      <span class="kai-ai-pill" aria-hidden="true">
+        <span class="kai-ai-dot"></span>Kritexa.AI
+      </span>
+    </div>
+
+    <!-- H1 — exactly one per page -->
+    <h1 id="kai-h1" class="kai-heading rv">
+      The Future of<br>
+      <span class="kai-grad">Intelligent Business</span>
+    </h1>
+
+    <p class="kai-sub rv">
+      We're building India's most powerful AI platform for business growth — autonomous agents, conversational intelligence, and predictive systems that work while you sleep.
+    </p>
+
+    <!--
+      COUNTDOWN TIMER
+      Counts down to 2026-10-01T00:00:00 (Q3 Beta Launch).
+      Values populated by js/animations.js updateCountdown() IIFE.
+      Initial "--" values shown until JS loads.
+      aria-live="off" — updates every second would be too noisy.
+      The countdown is decorative context; not a functional control.
+    -->
+    <div class="kai-countdown rv" id="kaiCountdown" role="timer" aria-label="Time until Kritexa.AI launch" aria-live="off">
+      <div class="kai-cd-box">
+        <div class="kai-cd-num" id="kaiDays">--</div>
+        <div class="kai-cd-lbl">Days</div>
+      </div>
+      <div class="kai-cd-sep" aria-hidden="true">:</div>
+      <div class="kai-cd-box">
+        <div class="kai-cd-num" id="kaiHrs">--</div>
+        <div class="kai-cd-lbl">Hours</div>
+      </div>
+      <div class="kai-cd-sep" aria-hidden="true">:</div>
+      <div class="kai-cd-box">
+        <div class="kai-cd-num" id="kaiMins">--</div>
+        <div class="kai-cd-lbl">Minutes</div>
+      </div>
+      <div class="kai-cd-sep" aria-hidden="true">:</div>
+      <div class="kai-cd-box">
+        <div class="kai-cd-num" id="kaiSecs">--</div>
+        <div class="kai-cd-lbl">Seconds</div>
+      </div>
+    </div>
+
+    <!--
+      WAITLIST FORM
+      Legacy used onclick="kaiJoin()" with an alert()-based fake success.
+      Phase 12: replaced with a native <form action="#"> element.
+      No backend connected — honest notice below the button.
+      Phase 21 will wire a real email list endpoint.
+    -->
+    <div class="kai-waitlist rv">
+      <form class="kai-wl-inner" action="#" novalidate aria-label="Join Kritexa.AI early access waitlist">
+        <div class="kai-wl-label" id="kai-wl-lbl">Join the early access waitlist</div>
+        <div class="kai-wl-form">
+          <label for="kaiEmail" class="sr-only">Your email address</label>
+          <input
+            type="email"
+            class="kai-wl-input"
+            placeholder="your@email.com"
+            id="kaiEmail"
+            name="email"
+            autocomplete="email"
+            aria-labelledby="kai-wl-lbl"
+            aria-describedby="kai-wl-status"
+          >
+          <button type="submit" class="kai-wl-btn">
+            Get Early Access <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <!-- Status region — populated by global.js form handler if wired -->
+        <div id="kai-wl-status" class="kai-wl-note" role="status" aria-live="polite"></div>
+        <!-- Honest notice — backend not connected -->
+        <p class="kai-wl-disclaimer">
+          Waitlist not connected yet — your details are noted. We'll reach out directly.
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>

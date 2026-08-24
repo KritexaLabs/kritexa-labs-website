@@ -1,0 +1,55 @@
+<!-- ══════════════════════════════════════════════════════
+  CASE STUDIES SECTION: Hero
+  src/sections/case-studies/hero.html
+  Phase 10 — Case Studies Page Rebuild
+
+  STRUCTURE:
+    - Inner page hero (.iph): eyebrow + H1 + description
+    - Hero stats strip (.cs-hero-stats): 4 stats from legacy
+    - One H1 per page — visible HTML text
+
+  H1: "Case Studies" — preserved from legacy approved content
+    (legacy: <h1>Case <span class="grad-text">Studies</span></h1>)
+
+  STATS:
+    Source: legacy src/pages/case-studies.html + legacy/index-original.html #page-blog
+    Stats: 3× Avg Lead Increase, 95 Lighthouse Score, 60% Faster Load, 20 Hrs Saved/Week
+    ⚠ NOTE: These stats are preserved from legacy approved content.
+    They are marketing metrics used for illustration — not independently verified.
+
+  CONTENT STATUS: Partially documented
+  No image — text-based hero, no raster LCP candidate.
+══════════════════════════════════════════════════════ -->
+
+<section class="iph cs-hero-section" aria-labelledby="cs-h1">
+  <div class="container">
+    <div class="rv">
+      <div class="sh-eyebrow" style="justify-content:center;">Real Results · Real Clients</div>
+      <h1 id="cs-h1">Case <span class="grad-text">Studies</span></h1>
+      <p>Deep dives into how we transformed businesses with AI, automation, and modern web systems — measurable, verifiable outcomes.</p>
+    </div>
+
+    <!-- Stats strip — 4 metrics from approved legacy content -->
+    <div class="cs-hero-stats rv" role="list" aria-label="Case study statistics">
+      <div class="cs-hstat" role="listitem">
+        <span class="cs-hstat-num" aria-label="3 times">3×</span>
+        <span class="cs-hstat-lbl">Avg Lead Increase</span>
+      </div>
+      <div class="cs-hstat-div" aria-hidden="true"></div>
+      <div class="cs-hstat" role="listitem">
+        <span class="cs-hstat-num" aria-label="95">95</span>
+        <span class="cs-hstat-lbl">Lighthouse Score</span>
+      </div>
+      <div class="cs-hstat-div" aria-hidden="true"></div>
+      <div class="cs-hstat" role="listitem">
+        <span class="cs-hstat-num" aria-label="60 percent">60%</span>
+        <span class="cs-hstat-lbl">Faster Load Time</span>
+      </div>
+      <div class="cs-hstat-div" aria-hidden="true"></div>
+      <div class="cs-hstat" role="listitem">
+        <span class="cs-hstat-num" aria-label="20">20</span>
+        <span class="cs-hstat-lbl">Hrs Saved / Week</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,284 @@
+<!-- ══════════════════════════════════════════════════════════════
+  KRITEXA LABS — GLOBAL FOOTER COMPONENT
+  components/footer.html
+
+  Phase 5 — Global Footer
+  UI Refinement — Newsletter upgrade, nav columns, social icons, bottom bar
+
+  STRUCTURE:
+    1. Global CTA section (.gcta)
+    2. Footer
+       a. Newsletter block (.f-nl-block) — icon + heading + description + form
+       b. Main footer card (.f-main-card) — ONE SINGLE OUTER CARD containing:
+            Left:  Navigation columns (Main Pages | Solutions | Our Work | Legal)
+            Right: Brand panel (logo + description + social icons)
+            Bottom: Attribution bar (.f-bottom-bar) — inside the same card
+
+  NAVIGATION ROUTES — all use real <a href> anchors:
+    /              → Home
+    /about         → About
+    /capabilities  → Capabilities
+    /industry-solutions → Industry Solutions
+    /portfolio     → Portfolio
+    /case-studies  → Case Studies
+    /live-projects → Live Projects
+    /contact       → Contact
+    /kritexa-ai    → Kritexa.AI
+    /career        → Career  (footer-only page — AD-012)
+    /labs          → Labs    (footer-only page — AD-012)
+
+  PRODUCTS:
+    Products has NO standalone page (AD-011).
+    Do NOT create /products or any fake product URLs.
+
+  NEWSLETTER:
+    The subscribe form is a placeholder. It must be wired to a real email
+    service (Mailchimp, ConvertKit, etc.) in Phase 21.
+    The form uses a standard HTML <form> — no onclick/JavaScript.
+
+  WHATSAPP:
+    The wa.me URL uses the placeholder 91XXXXXXXXXX.
+    Replace this with a verified number in Phase 21.
+    Do NOT invent a real phone number.
+
+  LEGAL LINKS:
+    /privacy-policy, /terms-of-service, /cookie-policy pages do NOT exist yet.
+    Legal links are rendered as non-clickable <span> elements with a
+    "coming soon" note rather than dead <a href> links.
+    These pages must be created and linked in Phase 21.
+    See docs/ARCHITECTURE-DECISIONS.md for the deferred decision (AD-026).
+
+  SOCIAL LINKS (verified from project source + legacy footer):
+    Instagram : https://instagram.com/kritexalabs
+    X/Twitter : https://x.com/kritexalabs
+    LinkedIn  : https://www.linkedin.com/company/kritexa-labs/
+    Facebook  : https://www.facebook.com/kritexalabs1
+    YouTube   : https://youtube.com/@kritexalabs
+    Threads   : https://threads.net/@kritexalabs
+    NOTE: These URLs were present in the legacy footer (index-original.html).
+    They are preserved as-is. Verify live destinations before Phase 21.
+
+  BUILD USAGE:
+    Composed into every page by scripts/build.js.
+    Do not edit output files directly — edit this component.
+
+  CSS:
+    Footer styles live in css/footer.css (Phase 5).
+    Load order: global.css → utilities.css → header.css → footer.css → components.css
+══════════════════════════════════════════════════════════════ -->
+
+<!-- ══════════ GLOBAL CTA SECTION ══════════ -->
+<section class="gcta" aria-label="Start your project">
+  <div class="container">
+    <div class="gcta-box rv">
+      <h2>Ready to Build Your<br><span class="grad-text">Digital Growth System?</span></h2>
+      <p>Join businesses already growing with Kritexa Labs — websites, AI, and automation that delivers real results.</p>
+      <div class="gcta-btns">
+        <a href="/contact" class="btn-p">🚀 Start Your Project</a>
+        <!--
+          WhatsApp CTA — placeholder number. Replace 91XXXXXXXXXX with real
+          verified number in Phase 21. Do NOT invent a number.
+        -->
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-wa">💬 WhatsApp Us</a>
+        <a href="mailto:hr@kritexalabs.com" class="btn-email">📧 Send Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GLOBAL FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+
+    <!-- ── NEWSLETTER CARD ── -->
+    <!--
+      Newsletter form placeholder — wire to real email service in Phase 21.
+      Using a <form> element (no onclick/JavaScript required).
+      action="#" prevents page reload; real endpoint replaces it in Phase 21.
+    -->
+    <div class="f-nl-block">
+      <!-- Left: icon + heading + description -->
+      <div class="f-nl-identity">
+        <div class="f-nl-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="f-nl-text">
+          <div class="f-nl-title">Stay updated with us</div>
+          <div class="f-nl-desc">Get the latest insights on AI, digital growth, and product launches — delivered to your inbox.</div>
+        </div>
+      </div>
+      <!-- Right: email form -->
+      <form class="f-nl-form" action="#" method="post" aria-label="Newsletter subscription">
+        <label for="footer-email" class="sr-only">Your email address</label>
+        <input
+          type="email"
+          id="footer-email"
+          name="email"
+          class="f-nl-input"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required>
+        <button type="submit" class="f-nl-btn">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         MAIN FOOTER CARD — ONE SINGLE OUTER CARD
+         Contains: navigation panel + company panel + bottom bar
+         DO NOT split into separate cards.
+    ══════════════════════════════════════════════════════════ -->
+    <div class="f-main-card">
+
+      <!-- ── MAIN CONTENT GRID: Navigation (left) + Company (right) ── -->
+      <div class="f-main-grid">
+
+        <!-- LEFT: Navigation columns -->
+        <nav class="f-nav-area" aria-label="Footer navigation">
+
+          <!-- Column: Main Pages -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-main">Main Pages</div>
+            <ul class="f-col-links" aria-labelledby="fcol-main">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/live-projects">Live Projects</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Solutions — Phase 22: Solutions IA group -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-solutions">Solutions</div>
+            <ul class="f-col-links" aria-labelledby="fcol-solutions">
+              <li><a href="/capabilities">Capabilities</a></li>
+              <li><a href="/industry-solutions">Industry Solutions</a></li>
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Our Work & Platform -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-work">Our Work</div>
+            <ul class="f-col-links" aria-labelledby="fcol-work">
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/live-projects">Live Projects</a></li>
+              <li><a href="/kritexa-ai" class="f-link-kai">Kritexa.AI ✦</a></li>
+              <li><a href="/labs" class="f-link-labs">LABS ✦</a></li>
+            </ul>
+          </div>
+
+          <!-- Column: Legal -->
+          <!--
+            LEGAL PAGES DO NOT EXIST YET.
+            /privacy-policy, /terms-of-service, /cookie-policy are NOT created.
+            These are rendered as non-clickable placeholders until Phase 21.
+            See AD-026 in docs/ARCHITECTURE-DECISIONS.md.
+            Do NOT create dead <a href> links to nonexistent pages.
+          -->
+          <div class="f-col">
+            <div class="f-col-label" id="fcol-legal">Legal</div>
+            <ul class="f-col-links" aria-labelledby="fcol-legal">
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Privacy Policy</span>
+              </li>
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Terms of Service</span>
+              </li>
+              <li>
+                <span class="f-link-pending" title="Coming in a future release">Cookie Policy</span>
+              </li>
+              <li><a href="/career">Career</a></li>
+            </ul>
+          </div>
+
+        </nav><!-- /f-nav-area -->
+
+        <!-- RIGHT: Company panel — NOT a separate card, lives inside f-main-card -->
+        <div class="f-company-area">
+          <a class="f-brand-logo" href="/" aria-label="Kritexa Labs — home">
+            <div class="f-brand-logo-mark" aria-hidden="true">
+              <img src="/assets/logos/logo.png" alt="" width="38" height="38" loading="lazy">
+            </div>
+            <span>KRITEXA <span class="f-brand-dim">LABS</span></span>
+          </a>
+          <p class="f-brand-desc">Engineering Digital Growth. AI-powered websites, automation &amp; SEO for businesses that want to scale faster and smarter.</p>
+
+          <!-- Social icons — verified from legacy footer source -->
+          <div class="f-socials" role="list" aria-label="Kritexa Labs on social media">
+            <a href="https://instagram.com/kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-ig"
+               aria-label="Kritexa Labs on Instagram"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-x"
+               aria-label="Kritexa Labs on X (Twitter)"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/kritexa-labs/"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-li"
+               aria-label="Kritexa Labs on LinkedIn"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/kritexalabs1"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-fb"
+               aria-label="Kritexa Labs on Facebook"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-yt"
+               aria-label="Kritexa Labs on YouTube"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+              </svg>
+            </a>
+            <a href="https://threads.net/@kritexalabs"
+               target="_blank" rel="noopener noreferrer"
+               class="f-soc s-th"
+               aria-label="Kritexa Labs on Threads"
+               role="listitem">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.868 1.205 8.62.024 12.203 0h.014c2.814.024 5.128.818 6.874 2.366 1.652 1.472 2.6 3.558 2.819 6.302l.019.24h-3.084l-.02-.207c-.199-2.168-.94-3.816-2.207-4.897-1.242-1.061-2.926-1.6-5.007-1.604-2.462.028-4.445.878-5.893 2.526-1.418 1.615-2.166 4.048-2.193 7.234.027 3.188.775 5.62 2.193 7.234 1.448 1.648 3.43 2.498 5.893 2.526 1.971-.014 3.586-.418 4.803-1.201.948-.614 1.715-1.561 2.28-2.816H12.6v-2.88h7.14l-.018.228c-.244 3.11-1.349 5.531-3.283 7.196C14.676 23.35 13.36 24 12.186 24z"/>
+              </svg>
+            </a>
+          </div>
+        </div><!-- /f-company-area -->
+
+      </div><!-- /f-main-grid -->
+
+      <!-- ── FOOTER BOTTOM BAR — INSIDE the main card ── -->
+      <div class="f-bottom-bar" role="contentinfo">
+        <span class="f-bottom-copy">© 2025 Kritexa Labs. All rights reserved.</span>
+        <span class="f-bottom-made">Made with ❤️ in Pune, India</span>
+        <span class="f-bottom-powered">
+          Powered by <a href="https://kritexalabs.com" target="_blank" rel="noopener noreferrer" class="f-bottom-link">Kritexa Labs</a>
+        </span>
+      </div>
+
+    </div><!-- /f-main-card -->
+
+  </div><!-- /container -->
+</footer>

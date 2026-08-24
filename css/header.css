@@ -1,0 +1,1240 @@
+/* ═══════════════════════════════════════════════════════════════
+   KRITEXA LABS — HEADER & NAVIGATION CSS
+   css/header.css
+   Phase 3 — Header & Navigation Rebuild
+
+   Contains ALL styles for:
+     - Global navbar (desktop)
+     - Center pill navigation
+     - Products trigger
+     - Kritexa.AI pill
+     - Start Project CTA
+     - Hamburger button
+     - Mobile navigation drawer
+     - Skip navigation
+     - Scroll state (frosted glass)
+     - Active/aria-current state
+     - Focus states
+     - Responsive breakpoints
+     - Dynamic collapse (nav-collapsed)
+
+   Tokens: all values reference css/tokens.css custom properties.
+   No arbitrary hard-coded color/spacing values — use tokens.
+═══════════════════════════════════════════════════════════════ */
+
+/* ═══ SKIP NAVIGATION ═══ */
+/* Visually hidden until focused — keyboard accessibility */
+.skip-nav {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: var(--z-cursor);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-sm);
+  background: var(--color-purple);
+  color: var(--color-white);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-nav);
+  text-decoration: none;
+  /* Offscreen by default */
+  transform: translateY(-120%);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.skip-nav:focus {
+  transform: translateY(0);
+}
+
+
+/* ═══ NAVBAR ═══ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  padding: 0 var(--space-8);
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition:
+    background var(--duration-slow) var(--ease-standard),
+    backdrop-filter var(--duration-slow) var(--ease-standard),
+    border-color var(--duration-slow) var(--ease-standard);
+}
+
+/* Scrolled / frosted glass state */
+.navbar.scrolled {
+  background: rgba(10, 9, 16, 0.92);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* ═══ LOGO ═══ */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  font-size: 16.5px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+  text-decoration: none;
+}
+.nav-logo:hover {
+  opacity: 0.88;
+}
+.nav-logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.nav-logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.nav-logo-dim {
+  color: var(--color-gray2);
+  font-weight: var(--font-weight-normal);
+}
+
+
+/* ═══ CENTER PILL NAV ═══ */
+/* The distinctive pill-shaped center navigation container */
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* C0demine pill treatment */
+  background: rgba(18, 17, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-pill);
+  padding: 5px var(--space-2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: visible;
+  /* Prevent overlap with logo/CTA at medium widths */
+  white-space: nowrap;
+}
+
+
+/* ═══ NAV LINKS ═══ */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) 18px;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgba(180, 178, 196, 0.9);
+  border-radius: var(--radius-pill);
+  letter-spacing: var(--letter-spacing-nav);
+  white-space: nowrap;
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.06);
+}
+/* Active + aria-current — both approaches for belt-and-suspenders */
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: var(--color-white);
+}
+.nav-link.active .nav-glow,
+.nav-link[aria-current="page"] .nav-glow {
+  opacity: 1;
+}
+/* Hover glow */
+.nav-link:hover .nav-glow {
+  opacity: 1;
+}
+
+/* ── Radial glow underneath active/hovered link ── */
+.nav-glow {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 22px;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(139, 92, 246, 0.85) 0%,
+    rgba(124, 58, 237, 0.4) 40%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+
+/* ═══ VERTICAL SEPARATOR ═══
+   Clearly visible divider between primary nav links and the product controls group.
+   Uses a solid center section with feathered ends for a premium look.
+*/
+.nav-sep-v {
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(160, 100, 255, 0.65) 20%,
+    rgba(160, 100, 255, 0.65) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.45), 0 0 3px rgba(139, 92, 246, 0.3);
+  margin: 0 14px;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+
+/* ═══ SPECIAL GROUP (Products + Kritexa.AI) ═══ */
+.nav-special-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 2px;
+}
+
+
+/* ═══ PRODUCTS TRIGGER ═══
+   A deliberate product-control pill — clearly highlighted as a UI component.
+   Uses purple/magenta capsule treatment to visually pair with the Kritexa.AI pill.
+   Stronger border, visible background, outer glow, and distinct hover/active/focus states.
+   NOT as bright as "Start Project" CTA.
+*/
+.nav-products-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px 7px 13px;
+  border-radius: var(--radius-pill);
+  background: rgba(124, 58, 237, 0.18);
+  border: 1.5px solid rgba(139, 92, 246, 0.55);
+  color: #c4a7ff;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-nav);
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.12),
+    0 0 18px rgba(124, 58, 237, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+.nav-products-trigger:hover {
+  color: #e2d0ff;
+  background: rgba(124, 58, 237, 0.30);
+  border-color: rgba(167, 139, 250, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.20),
+    0 0 26px rgba(124, 58, 237, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+/* Open / active state */
+.nav-products-trigger[aria-expanded="true"] {
+  color: #ede0ff;
+  background: rgba(124, 58, 237, 0.34);
+  border-color: rgba(167, 139, 250, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.25),
+    0 0 32px rgba(124, 58, 237, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.nav-products-trigger:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.8);
+  outline-offset: 2px;
+}
+.nav-products-arrow {
+  font-size: 10px;
+  line-height: 1;
+  display: inline-block;
+  opacity: 0.85;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.nav-products-trigger[aria-expanded="true"] .nav-products-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PRODUCTS MEGA MENU — DESKTOP
+   Phase 4 — Full implementation
+   All classes prefixed with pmm- (products-mega-menu).
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Container ── */
+/* Hidden by default; .open class is toggled by js/navigation.js */
+.products-mega-menu {
+  /* Use opacity+transform animation — NOT display:none toggling */
+  /* Visibility: hidden keeps it out of the tab order when closed  */
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  z-index: var(--z-dropdown);
+  background: rgba(10, 9, 16, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  /* Closed state */
+  opacity: 0;
+  transform: translateY(-6px);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.22s var(--ease-standard),
+    transform 0.22s var(--ease-standard),
+    visibility 0s linear 0.22s;
+}
+/* Open state */
+.products-mega-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.22s var(--ease-standard),
+    transform 0.22s var(--ease-standard),
+    visibility 0s linear 0s;
+}
+
+/* ── Inner layout — 4-column grid ── */
+.pmm-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-7);
+}
+
+/* ── Column ── */
+.pmm-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition:
+    border-color 0.2s var(--ease-standard),
+    background 0.2s var(--ease-standard);
+}
+.pmm-col:hover {
+  border-color: rgba(124, 58, 237, 0.18);
+  background: rgba(124, 58, 237, 0.04);
+}
+
+/* ── Column header (icon + title) ── */
+.pmm-col-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ── Column icon ── */
+.pmm-col-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: rgba(124, 58, 237, 0.10);
+  border: 1px solid rgba(124, 58, 237, 0.20);
+  color: var(--color-purple2);
+  flex-shrink: 0;
+  transition: background 0.2s var(--ease-standard), border-color 0.2s var(--ease-standard);
+}
+.pmm-col:hover .pmm-col-icon {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: rgba(124, 58, 237, 0.35);
+}
+
+/* ── Column title ── */
+.pmm-col-title {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  letter-spacing: var(--letter-spacing-nav);
+}
+
+/* ── Column description ── */
+.pmm-col-desc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* ── Coming soon indicator ── */
+.pmm-coming {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+.pmm-coming-tag {
+  font-size: var(--font-size-caption);
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-warning);
+  background: rgba(255, 181, 71, 0.10);
+  border: 1px solid rgba(255, 181, 71, 0.22);
+  border-radius: var(--radius-pill);
+  padding: 2px 8px;
+  letter-spacing: var(--letter-spacing-mono);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pmm-coming-note {
+  font-size: var(--font-size-caption);
+  color: var(--color-gray2);
+}
+
+/* ── Footer strip ── */
+.pmm-footer-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-7);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.015);
+}
+.pmm-footer-note {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray2);
+}
+.pmm-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-cyan);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-nav);
+  transition: color 0.2s var(--ease-standard), gap 0.2s var(--ease-standard);
+}
+.pmm-footer-link:hover {
+  color: var(--color-white);
+  gap: var(--space-3);
+}
+.pmm-footer-link:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+.pmm-footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background: var(--color-cyan);
+  box-shadow: 0 0 6px var(--color-cyan);
+  animation: kai-blink 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PRODUCTS MOBILE PANEL (inside .nav-mob)
+   Phase 4 — Mobile accordion content
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Mobile Products panel ── */
+/* Overrides Phase 3 placeholder — now has actual content */
+.nav-mob-products-panel {
+  display: none;
+  padding: var(--space-2) var(--space-2) var(--space-3);
+}
+.nav-mob-products-panel.open {
+  display: block;
+}
+
+/* ── 2-column grid for mobile categories ── */
+.mob-pmm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+/* ── Category item ── */
+.mob-pmm-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  background: rgba(124, 58, 237, 0.04);
+}
+
+/* ── Category icon ── */
+.mob-pmm-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-purple2);
+  flex-shrink: 0;
+}
+
+/* ── Category label ── */
+.mob-pmm-label {
+  flex: 1;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(200, 198, 220, 0.9);
+}
+
+/* ── Soon badge ── */
+.mob-pmm-soon {
+  font-size: 9px;
+  font-family: var(--font-family-mono);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-warning);
+  background: rgba(255, 181, 71, 0.10);
+  border: 1px solid rgba(255, 181, 71, 0.18);
+  border-radius: var(--radius-pill);
+  padding: 1px 5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
+/* ═══ KRITEXA.AI PILL ═══ */
+.nav-kai-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px 15px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 182, 212, 0.10);
+  border: 1px solid rgba(6, 182, 212, 0.30);
+  font-size: 13px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-cyan);
+  letter-spacing: var(--letter-spacing-nav);
+  transition: all var(--duration-fast) var(--ease-standard);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-kai-pill:hover {
+  background: rgba(6, 182, 212, 0.20);
+  border-color: rgba(6, 182, 212, 0.55);
+  color: var(--color-cyan);
+}
+/* Active + aria-current */
+.nav-kai-pill.active,
+.nav-kai-pill[aria-current="page"] {
+  background: rgba(6, 182, 212, 0.22);
+  border-color: rgba(6, 182, 212, 0.60);
+  color: var(--color-cyan);
+}
+
+/* ── Animated cyan dot ── */
+.nav-kai-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-circle);
+  background: var(--color-cyan);
+  box-shadow: 0 0 6px var(--color-cyan);
+  animation: kai-blink 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes kai-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--color-cyan); }
+  50%       { opacity: 0.4; box-shadow: 0 0 2px var(--color-cyan); }
+}
+
+
+/* ═══ RIGHT SIDE ═══ */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+
+/* ═══ CTA BUTTONS ═══ */
+/* Ghost nav button — defined for future use */
+.btn-nav-ghost {
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(200, 198, 214, 0.9);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-nav);
+  background: rgba(255, 255, 255, 0.04);
+  transition: all var(--duration-fast) var(--ease-standard);
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-nav-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-white);
+}
+
+/* Start Project — solid purple CTA */
+.btn-nav-solid {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #5B21B6 0%, #4C1D95 100%);
+  color: var(--color-white);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-nav);
+  border: 1px solid rgba(139, 92, 246, 0.40);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.15),
+    0 4px 16px rgba(88, 28, 135, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  transition: all var(--duration-fast) var(--ease-standard);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-nav-solid:hover {
+  background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 100%);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.30),
+    0 6px 24px rgba(88, 28, 135, 0.60),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  color: var(--color-white);
+}
+
+
+/* ═══ HAMBURGER BUTTON ═══ */
+.nav-ham {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: var(--space-2);
+  /* Ensure 44×44 touch target minimum */
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  flex-shrink: 0;
+}
+.nav-ham span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--color-white);
+  border-radius: 1px;
+  transition: all 0.28s var(--ease-in-out);
+  /* Center the bars within the 44px tap target */
+  margin: 0 auto;
+}
+/* X state when open */
+.nav-ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+
+/* ═══ MOBILE NAVIGATION DRAWER ═══ */
+.nav-mob {
+  display: none;
+  position: fixed;
+  top: 74px;
+  left: 0;
+  right: 0;
+  /* Allow scrolling on very small viewports */
+  max-height: calc(100vh - 74px);
+  overflow-y: auto;
+  background: rgba(8, 8, 8, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: calc(var(--z-header) - 1);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-mob.open {
+  display: flex;
+}
+
+/* ── Mobile nav links ── */
+.nav-mob-link {
+  display: block;
+  padding: var(--space-3) 14px;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray);
+  border-radius: 9px;
+  transition: all 0.18s var(--ease-standard);
+  text-decoration: none;
+  /* Ensure 44px minimum touch target height */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.nav-mob-link:hover,
+.nav-mob-link.active,
+.nav-mob-link[aria-current="page"] {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Kritexa.AI mobile link ── */
+.nav-mob-kai {
+  color: var(--color-cyan);
+  font-weight: var(--font-weight-semibold);
+}
+.nav-mob-kai:hover,
+.nav-mob-kai.active,
+.nav-mob-kai[aria-current="page"] {
+  color: var(--color-cyan);
+  background: rgba(6, 182, 212, 0.08);
+}
+
+/* ── Footer-only links (dim treatment) ── */
+.nav-mob-dim {
+  color: var(--color-purple2);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-body-sm);
+}
+.nav-mob-dim:hover {
+  color: var(--color-purple2);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+/* ── Divider between primary and footer-only links ── */
+.nav-mob-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-3) 0;
+}
+
+/* ── Products trigger in mobile ── */
+.nav-mob-products {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 14px;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray);
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.18s var(--ease-standard);
+  width: 100%;
+  min-height: 44px;
+  text-align: left;
+}
+.nav-mob-products:hover,
+.nav-mob-products[aria-expanded="true"] {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+.nav-mob-products-arrow {
+  font-size: 16px;
+  font-weight: var(--font-weight-light);
+  transition: transform var(--duration-fast) var(--ease-standard);
+  flex-shrink: 0;
+}
+.nav-mob-products[aria-expanded="true"] .nav-mob-products-arrow {
+  transform: rotate(45deg);
+}
+
+/* ── Mobile Products panel (Phase 4 will populate) ── */
+.nav-mob-products-panel {
+  display: none;
+  padding: var(--space-3) 14px;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-gray2);
+}
+.nav-mob-products-panel.open {
+  display: block;
+}
+
+/* ── Mobile CTA button ── */
+.mob-cta {
+  display: block;
+  margin-top: var(--space-3);
+  padding: 13px;
+  text-align: center;
+  background: linear-gradient(135deg, #5B21B6, #4C1D95);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body);
+  color: var(--color-white);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow: 0 4px 16px rgba(88, 28, 135, 0.40);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-standard);
+  /* 44px minimum touch target */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mob-cta:hover {
+  background: linear-gradient(135deg, #6D28D9, #5B21B6);
+  box-shadow: 0 6px 24px rgba(88, 28, 135, 0.55);
+  color: var(--color-white);
+}
+
+
+/* ═══ BODY SCROLL LOCK (when mobile menu is open) ═══ */
+/* Applied via JS to document.body when mobile menu opens */
+body.nav-open {
+  overflow: hidden;
+}
+
+
+/* ═══ DYNAMIC COLLAPSE ═══ */
+/* JS adds .nav-collapsed to .navbar when center pill overlaps logo/CTA */
+/* This bridges the gap between 768px breakpoint and viewport-based collapse */
+.navbar.nav-collapsed .nav-center  { display: none; }
+.navbar.nav-collapsed .nav-right .btn-nav-solid { display: none; }
+.navbar.nav-collapsed .nav-ham     { display: flex; }
+
+
+/* ═══ RESPONSIVE — MOBILE ═══ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 var(--space-4);
+  }
+  .nav-center {
+    display: none;
+  }
+  .nav-right {
+    display: none;
+  }
+  .nav-ham {
+    display: flex;
+  }
+}
+
+/* ═══ RESPONSIVE — MEDIUM (tablet / narrow desktop) ═══ */
+/* At 1024px the center pill may get crowded — JS handles precise collapse */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar {
+    padding: 0 var(--space-6);
+  }
+}
+
+/* ── Mega menu responsive — narrow desktop/tablet (2-column) ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .pmm-inner {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--space-6) var(--space-6);
+    gap: var(--space-4);
+  }
+  .pmm-footer-strip {
+    padding: var(--space-4) var(--space-6);
+  }
+}
+
+/* ── Mega menu responsive — mobile (hide desktop menu entirely) ── */
+/* Mobile uses the accordion in .nav-mob-products-panel instead */
+@media (max-width: 768px) {
+  .products-mega-menu {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* ── Mobile categories — 1-column on very small screens ── */
+@media (max-width: 360px) {
+  .mob-pmm-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ═══ FOCUS STATES ═══ */
+/* Ensure all interactive nav elements have clear focus */
+.nav-logo:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+.nav-products-trigger:focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.9);
+  outline-offset: 3px;
+}
+.nav-kai-pill:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+.btn-nav-solid:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+.nav-ham:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+.nav-mob-link:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+.nav-mob-products:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+.mob-cta:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+.skip-nav:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SOLUTIONS DROPDOWN — DESKTOP
+   Phase 22 — Solutions / Live Projects IA Redesign
+
+   A compact dropdown panel that appears below the Solutions trigger button.
+   Distinct from the full-width Products mega menu — smaller, focused.
+   Opens on click; closes on outside-click or Escape.
+   Managed by js/navigation.js (solutionsBtn / solutionsMenu refs).
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Wrapper (positions dropdown relative to trigger) ── */
+.nav-dropdown-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Solutions trigger (extends .nav-link styles) ── */
+.nav-solutions-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.nav-solutions-trigger[aria-expanded="true"] {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-solutions-trigger[aria-expanded="true"] .nav-products-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown panel ── */
+.nav-solutions-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  width: 300px;
+  z-index: var(--z-dropdown);
+  background: rgba(10, 9, 16, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 4px 32px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(124, 58, 237, 0.06);
+  padding: var(--space-2) var(--space-2);
+  /* Closed state */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.20s var(--ease-standard),
+    transform 0.20s var(--ease-standard),
+    visibility 0s linear 0.20s;
+}
+/* Arrow pointer */
+.nav-solutions-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 6px;
+  background: rgba(10, 9, 16, 0.97);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+}
+/* Open state */
+.nav-solutions-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition:
+    opacity 0.20s var(--ease-standard),
+    transform 0.20s var(--ease-standard),
+    visibility 0s linear 0s;
+}
+
+/* ── Dropdown items ── */
+.nsd-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-gray);
+  border: 1px solid transparent;
+  transition:
+    color 0.18s var(--ease-standard),
+    background 0.18s var(--ease-standard),
+    border-color 0.18s var(--ease-standard);
+}
+.nsd-item:hover {
+  color: var(--color-white);
+  background: rgba(124, 58, 237, 0.07);
+  border-color: rgba(124, 58, 237, 0.16);
+}
+.nsd-item.active,
+.nsd-item[aria-current="page"] {
+  color: var(--color-white);
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.18);
+}
+.nsd-item:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+
+/* ── Item icon box ── */
+.nsd-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: rgba(124, 58, 237, 0.10);
+  border: 1px solid rgba(124, 58, 237, 0.20);
+  color: var(--color-purple2);
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: background 0.18s var(--ease-standard), border-color 0.18s var(--ease-standard);
+}
+.nsd-item:hover .nsd-item-icon {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: rgba(124, 58, 237, 0.35);
+}
+
+/* ── Item text block ── */
+.nsd-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.nsd-item-title {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+  letter-spacing: var(--letter-spacing-nav);
+  line-height: 1.2;
+}
+.nsd-item-desc {
+  font-size: var(--font-size-caption);
+  color: var(--color-gray2);
+  line-height: 1.4;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.nsd-item:hover .nsd-item-desc {
+  color: var(--color-gray);
+}
+
+/* ── Mobile Solutions list (inside mob-solutions-panel) ── */
+.mob-solutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-1) 0;
+}
+.mob-solutions-link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 14px;
+  border-radius: 9px;
+  text-decoration: none;
+  color: var(--color-gray);
+  min-height: 44px;
+  transition: all 0.18s var(--ease-standard);
+}
+.mob-solutions-link:hover,
+.mob-solutions-link.active,
+.mob-solutions-link[aria-current="page"] {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+.mob-solutions-link:focus-visible {
+  outline: 2px solid var(--color-purple2);
+  outline-offset: 2px;
+}
+.mob-sol-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-purple2);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.mob-sol-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.mob-sol-title {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+}
+.mob-sol-desc {
+  font-size: var(--font-size-caption);
+  color: var(--color-gray2);
+}
+
+/* ── Hide Solutions dropdown on mobile (uses mobile accordion instead) ── */
+@media (max-width: 768px) {
+  .nav-solutions-dropdown {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .nav-solutions-dropdown {
+    transition:
+      opacity 0.01ms linear,
+      visibility 0s linear 0.01ms;
+    transform: translateX(-50%) !important;
+  }
+  .nav-solutions-dropdown.open {
+    transition:
+      opacity 0.01ms linear,
+      visibility 0s linear 0s;
+  }
+  .nsd-item,
+  .nsd-item-icon {
+    transition: none;
+  }
+}
+
+
+/* ═══ REDUCED MOTION ═══ */
+/* Suppress animations but keep layout/functionality */
+@media (prefers-reduced-motion: reduce) {
+  .nav-mob {
+    transition: none;
+  }
+  .nav-link,
+  .nav-products-trigger,
+  .nav-kai-pill,
+  .btn-nav-solid,
+  .nav-ham span,
+  .nav-mob-link,
+  .nav-mob-products {
+    transition: none;
+  }
+  .nav-kai-dot {
+    animation: none;
+  }
+  .nav-glow {
+    transition: none;
+  }
+  /* Mega menu — remove enter/exit animation; visibility logic preserved */
+  .products-mega-menu {
+    transition:
+      opacity 0.01ms linear,
+      visibility 0s linear 0.01ms;
+    transform: none !important;
+  }
+  .products-mega-menu.open {
+    transition:
+      opacity 0.01ms linear,
+      visibility 0s linear 0s;
+    transform: none !important;
+  }
+  .pmm-footer-dot {
+    animation: none;
+  }
+  .pmm-col,
+  .pmm-col-icon,
+  .pmm-footer-link {
+    transition: none;
+  }
+}
+
+
+/* ═══ HOVER: NONE DEVICES ═══ */
+/* On touch devices, hide cursor but keep all nav functional */
+@media (hover: none) {
+  #cur, #cur-r {
+    display: none;
+  }
+}

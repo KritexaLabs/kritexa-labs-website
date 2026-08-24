@@ -1,0 +1,150 @@
+<!-- ══════════════════════════════════════════════════════
+  KRITEXA.AI SECTION: Three Pillars / Features
+  src/sections/kritexa-ai/features.html
+  Phase 12 — Kritexa.AI Page Rebuild
+
+  STRUCTURE:
+    - Section label: "What's Coming"
+    - H2: "Three Pillars of Kritexa.AI"
+    - 3-column grid of feature cards (.kai-feat)
+
+  CONTENT: Preserved verbatim from legacy/index-original.html and
+           src/pages/kritexa-ai.html (Phase 1 extract).
+
+  FEATURE CARDS (3 — from approved legacy source):
+    1. Autonomous AI Agents — 68% Complete · ETA Q3 2026
+       Tags: Multi-Agent Orchestration, Hinglish NLP, WhatsApp Native
+    2. Conversational Intelligence — 45% Complete · ETA Q4 2026
+       Tags: Fine-tuned LLM, Context Memory, 10+ Languages
+    3. Predictive Growth Engine — 15% Complete · ETA Q1 2027
+       Tags: Revenue Forecasting, Churn Prediction, Market Intelligence
+
+  SEMANTICS:
+    - Each .kai-feat is wrapped in <article> with aria-labelledby
+    - Progress bars: role="meter" with aria-valuenow, aria-valuemin, aria-valuemax
+    - Feature tags: <ul>/<li> with aria-label for the group
+    - Reduced-motion: .kai-feat-prog-bar animation disabled via kritexa-ai.css
+
+  CONTENT CLAIMS CLASSIFICATION:
+    - "Autonomous AI Agents" — Product capability claim (partially documented)
+    - "68% Complete" — Internal development status (marketing claim — source: legacy)
+    - "ETA Q3 2026" — Timeline estimate (aspirational, not contractual)
+    - "Multi-Agent Orchestration" — Technical capability claim (marketing term)
+    - "Hinglish NLP" — Product capability claim (marketing claim)
+    - "WhatsApp Native" — Integration claim (marketing claim)
+    - "Fine-tuned LLM" — Technology claim (marketing term, no model confirmed)
+    - "Context Memory" — Product feature claim (marketing claim)
+    - "10+ Languages" — Capability claim (aspirational — not independently verified)
+    - "Revenue Forecasting" — Planned capability (future, not verified)
+    - "Churn Prediction" — Planned capability (future, not verified)
+    - "Market Intelligence" — Planned capability (future, not verified)
+    - "10M+ real business interactions" — ⚠️ HIGH-RISK aspirational claim
+      (flagged in docs/CONTENT-MAP.md — preserved from legacy, NOT added by Phase 12)
+
+  NOTE ON PROGRESS BAR WIDTHS:
+    Inline style="width:XX%" is from the approved legacy source.
+    These represent stated development progress, not measured completion.
+
+  HEADING HIERARCHY (page-level):
+    H1 (hero.html) → H2 (this section) → H3 (individual feature titles)
+══════════════════════════════════════════════════════ -->
+
+<section class="kai-features-sec" aria-labelledby="kai-features-heading">
+  <div class="container">
+
+    <!-- Section eyebrow -->
+    <div class="kai-sec-label" aria-hidden="true">What's Coming</div>
+
+    <!-- H2 — one of multiple H2s on the page -->
+    <h2 id="kai-features-heading" class="kai-sec-h rv">
+      Three Pillars of <span class="grad-text">Kritexa.AI</span>
+    </h2>
+
+    <!-- Feature cards grid -->
+    <div class="kai-features" role="list" aria-label="Kritexa.AI feature pillars">
+
+      <!-- FEATURE 1: Autonomous AI Agents -->
+      <article class="kai-feat rv" aria-labelledby="kai-feat-h1" role="listitem">
+        <span class="kai-feat-icon" aria-hidden="true">🤖</span>
+        <div class="kai-feat-status">
+          <span class="kai-status-dot" aria-hidden="true"></span>
+          In Development
+        </div>
+        <h3 id="kai-feat-h1" class="kai-feat-h">Autonomous AI Agents</h3>
+        <p class="kai-feat-p">
+          Self-operating agents that handle your entire lead generation, qualification, follow-up, and booking — end-to-end, without human intervention. Built for Indian SMBs.
+        </p>
+        <ul class="kai-feat-tags" aria-label="Feature tags for Autonomous AI Agents">
+          <li class="kai-ftag">Multi-Agent Orchestration</li>
+          <li class="kai-ftag">Hinglish NLP</li>
+          <li class="kai-ftag">WhatsApp Native</li>
+        </ul>
+        <div class="kai-feat-prog"
+             role="meter"
+             aria-label="Development progress: 68%"
+             aria-valuenow="68"
+             aria-valuemin="0"
+             aria-valuemax="100">
+          <div class="kai-feat-prog-bar" style="width:68%" aria-hidden="true"></div>
+        </div>
+        <div class="kai-feat-prog-label">68% Complete · ETA Q3 2026</div>
+      </article>
+
+      <!-- FEATURE 2: Conversational Intelligence -->
+      <article class="kai-feat rv" aria-labelledby="kai-feat-h2" role="listitem">
+        <span class="kai-feat-icon" aria-hidden="true">🧠</span>
+        <div class="kai-feat-status">
+          <span class="kai-status-dot" aria-hidden="true"></span>
+          In Development
+        </div>
+        <h3 id="kai-feat-h2" class="kai-feat-h">Conversational Intelligence</h3>
+        <p class="kai-feat-p">
+          AI that truly understands Indian business conversations — Hinglish, regional context, local pricing norms, and cultural nuance. Fine-tuned on 10M+ real business interactions.
+        </p>
+        <ul class="kai-feat-tags" aria-label="Feature tags for Conversational Intelligence">
+          <li class="kai-ftag">Fine-tuned LLM</li>
+          <li class="kai-ftag">Context Memory</li>
+          <li class="kai-ftag">10+ Languages</li>
+        </ul>
+        <div class="kai-feat-prog"
+             role="meter"
+             aria-label="Development progress: 45%"
+             aria-valuenow="45"
+             aria-valuemin="0"
+             aria-valuemax="100">
+          <div class="kai-feat-prog-bar" style="width:45%" aria-hidden="true"></div>
+        </div>
+        <div class="kai-feat-prog-label">45% Complete · ETA Q4 2026</div>
+      </article>
+
+      <!-- FEATURE 3: Predictive Growth Engine -->
+      <article class="kai-feat rv" aria-labelledby="kai-feat-h3" role="listitem">
+        <span class="kai-feat-icon" aria-hidden="true">📊</span>
+        <div class="kai-feat-status kai-status-plan">
+          <span class="kai-status-dot kai-dot-plan" aria-hidden="true"></span>
+          Planned
+        </div>
+        <h3 id="kai-feat-h3" class="kai-feat-h">Predictive Growth Engine</h3>
+        <p class="kai-feat-p">
+          Revenue forecasting, churn prediction, and market opportunity detection — powered by AI trained on Indian market data. Know what's going to happen before it does.
+        </p>
+        <ul class="kai-feat-tags" aria-label="Feature tags for Predictive Growth Engine">
+          <li class="kai-ftag">Revenue Forecasting</li>
+          <li class="kai-ftag">Churn Prediction</li>
+          <li class="kai-ftag">Market Intelligence</li>
+        </ul>
+        <div class="kai-feat-prog"
+             role="meter"
+             aria-label="Development progress: 15%"
+             aria-valuenow="15"
+             aria-valuemin="0"
+             aria-valuemax="100">
+          <div class="kai-feat-prog-bar kai-prog-plan" style="width:15%" aria-hidden="true"></div>
+        </div>
+        <div class="kai-feat-prog-label">15% Complete · ETA Q1 2027</div>
+      </article>
+
+    </div><!-- /.kai-features -->
+
+  </div><!-- /.container -->
+</section>

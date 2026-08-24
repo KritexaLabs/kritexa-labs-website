@@ -1,0 +1,78 @@
+<!-- ══════════════════════════════════════════════════════
+  KRITEXA.AI SECTION: Bottom CTA
+  src/sections/kritexa-ai/cta.html
+  Phase 12 — Kritexa.AI Page Rebuild
+
+  STRUCTURE:
+    - Centered CTA section
+    - Eyebrow: "Don't miss the launch"
+    - H2: "Be First to Experience Kritexa.AI"
+    - Description from approved legacy source
+    - CTA 1: Talk to Our Team → /contact
+    - CTA 2: View LABS → /labs
+
+  CONTENT: Preserved verbatim from legacy/index-original.html
+    "Don't miss the launch"
+    "Be First to Experience Kritexa.AI"
+    "Early access members get lifetime discounts, priority onboarding,
+     and direct input into the product roadmap."
+
+  CTA DESTINATIONS:
+    "Talk to Our Team →" → /contact (approved existing page)
+    "View LABS ↗"        → /labs    (approved existing page)
+    Both are clean <a href> links — no onclick, no go()
+
+  CONTENT CLAIMS:
+    "lifetime discounts" — Marketing claim (pricing not confirmed)
+    "priority onboarding" — Marketing claim (not documented)
+    "direct input into the product roadmap" — Marketing claim
+    All preserved from approved legacy source. NOT added by Phase 12.
+
+  NOTE: The global footer CTA (.gcta) is separately injected by
+    components/footer.html. This page-level CTA is distinct from the
+    footer Global CTA and uses kai-cta-* scoped classes.
+══════════════════════════════════════════════════════ -->
+
+<section class="kai-cta-section section-sm" aria-labelledby="kai-cta-heading">
+  <div class="container">
+    <div class="kai-cta-inner rv">
+
+      <!-- Eyebrow label -->
+      <div class="sh-eyebrow" style="justify-content:center;">Don't miss the launch</div>
+
+      <!-- H2 -->
+      <h2 id="kai-cta-heading">
+        Be First to <span class="grad-text">Experience Kritexa.AI</span>
+      </h2>
+
+      <p>
+        Early access members get lifetime discounts, priority onboarding, and direct input into the product roadmap.
+      </p>
+
+      <div class="kai-cta-btns">
+
+        <!--
+          CTA 1: Talk to Our Team
+          Destination: /contact (approved internal page)
+        -->
+        <a class="btn-p"
+           href="/contact"
+           style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Talk to Our Team <span aria-hidden="true">→</span>
+        </a>
+
+        <!--
+          CTA 2: View LABS
+          Destination: /labs (approved internal page — footer-only nav)
+        -->
+        <a class="btn-g"
+           href="/labs"
+           style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          View LABS <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </div><!-- /.kai-cta-inner -->
+  </div><!-- /.container -->
+</section>

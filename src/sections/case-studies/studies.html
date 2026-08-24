@@ -1,0 +1,308 @@
+<!-- ══════════════════════════════════════════════════════
+  CASE STUDIES SECTION: Case Study Cards Grid
+  src/sections/case-studies/studies.html
+  Phase 10 — Case Studies Page Rebuild
+
+  STRUCTURE:
+    - H2 (sr-only) for section landmark
+    - Category navigation filters (non-functional visual — same as legacy)
+    - 6 case study article cards in a 3-col → 2-col → 1-col responsive grid
+    - Each card: <article> with category, services, title, description, metrics
+
+  SOURCE:
+    All 6 case studies preserved verbatim from legacy/index-original.html #page-blog
+    lines 5148–5154 and src/pages/case-studies.html (Phase 1 extract).
+
+  CASE STUDY INVENTORY:
+    01. E-Commerce — "₹0 to ₹2.5M in 8 Months"
+        Category: E-Commerce | Status: Partially documented
+        ⚠ "₹2.5M Revenue", "10× Revenue", "4.8% CVR" — marketing metrics from approved source
+        ⚠ Technologies (Next.js, Stripe, AI Upsells) — from approved source
+        ⚠ "₹0 to ₹2.5M in 8 Months" — marketing headline from approved source
+        Client: Not disclosed (anonymous)
+
+    02. WhatsApp AI — "WhatsApp AI System for Service Business"
+        Category: AI Automation | Status: Partially documented
+        ⚠ "80% leads auto-qualified", "5× faster response", "42% higher close rate" — marketing metrics
+        ⚠ Technologies (WhatsApp Bot, Lead AI, CRM) — from approved source
+        Client: Not disclosed (anonymous "service business")
+
+    03. Local SEO — "Restaurant: Page 4 to #1 on Maps"
+        Category: Local SEO | Status: Partially documented
+        ⚠ "#1 in 60 days", "2.4× foot traffic" — marketing metrics from approved source
+        ⚠ Technologies (Technical SEO, GBP, Reviews) — from approved source
+        Client: Not disclosed (anonymous restaurant)
+
+    04. Finance Consultant — "Finance Consultant Authority Site + AI Qualifier"
+        Category: Consultant | Status: Partially documented
+        ⚠ "3× booked calls", "90% lead quality improvement" — marketing metrics from approved source
+        ⚠ Technologies (Website, Booking AI, Email) — from approved source
+        Client: Not disclosed (anonymous finance consultant)
+
+    05. Education — "Coaching Institute Doubles Enrollments"
+        Category: Education | Status: Partially documented
+        ⚠ "2× Enroll", "85% Online", "4× Traffic" — marketing metrics from approved source
+        ⚠ Technologies (Website, Enrollment Bot, SEO) — from approved source
+        Client: Not disclosed (anonymous coaching institute)
+
+    06. Service Provider — "Interior Design Firm: Quote System + CRM"
+        Category: Service Provider | Status: Partially documented
+        ⚠ "5× more leads/month", "38% quote conversion" — marketing metrics from approved source
+        ⚠ Technologies (Lead Gen, Calculator, CRM) — from approved source
+        Client: Not disclosed (anonymous interior design firm)
+
+  NO EXTERNAL LINKS:
+    No valid individual case study URLs exist. Cards are non-linked previews.
+    The → arrow is decorative only (not an anchor tag) per Phase 10 instructions.
+    Phase 10 instruction: "Do not create fake /case-studies/project-name routes."
+
+  FILTERS:
+    The legacy source contains visual filter buttons (All/Website Dev/AI Automation/SEO/E-Commerce)
+    but NO filtering logic (no JS, no data attributes for filtering on the case-studies page).
+    These are preserved as visual navigation only. Filter buttons use aria-pressed
+    semantics. No actual filtering behavior is implemented in Phase 10.
+
+  IMAGES:
+    No dedicated case-study images exist in the legacy source (unlike the portfolio page).
+    The legacy cs-card used CSS gradient thumbnails (.cst-1, .cst-2, .cst-3) — no raster images.
+    This is preserved. No image extraction needed for this section.
+
+  HEADING HIERARCHY:
+    H2 (sr-only) → section landmark
+    H3 → individual case study titles (6 cards)
+══════════════════════════════════════════════════════ -->
+
+<section class="section cs-studies-section" aria-labelledby="cs-studies-heading">
+  <div class="container">
+
+    <h2 id="cs-studies-heading" class="sr-only">Case Studies</h2>
+
+    <!-- Category filter navigation (visual only — no JS filtering in Phase 10) -->
+    <nav class="cs-filters rv" aria-label="Filter case studies by type">
+      <span id="cs-filter-label" class="cs-filter-label sr-only">Filter by type:</span>
+      <div class="cs-filter-group" role="group" aria-labelledby="cs-filter-label">
+        <button class="cs-filter-btn cs-filter-active" type="button" aria-pressed="true">All Projects</button>
+        <button class="cs-filter-btn" type="button" aria-pressed="false">Website Dev</button>
+        <button class="cs-filter-btn" type="button" aria-pressed="false">AI Automation</button>
+        <button class="cs-filter-btn" type="button" aria-pressed="false">SEO</button>
+        <button class="cs-filter-btn" type="button" aria-pressed="false">E-Commerce</button>
+      </div>
+    </nav>
+
+    <!-- Case study cards grid -->
+    <div class="cs-grid" role="list" aria-label="Case studies">
+
+      <!-- Case Study 01: E-Commerce -->
+      <article class="cs-card rv" role="listitem" aria-labelledby="cs-title-01" data-category="E-Commerce">
+        <div class="cs-thumb cst-1" aria-hidden="true">
+          <span aria-hidden="true">🛍️</span>
+          <div class="cs-ind">E-Commerce</div>
+          <div class="cs-res">₹2.5M Revenue</div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-svc-row" aria-label="Technologies">
+            <span class="cs-svc">Next.js</span>
+            <span class="cs-svc">Stripe</span>
+            <span class="cs-svc">AI Upsells</span>
+          </div>
+          <h3 class="cs-title" id="cs-title-01">E-Commerce: ₹0 to ₹2.5M in 8 Months</h3>
+          <p>Replaced spreadsheets with full-stack store. 4.8% conversion, 10× revenue growth, 80% ops automated.</p>
+          <div class="cs-foot">
+            <div class="cs-mets" role="list" aria-label="Results">
+              <div role="listitem">
+                <div class="cs-met-v">10×</div>
+                <div class="cs-met-l">Revenue</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">4.8%</div>
+                <div class="cs-met-l">CVR</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">98</div>
+                <div class="cs-met-l">Score</div>
+              </div>
+            </div>
+            <!-- No link: no approved case study URL exists (Phase 10) -->
+            <div class="cs-arr" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case Study 02: WhatsApp AI -->
+      <article class="cs-card rv" role="listitem" aria-labelledby="cs-title-02" data-category="AI Automation">
+        <div class="cs-thumb cst-2" aria-hidden="true">
+          <span aria-hidden="true">🤖</span>
+          <div class="cs-ind">AI Automation</div>
+          <div class="cs-res">20hrs Saved</div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-svc-row" aria-label="Technologies">
+            <span class="cs-svc">WhatsApp Bot</span>
+            <span class="cs-svc">Lead AI</span>
+            <span class="cs-svc">CRM</span>
+          </div>
+          <h3 class="cs-title" id="cs-title-02">WhatsApp AI System for Service Business</h3>
+          <p>80% leads auto-qualified. 5× faster response. 42% higher close rate. Team freed for strategy.</p>
+          <div class="cs-foot">
+            <div class="cs-mets" role="list" aria-label="Results">
+              <div role="listitem">
+                <div class="cs-met-v">80%</div>
+                <div class="cs-met-l">Auto-Qual</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">5×</div>
+                <div class="cs-met-l">Speed</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">42%</div>
+                <div class="cs-met-l">Close↑</div>
+              </div>
+            </div>
+            <div class="cs-arr" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case Study 03: Local SEO Restaurant -->
+      <article class="cs-card rv" role="listitem" aria-labelledby="cs-title-03" data-category="SEO">
+        <div class="cs-thumb cst-3" aria-hidden="true">
+          <span aria-hidden="true">📈</span>
+          <div class="cs-ind">Local SEO</div>
+          <div class="cs-res">#1 Google Maps</div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-svc-row" aria-label="Technologies">
+            <span class="cs-svc">Technical SEO</span>
+            <span class="cs-svc">GBP</span>
+            <span class="cs-svc">Reviews</span>
+          </div>
+          <h3 class="cs-title" id="cs-title-03">Restaurant: Page 4 to #1 on Maps</h3>
+          <p>GBP optimization, review automation, hyperlocal keywords. #1 in 60 days, 2.4× foot traffic.</p>
+          <div class="cs-foot">
+            <div class="cs-mets" role="list" aria-label="Results">
+              <div role="listitem">
+                <div class="cs-met-v">#1</div>
+                <div class="cs-met-l">Maps</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">60d</div>
+                <div class="cs-met-l">To Rank</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">2.4×</div>
+                <div class="cs-met-l">Traffic</div>
+              </div>
+            </div>
+            <div class="cs-arr" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case Study 04: Finance Consultant -->
+      <article class="cs-card rv" role="listitem" aria-labelledby="cs-title-04" data-category="Website Dev">
+        <div class="cs-thumb cst-1" aria-hidden="true">
+          <span aria-hidden="true">💼</span>
+          <div class="cs-ind">Consultant</div>
+          <div class="cs-res">3× Booked Calls</div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-svc-row" aria-label="Technologies">
+            <span class="cs-svc">Website</span>
+            <span class="cs-svc">Booking AI</span>
+            <span class="cs-svc">Email</span>
+          </div>
+          <h3 class="cs-title" id="cs-title-04">Finance Consultant Authority Site + AI Qualifier</h3>
+          <p>Premium authority website + AI pre-qualifier. 3× booked calls, 90% lead quality improvement.</p>
+          <div class="cs-foot">
+            <div class="cs-mets" role="list" aria-label="Results">
+              <div role="listitem">
+                <div class="cs-met-v">3×</div>
+                <div class="cs-met-l">Calls</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">90%</div>
+                <div class="cs-met-l">Quality</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">97</div>
+                <div class="cs-met-l">Score</div>
+              </div>
+            </div>
+            <div class="cs-arr" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case Study 05: Education -->
+      <article class="cs-card rv" role="listitem" aria-labelledby="cs-title-05" data-category="Website Dev">
+        <div class="cs-thumb cst-2" aria-hidden="true">
+          <span aria-hidden="true">🎓</span>
+          <div class="cs-ind">Education</div>
+          <div class="cs-res">2× Enrollments</div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-svc-row" aria-label="Technologies">
+            <span class="cs-svc">Website</span>
+            <span class="cs-svc">Enrollment Bot</span>
+            <span class="cs-svc">SEO</span>
+          </div>
+          <h3 class="cs-title" id="cs-title-05">Coaching Institute Doubles Enrollments</h3>
+          <p>Enrollment portal + WhatsApp admissions bot + local SEO. Doubled student admissions in one quarter.</p>
+          <div class="cs-foot">
+            <div class="cs-mets" role="list" aria-label="Results">
+              <div role="listitem">
+                <div class="cs-met-v">2×</div>
+                <div class="cs-met-l">Enroll</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">85%</div>
+                <div class="cs-met-l">Online</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">4×</div>
+                <div class="cs-met-l">Traffic</div>
+              </div>
+            </div>
+            <div class="cs-arr" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case Study 06: Interior Design / Service Provider -->
+      <article class="cs-card rv" role="listitem" aria-labelledby="cs-title-06" data-category="Website Dev">
+        <div class="cs-thumb cst-3" aria-hidden="true">
+          <span aria-hidden="true">🏗️</span>
+          <div class="cs-ind">Service Provider</div>
+          <div class="cs-res">5× Leads</div>
+        </div>
+        <div class="cs-body">
+          <div class="cs-svc-row" aria-label="Technologies">
+            <span class="cs-svc">Lead Gen</span>
+            <span class="cs-svc">Calculator</span>
+            <span class="cs-svc">CRM</span>
+          </div>
+          <h3 class="cs-title" id="cs-title-06">Interior Design Firm: Quote System + CRM</h3>
+          <p>Conversion-optimized site with instant quote calculator. 5× more leads/month, 38% quote conversion.</p>
+          <div class="cs-foot">
+            <div class="cs-mets" role="list" aria-label="Results">
+              <div role="listitem">
+                <div class="cs-met-v">5×</div>
+                <div class="cs-met-l">Leads</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">38%</div>
+                <div class="cs-met-l">CVR</div>
+              </div>
+              <div role="listitem">
+                <div class="cs-met-v">96</div>
+                <div class="cs-met-l">Score</div>
+              </div>
+            </div>
+            <div class="cs-arr" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /cs-grid -->
+  </div>
+</section>

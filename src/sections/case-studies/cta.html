@@ -1,0 +1,37 @@
+<!-- ══════════════════════════════════════════════════════
+  CASE STUDIES SECTION: Bottom CTA
+  src/sections/case-studies/cta.html
+  Phase 10 — Case Studies Page Rebuild
+
+  STRUCTURE:
+    - Simple centered CTA section encouraging project enquiries
+    - Two CTAs: Start Your Project (/contact) and View Our Work (/portfolio)
+    - Content based on approved pattern from other pages
+
+  NOTE:
+    CTA destination: /contact (approved, see AD-019)
+    Portfolio cross-link: /portfolio
+    Global CTA (.gcta) is injected by the shared footer component.
+    This is a page-level CTA distinct from the global CTA in the footer.
+══════════════════════════════════════════════════════ -->
+
+<section class="cs-cta-section section-sm" aria-labelledby="cs-cta-heading">
+  <div class="container">
+    <div class="cs-cta-inner rv">
+      <div class="sh-eyebrow" style="justify-content:center;">Start Your Story</div>
+      <h2 id="cs-cta-heading">Ready to Be Our Next <span class="grad-text">Case Study?</span></h2>
+      <p>Tell us about your business challenge — we'll engineer a measurable growth system around your goals.</p>
+      <div class="cs-cta-btns">
+        <a class="btn-p" href="/contact" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Start Your Project <span aria-hidden="true">→</span>
+        </a>
+        <a class="btn-g" href="/portfolio" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          View Portfolio <span aria-hidden="true">↗</span>
+        </a>
+        <a class="btn-g" href="/industry-solutions" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">
+          Industry Solutions <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/labs.html
+  Phase 24 — Labs Page Redesign
+
+  ARCHITECTURE:
+    - Section partial composition via {{SECTION:labs/*}}
+    - Shared header/footer via components
+    - Page-specific CSS: /css/pages/labs.css
+    - Page-specific JS: /js/pages/labs.js (filter logic)
+
+  SECTION ORDER:
+    1. hero         — labs-specific hero with H1
+    2. experiments  — active experiments + concepts
+    3. built-tested — main showcase with filters + build cards
+    4. products     — released products (honest empty state)
+    5. cta          — "Have an idea? Let's build it."
+
+  URL: /labs
+  GENERATED OUTPUT: labs/index.html
+
+  NAVIGATION STATUS:
+    Labs is FOOTER-ONLY — per Architecture Decision AD-012.
+    Not in primary desktop header navigation.
+    Accessible from: Footer "Our Work" column / mobile drawer.
+    activeNav is empty string — no header nav link to activate.
+
+  SEO:
+    Title: "Kritexa LABS — Experiments, Builds & Technology"
+    Description updated to reflect new positioning.
+    Canonical: https://www.kritexalabs.com/labs
+
+  HEADING HIERARCHY:
+    H1  — "KRITEXA LABS"                          (hero)
+    H2  — "EXPERIMENTS"                            (experiments)
+    H3  — "Concepts & Planned Builds"              (experiments)
+    H2  — "BUILT & TESTED"                         (built-tested)
+    H2  — "PRODUCTS"                               (products)
+    H2  — "Have an idea? Let's build it."          (cta)
+    H2  — "Ready to Build Your Digital Growth System?" (footer .gcta)
+
+  CONTENT INTEGRITY:
+    No builds, products, or technologies fabricated.
+    All experiment content preserved from legacy source.
+    Build & Products sections show honest empty/coming-soon states.
+
+  JS:
+    js/pages/labs.js — filter functionality for build grid.
+    No other page-specific JS required.
+══════════════════════════════════════════════════════ -->
+
+<main>
+
+  {{SECTION:labs/hero}}
+
+  {{SECTION:labs/experiments}}
+
+  {{SECTION:labs/built-tested}}
+
+  {{SECTION:labs/products}}
+
+  {{SECTION:labs/cta}}
+
+</main>

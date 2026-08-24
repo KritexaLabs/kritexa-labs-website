@@ -1,0 +1,59 @@
+<!-- ══════════════════════════════════════════════════════
+  SOURCE TEMPLATE: src/pages/capabilities.html
+  Phase 8 — Capabilities Page Rebuild
+  Phase 22 — Redesigned: technology & engineering focus
+             Industry-related content MOVED to /industry-solutions
+
+  PURPOSE (Phase 22):
+    "What can Kritexa Labs build?"
+    Technology, engineering & what we can build.
+    This page answers the engineering/technical capability question.
+    It does NOT duplicate Industry Solutions.
+
+  Composition model: {{SECTION:capabilities/*}} partials
+
+  SECTION ORDER (Phase 22 redesign):
+    1. hero              — H1, description, dual CTA (project + industry solutions)
+    2. engineering-domains — 6 engineering domain cards (restructured from Phase 8 services)
+    3. proof-cta         — Cross-links to Industry Solutions, Portfolio, Case Studies, Contact
+
+  SECTIONS REMOVED IN PHASE 22 (moved to /industry-solutions):
+    - who-we-serve       → now in src/sections/industry-solutions/who-we-serve.html
+    - industry-solutions → now in src/sections/industry-solutions/solutions-rows.html
+
+  HEADING HIERARCHY:
+    H1: "Our Engineering Capabilities" (hero section)
+    H2: "Engineering Domains" [sr-only] (domains section)
+    H2: "See Our Capabilities in Action" (proof-cta section)
+    H3 (×6): Individual capability domain titles
+    H3: "Complete Digital Growth Systems" (hero card)
+
+  NAVIGATION:
+    - All CTAs use real <a href> anchors — no onclick
+    - /contact — project enquiry CTAs
+    - /industry-solutions — cross-link to industry page
+    - /portfolio — cross-link to portfolio
+    - /case-studies — cross-link to case studies
+    - /live-projects — cross-link to live projects
+
+  JS: ZERO page-specific JavaScript required.
+      Global scripts (global.js, navigation.js, active-nav.js)
+      handle: scroll-reveal (.rv), navbar, active state.
+
+  SEO:
+    - title and description injected by build.js
+    - canonical: https://www.kritexalabs.com/capabilities
+    - og: tags injected by build.js
+
+  ACTIVE NAV: nl-capabilities (set by build.js injectActiveNav)
+══════════════════════════════════════════════════════ -->
+
+<main id="main-content">
+
+  {{SECTION:capabilities/hero}}
+
+  {{SECTION:capabilities/engineering-domains}}
+
+  {{SECTION:capabilities/proof-cta}}
+
+</main>

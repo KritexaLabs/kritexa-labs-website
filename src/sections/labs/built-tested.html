@@ -1,0 +1,265 @@
+<!-- ══════════════════════════════════════════════════════
+  LABS SECTION: Built & Tested (main showcase)
+  src/sections/labs/built-tested.html
+  Phase 25 — Labs Premium Visual Refinement
+
+  STRUCTURE:
+    - Section heading: "BUILT & TESTED"
+    - Supporting copy: "Real interfaces. Experimental builds."
+    - Category filters: premium pill controls
+    - Featured build card — Elara Properties (LIVE, verified)
+    - Secondary build cards (coming soon placeholders)
+
+  CONTENT INTEGRITY:
+    Verified build: Elara Properties — Real Estate Website
+    Live URL: https://elara-properties-theta.vercel.app/
+    Build and featured card reflect the first verified live build.
+
+  FILTER SYSTEM:
+    Client-side JS in js/pages/labs.js handles filtering.
+    data-build-type on each card drives visibility.
+    aria-pressed managed by labs.js.
+
+  ACCESSIBILITY:
+    - Section aria-labelledby
+    - Filter buttons: aria-pressed, aria-controls
+    - Build cards: <article> with aria-labelledby
+    - .rv: scroll-reveal
+══════════════════════════════════════════════════════ -->
+
+<section class="section labs-builds-section" aria-labelledby="labs-builds-heading">
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="sh rv">
+      <div class="sh-eyebrow">Internal Builds</div>
+      <h2 id="labs-builds-heading">BUILT &amp; TESTED</h2>
+      <p>
+        Real interfaces. Experimental builds. Ideas turned into working products.
+      </p>
+    </div>
+
+    <!-- Category filter pills -->
+    <div
+      class="labs-filters rv"
+      role="group"
+      aria-label="Filter builds by category"
+      id="labs-build-filters">
+
+      <button
+        class="labs-filter active"
+        data-filter="all"
+        aria-pressed="true"
+        aria-controls="labs-build-grid">
+        ALL
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="websites"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        WEBSITES
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="apps"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        APPS
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="ai"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        AI
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="tools"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        TOOLS
+      </button>
+      <button
+        class="labs-filter"
+        data-filter="ui-systems"
+        aria-pressed="false"
+        aria-controls="labs-build-grid">
+        UI SYSTEMS
+      </button>
+
+    </div><!-- /.labs-filters -->
+
+    <!-- Featured build card — Elara Properties (first verified LABS build) -->
+    <div class="labs-featured-build rv">
+      <article
+        class="labs-featured-card"
+        aria-labelledby="labs-featured-heading">
+
+        <!-- Preview area — technical screen frame -->
+        <div class="labs-featured-preview" aria-hidden="true">
+          <!-- Technical grid overlay -->
+          <div class="labs-featured-preview-grid"></div>
+          <!-- Ambient glow -->
+          <div class="labs-featured-preview-glow"></div>
+          <!-- Centered content -->
+          <div class="labs-featured-preview-inner">
+            <!-- Screen frame -->
+            <div class="labs-featured-screen">
+              <!-- Scanline overlay -->
+              <div class="labs-featured-scanlines"></div>
+              <!-- Screen top bar -->
+              <div class="labs-featured-screen-bar">
+                <span class="labs-screen-dot"></span>
+                <span class="labs-screen-dot"></span>
+                <span class="labs-screen-dot"></span>
+              </div>
+              <!-- Screen content — project name representation -->
+              <div class="labs-featured-screen-body">
+                <div class="labs-screen-line labs-screen-line-lg"></div>
+                <div class="labs-screen-line labs-screen-line-md"></div>
+                <div class="labs-screen-line labs-screen-line-sm"></div>
+                <div class="labs-screen-grid-row">
+                  <div class="labs-screen-block"></div>
+                  <div class="labs-screen-block"></div>
+                  <div class="labs-screen-block"></div>
+                </div>
+              </div>
+            </div>
+            <p class="labs-featured-preview-label">FEATURED BUILD</p>
+          </div>
+        </div>
+
+        <!-- Build content panel -->
+        <div class="labs-featured-content">
+
+          <div class="labs-featured-label-row">
+            <span class="labs-featured-eyebrow">FEATURED BUILD</span>
+            <span class="labs-badge labs-badge-live" aria-label="Status: Live">
+              <span class="labs-badge-dot" aria-hidden="true"></span>LIVE
+            </span>
+          </div>
+
+          <h3 id="labs-featured-heading" class="labs-featured-title">
+            Elara Properties
+          </h3>
+          <p class="labs-featured-subtitle">Real Estate Website</p>
+
+          <p class="labs-featured-desc">
+            A premium real estate website — the first verified live build from Kritexa LABS.
+            Designed, built, and deployed for a real estate client.
+          </p>
+
+          <div class="labs-featured-tags" aria-label="Build categories">
+            <span class="labs-tag">Website</span>
+            <span class="labs-tag">Real Estate</span>
+          </div>
+
+          <!-- Live URL — verified build -->
+          <div class="labs-featured-actions">
+            <a
+              href="https://elara-properties-theta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="labs-explore-link"
+              aria-label="Explore Elara Properties — opens in new tab">
+              Explore Build ↗
+            </a>
+          </div>
+
+        </div>
+
+      </article>
+    </div><!-- /.labs-featured-build -->
+
+    <!-- Build card grid — filtered by category -->
+    <div
+      class="labs-build-grid"
+      id="labs-build-grid"
+      role="list"
+      aria-label="Build catalogue"
+      aria-live="polite">
+
+      <!--
+        ══════════════════════════════════════════════════
+        VERIFIED BUILD: Elara Properties
+        data-build-type="websites" — appears under ALL and WEBSITES filters.
+
+        Future cards follow this structure:
+          <article class="labs-build-card" data-build-type="[type]" role="listitem" aria-labelledby="[id]">
+            <div class="labs-build-preview"> ... </div>
+            <div class="labs-build-info">
+              <span class="labs-badge labs-badge-[status]"> ... </span>
+              <h3 id="[id]"> ... </h3>
+              <p class="labs-build-desc"> ... </p>
+              <div class="labs-build-tags"> ... </div>
+              <a href="[verified-url]" class="labs-explore-link"> Explore Build ↗ </a>
+            </div>
+          </article>
+        ══════════════════════════════════════════════════
+      -->
+
+      <!-- Elara Properties — verified live build -->
+      <article
+        class="labs-build-card"
+        data-build-type="websites"
+        role="listitem"
+        aria-labelledby="labs-build-elara">
+        <div class="labs-build-preview" aria-hidden="true">
+          <div class="labs-build-preview-grid"></div>
+          <span class="labs-build-preview-label">ELARA PROPERTIES</span>
+        </div>
+        <div class="labs-build-info">
+          <span class="labs-badge labs-badge-live" aria-label="Status: Live">
+            <span class="labs-badge-dot" aria-hidden="true"></span>LIVE
+          </span>
+          <h3 id="labs-build-elara">Elara Properties</h3>
+          <p class="labs-build-desc">Premium Real Estate Website</p>
+          <div class="labs-build-tags" aria-label="Build categories">
+            <span class="labs-tag">Website</span>
+            <span class="labs-tag">Real Estate</span>
+          </div>
+          <a
+            href="https://elara-properties-theta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="labs-explore-link"
+            aria-label="Explore Elara Properties — opens in new tab">
+            Explore Build ↗
+          </a>
+        </div>
+      </article>
+
+      <div class="labs-build-card labs-build-card-placeholder" role="listitem" aria-label="Build coming soon">
+        <div class="labs-build-preview labs-build-preview-placeholder" aria-hidden="true">
+          <div class="labs-build-preview-grid"></div>
+          <span class="labs-build-preview-label">COMING SOON</span>
+        </div>
+        <div class="labs-build-info">
+          <span class="labs-badge labs-badge-concept">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+          <h3>Build Coming Soon</h3>
+          <p class="labs-build-desc">A verified LABS build will occupy this slot.</p>
+        </div>
+      </div>
+
+      <div class="labs-build-card labs-build-card-placeholder" role="listitem" aria-label="Build coming soon">
+        <div class="labs-build-preview labs-build-preview-placeholder" aria-hidden="true">
+          <div class="labs-build-preview-grid"></div>
+          <span class="labs-build-preview-label">COMING SOON</span>
+        </div>
+        <div class="labs-build-info">
+          <span class="labs-badge labs-badge-concept">
+            <span class="labs-badge-dot" aria-hidden="true"></span>PLANNED
+          </span>
+          <h3>Build Coming Soon</h3>
+          <p class="labs-build-desc">A verified LABS build will occupy this slot.</p>
+        </div>
+      </div>
+
+    </div><!-- /.labs-build-grid -->
+
+  </div><!-- /.container -->
+</section>

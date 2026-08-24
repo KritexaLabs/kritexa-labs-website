@@ -1,0 +1,52 @@
+<!-- ══════════════════════════════════════════════════════
+  ABOUT SECTION: Mission & Vision
+  src/sections/about/mission-vision.html
+  Phase 7 — About Page Rebuild
+
+  STRUCTURE:
+    Two side-by-side .b-card elements in a grid:
+      - Mission card (🎯)
+      - Vision card (🔭)
+
+  CONTENT SOURCE: docs/CONTENT-MAP.md — About Page section.
+  Content is preserved verbatim from the approved legacy source.
+
+  HEADING HIERARCHY:
+    - This section uses <h2> for the section label
+    - Mission/Vision headings use <h3>
+    - Hierarchy: H1 (hero) → H2 (implied by section label) → H3
+
+  NOTE: No CTA in this section. Cards are informational only.
+  The grid collapses to single column at ≤ 768px.
+
+  ANIMATION:
+    - .rv scroll-reveal on each card (stagger via JS global.js)
+    - All disabled under prefers-reduced-motion (global.css)
+══════════════════════════════════════════════════════ -->
+
+<section class="section about-mv-section" aria-labelledby="about-mv-heading">
+  <div class="container">
+
+    <!-- Visually hidden section heading for landmark / screen reader context -->
+    <h2 id="about-mv-heading" class="sr-only">Mission and Vision</h2>
+
+    <div class="about-mv-grid">
+
+      <!-- Mission card -->
+      <article class="b-card rv about-mv-card" aria-labelledby="about-mission-h">
+        <div class="about-mv-icon" aria-hidden="true">🎯</div>
+        <h3 id="about-mission-h">Our Mission</h3>
+        <p>To engineer AI-first digital growth systems that help every Indian business — from local clinics to fast-growing startups — compete on the internet and win.</p>
+      </article>
+
+      <!-- Vision card -->
+      <article class="b-card rv about-mv-card" aria-labelledby="about-vision-h">
+        <div class="about-mv-icon" aria-hidden="true">🔭</div>
+        <h3 id="about-vision-h">Our Vision</h3>
+        <p>A world where every business has access to enterprise-grade AI and automation — regardless of size, budget, or technical expertise. Intelligence as infrastructure.</p>
+      </article>
+
+    </div><!-- /about-mv-grid -->
+
+  </div><!-- /container -->
+</section>
